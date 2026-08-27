@@ -92,7 +92,7 @@ export function Hero() {
                     Main Convocation Hall
                   </span>
                   <span className="font-body text-charcoal-600 text-[13px] sm:text-[14px] leading-tight mt-0.5">
-                    Institution Campus
+                    IIIT Bhagalpur Campus
                   </span>
                 </div>
               </div>

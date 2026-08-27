@@ -65,12 +65,12 @@ export function NavBar() {
         <Link
           to="/"
           className="flex items-center gap-3.5 group focus-visible:outline-none"
-          aria-label="Institution Convocation Portal Home"
+          aria-label="IIIT Bhagalpur Convocation Portal Home"
         >
           <InstitutionCrest className="w-11 h-11" />
           <div className="flex flex-col">
             <span className="font-display font-bold text-[17px] tracking-wide text-charcoal-900 leading-tight">
-              INSTITUTION NAME
+              IIIT BHAGALPUR
             </span>
             <span className="font-body text-[12px] text-charcoal-600 tracking-tight leading-tight mt-0.5">
               Excellence. Integrity. Innovation.
