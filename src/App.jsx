@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 
 // Section Views
 import Hero from './sections/Hero';
+import DignitariesSection from './sections/Dignitaries';
 import NoticeSection from './sections/Notices';
 import ScheduleSection from './sections/Schedule';
 import GallerySection from './sections/Gallery';
@@ -16,6 +17,7 @@ function HomePage() {
   return (
     <main>
       <Hero />
+      <DignitariesSection />
       <ScheduleSection />
       <GallerySection />
       <RegistrationFormSection />
@@ -37,6 +39,8 @@ export function App() {
       <div className="flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/dignitaries" element={<PageWrapper><DignitariesSection /></PageWrapper>} />
+          <Route path="/dignitary" element={<PageWrapper><DignitariesSection /></PageWrapper>} />
           <Route path="/notices" element={<PageWrapper><NoticeSection /></PageWrapper>} />
           <Route path="/notice" element={<PageWrapper><NoticeSection /></PageWrapper>} />
           <Route path="/schedule" element={<PageWrapper><ScheduleSection /></PageWrapper>} />
