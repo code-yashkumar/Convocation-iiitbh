@@ -21,6 +21,7 @@ const DIGNITARIES = [
     badge: 'Guest of Honour',
     badgeVariant: 'secondary',
     initials: 'PK',
+    image: '/assets/dignitaries/prof-pragati-kumar.jpg',
   },
   {
     name: 'Dr. Ashok Khade',
@@ -69,7 +70,7 @@ export function DignitariesSection() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
               
-              {/* Chief Guest Avatar / Photo Placeholder with Gold Seal */}
+              {/* Chief Guest Avatar / Photo with Gold Seal */}
               <div className="lg:col-span-4 flex flex-col items-center sm:items-start lg:items-center text-center">
                 <div className="relative">
                   {/* Outer Gold Ring */}
@@ -140,10 +141,18 @@ export function DignitariesSection() {
                   </div>
                 </div>
 
-                {/* Avatar Placeholder */}
+                {/* Avatar / Portrait Photo */}
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cream-200 to-cream-100 border border-border flex items-center justify-center text-maroon-900 font-display font-bold text-xl shadow-xs group-hover:scale-105 transition-transform">
-                    {dignitary.initials}
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden bg-gradient-to-br from-cream-200 to-cream-100 border border-border flex items-center justify-center text-maroon-900 font-display font-bold text-xl shadow-xs group-hover:scale-105 transition-transform shrink-0">
+                    {dignitary.image ? (
+                      <img
+                        src={dignitary.image}
+                        alt={dignitary.name}
+                        className="w-full h-full object-cover object-top select-none"
+                      />
+                    ) : (
+                      <span>{dignitary.initials}</span>
+                    )}
                   </div>
                   <div>
                     <h4 className="font-display font-bold text-xl text-charcoal-900 group-hover:text-maroon-900 transition-colors leading-snug">
