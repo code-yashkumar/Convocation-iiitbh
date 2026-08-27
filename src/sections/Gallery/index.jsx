@@ -13,27 +13,27 @@ import {
   Maximize2,
   Calendar,
   MapPin,
-  Filter,
+  Clock,
   Check,
-  PlayCircle,
-  Layers,
-  Award
+  Award,
+  History
 } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import Button from '../../components/ui/Button';
 
 const GALLERY_COLLECTION = [
+  // 2025 Edition (2nd Convocation)
   {
     id: 1,
     title: 'Grand Academic Procession of Board & Senate',
     category: 'Ceremony',
-    edition: '2026',
-    date: '26 September 2026',
-    venue: 'Academic Corridor to Main Lecture Hall',
+    edition: '2025',
+    date: 'October 2025',
+    venue: 'Academic Corridor to Auditorium',
     url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200&auto=format&fit=crop',
     thumbUrl: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=600&auto=format&fit=crop',
-    caption: 'The Board of Governors, Senate Members, and Chief Guest leading the ceremonial entrance in traditional Indian regalia.',
+    caption: 'The Board of Governors, Senate Members, and Chief Guest leading the ceremonial procession in traditional academic stoles.',
     featured: true,
     aspect: 'aspect-[16/10]',
   },
@@ -41,9 +41,9 @@ const GALLERY_COLLECTION = [
     id: 2,
     title: 'Conferment of President’s Gold Medal',
     category: 'Awards',
-    edition: '2026',
-    date: '26 September 2026',
-    venue: 'Main Lecture Hall Auditorium',
+    edition: '2025',
+    date: 'October 2025',
+    venue: 'Main Auditorium Stage',
     url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop',
     thumbUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop',
     caption: 'Top graduating scholar receiving the prestigious Institute Gold Medal for outstanding academic and research excellence.',
@@ -54,8 +54,8 @@ const GALLERY_COLLECTION = [
     id: 3,
     title: 'Graduating Cohort Jubilation & Cap Toss',
     category: 'Moments',
-    edition: '2026',
-    date: '26 September 2026',
+    edition: '2025',
+    date: 'October 2025',
     venue: 'Central Courtyard Lawn',
     url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop',
     thumbUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop',
@@ -67,9 +67,9 @@ const GALLERY_COLLECTION = [
     id: 4,
     title: 'Inaugural Lamp Lighting & Vedic Invocation',
     category: 'Ceremony',
-    edition: '2026',
-    date: '26 September 2026',
-    venue: 'Main Lecture Hall Stage',
+    edition: '2025',
+    date: 'October 2025',
+    venue: 'Main Auditorium Stage',
     url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop',
     thumbUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop',
     caption: 'Chief Guest and Director invoking auspicious beginnings with the ceremonial Deep Prajwalan.',
@@ -80,9 +80,9 @@ const GALLERY_COLLECTION = [
     id: 5,
     title: 'Distinguished Keynote Address to Graduates',
     category: 'Dignitaries',
-    edition: '2026',
-    date: '26 September 2026',
-    venue: 'Main Lecture Hall',
+    edition: '2025',
+    date: 'October 2025',
+    venue: 'Main Auditorium',
     url: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1200&auto=format&fit=crop',
     thumbUrl: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600&auto=format&fit=crop',
     caption: 'Eminent Chief Guest inspiring the new cohort on technological leadership and nation-building.',
@@ -93,8 +93,8 @@ const GALLERY_COLLECTION = [
     id: 6,
     title: 'Proud Families & Parents on Institute Green',
     category: 'Moments',
-    edition: '2026',
-    date: '26 September 2026',
+    edition: '2025',
+    date: 'October 2025',
     venue: 'Campus Green Meadows',
     url: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=1200&auto=format&fit=crop',
     thumbUrl: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=600&auto=format&fit=crop',
@@ -115,36 +115,70 @@ const GALLERY_COLLECTION = [
     featured: false,
     aspect: 'aspect-[16/10]',
   },
+
+  // 2021 Edition (1st Convocation of IIIT Bhagalpur)
   {
     id: 8,
-    title: 'Convocation Robes & Traditional Angavastram',
+    title: '1st Convocation Historic Academic Procession',
     category: 'Ceremony',
-    edition: '2025',
-    date: 'October 2025',
-    venue: 'Robing Lounge, Academic Block',
+    edition: '2021',
+    date: 'December 2021',
+    venue: 'BCE Auditorium to Senate Hall',
     url: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200&auto=format&fit=crop',
     thumbUrl: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=600&auto=format&fit=crop',
-    caption: 'Handcrafted ceremonial stoles representing the academic heritage of IIIT Bhagalpur.',
+    caption: 'Founding Senate and dignitaries leading the inaugural academic procession of IIIT Bhagalpur 1st Convocation.',
+    featured: true,
+    aspect: 'aspect-[16/10]',
+  },
+  {
+    id: 9,
+    title: 'Inaugural Batch Degree Conferment & Gold Medals',
+    category: 'Awards',
+    edition: '2021',
+    date: 'December 2021',
+    venue: 'BCE Auditorium Dias',
+    url: 'https://images.unsplash.com/photo-1532649538693-f3a2ec1bf8bd?q=80&w=1200&auto=format&fit=crop',
+    thumbUrl: 'https://images.unsplash.com/photo-1532649538693-f3a2ec1bf8bd?q=80&w=600&auto=format&fit=crop',
+    caption: 'First graduating engineers receiving the foundational B.Tech degree scrolls from the Board of Governors.',
     featured: false,
     aspect: 'aspect-[4/3]',
   },
   {
-    id: 9,
-    title: 'Alumni Reunion & Faculty Fellowship Lunch',
-    category: 'Moments',
-    edition: '2025',
-    date: 'October 2025',
-    venue: 'Institute Lawn Pavilion',
+    id: 10,
+    title: 'Founding Senate Assembly & Leadership Address',
+    category: 'Dignitaries',
+    edition: '2021',
+    date: 'December 2021',
+    venue: 'Senate Hall, IIIT Bhagalpur',
     url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200&auto=format&fit=crop',
     thumbUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop',
-    caption: 'Distinguished faculty members and graduates sharing camaraderie and future visions.',
+    caption: 'Founding leadership delivering address on research innovation, institutional growth, and global opportunities.',
+    featured: false,
+    aspect: 'aspect-[4/3]',
+  },
+  {
+    id: 11,
+    title: 'Inaugural Batch Mortarboard Toss & Alumni Initiation',
+    category: 'Moments',
+    edition: '2021',
+    date: 'December 2021',
+    venue: 'Main Campus Green',
+    url: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop',
+    thumbUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop',
+    caption: 'Historic celebratory cap toss marking the initiation of the very first alumni network of IIIT Bhagalpur.',
     featured: false,
     aspect: 'aspect-[4/3]',
   },
 ];
 
 const CATEGORIES = ['All', 'Ceremony', 'Awards', 'Moments', 'Dignitaries'];
-const EDITIONS = ['All Editions', '2026', '2025'];
+
+const EDITIONS = [
+  { id: 'All Editions', label: 'All Editions' },
+  { id: '2026', label: '2026 (Coming Soon)', isComingSoon: true },
+  { id: '2025', label: '2025' },
+  { id: '2021', label: '2021' },
+];
 
 export function GallerySection() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -233,13 +267,13 @@ export function GallerySection() {
               <div className="max-w-2xl space-y-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 font-body text-xs font-semibold uppercase tracking-wider">
                   <Sparkles className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
-                  <span>Featured Collection • 3rd Convocation</span>
+                  <span>Official Convocation Gallery Archives</span>
                 </div>
                 <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug">
-                  Grand Academic Procession & Medallion Honors
+                  Grand Academic Processions & Medallion Honors
                 </h2>
                 <p className="font-body text-white/80 text-xs sm:text-sm max-w-xl">
-                  High-definition captures of the ceremonial assembly, robes conferment, and degree distributions.
+                  Explore moments across 2025 and 2021 editions. Live 2026 photographs and streaming highlights will go live on 26 September 2026.
                 </p>
               </div>
 
@@ -247,7 +281,7 @@ export function GallerySection() {
                 <button
                   type="button"
                   onClick={() => setSelectedImageIndex(0)}
-                  className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-white hover:bg-maroon-050 text-maroon-900 font-body font-semibold text-sm shadow-md active:scale-95 transition-all gap-2"
+                  className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-white hover:bg-maroon-050 text-maroon-900 font-body font-semibold text-sm shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
                 >
                   <Eye className="w-4 h-4" />
                   <span>View High-Res Photo</span>
@@ -278,32 +312,59 @@ export function GallerySection() {
             ))}
           </div>
 
-          {/* Edition / Year Selector */}
-          <div className="flex items-center gap-3 w-full md:w-auto justify-end">
+          {/* Edition / Year Selector with 2026 (Coming Soon) and 2021 */}
+          <div className="flex items-center gap-2.5 w-full md:w-auto justify-end flex-wrap">
             <span className="font-body text-xs text-charcoal-500 font-semibold uppercase tracking-wider hidden sm:inline">
               Edition:
             </span>
-            <div className="flex items-center gap-1.5 bg-cream-050 p-1 rounded-pill border border-[#ECE6DC]">
+            <div className="flex items-center gap-1.5 bg-cream-050 p-1 rounded-pill border border-[#ECE6DC] flex-wrap">
               {EDITIONS.map((edition) => (
                 <button
-                  key={edition}
+                  key={edition.id}
                   type="button"
-                  onClick={() => setActiveEdition(edition)}
-                  className={`px-3 py-1 rounded-pill text-xs font-body font-medium transition-all ${
-                    activeEdition === edition
+                  onClick={() => setActiveEdition(edition.id)}
+                  className={`px-3 sm:px-3.5 py-1 rounded-pill text-xs font-body font-medium transition-all cursor-pointer ${
+                    activeEdition === edition.id
                       ? 'bg-white text-maroon-900 font-bold shadow-xs border border-maroon-900/20'
                       : 'text-charcoal-600 hover:text-charcoal-900'
                   }`}
                 >
-                  {edition}
+                  {edition.label}
                 </button>
               ))}
             </div>
           </div>
         </div>
 
+        {/* 2026 Coming Soon Notice when 2026 edition is selected */}
+        {activeEdition === '2026' && (
+          <div className="bg-white rounded-[28px] p-8 sm:p-12 border-2 border-dashed border-maroon-900/25 text-center my-8 shadow-sm max-w-3xl mx-auto">
+            <div className="w-14 h-14 rounded-full bg-maroon-050 text-maroon-900 flex items-center justify-center mx-auto mb-4 border border-maroon-900/15">
+              <Clock className="w-7 h-7" />
+            </div>
+            <span className="px-3.5 py-1 rounded-full bg-gold-500/20 border border-gold-400/40 text-maroon-900 font-body text-xs font-bold uppercase tracking-wider">
+              3rd Convocation • 26 September 2026
+            </span>
+            <h3 className="font-display font-bold text-2xl sm:text-3xl text-charcoal-900 mt-3">
+              2026 Photo & Video Gallery Coming Soon
+            </h3>
+            <p className="font-body text-charcoal-600 text-sm sm:text-base max-w-lg mx-auto mt-2 leading-relaxed">
+              Official high-resolution photography, live streaming archives, and medallion distributions will be published here on <strong>26 September 2026</strong> immediately following the ceremony.
+            </p>
+            <div className="mt-6 flex items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={() => setActiveEdition('All Editions')}
+                className="px-6 py-2.5 rounded-pill bg-maroon-900 text-white font-body text-xs sm:text-sm font-semibold hover:bg-maroon-700 transition-colors cursor-pointer"
+              >
+                Browse 2025 & 2021 Archives
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Gallery Grid (Responsive Masonry-like Cards) */}
-        {filteredItems.length === 0 ? (
+        {filteredItems.length === 0 && activeEdition !== '2026' ? (
           <div className="text-center py-16 bg-white rounded-[24px] border border-[#E8E2D8] p-8">
             <ImageIcon className="w-12 h-12 text-charcoal-300 mx-auto mb-3" />
             <h3 className="font-display font-bold text-xl text-charcoal-800">No photos found</h3>
@@ -343,13 +404,13 @@ export function GallerySection() {
                       </span>
                     </div>
 
-                    {/* Top Category Badge */}
+                    {/* Top Category & Edition Badges */}
                     <div className="absolute top-3 left-3 flex items-center gap-2">
                       <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-maroon-900 font-body text-xs font-bold shadow-xs border border-white/40">
                         {item.category}
                       </span>
                       <span className="px-2.5 py-1 rounded-full bg-maroon-900/85 backdrop-blur-md text-white font-body text-[11px] font-semibold">
-                        {item.edition}
+                        {item.edition} Edition
                       </span>
                     </div>
                   </div>
@@ -368,7 +429,7 @@ export function GallerySection() {
                 {/* Footer Metadata */}
                 <div className="px-6 py-4 border-t border-[#ECE6DC] bg-cream-050/50 flex items-center justify-between text-xs text-charcoal-500 font-body">
                   <div className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-maroon-900" />
+                    <MapPin className="w-3.5 h-3.5 text-maroon-900 shrink-0" />
                     <span className="truncate max-w-[170px]">{item.venue}</span>
                   </div>
                   <div className="flex items-center gap-1 text-charcoal-400">
@@ -394,7 +455,7 @@ export function GallerySection() {
           <div className="flex items-center gap-3 shrink-0">
             <a
               href="mailto:media@iiitbh.ac.in?subject=Request%20Convocation%202026%20High-Res%20Media%20Pack"
-              className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-sm shadow-sm transition-all gap-2"
+              className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-sm shadow-sm transition-all gap-2 cursor-pointer"
             >
               <Download className="w-4 h-4" />
               <span>Request Media Pack (ZIP)</span>
@@ -422,6 +483,9 @@ export function GallerySection() {
                 <span className="px-3 py-1 rounded-full bg-maroon-900 text-white text-xs font-semibold">
                   {selectedImage.category}
                 </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-white/10 text-white/80 text-xs font-mono">
+                  {selectedImage.edition} Edition
+                </span>
                 <span className="text-white/60 text-xs font-mono">
                   {selectedImageIndex + 1} / {filteredItems.length}
                 </span>
@@ -431,7 +495,7 @@ export function GallerySection() {
                 <button
                   type="button"
                   onClick={handleShare}
-                  className="p-2 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors"
+                  className="p-2 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
                   title="Share photo link"
                 >
                   {copiedLink ? <Check className="w-5 h-5 text-emerald-400" /> : <Share2 className="w-5 h-5" />}
@@ -441,7 +505,7 @@ export function GallerySection() {
                   target="_blank"
                   rel="noreferrer"
                   download
-                  className="p-2 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors"
+                  className="p-2 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
                   title="Open full resolution"
                 >
                   <Download className="w-5 h-5" />
@@ -449,7 +513,7 @@ export function GallerySection() {
                 <button
                   type="button"
                   onClick={() => setSelectedImageIndex(null)}
-                  className="p-2 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors"
+                  className="p-2 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
                   title="Close preview (Esc)"
                 >
                   <X className="w-5 h-5" />
@@ -472,7 +536,7 @@ export function GallerySection() {
                   e.stopPropagation();
                   setSelectedImageIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 backdrop-blur-sm transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 backdrop-blur-sm transition-all cursor-pointer"
                 title="Previous photo (←)"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -484,7 +548,7 @@ export function GallerySection() {
                   e.stopPropagation();
                   setSelectedImageIndex((prev) => (prev + 1) % filteredItems.length);
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 backdrop-blur-sm transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 backdrop-blur-sm transition-all cursor-pointer"
                 title="Next photo (→)"
               >
                 <ChevronRight className="w-6 h-6" />
