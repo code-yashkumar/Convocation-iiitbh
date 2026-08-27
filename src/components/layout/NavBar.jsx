@@ -5,7 +5,7 @@ import InstitutionCrest from '../ui/InstitutionCrest';
 
 const NAV_LINKS = [
   { label: 'Convocation', to: '/' },
-  { label: 'Schedule', to: '/schedule' },
+  { label: 'Notice', to: '/notices' },
   { label: 'Registration', to: '/registration' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Archive', to: '/archive' },
