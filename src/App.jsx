@@ -26,6 +26,13 @@ function HomePage() {
   );
 }
 
+/**
+ * Subpage wrapper to account for the fixed transparent/glass navbar
+ */
+function PageWrapper({ children }) {
+  return <div className="pt-24 sm:pt-28">{children}</div>;
+}
+
 export function App() {
   return (
     <div className="min-h-screen flex flex-col bg-cream-100 text-charcoal-900 selection:bg-maroon-050 selection:text-maroon-900 font-body">
@@ -33,11 +40,11 @@ export function App() {
       <div className="flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/schedule" element={<ScheduleSection />} />
-          <Route path="/registration" element={<RegistrationFormSection />} />
-          <Route path="/gallery" element={<GallerySection />} />
-          <Route path="/archive" element={<ArchiveSection />} />
-          <Route path="/information" element={<InformationSection />} />
+          <Route path="/schedule" element={<PageWrapper><ScheduleSection /></PageWrapper>} />
+          <Route path="/registration" element={<PageWrapper><RegistrationFormSection /></PageWrapper>} />
+          <Route path="/gallery" element={<PageWrapper><GallerySection /></PageWrapper>} />
+          <Route path="/archive" element={<PageWrapper><ArchiveSection /></PageWrapper>} />
+          <Route path="/information" element={<PageWrapper><InformationSection /></PageWrapper>} />
         </Routes>
       </div>
       <Footer />

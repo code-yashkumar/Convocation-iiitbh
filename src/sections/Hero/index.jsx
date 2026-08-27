@@ -39,21 +39,23 @@ function HeroPinIcon({ className = 'w-7 h-7 text-maroon-900' }) {
 }
 
 /**
- * Hero Section using the exact background image and layout matching the reference mockup
+ * Hero Section starting directly from the top of the page (behind transparent navbar)
  */
 export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden bg-cream-100 min-h-[560px] lg:min-h-[620px] xl:min-h-[680px] flex items-center">
+    <section className="relative w-full overflow-hidden bg-cream-100 min-h-[640px] lg:min-h-[700px] xl:min-h-[740px] flex items-center pt-24 sm:pt-28 lg:pt-32 pb-12 lg:pb-16">
       
-      {/* Full-width Background Image Layer on Desktop */}
+      {/* Full-width Background Image Layer starting from the very top (y=0) */}
       <div
-        className="hidden lg:block absolute inset-0 bg-no-repeat bg-right-top bg-contain pointer-events-none z-0"
+        className="hidden lg:block absolute inset-0 bg-no-repeat bg-right-top pointer-events-none z-0"
         style={{
           backgroundImage: "url('/assets/convocation-hero-bg.png')",
+          backgroundSize: 'contain',
+          backgroundPosition: 'right top',
         }}
       />
 
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-10 py-8 lg:py-12">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Column: Hero Content (CONVOCATION 2026, details, buttons) */}
@@ -137,8 +139,8 @@ export function Hero() {
               />
             </div>
 
-            {/* Floating Maroon Countdown Card positioned over the blurred circle area */}
-            <div className="w-full sm:w-[280px] lg:w-[290px] xl:w-[310px] lg:mr-4 xl:mr-8 lg:mt-32">
+            {/* Floating Maroon Countdown Card positioned over the photo lower-right */}
+            <div className="w-full sm:w-[280px] lg:w-[290px] xl:w-[310px] lg:mr-2 xl:mr-6 lg:mt-36">
               <CountdownCard />
             </div>
 

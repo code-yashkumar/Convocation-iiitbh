@@ -13,7 +13,7 @@ const NAV_LINKS = [
 ];
 
 /**
- * NavBar component perfectly aligned with the design mockup
+ * NavBar component floating transparently over the hero image top
  */
 export function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,7 +54,7 @@ export function NavBar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-all duration-nav ${
+      className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-nav ${
         isScrolled
           ? 'bg-cream-100/90 backdrop-blur-md shadow-sm border-b border-border/60'
           : 'bg-transparent'
