@@ -43,7 +43,7 @@ function HeroPinIcon({ className = 'w-7 h-7 text-maroon-900' }) {
  * Hero Section strictly matching the reference UI mockup:
  * - Single full-viewport composition (Hero + Countdown + Bottom Information Bar)
  * - Degree certificate in background photo is unobstructed and fully visible
- * - Countdown card placed on the far right over student shoulder
+ * - Countdown card anchored to bottom right of the hero image directly above Information Bar
  * - Bottom white Information Bar visible in initial screen
  */
 export function Hero() {
@@ -131,26 +131,26 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Far-right placement positioned lower near bottom-right */}
-          <div className="lg:col-span-5 xl:col-span-6 relative flex flex-col lg:items-end justify-end">
-            
-            {/* Mobile / Tablet View Image (visible only below lg) */}
-            <div className="lg:hidden w-full overflow-hidden rounded-2xl mb-6 shadow-sm">
+          {/* Right Column for Mobile/Tablet (< lg) */}
+          <div className="lg:hidden col-span-1 flex flex-col space-y-4">
+            <div className="w-full overflow-hidden rounded-2xl shadow-sm">
               <img
                 src="/assets/convocation-hero-bg.png"
                 alt="IIIT Bhagalpur dignitaries presenting convocation degree"
                 className="w-full h-auto object-cover select-none"
               />
             </div>
-
-            {/* Maroon Countdown Card positioned right bottom directly above Information Bar */}
-            <div className="w-full sm:w-[240px] lg:w-[240px] xl:w-[255px] lg:absolute lg:right-6 sm:right-10 lg:right-12 lg:bottom-[100px] xl:bottom-[105px] z-30">
+            <div className="w-full sm:w-[260px] mx-auto">
               <CountdownCard />
             </div>
-
           </div>
 
         </div>
+      </div>
+
+      {/* Desktop Countdown Card: Anchored directly to bottom-right of the hero image above the Information Bar */}
+      <div className="hidden lg:block absolute right-8 sm:right-12 lg:right-14 xl:right-20 bottom-[104px] sm:bottom-[112px] xl:bottom-[116px] w-[235px] xl:w-[250px] z-30">
+        <CountdownCard />
       </div>
 
       {/* Bottom Floating White Information Bar Container (Visible in Initial Screen) */}
