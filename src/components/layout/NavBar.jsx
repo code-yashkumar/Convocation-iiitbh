@@ -153,12 +153,13 @@ export function NavBar() {
 
         {/* Desktop CTA Button (Strictly in 1 single line) */}
         <div className="hidden lg:flex items-center shrink-0">
-          <Link
-            to="/registration"
-            className="inline-flex items-center justify-center min-h-[42px] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-[14px] xl:text-[15px] whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none"
+          <a
+            href="#registration"
+            onClick={(e) => handleSectionClick(e, 'registration')}
+            className="inline-flex items-center justify-center min-h-[42px] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-[14px] xl:text-[15px] whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
           >
             Register Now
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Hamburger Toggle Button */}
@@ -219,13 +220,13 @@ export function NavBar() {
           </nav>
 
           <div className="pt-4 border-t border-border">
-            <Link
-              to="/registration"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center w-full min-h-[48px] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[16px] shadow-sm hover:bg-maroon-700 transition-all text-center whitespace-nowrap"
+            <a
+              href="#registration"
+              onClick={(e) => handleSectionClick(e, 'registration')}
+              className="inline-flex items-center justify-center w-full min-h-[48px] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[16px] shadow-sm hover:bg-maroon-700 transition-all text-center whitespace-nowrap cursor-pointer"
             >
               Register Now
-            </Link>
+            </a>
           </div>
         </div>
       )}

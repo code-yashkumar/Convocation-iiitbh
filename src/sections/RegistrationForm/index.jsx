@@ -51,7 +51,7 @@ export function RegistrationFormSection() {
   };
 
   return (
-    <section className="py-16 max-w-container mx-auto px-5 sm:px-10 lg:px-20" id="registration">
+    <section className="py-16 max-w-container mx-auto px-5 sm:px-10 lg:px-20 scroll-mt-20 sm:scroll-mt-24" id="registration">
       <div className="text-center max-w-2xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-maroon-050 mb-3">
           <span className="type-label text-maroon-900 uppercase">Degree Conferment Portal</span>

@@ -42,14 +42,10 @@ export function App() {
       <div className="flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/dignitaries" element={<PageWrapper><DignitariesSection /></PageWrapper>} />
-          <Route path="/dignitary" element={<PageWrapper><DignitariesSection /></PageWrapper>} />
           <Route path="/notices" element={<PageWrapper><NoticeSection /></PageWrapper>} />
           <Route path="/notice" element={<PageWrapper><NoticeSection /></PageWrapper>} />
           <Route path="/accommodation" element={<PageWrapper><AccommodationSection /></PageWrapper>} />
           <Route path="/accommodations" element={<PageWrapper><AccommodationSection /></PageWrapper>} />
-          <Route path="/schedule" element={<PageWrapper><ScheduleSection /></PageWrapper>} />
-          <Route path="/registration" element={<PageWrapper><RegistrationFormSection /></PageWrapper>} />
           <Route path="/gallery" element={<PageWrapper><GallerySection /></PageWrapper>} />
           <Route path="/archive" element={<PageWrapper><ArchiveSection /></PageWrapper>} />
           <Route path="/information" element={<PageWrapper><InformationSection /></PageWrapper>} />

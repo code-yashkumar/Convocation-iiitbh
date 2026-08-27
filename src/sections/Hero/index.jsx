@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import CountdownCard from '../Countdown';
 import InformationBar from '../InformationBar';
@@ -40,13 +40,30 @@ function HeroPinIcon({ className = 'w-7 h-7 text-maroon-900' }) {
 }
 
 /**
- * Hero Section strictly matching the reference UI mockup:
- * - Single full-viewport composition (Hero + Countdown + Bottom Information Bar)
- * - Degree certificate in background photo is unobstructed and fully visible
- * - Countdown card anchored to bottom right of the hero image directly above Information Bar
- * - Bottom white Information Bar visible in initial screen
+ * Hero Section strictly matching the reference UI mockup
  */
 export function Hero() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleScrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(`/#${sectionId}`);
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <section className="relative w-full min-h-screen lg:h-screen lg:min-h-[720px] lg:max-h-[960px] flex flex-col justify-between pt-20 md:pt-24 pb-4 sm:pb-6 overflow-hidden bg-cream-100">
       
@@ -113,21 +130,23 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons (Smooth scrolling directly to section) */}
             <div className="flex flex-wrap items-center gap-4">
-              <Link
-                to="/registration"
-                className="inline-flex items-center justify-center min-h-[46px] px-8 rounded-pill bg-maroon-900 text-white font-body font-medium text-[15px] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none"
+              <a
+                href="#registration"
+                onClick={(e) => handleScrollToSection(e, 'registration')}
+                className="inline-flex items-center justify-center min-h-[46px] px-8 rounded-pill bg-maroon-900 text-white font-body font-medium text-[15px] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
               >
                 Register Now
-              </Link>
-              <Link
-                to="/schedule"
-                className="group inline-flex items-center justify-center min-h-[46px] px-7 rounded-pill bg-white/80 border-2 border-maroon-900/30 text-maroon-900 font-body font-semibold text-[15px] shadow-sm hover:border-maroon-900 hover:bg-white hover:shadow-md hover:scale-[1.01] active:scale-95 transition-all duration-200 gap-2.5 focus-visible:outline-none"
+              </a>
+              <a
+                href="#schedule"
+                onClick={(e) => handleScrollToSection(e, 'schedule')}
+                className="group inline-flex items-center justify-center min-h-[46px] px-7 rounded-pill bg-white/80 border-2 border-maroon-900/30 text-maroon-900 font-body font-semibold text-[15px] shadow-sm hover:border-maroon-900 hover:bg-white hover:shadow-md hover:scale-[1.01] active:scale-95 transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer"
               >
                 <span>View Schedule</span>
                 <ArrowRight className="w-4 h-4 stroke-[2.5] text-maroon-900 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
 

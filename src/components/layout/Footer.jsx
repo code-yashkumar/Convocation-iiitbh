@@ -31,12 +31,12 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 type-body-sm">
               <li>
-                <Link to="/schedule" className="hover:text-gold-500 transition-colors">
+                <Link to="/#schedule" className="hover:text-gold-500 transition-colors">
                   Convocation Schedule
                 </Link>
               </li>
               <li>
-                <Link to="/registration" className="hover:text-gold-500 transition-colors">
+                <Link to="/#registration" className="hover:text-gold-500 transition-colors">
                   Degree Registration
                 </Link>
               </li>
