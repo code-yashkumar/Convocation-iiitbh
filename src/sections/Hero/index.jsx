@@ -39,34 +39,43 @@ function HeroPinIcon({ className = 'w-7 h-7 text-maroon-900' }) {
 }
 
 /**
- * Hero section strictly matching the user's design
+ * Hero Section using the exact background image and layout matching the reference mockup
  */
 export function Hero() {
   return (
-    <section className="relative w-full pt-4 pb-12 lg:pt-8 lg:pb-16 overflow-hidden bg-cream-100">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center min-h-[500px]">
+    <section className="relative w-full overflow-hidden bg-cream-100 min-h-[560px] lg:min-h-[620px] xl:min-h-[680px] flex items-center">
+      
+      {/* Full-width Background Image Layer on Desktop */}
+      <div
+        className="hidden lg:block absolute inset-0 bg-no-repeat bg-right-top bg-contain pointer-events-none z-0"
+        style={{
+          backgroundImage: "url('/assets/convocation-hero-bg.png')",
+        }}
+      />
+
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-10 py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Column: Typography, Details, Actions (approx 5.5 cols) */}
-          <div className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center z-10 py-4">
+          {/* Left Column: Hero Content (CONVOCATION 2026, details, buttons) */}
+          <div className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center">
             
             {/* Title & Year */}
-            <div className="mb-4 sm:mb-6">
-              <h1 className="font-display font-bold text-[52px] sm:text-[68px] lg:text-[76px] leading-[0.95] text-charcoal-900 tracking-tight">
+            <div className="mb-4 sm:mb-5">
+              <h1 className="font-display font-bold text-[54px] sm:text-[68px] lg:text-[76px] xl:text-[82px] leading-[0.92] text-charcoal-900 tracking-tight">
                 CONVOCATION
               </h1>
-              <div className="font-display font-bold text-[54px] sm:text-[70px] lg:text-[78px] leading-[1] text-maroon-900 mt-1">
+              <div className="font-display font-bold text-[56px] sm:text-[70px] lg:text-[78px] xl:text-[84px] leading-[1] text-maroon-900 mt-1">
                 2026
               </div>
             </div>
 
             {/* Subtitle Statement */}
-            <p className="font-body text-charcoal-900 text-[18px] sm:text-[22px] lg:text-[24px] leading-snug font-normal max-w-md mb-8 sm:mb-10">
+            <p className="font-body text-charcoal-900 text-[19px] sm:text-[23px] lg:text-[25px] leading-snug font-normal max-w-lg mb-8 sm:mb-9">
               A milestone of achievement, tradition and new beginnings.
             </p>
 
             {/* Event Quick Info Meta Grid (2 items side-by-side) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-4 mb-8 sm:mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-6 max-w-lg mb-8 sm:mb-10">
               {/* Date Block */}
               <div className="flex items-start gap-3.5">
                 <div className="shrink-0 mt-0.5">
@@ -116,25 +125,23 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Authentic Convocation Photography & Floating Countdown Card */}
-          <div className="lg:col-span-6 xl:col-span-7 relative flex items-center justify-end">
-            <div className="relative w-full max-w-[680px]">
-              
-              {/* Dignitaries & Academic Regalia Image with soft left feathering */}
-              <div className="relative w-full overflow-hidden rounded-2xl">
-                <img
-                  src="/assets/dignitaries-hero.png"
-                  alt="Dignitaries and graduates presenting degree scrolls in ceremonial convocation regalia"
-                  className="w-full h-auto object-cover select-none"
-                />
-              </div>
-
-              {/* Floating Maroon Countdown Card positioned over right side */}
-              <div className="mt-6 lg:mt-0 lg:absolute lg:right-4 lg:bottom-4 w-full sm:w-[280px] z-20">
-                <CountdownCard />
-              </div>
-
+          {/* Right Column: On Mobile/Tablet renders photo + countdown; on Desktop positions the countdown card precisely */}
+          <div className="lg:col-span-5 xl:col-span-6 relative flex flex-col lg:items-end justify-end">
+            
+            {/* Mobile / Tablet View Image (visible below lg) */}
+            <div className="lg:hidden w-full overflow-hidden rounded-2xl mb-6 shadow-sm">
+              <img
+                src="/assets/convocation-hero-bg.png"
+                alt="IIIT Bhagalpur dignitaries presenting convocation degree"
+                className="w-full h-auto object-cover select-none"
+              />
             </div>
+
+            {/* Floating Maroon Countdown Card positioned over the blurred circle area */}
+            <div className="w-full sm:w-[280px] lg:w-[290px] xl:w-[310px] lg:mr-4 xl:mr-8 lg:mt-32">
+              <CountdownCard />
+            </div>
+
           </div>
 
         </div>
