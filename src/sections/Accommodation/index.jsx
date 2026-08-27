@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building, MapPin, Phone, Star, Compass, ExternalLink, Mail, Hotel } from 'lucide-react';
+import { Building, MapPin, Phone, Star, Compass, ExternalLink, Mail, Hotel, ShieldCheck, Sparkles } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 
@@ -8,15 +8,15 @@ const NEARBY_HOTELS = [
     id: 'hotel-vaibhav',
     name: 'Hotel Vaibhav',
     category: 'Recommended',
-    rating: '4.1',
-    reviews: '720+ reviews',
-    distance: '12 min from Bhagalpur Junction',
-    address: 'Near Petrol Pump, M.G Road, Kacheri Chowk, Tilkamanjhi - 812001',
+    rating: '4.0',
+    reviews: '720+ verified reviews',
+    distance: '12 min (~4.8 km) from Bhagalpur Junction',
+    address: 'Near Petrol Pump, M.G Road, Kacheri Chowk, Tilkamanjhi, Bhagalpur - 812001',
     phone: '+91 7947429764',
-    altPhone: '+91 9264459010',
+    altPhone: '+91 92644 59010',
     email: null,
-    priceRange: '₹1,800 – ₹3,200 / night',
-    amenities: ['AC Rooms', 'Free Wi-Fi', '24/7 Room Service', 'Power Backup', 'Free Parking'],
+    priceRange: '₹2,800 – ₹4,200 / night',
+    amenities: ['AC Rooms', 'Free Wi-Fi', 'On-site Restaurant', '24/7 Front Desk', 'Free Private Parking', 'Terrace'],
     discountCode: 'IIITBH2026',
     discountNote: '10% Special Tariff for Convocation Attendees',
   },
@@ -24,31 +24,31 @@ const NEARBY_HOTELS = [
     id: 'hotel-ganges-courtyard',
     name: 'Hotel Ganges Courtyard',
     category: 'Premium Stay',
-    rating: '4.3',
-    reviews: '950+ reviews',
-    distance: 'Barari Industrial Area, Bhagalpur',
+    rating: '4.2',
+    reviews: '950+ verified reviews',
+    distance: 'FM Mall Complex, Barari Industrial Estate',
     address: 'FM Mall and Cinema, Barari Industrial Area, Bhagalpur - 812003',
     phone: '+91 8409806683',
     altPhone: '+91 9031015853',
     email: 'courtyardganges@gmail.com',
-    priceRange: '₹2,400 – ₹4,000 / night',
-    amenities: ['Free Wi-Fi', 'Multi-Cuisine Restaurant', 'AC Rooms', 'Mall & Cinema Access', 'Free Parking'],
+    priceRange: '₹3,000 – ₹5,800 / night',
+    amenities: ['King-size Beds', 'Free High-Speed Wi-Fi', 'Multi-Cuisine Dining', 'In-Room Safe', 'Mall & Cinema Access', 'Free Parking'],
     discountCode: 'IIITBH2026',
     discountNote: '15% Discount with Convocation Pass',
   },
   {
-    id: 'hotel-rajhans',
-    name: 'Hotel Rajhans',
+    id: 'hotel-rajhans-international',
+    name: 'Hotel Rajhans International',
     category: 'Partner Hotel',
     rating: '4.2',
-    reviews: '1.2k+ reviews',
-    distance: 'Kachari Chowk, MG Road',
-    address: 'Kachari Chowk, MG Road, Bhagalpur India, 812001',
+    reviews: '1.2k+ verified reviews',
+    distance: 'Kachari Chowk, Central Bhagalpur (~5.2 km)',
+    address: 'Kachari Chowk, M.G. Road, Bhagalpur, Bihar - 812001',
     phone: '+91 9308189201',
     altPhone: '+91 641 240 9411',
     email: 'info@hotelrajhansinternational.com',
-    priceRange: '₹2,500 – ₹4,200 / night',
-    amenities: ['Free Wi-Fi', 'Complimentary Breakfast', 'AC Rooms', 'Multi-Cuisine Restaurant', 'Free Parking'],
+    priceRange: '₹3,790 – ₹5,190 / night',
+    amenities: ['Fine Dining Restaurant', 'Free Wi-Fi', '24/7 Security & CCTV', 'Station Pick-up/Drop', 'Grooming Saloon & Parlour', 'Free Parking'],
     discountCode: 'IIITBH2026',
     discountNote: 'Special Tariff for Alumni & Visiting Families',
   },
@@ -56,31 +56,31 @@ const NEARBY_HOTELS = [
     id: 'chinmaye-inn',
     name: 'Chinmaye Inn',
     category: 'Comfort Lodging',
-    rating: '4.1',
-    reviews: '850+ reviews',
-    distance: 'RBSR Road, Near 9 Pizza Hut',
-    address: 'RBSR Road, Near 9 Pizza Hut, Bhagalpur - 812002',
+    rating: '4.3',
+    reviews: '850+ verified reviews',
+    distance: 'R.B.S.R. Road (~4.5 km from Campus)',
+    address: 'R.B.S.R. Path (Near 9 Pizza Hut), Khanjarpur Block, Bhagalpur - 812001',
     phone: '+91 8877222233',
     altPhone: null,
     email: 'info@chinmaye.in',
-    priceRange: '₹2,000 – ₹3,500 / night',
-    amenities: ['High-speed Wi-Fi', '24/7 Front Desk', 'Elevator', 'Doctor on Call', 'Hot Water'],
+    priceRange: '₹2,600 – ₹3,500 / night',
+    amenities: ['"Kesaria" Rooftop Dining', 'Free Wi-Fi', '24-Hour Front Desk', '5 Banquet Halls', 'Elevator', 'Tea/Coffee Maker'],
     discountCode: 'IIITBH2026',
     discountNote: '10% Discount for Graduating Students',
   },
   {
-    id: 'roop-vihar',
-    name: 'Roop Vihar',
-    category: 'Budget Friendly',
-    rating: '3.9',
-    reviews: '410+ reviews',
-    distance: 'Barari Rd, Parghari',
-    address: 'Barari Rd, Parghari, Bhagalpur, Bihar 813210',
-    phone: '+91 7947110793',
-    altPhone: null,
-    email: null,
-    priceRange: '₹1,200 – ₹2,200 / night',
-    amenities: ['Attached Baths', 'Free Wi-Fi', 'Luggage Storage', '24h Front Desk', 'Room Service'],
+    id: 'roop-vihar-resorts',
+    name: 'Roop Vihar Resorts',
+    category: 'Resort & Stays',
+    rating: '4.1',
+    reviews: '580+ verified reviews',
+    distance: 'Barari Road, Parghari (~4.2 km from Campus)',
+    address: 'R.H. Lane, near Housing Board Chowk, Barari Road, Parghari, Bhagalpur - 813210',
+    phone: '+91 7631005599',
+    altPhone: '+91 7947110793',
+    email: 'res.hotelroopvihar@gmail.com',
+    priceRange: '₹2,499 – ₹4,999 / night',
+    amenities: ['Swimming Pool', 'Multi-Cuisine Fine Dining & Cafe', 'Banquet & Lawns', 'Free Wi-Fi', '24/7 Power Backup', 'Room Service'],
     discountCode: 'IIITBHCONV',
     discountNote: 'Express Check-in for Alumni & Parents',
   },
@@ -131,7 +131,7 @@ export function AccommodationSection() {
             Accommodation & Nearby Hotels
           </h1>
           <p className="font-body text-charcoal-600 text-base sm:text-lg mt-3">
-            Handpicked lodging options, partner hotel tariffs, and campus guest house details for alumni, parents, and guests.
+            Handpicked lodging options, partner hotel tariffs, and campus guest house details for alumni, parents, and guests attending the 3rd Convocation.
           </p>
         </div>
 
@@ -215,7 +215,7 @@ export function AccommodationSection() {
                     </div>
                     <div className="flex items-start gap-2">
                       <MapPin className="w-4 h-4 text-charcoal-400 mt-0.5 shrink-0" />
-                      <span className="text-xs sm:text-sm">{hotel.address}</span>
+                      <span className="text-xs sm:text-sm leading-relaxed">{hotel.address}</span>
                     </div>
                   </div>
 
@@ -261,6 +261,14 @@ export function AccommodationSection() {
                       <Phone className="w-3.5 h-3.5 text-maroon-900" />
                       <span>{hotel.phone}</span>
                     </a>
+                    {hotel.altPhone && (
+                      <a
+                        href={`tel:${hotel.altPhone}`}
+                        className="inline-flex items-center gap-1.5 text-charcoal-600 hover:text-maroon-900 font-body text-xs transition-colors"
+                      >
+                        <span>{hotel.altPhone}</span>
+                      </a>
+                    )}
                     {hotel.email && (
                       <a
                         href={`mailto:${hotel.email}`}
