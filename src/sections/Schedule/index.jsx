@@ -1,49 +1,42 @@
 import React from 'react';
 import { Clock, MapPin, CheckCircle2 } from 'lucide-react';
 import Card from '../../components/ui/Card';
-import Badge from '../../components/ui/Badge';
 
 const SCHEDULE_DATA = [
   {
     time: '08:30 AM – 09:30 AM',
     title: 'Registration & Regalia Distribution',
     venue: 'Academic Block Lobby',
-    badge: 'Mandatory',
     details: 'Robes collection, photo registration, and rehearsal briefing for graduating candidates.',
   },
   {
     time: '09:45 AM – 10:00 AM',
     title: 'Academic Procession Assembly',
-    venue: 'Senate Hall to Auditorium',
-    badge: 'Dignitaries',
+    venue: 'Senate Hall to Main Lecture Hall',
     details: 'Assembly of the Board of Governors, Senate members, Director, and Chief Guest.',
   },
   {
     time: '10:00 AM – 10:30 AM',
     title: 'Inauguration & Presidential Address',
-    venue: 'Main Auditorium',
-    badge: 'Ceremony',
+    venue: 'Main Lecture Hall',
     details: 'National Anthem, lighting of the lamp, welcome address by Director, and Opening Declaration.',
   },
   {
     time: '10:30 AM – 11:15 AM',
     title: 'Convocation Address by Chief Guest',
-    venue: 'Main Auditorium',
-    badge: 'Keynote',
+    venue: 'Main Lecture Hall',
     details: 'Keynote address by the Chief Guest to the graduating batch.',
   },
   {
     time: '11:15 AM – 01:15 PM',
     title: 'Conferment of Degrees & Medals Awarding',
-    venue: 'Main Auditorium',
-    badge: 'Conferment',
+    venue: 'Main Lecture Hall',
     details: 'Presentation of B.Tech, M.Tech, and Ph.D. degrees, President Gold Medal, and Institute Medals.',
   },
   {
     time: '01:15 PM – 02:30 PM',
     title: 'Convocation Lunch & Photo Sessions',
     venue: 'Institute Lawn',
-    badge: 'Fellowship',
     details: 'Celebratory lunch with faculty, graduates, and their accompanying parents.',
   },
 ];
@@ -76,11 +69,10 @@ export function ScheduleSection() {
 
             {/* Card Content */}
             <Card variant="standard" className="hover:border-maroon-900/30 transition-colors">
-              <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+              <div className="mb-2">
                 <h3 className="type-display-md text-text-default text-[20px] leading-snug">
                   {item.title}
                 </h3>
-                <Badge variant="maroon">{item.badge}</Badge>
               </div>
 
               <div className="flex items-center gap-2 text-text-muted type-body-sm mb-3">
