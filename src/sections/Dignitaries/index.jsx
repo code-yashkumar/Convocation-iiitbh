@@ -10,6 +10,7 @@ const CHIEF_GUEST = {
   badge: 'Chief Guest',
   bio: 'Eminent academician, distinguished researcher, and administrative visionary leading the Indian Institute of Technology Patna. Conferred with multiple national and international honors for contributions to engineering education and scientific research.',
   initials: 'TNS',
+  image: '/assets/dignitaries/prof-tn-singh.jpg',
 };
 
 const DIGNITARIES = [
@@ -72,24 +73,23 @@ export function DignitariesSection() {
               <div className="lg:col-span-4 flex flex-col items-center sm:items-start lg:items-center text-center">
                 <div className="relative">
                   {/* Outer Gold Ring */}
-                  <div className="w-36 h-36 sm:w-44 sm:h-44 lg:w-48 lg:h-48 rounded-full bg-gradient-to-b from-gold-400 via-gold-500 to-gold-600 p-1.5 shadow-2xl flex items-center justify-center">
-                    <div className="w-full h-full rounded-full bg-[#3F0A11] flex flex-col items-center justify-center text-white border-2 border-white/20">
-                      <span className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-gold-300">
-                        {CHIEF_GUEST.initials}
-                      </span>
-                      <span className="font-body text-[11px] text-gold-200/80 uppercase tracking-widest mt-1">
-                        Dignitary
-                      </span>
+                  <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-52 lg:h-52 rounded-full bg-gradient-to-b from-gold-400 via-gold-500 to-gold-600 p-1.5 shadow-2xl flex items-center justify-center">
+                    <div className="w-full h-full rounded-full overflow-hidden bg-[#3F0A11] border-2 border-white/20">
+                      <img
+                        src={CHIEF_GUEST.image}
+                        alt="Prof. T N Singh, Director IIT Patna - Convocation Chief Guest"
+                        className="w-full h-full object-cover object-top select-none"
+                      />
                     </div>
                   </div>
 
                   {/* Gold Star Badge on Avatar */}
-                  <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 w-10 h-10 rounded-full bg-gold-500 text-charcoal-950 flex items-center justify-center shadow-lg border-2 border-[#540D17]">
+                  <div className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 w-10 h-10 rounded-full bg-gold-500 text-charcoal-950 flex items-center justify-center shadow-lg border-2 border-[#540D17]">
                     <Sparkles className="w-5 h-5 fill-charcoal-950" />
                   </div>
                 </div>
 
-                <div className="mt-4 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 font-body text-xs font-semibold tracking-wide uppercase">
+                <div className="mt-4 inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 font-body text-xs font-semibold tracking-wide uppercase">
                   <Star className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
                   <span>Convocation Chief Guest</span>
                 </div>
