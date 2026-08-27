@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Building, MapPin, Phone, Star, Car, Compass, ExternalLink, ShieldCheck, Mail, Users, Hotel } from 'lucide-react';
+import { Building, MapPin, Phone, Star, Compass, ExternalLink, Mail, Hotel } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
-import Badge from '../../components/ui/Badge';
 
 const NEARBY_HOTELS = [
   {
@@ -27,7 +26,7 @@ const NEARBY_HOTELS = [
     address: 'Near Railway Station, Station Road, Bhagalpur, Bihar 812002',
     phone: '+91 641 242 1234',
     priceRange: '₹2,000 – ₹3,500 / night',
-    amenities: ['High-speed Wi-Fi', '24/7 Room Service', 'Car Rental Desk', 'Elevator', 'Power Backup'],
+    amenities: ['High-speed Wi-speed Wi-Fi', '24/7 Room Service', 'Car Rental Desk', 'Elevator', 'Power Backup'],
     discountCode: 'IIITBH2026',
     discountNote: '10% Special Tariff for Alumni & Families',
   },
