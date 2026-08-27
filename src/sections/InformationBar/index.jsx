@@ -81,7 +81,7 @@ const INFO_BAR_ITEMS = [
   {
     icon: CalendarDesignIcon,
     label: 'DATE',
-    value: '18 January 2026',
+    value: '26 September 2026',
   },
   {
     icon: ClockDesignIcon,
@@ -91,12 +91,12 @@ const INFO_BAR_ITEMS = [
   {
     icon: MapPinDesignIcon,
     label: 'VENUE',
-    value: 'Main Convocation Hall',
+    value: 'Main Lecture Hall',
   },
   {
     icon: EditionIcon,
     label: 'EDITION',
-    value: '14th Convocation',
+    value: '3rd Convocation',
   },
 ];
 

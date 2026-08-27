@@ -89,10 +89,10 @@ export function Hero() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-body font-semibold text-charcoal-900 text-[15px] sm:text-[16px] leading-tight">
-                    18 January 2026
+                    26 September 2026
                   </span>
                   <span className="font-body text-charcoal-600 text-[13px] sm:text-[14px] leading-tight mt-0.5">
-                    Sunday, 10:00 AM
+                    Saturday, 10:00 AM
                   </span>
                 </div>
               </div>
@@ -104,7 +104,7 @@ export function Hero() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-body font-semibold text-charcoal-900 text-[15px] sm:text-[16px] leading-tight">
-                    Main Convocation Hall
+                    Main Lecture Hall
                   </span>
                   <span className="font-body text-charcoal-600 text-[13px] sm:text-[14px] leading-tight mt-0.5">
                     IIIT Bhagalpur Campus
@@ -144,7 +144,7 @@ export function Hero() {
             </div>
 
             {/* Maroon Countdown Card positioned on the far right over student shoulder */}
-            <div className="w-full sm:w-[280px] lg:w-[280px] xl:w-[295px] lg:mr-0 xl:mr-1">
+            <div className="w-full sm:w-[240px] lg:w-[240px] xl:w-[255px] lg:mr-0 xl:mr-1">
               <CountdownCard />
             </div>
 

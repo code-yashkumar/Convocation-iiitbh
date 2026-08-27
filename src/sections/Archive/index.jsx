@@ -80,7 +80,7 @@ export function ArchiveSection() {
             className="min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default text-[14px] focus-visible:outline-none"
           >
             <option value="All">All Convocation Years</option>
-            <option value="2026">2026 (5th Convocation)</option>
+            <option value="2026">2026 (3rd Convocation)</option>
             <option value="2025">2025 (4th Convocation)</option>
           </select>
 
