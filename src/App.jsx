@@ -16,9 +16,6 @@ function HomePage() {
   return (
     <main>
       <Hero />
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 mt-2 sm:mt-4 mb-16 relative z-20">
-        <InformationBar />
-      </div>
       <ScheduleSection />
       <GallerySection />
       <RegistrationFormSection />
