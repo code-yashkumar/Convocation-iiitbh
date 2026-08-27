@@ -60,35 +60,36 @@ export function NavBar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 h-20 md:h-[88px] flex items-center justify-between">
-        {/* Left: Crest + Institution Wordmark & Tagline */}
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 h-20 md:h-[88px] flex items-center justify-between gap-4">
+        
+        {/* Left: Crest + Full Institution Wordmark in 1 single line */}
         <Link
           to="/"
-          className="flex items-center gap-3.5 group focus-visible:outline-none"
+          className="flex items-center gap-3 group focus-visible:outline-none shrink-0"
           aria-label="IIIT Bhagalpur Convocation Portal Home"
         >
-          <InstitutionCrest className="w-11 h-11" />
-          <div className="flex flex-col">
-            <span className="font-display font-bold text-[14px] sm:text-[16px] text-charcoal-900 leading-tight">
+          <InstitutionCrest className="w-10 h-10 sm:w-11 sm:h-11 shrink-0" />
+          <div className="flex flex-col whitespace-nowrap">
+            <span className="font-display font-bold text-[13px] sm:text-[15px] xl:text-[16px] text-charcoal-900 leading-tight whitespace-nowrap">
               Indian Institute of Information Technology Bhagalpur
             </span>
-            <span className="font-body text-[11px] sm:text-[12px] text-charcoal-600 leading-tight mt-0.5">
+            <span className="font-body text-[10.5px] sm:text-[11.5px] text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
               भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
             </span>
           </div>
         </Link>
 
-        {/* Center/Right Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7" aria-label="Main Navigation">
+        {/* Center/Right Desktop Navigation Links (Clean text, no capsule, no borders) */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0" aria-label="Main Navigation">
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `text-[15px] font-body transition-all px-3.5 py-1.5 rounded-full relative focus-visible:outline-none ${
+                `text-[14px] xl:text-[15px] font-body transition-colors py-1 whitespace-nowrap focus-visible:outline-none ${
                   isActive
-                    ? 'text-maroon-900 font-bold bg-maroon-900/10 shadow-sm border border-maroon-900/25'
-                    : 'text-charcoal-900/80 hover:text-maroon-900 hover:bg-maroon-050/70 font-medium'
+                    ? 'text-charcoal-900 font-bold'
+                    : 'text-charcoal-900/80 hover:text-maroon-900 font-medium'
                 }`
               }
             >
@@ -97,11 +98,11 @@ export function NavBar() {
           ))}
         </nav>
 
-        {/* Desktop CTA Button */}
-        <div className="hidden lg:flex items-center">
+        {/* Desktop CTA Button (Strictly in 1 single line) */}
+        <div className="hidden lg:flex items-center shrink-0">
           <Link
             to="/registration"
-            className="inline-flex items-center justify-center min-h-[44px] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-[15px] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none"
+            className="inline-flex items-center justify-center min-h-[42px] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-[14px] xl:text-[15px] whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none"
           >
             Register Now
           </Link>
@@ -153,7 +154,7 @@ export function NavBar() {
             <Link
               to="/registration"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center w-full min-h-[48px] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[16px] shadow-sm hover:bg-maroon-700 transition-all text-center"
+              className="inline-flex items-center justify-center w-full min-h-[48px] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[16px] shadow-sm hover:bg-maroon-700 transition-all text-center whitespace-nowrap"
             >
               Register Now
             </Link>
