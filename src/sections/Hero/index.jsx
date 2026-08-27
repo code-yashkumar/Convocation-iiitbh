@@ -140,7 +140,7 @@ export function Hero() {
                 className="w-full h-auto object-cover select-none"
               />
             </div>
-            <div className="w-full sm:w-[260px] mx-auto">
+            <div className="w-full sm:w-[260px] mx-auto mb-6">
               <CountdownCard />
             </div>
           </div>
@@ -148,8 +148,8 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Desktop Countdown Card: Anchored directly to bottom-right of the hero image above the Information Bar */}
-      <div className="hidden lg:block absolute right-8 sm:right-12 lg:right-14 xl:right-20 bottom-[104px] sm:bottom-[112px] xl:bottom-[116px] w-[235px] xl:w-[250px] z-30">
+      {/* Desktop Countdown Card: Anchored with clear bottom spacing above the Information Bar */}
+      <div className="hidden lg:block absolute right-8 sm:right-12 lg:right-14 xl:right-20 bottom-[136px] sm:bottom-[142px] lg:bottom-[148px] xl:bottom-[154px] w-[235px] xl:w-[250px] z-30">
         <CountdownCard />
       </div>
 
