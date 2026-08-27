@@ -39,6 +39,7 @@ const DIGNITARIES = [
     badge: 'Director',
     badgeVariant: 'primary',
     initials: 'MS',
+    image: '/assets/dignitaries/prof-madhusudan-singh.jpg',
   },
 ];
 
