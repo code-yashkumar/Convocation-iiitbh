@@ -132,8 +132,8 @@ const GALLERY_COLLECTION = [
     id: 9,
     title: 'Alumni Reunion & Faculty Fellowship Lunch',
     category: 'Moments',
-    edition: '2024',
-    date: 'November 2024',
+    edition: '2025',
+    date: 'October 2025',
     venue: 'Institute Lawn Pavilion',
     url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200&auto=format&fit=crop',
     thumbUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop',
@@ -144,7 +144,7 @@ const GALLERY_COLLECTION = [
 ];
 
 const CATEGORIES = ['All', 'Ceremony', 'Awards', 'Moments', 'Dignitaries'];
-const EDITIONS = ['All Editions', '2026', '2025', '2024'];
+const EDITIONS = ['All Editions', '2026', '2025'];
 
 export function GallerySection() {
   const [activeCategory, setActiveCategory] = useState('All');
