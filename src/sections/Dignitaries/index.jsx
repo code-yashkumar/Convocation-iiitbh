@@ -30,6 +30,7 @@ const DIGNITARIES = [
     badge: 'Chairperson',
     badgeVariant: 'primary',
     initials: 'AK',
+    image: '/assets/dignitaries/dr-ashok-khade.jpg',
   },
   {
     name: 'Prof. Madhusudan Singh',
