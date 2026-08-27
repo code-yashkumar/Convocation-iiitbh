@@ -41,26 +41,26 @@ export function CountdownCard({
 
   return (
     <div
-      className={`bg-[#580F1B] text-white rounded-[20px] p-5 sm:p-5 shadow-xl flex flex-col justify-between select-none ${className}`}
+      className={`bg-[#580F1B] text-white rounded-[18px] p-4 sm:p-4.5 shadow-xl flex flex-col justify-between select-none ${className}`}
       aria-label="Convocation Event Countdown"
     >
       {/* Header text */}
-      <div className="text-white/80 font-body text-[13px] font-medium tracking-tight">
+      <div className="text-white/80 font-body text-[12px] font-medium tracking-tight">
         Convocation Begins In
       </div>
 
       {/* Main Dominant Days Numeral */}
-      <div className="my-1.5 sm:my-2">
-        <div className="font-body font-bold text-[56px] sm:text-[62px] leading-[0.95] text-white tracking-tight tabular-nums">
+      <div className="my-1 sm:my-1.5">
+        <div className="font-body font-bold text-[48px] sm:text-[54px] leading-[0.92] text-white tracking-tight tabular-nums">
           {String(timeLeft.days).padStart(2, '0')}
         </div>
-        <div className="text-white/90 font-body text-[14px] sm:text-[15px] font-medium mt-0.5">
+        <div className="text-white/90 font-body text-[13px] sm:text-[14px] font-medium mt-0.5">
           Days
         </div>
       </div>
 
       {/* Bottom Sub-Time Units */}
-      <div className="pt-3 border-t border-white/10 flex items-center justify-between text-white/80 font-body text-[11px] sm:text-[12px] tracking-tight">
+      <div className="pt-2.5 border-t border-white/10 flex items-center justify-between text-white/80 font-body text-[10px] sm:text-[11px] tracking-tight">
         <span className="tabular-nums font-medium">
           {String(timeLeft.hours).padStart(2, '0')} Hours
         </span>

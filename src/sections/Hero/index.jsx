@@ -143,8 +143,8 @@ export function Hero() {
               />
             </div>
 
-            {/* Maroon Countdown Card positioned on the far right over student shoulder */}
-            <div className="w-full sm:w-[240px] lg:w-[240px] xl:w-[255px] lg:mr-0 xl:mr-1">
+            {/* Maroon Countdown Card positioned slightly lower on the far right */}
+            <div className="w-full sm:w-[210px] lg:w-[215px] xl:w-[225px] lg:mr-0 xl:mr-1 lg:translate-y-8 xl:translate-y-10">
               <CountdownCard />
             </div>
 
