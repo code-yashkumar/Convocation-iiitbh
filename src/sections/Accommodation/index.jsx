@@ -5,56 +5,84 @@ import Button from '../../components/ui/Button';
 
 const NEARBY_HOTELS = [
   {
-    name: 'Hotel Rajhans International',
-    category: 'Premium Partner',
+    id: 'hotel-vaibhav',
+    name: 'Hotel Vaibhav',
+    category: 'Recommended',
+    rating: '4.1',
+    reviews: '720+ reviews',
+    distance: '12 min from Bhagalpur Junction',
+    address: 'Near Petrol Pump, M.G Road, Kacheri Chowk, Tilkamanjhi - 812001',
+    phone: '+91 7947429764',
+    altPhone: '+91 9264459010',
+    email: null,
+    priceRange: '₹1,800 – ₹3,200 / night',
+    amenities: ['AC Rooms', 'Free Wi-Fi', '24/7 Room Service', 'Power Backup', 'Free Parking'],
+    discountCode: 'IIITBH2026',
+    discountNote: '10% Special Tariff for Convocation Attendees',
+  },
+  {
+    id: 'hotel-ganges-courtyard',
+    name: 'Hotel Ganges Courtyard',
+    category: 'Premium Stay',
+    rating: '4.3',
+    reviews: '950+ reviews',
+    distance: 'Barari Industrial Area, Bhagalpur',
+    address: 'FM Mall and Cinema, Barari Industrial Area, Bhagalpur - 812003',
+    phone: '+91 8409806683',
+    altPhone: '+91 9031015853',
+    email: 'courtyardganges@gmail.com',
+    priceRange: '₹2,400 – ₹4,000 / night',
+    amenities: ['Free Wi-Fi', 'Multi-Cuisine Restaurant', 'AC Rooms', 'Mall & Cinema Access', 'Free Parking'],
+    discountCode: 'IIITBH2026',
+    discountNote: '15% Discount with Convocation Pass',
+  },
+  {
+    id: 'hotel-rajhans',
+    name: 'Hotel Rajhans',
+    category: 'Partner Hotel',
     rating: '4.2',
     reviews: '1.2k+ reviews',
-    distance: '5.2 km from IIIT Bhagalpur',
-    address: 'Kachhari Chowk, MG Road, Bhagalpur, Bihar 812001',
-    phone: '+91 641 240 9180',
+    distance: 'Kachari Chowk, MG Road',
+    address: 'Kachari Chowk, MG Road, Bhagalpur India, 812001',
+    phone: '+91 9308189201',
+    altPhone: '+91 641 240 9411',
+    email: 'info@hotelrajhansinternational.com',
     priceRange: '₹2,500 – ₹4,200 / night',
     amenities: ['Free Wi-Fi', 'Complimentary Breakfast', 'AC Rooms', 'Multi-Cuisine Restaurant', 'Free Parking'],
     discountCode: 'IIITBH2026',
-    discountNote: '15% Discount with Convocation Registration Pass',
+    discountNote: 'Special Tariff for Alumni & Visiting Families',
   },
   {
-    name: 'Hotel Chinmaye Inn',
-    category: 'Recommended',
+    id: 'chinmaye-inn',
+    name: 'Chinmaye Inn',
+    category: 'Comfort Lodging',
     rating: '4.1',
     reviews: '850+ reviews',
-    distance: '4.8 km from IIIT Bhagalpur',
-    address: 'Near Railway Station, Station Road, Bhagalpur, Bihar 812002',
-    phone: '+91 641 242 1234',
+    distance: 'RBSR Road, Near 9 Pizza Hut',
+    address: 'RBSR Road, Near 9 Pizza Hut, Bhagalpur - 812002',
+    phone: '+91 8877222233',
+    altPhone: null,
+    email: 'info@chinmaye.in',
     priceRange: '₹2,000 – ₹3,500 / night',
-    amenities: ['High-speed Wi-speed Wi-Fi', '24/7 Room Service', 'Car Rental Desk', 'Elevator', 'Power Backup'],
+    amenities: ['High-speed Wi-Fi', '24/7 Front Desk', 'Elevator', 'Doctor on Call', 'Hot Water'],
     discountCode: 'IIITBH2026',
-    discountNote: '10% Special Tariff for Alumni & Families',
+    discountNote: '10% Discount for Graduating Students',
   },
   {
-    name: 'Hotel Max Inn',
-    category: 'Economy Comfort',
-    rating: '4.0',
-    reviews: '620+ reviews',
-    distance: '6.1 km from IIIT Bhagalpur',
-    address: 'Tilkamanjhi, Main Road, Bhagalpur, Bihar 812001',
-    phone: '+91 641 261 0555',
-    priceRange: '₹1,500 – ₹2,400 / night',
-    amenities: ['Air Conditioning', 'Free Wi-Fi', 'Doctor on Call', 'Travel Assistance', 'Hot Water'],
-    discountCode: 'IIITBHCONV',
-    discountNote: 'Special group rates available on advance notice',
-  },
-  {
-    name: 'Hotel Vineet',
+    id: 'roop-vihar',
+    name: 'Roop Vihar',
     category: 'Budget Friendly',
     rating: '3.9',
-    reviews: '480+ reviews',
-    distance: '5.0 km from IIIT Bhagalpur',
-    address: 'Station Chowk, Bhagalpur, Bihar 812002',
-    phone: '+91 641 242 0987',
-    priceRange: '₹1,200 – ₹2,000 / night',
-    amenities: ['Attached Baths', '24h Front Desk', 'Luggage Storage', 'Room Service'],
-    discountCode: 'IIITBHALUMNI',
-    discountNote: 'Express Check-in for Graduating Students',
+    reviews: '410+ reviews',
+    distance: 'Barari Rd, Parghari',
+    address: 'Barari Rd, Parghari, Bhagalpur, Bihar 813210',
+    phone: '+91 7947110793',
+    altPhone: null,
+    email: null,
+    priceRange: '₹1,200 – ₹2,200 / night',
+    amenities: ['Attached Baths', 'Free Wi-Fi', 'Luggage Storage', '24h Front Desk', 'Room Service'],
+    discountCode: 'IIITBHCONV',
+    discountNote: 'Express Check-in for Alumni & Parents',
   },
 ];
 
@@ -155,7 +183,7 @@ export function AccommodationSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {NEARBY_HOTELS.map((hotel) => (
               <div
-                key={hotel.name}
+                key={hotel.id}
                 className="bg-white rounded-[24px] p-6 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
@@ -224,14 +252,25 @@ export function AccommodationSection() {
                 </div>
 
                 {/* Card Action Footer */}
-                <div className="pt-6 border-t border-[#ECE6DC] mt-6 flex items-center justify-between gap-3">
-                  <a
-                    href={`tel:${hotel.phone}`}
-                    className="inline-flex items-center gap-2 text-charcoal-900 hover:text-maroon-900 font-body font-semibold text-sm transition-colors"
-                  >
-                    <Phone className="w-4 h-4 text-maroon-900" />
-                    <span>{hotel.phone}</span>
-                  </a>
+                <div className="pt-6 border-t border-[#ECE6DC] mt-6 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                    <a
+                      href={`tel:${hotel.phone}`}
+                      className="inline-flex items-center gap-1.5 text-charcoal-900 hover:text-maroon-900 font-body font-semibold text-xs sm:text-sm transition-colors"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-maroon-900" />
+                      <span>{hotel.phone}</span>
+                    </a>
+                    {hotel.email && (
+                      <a
+                        href={`mailto:${hotel.email}`}
+                        className="inline-flex items-center gap-1.5 text-charcoal-600 hover:text-maroon-900 font-body text-xs transition-colors"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-maroon-900" />
+                        <span>{hotel.email}</span>
+                      </a>
+                    )}
+                  </div>
 
                   <a
                     href={`https://maps.google.com/?q=${encodeURIComponent(hotel.name + ' ' + hotel.address)}`}
