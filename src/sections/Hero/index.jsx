@@ -123,10 +123,10 @@ export function Hero() {
               </Link>
               <Link
                 to="/schedule"
-                className="inline-flex items-center justify-center min-h-[46px] px-7 rounded-pill bg-transparent border border-charcoal-900/30 text-charcoal-900 font-body font-medium text-[15px] hover:bg-maroon-050/70 active:bg-maroon-050 transition-all gap-2.5 focus-visible:outline-none"
+                className="group inline-flex items-center justify-center min-h-[46px] px-7 rounded-pill bg-white/80 border-2 border-maroon-900/40 text-maroon-900 font-body font-semibold text-[15px] shadow-sm hover:bg-maroon-900 hover:text-white hover:border-maroon-900 hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all duration-200 gap-2.5 focus-visible:outline-none"
               >
                 <span>View Schedule</span>
-                <ArrowRight className="w-4 h-4 stroke-[2] text-maroon-900" />
+                <ArrowRight className="w-4 h-4 stroke-[2.5] text-maroon-900 group-hover:text-white group-hover:translate-x-1 transition-all" />
               </Link>
             </div>
           </div>

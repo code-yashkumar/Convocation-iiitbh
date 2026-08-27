@@ -79,16 +79,16 @@ export function NavBar() {
         </Link>
 
         {/* Center/Right Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-9" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center gap-7" aria-label="Main Navigation">
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `text-[15px] font-body transition-colors py-1 focus-visible:outline-none ${
+                `text-[15px] font-body transition-all px-3.5 py-1.5 rounded-full relative focus-visible:outline-none ${
                   isActive
-                    ? 'text-charcoal-900 font-semibold'
-                    : 'text-charcoal-900/80 hover:text-maroon-900 font-medium'
+                    ? 'text-maroon-900 font-bold bg-maroon-900/10 shadow-sm border border-maroon-900/25'
+                    : 'text-charcoal-900/80 hover:text-maroon-900 hover:bg-maroon-050/70 font-medium'
                 }`
               }
             >
