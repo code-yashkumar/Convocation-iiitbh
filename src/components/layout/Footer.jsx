@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Award, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
+import InstitutionCrest from '../ui/InstitutionCrest';
 
 /**
  * Footer component using the institutional inverse maroon theme
@@ -8,14 +9,12 @@ import { Award, Mail, MapPin, Phone } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="w-full bg-bg-inverse text-text-on-primary mt-24">
-      <div className="max-w-container mx-auto px-5 sm:px-10 lg:px-20 py-16">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
           {/* Col 1: Institute Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-md bg-white/10 flex items-center justify-center">
-                <Award className="w-6 h-6 text-gold-500 stroke-[1.75]" />
-              </div>
+              <InstitutionCrest className="w-11 h-11 bg-white rounded-full p-1 shadow-sm" />
               <span className="font-display font-bold text-xl text-white">
                 IIIT Bhagalpur
               </span>
