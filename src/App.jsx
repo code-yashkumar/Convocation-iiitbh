@@ -16,7 +16,7 @@ function HomePage() {
   return (
     <main>
       <Hero />
-      <div className="max-w-container mx-auto px-5 sm:px-10 lg:px-20 -mt-8 relative z-20">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 mt-2 sm:mt-4 mb-16 relative z-20">
         <InformationBar />
       </div>
       <ScheduleSection />
@@ -28,7 +28,7 @@ function HomePage() {
 
 export function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-bg-page text-text-default selection:bg-maroon-050 selection:text-maroon-900">
+    <div className="min-h-screen flex flex-col bg-cream-100 text-charcoal-900 selection:bg-maroon-050 selection:text-maroon-900 font-body">
       <NavBar />
       <div className="flex-1">
         <Routes>

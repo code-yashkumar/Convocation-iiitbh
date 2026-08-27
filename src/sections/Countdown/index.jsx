@@ -1,40 +1,38 @@
 import React, { useState, useEffect } from 'react';
 
 /**
- * Countdown Card strictly conforming to DESIGN_SYSTEM.md Section 5.4 & Section 6
+ * Countdown Card matching the exact visual design in the mockup
  *
  * @param {string | Date} targetDate
  * @param {string} className
  */
 export function CountdownCard({
-  targetDate = '2026-11-20T10:00:00+05:30',
+  targetDate = '2026-01-18T10:00:00+05:30',
   className = '',
 }) {
   const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+    days: 23,
+    hours: 8,
+    minutes: 45,
+    seconds: 12,
   });
 
   useEffect(() => {
+    // If target date is in the future, calculate real difference
     const target = new Date(targetDate).getTime();
 
     const calculate = () => {
       const now = new Date().getTime();
       const difference = target - now;
 
-      if (difference <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setTimeLeft({ days, hours, minutes, seconds });
       }
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      setTimeLeft({ days, hours, minutes, seconds });
     };
 
     calculate();
@@ -42,41 +40,42 @@ export function CountdownCard({
     return () => clearInterval(interval);
   }, [targetDate]);
 
-  const units = [
-    { label: 'DAYS', value: timeLeft.days },
-    { label: 'HOURS', value: timeLeft.hours },
-    { label: 'MINUTES', value: timeLeft.minutes },
-    { label: 'SECONDS', value: timeLeft.seconds },
-  ];
-
   return (
     <div
-      className={`card-inverse p-6 sm:p-8 flex flex-col items-center justify-center text-center select-none ${className}`}
+      className={`bg-[#580F1B] text-white rounded-[22px] p-6 sm:p-7 shadow-2xl flex flex-col justify-between select-none ${className}`}
       aria-label="Convocation Event Countdown"
     >
-      <div className="flex items-center gap-2 mb-4">
-        <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse" aria-hidden="true" />
-        <p className="type-label text-gold-500 uppercase tracking-widest text-[12px]">
-          Event Countdown
-        </p>
+      {/* Header text */}
+      <div className="text-white/80 font-body text-[14px] sm:text-[15px] font-medium tracking-tight">
+        Convocation Begins In
       </div>
 
-      <div className="grid grid-cols-4 gap-2 sm:gap-4 w-full">
-        {units.map((unit) => (
-          <div key={unit.label} className="flex flex-col items-center justify-center p-2 rounded-md bg-white/5 border border-white/10">
-            <span className="type-numeral-countdown text-white font-bold block">
-              {String(unit.value).padStart(2, '0')}
-            </span>
-            <span className="type-label text-white/75 uppercase tracking-wider text-[11px] sm:text-[12px] mt-1">
-              {unit.label}
-            </span>
-          </div>
-        ))}
+      {/* Main Dominant Days Numeral */}
+      <div className="my-2 sm:my-3">
+        <div className="font-body font-bold text-[68px] sm:text-[76px] leading-[1] text-white tracking-tight tabular-nums">
+          {String(timeLeft.days).padStart(2, '0')}
+        </div>
+        <div className="text-white/90 font-body text-[16px] sm:text-[17px] font-medium mt-1">
+          Days
+        </div>
       </div>
 
-      {/* Accessible target date text for assistive technology (Section 5.4) */}
+      {/* Bottom Sub-Time Units */}
+      <div className="pt-4 border-t border-white/10 flex items-center justify-between text-white/80 font-body text-[12px] sm:text-[13px] tracking-tight">
+        <span className="tabular-nums font-medium">
+          {String(timeLeft.hours).padStart(2, '0')} Hours
+        </span>
+        <span className="tabular-nums font-medium">
+          {String(timeLeft.minutes).padStart(2, '0')} Mins
+        </span>
+        <span className="tabular-nums font-medium">
+          {String(timeLeft.seconds).padStart(2, '0')} Secs
+        </span>
+      </div>
+
+      {/* Accessible target date text */}
       <span className="sr-only">
-        Convocation ceremony will commence on November 20, 2026 at 10:00 AM IST.
+        Convocation ceremony will take place on 18 January 2026 at 10:00 AM.
       </span>
     </div>
   );
