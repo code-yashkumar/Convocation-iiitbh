@@ -131,8 +131,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Far-right placement so degree certificate remains visible */}
-          <div className="lg:col-span-5 xl:col-span-6 relative flex flex-col lg:items-end justify-center">
+          {/* Right Column: Far-right placement positioned lower near bottom-right */}
+          <div className="lg:col-span-5 xl:col-span-6 relative flex flex-col lg:items-end justify-end">
             
             {/* Mobile / Tablet View Image (visible only below lg) */}
             <div className="lg:hidden w-full overflow-hidden rounded-2xl mb-6 shadow-sm">
@@ -143,8 +143,8 @@ export function Hero() {
               />
             </div>
 
-            {/* Maroon Countdown Card positioned slightly lower on the far right */}
-            <div className="w-full sm:w-[210px] lg:w-[215px] xl:w-[225px] lg:mr-0 xl:mr-1 lg:translate-y-8 xl:translate-y-10">
+            {/* Maroon Countdown Card positioned lower on the far right */}
+            <div className="w-full sm:w-[210px] lg:w-[215px] xl:w-[225px] lg:mr-0 xl:mr-1 lg:translate-y-20 xl:translate-y-24">
               <CountdownCard />
             </div>
 
