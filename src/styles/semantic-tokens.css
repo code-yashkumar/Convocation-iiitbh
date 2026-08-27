@@ -1,0 +1,38 @@
+/**
+ * IIIT BHAGALPUR Convocation — Semantic Design Tokens
+ * Source: DESIGN_SYSTEM.md Section 2.2
+ */
+
+:root {
+  /* Backgrounds */
+  --color-bg-page: var(--color-cream-100);
+  --color-bg-surface: var(--color-white);
+  --color-bg-surface-subtle: var(--color-cream-050);
+  --color-bg-inverse: var(--color-maroon-900);
+
+  /* Actions */
+  --color-action-primary: var(--color-maroon-900);
+  --color-action-primary-hover: var(--color-maroon-700);
+  --color-action-secondary: var(--color-maroon-900);
+  --color-action-secondary-hover: var(--color-maroon-050);
+
+  /* Typography Colors */
+  --color-text-default: var(--color-charcoal-900);
+  --color-text-muted: var(--color-charcoal-600);
+  --color-text-disabled: var(--color-charcoal-300);
+  --color-text-on-primary: var(--color-white);
+
+  /* Icons & Borders */
+  --color-icon-default: var(--color-maroon-900);
+  --color-border-default: var(--color-border-subtle);
+
+  /* Focus Indicator (WCAG AA Compliant Distinct Ring) */
+  --color-focus-ring: #2563EB;
+
+  /* Ceremonial (Strictly non-interactive / decorative) */
+  --color-accent-gold: var(--color-gold-500);
+
+  /* Status Colors */
+  --color-status-success: var(--color-success);
+  --color-status-error: var(--color-error);
+}
