@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import InstitutionCrest from '../ui/InstitutionCrest';
 
 const NAV_LINKS = [
   { label: 'Convocation', to: '/' },
   { label: 'Notice', to: '/notices' },
-  { label: 'Dignitaries', to: '/dignitaries' },
+  { label: 'Dignitaries', to: '/#dignitaries', isSectionLink: true, sectionId: 'dignitaries' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Archive', to: '/archive' },
   { label: 'Information', to: '/information' },
@@ -18,6 +18,8 @@ const NAV_LINKS = [
 export function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +33,42 @@ export function NavBar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle URL hash smooth scrolling
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
+  }, [location]);
+
+  // Smooth scroll handler for in-page section links
+  const handleSectionClick = (e, sectionId) => {
+    e.preventDefault();
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(`/#${sectionId}`);
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
 
   // Close mobile menu on Esc key
   useEffect(() => {
@@ -79,23 +117,38 @@ export function NavBar() {
           </div>
         </Link>
 
-        {/* Center/Right Desktop Navigation Links (Clean text, no capsule, no borders) */}
+        {/* Center/Right Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0" aria-label="Main Navigation">
-          {NAV_LINKS.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={({ isActive }) =>
-                `text-[14px] xl:text-[15px] font-body transition-colors py-1 whitespace-nowrap focus-visible:outline-none ${
-                  isActive
-                    ? 'text-charcoal-900 font-bold'
-                    : 'text-charcoal-900/80 hover:text-maroon-900 font-medium'
-                }`
-              }
-            >
-              {link.label}
-            </NavLink>
-          ))}
+          {NAV_LINKS.map((link) => {
+            if (link.isSectionLink) {
+              return (
+                <a
+                  key={link.label}
+                  href={`#${link.sectionId}`}
+                  onClick={(e) => handleSectionClick(e, link.sectionId)}
+                  className="text-[14px] xl:text-[15px] font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1 whitespace-nowrap transition-colors focus-visible:outline-none cursor-pointer"
+                >
+                  {link.label}
+                </a>
+              );
+            }
+
+            return (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  `text-[14px] xl:text-[15px] font-body transition-colors py-1 whitespace-nowrap focus-visible:outline-none ${
+                    isActive
+                      ? 'text-charcoal-900 font-bold'
+                      : 'text-charcoal-900/80 hover:text-maroon-900 font-medium'
+                  }`
+                }
+              >
+                {link.label}
+              </NavLink>
+            );
+          })}
         </nav>
 
         {/* Desktop CTA Button (Strictly in 1 single line) */}
@@ -132,22 +185,37 @@ export function NavBar() {
           className="fixed inset-0 top-20 z-50 bg-cream-100 flex flex-col p-6 space-y-6 lg:hidden animate-fadeIn overflow-y-auto"
         >
           <nav className="flex flex-col space-y-4" aria-label="Mobile Navigation">
-            {NAV_LINKS.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `py-3 px-4 rounded-md text-lg font-body font-semibold transition-colors ${
-                    isActive
-                      ? 'bg-maroon-050 text-maroon-900'
-                      : 'text-charcoal-900 hover:bg-maroon-050/50'
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
+            {NAV_LINKS.map((link) => {
+              if (link.isSectionLink) {
+                return (
+                  <a
+                    key={link.label}
+                    href={`#${link.sectionId}`}
+                    onClick={(e) => handleSectionClick(e, link.sectionId)}
+                    className="py-3 px-4 rounded-md text-lg font-body font-semibold text-charcoal-900 hover:bg-maroon-050/50 transition-colors cursor-pointer"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+
+              return (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `py-3 px-4 rounded-md text-lg font-body font-semibold transition-colors ${
+                      isActive
+                        ? 'bg-maroon-050 text-maroon-900'
+                        : 'text-charcoal-900 hover:bg-maroon-050/50'
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              );
+            })}
           </nav>
 
           <div className="pt-4 border-t border-border">
