@@ -143,8 +143,8 @@ export function Hero() {
               />
             </div>
 
-            {/* Maroon Countdown Card positioned lower on the far right directly above Information Bar */}
-            <div className="w-full sm:w-[210px] lg:w-[215px] xl:w-[225px] lg:absolute lg:right-6 xl:right-12 lg:bottom-24 xl:bottom-28 z-20">
+            {/* Maroon Countdown Card positioned right bottom directly above Information Bar */}
+            <div className="w-full sm:w-[240px] lg:w-[240px] xl:w-[255px] lg:absolute lg:right-6 sm:right-10 lg:right-12 lg:bottom-[100px] xl:bottom-[105px] z-30">
               <CountdownCard />
             </div>
 
