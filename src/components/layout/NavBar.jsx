@@ -69,11 +69,11 @@ export function NavBar() {
         >
           <InstitutionCrest className="w-11 h-11" />
           <div className="flex flex-col">
-            <span className="font-display font-bold text-[17px] tracking-wide text-charcoal-900 leading-tight">
-              IIIT BHAGALPUR
+            <span className="font-display font-bold text-[14px] sm:text-[16px] text-charcoal-900 leading-tight">
+              Indian Institute of Information Technology Bhagalpur
             </span>
-            <span className="font-body text-[12px] text-charcoal-600 tracking-tight leading-tight mt-0.5">
-              Excellence. Integrity. Innovation.
+            <span className="font-body text-[11px] sm:text-[12px] text-charcoal-600 leading-tight mt-0.5">
+              भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
             </span>
           </div>
         </Link>
