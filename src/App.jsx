@@ -2,12 +2,14 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
+import AccommodationCTA from './components/common/AccommodationCTA';
 
 // Section Views
 import Hero from './sections/Hero';
 import DignitariesSection from './sections/Dignitaries';
 import NoticeSection from './sections/Notices';
 import ScheduleSection from './sections/Schedule';
+import AccommodationSection from './sections/Accommodation';
 import GallerySection from './sections/Gallery';
 import ArchiveSection from './sections/Archive';
 import RegistrationFormSection from './sections/RegistrationForm';
@@ -19,6 +21,7 @@ function HomePage() {
       <Hero />
       <DignitariesSection />
       <ScheduleSection />
+      <AccommodationCTA />
       <GallerySection />
       <RegistrationFormSection />
     </main>
@@ -43,6 +46,8 @@ export function App() {
           <Route path="/dignitary" element={<PageWrapper><DignitariesSection /></PageWrapper>} />
           <Route path="/notices" element={<PageWrapper><NoticeSection /></PageWrapper>} />
           <Route path="/notice" element={<PageWrapper><NoticeSection /></PageWrapper>} />
+          <Route path="/accommodation" element={<PageWrapper><AccommodationSection /></PageWrapper>} />
+          <Route path="/accommodations" element={<PageWrapper><AccommodationSection /></PageWrapper>} />
           <Route path="/schedule" element={<PageWrapper><ScheduleSection /></PageWrapper>} />
           <Route path="/registration" element={<PageWrapper><RegistrationFormSection /></PageWrapper>} />
           <Route path="/gallery" element={<PageWrapper><GallerySection /></PageWrapper>} />
