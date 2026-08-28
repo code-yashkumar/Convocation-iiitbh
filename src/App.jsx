@@ -14,6 +14,7 @@ import GallerySection from './sections/Gallery';
 import ArchiveSection from './sections/Archive';
 import RegistrationFormSection from './sections/RegistrationForm';
 import InformationSection from './sections/Information';
+import CommitteeSection from './sections/Committees';
 
 function HomePage() {
   return (
@@ -49,6 +50,8 @@ export function App() {
           <Route path="/gallery" element={<PageWrapper><GallerySection /></PageWrapper>} />
           <Route path="/archive" element={<PageWrapper><ArchiveSection /></PageWrapper>} />
           <Route path="/information" element={<PageWrapper><InformationSection /></PageWrapper>} />
+          <Route path="/committee" element={<PageWrapper><CommitteeSection /></PageWrapper>} />
+          <Route path="/committees" element={<PageWrapper><CommitteeSection /></PageWrapper>} />
         </Routes>
       </div>
       <Footer />

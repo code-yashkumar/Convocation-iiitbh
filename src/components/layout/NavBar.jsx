@@ -4,12 +4,12 @@ import { Menu, X } from 'lucide-react';
 import InstitutionCrest from '../ui/InstitutionCrest';
 
 const NAV_LINKS = [
-  { label: 'Convocation', to: '/' },
   { label: 'Notice', to: '/notices' },
   { label: 'Dignitaries', to: '/#dignitaries', isSectionLink: true, sectionId: 'dignitaries' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Archive', to: '/archive' },
   { label: 'Information', to: '/information' },
+  { label: 'Committee', to: '/committee' },
 ];
 
 /**

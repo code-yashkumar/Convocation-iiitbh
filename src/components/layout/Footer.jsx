@@ -51,6 +51,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/committee" className="hover:text-gold-500 transition-colors">
+                  Organizing Committees
+                </Link>
+              </li>
+              <li>
                 <Link to="/archive" className="hover:text-gold-500 transition-colors">
                   Past Convocations Archive
                 </Link>
