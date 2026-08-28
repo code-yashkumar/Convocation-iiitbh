@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bell, FileText, ArrowRight, X, Download, Calendar, Tag, ShieldCheck } from 'lucide-react';
+import { Bell, FileText, ArrowRight, X, Download, Calendar, Tag, ShieldCheck, Mail, Sparkles, ExternalLink } from 'lucide-react';
 import Modal from '../../components/ui/Modal';
 import Button from '../../components/ui/Button';
 
@@ -70,58 +70,73 @@ export function NoticeSection() {
   const [selectedNotice, setSelectedNotice] = useState(null);
 
   return (
-    <section className="w-full py-12 lg:py-16 bg-cream-100 min-h-[75vh] flex items-center justify-center">
-      <div className="max-w-[1100px] w-full mx-auto px-6 sm:px-10">
+    <section className="w-full py-14 sm:py-18 lg:py-20 bg-cream-100 min-h-screen relative" id="notices">
+      <div className="max-w-[1240px] w-full mx-auto px-6 sm:px-10 lg:px-12">
         
-        {/* Main Unified Notice Board Card */}
-        <div className="bg-white rounded-[28px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.08)] overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-4 border border-maroon-900/10 shadow-xs">
+            <Bell className="w-4 h-4 text-maroon-900" />
+            <span>Official Communications</span>
+          </div>
+
+          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
+            Notices & Circulars
+          </h1>
+          <p className="font-body text-charcoal-600 text-base sm:text-lg mt-3">
+            Real-time updates, formal invitation circulars, medal lists, and administrative orders for the 3rd Convocation.
+          </p>
+        </div>
+
+        {/* Main Unified Notice Board Card matching reference layout */}
+        <div className="bg-white rounded-[28px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_16px_48px_rgba(94,16,28,0.08)] overflow-hidden grid grid-cols-1 lg:grid-cols-12 mb-12">
           
           {/* Left Maroon Banner (Notice Board Header) */}
-          <div className="lg:col-span-4 bg-maroon-900 p-8 sm:p-10 text-white flex flex-col justify-between relative overflow-hidden">
-            {/* Background Accent Ornament */}
-            <div className="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-white/5 pointer-events-none" />
-            <div className="absolute -left-6 -top-6 w-32 h-32 rounded-full bg-maroon-700/30 pointer-events-none" />
+          <div className="lg:col-span-5 bg-gradient-to-br from-[#540D17] to-[#731322] p-8 sm:p-10 lg:p-12 text-white flex flex-col justify-between relative overflow-hidden">
+            {/* Background Aesthetic Ornament Glows */}
+            <div className="absolute -right-12 -bottom-12 w-52 h-52 rounded-full bg-gold-500/10 pointer-events-none blur-2xl" />
+            <div className="absolute -left-10 -top-10 w-40 h-40 rounded-full bg-white/5 pointer-events-none" />
 
             {/* Top: Icon + Title + Description */}
             <div className="relative z-10">
               {/* Notice Icon Badge */}
-              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-6 shadow-sm border border-white/20">
-                <Bell className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-8 shadow-sm border border-white/20">
+                <Bell className="w-7 h-7 sm:w-8 sm:h-8 text-gold-300" />
               </div>
 
               {/* Heading */}
-              <h2 className="font-display font-bold text-3xl sm:text-4xl text-white leading-tight mb-4">
+              <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.08] mb-4 tracking-tight">
                 Notice<br />Board
               </h2>
 
               {/* Subtitle */}
-              <p className="font-body text-white/85 text-sm sm:text-[15px] leading-relaxed">
+              <p className="font-body text-white/85 text-sm sm:text-base leading-relaxed max-w-sm">
                 Latest updates and important announcements for Convocation IIIT Bhagalpur.
               </p>
             </div>
 
             {/* Bottom Status Pill */}
-            <div className="mt-8 lg:mt-12 relative z-10">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white font-body text-xs sm:text-[13px] font-medium">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="mt-8 lg:mt-14 relative z-10">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white font-body text-xs sm:text-[13px] font-medium shadow-xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Live • Real-time updates</span>
               </div>
             </div>
           </div>
 
           {/* Right Column: Notices List */}
-          <div className="lg:col-span-8 p-6 sm:p-8 lg:p-10 flex flex-col justify-center space-y-3.5 bg-cream-050/30">
+          <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-center space-y-3.5 bg-[#FAF8F5]">
             {NOTICES_LIST.map((notice) => (
               <button
                 key={notice.id}
                 type="button"
                 onClick={() => setSelectedNotice(notice)}
-                className="group w-full bg-white hover:bg-maroon-050/40 rounded-[20px] p-4 sm:p-4.5 border border-[#ECE6DC] hover:border-maroon-900/30 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-200 flex items-center justify-between gap-4 text-left focus:outline-none"
+                className="group w-full bg-white hover:bg-maroon-050/40 rounded-[20px] p-4 sm:p-4.5 border border-[#ECE6DC] hover:border-maroon-900/30 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-md transition-all duration-200 flex items-center justify-between gap-4 text-left focus:outline-none cursor-pointer"
               >
                 {/* Left: Icon + Title & Metadata */}
                 <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
-                  {/* Document / Menu Icon Container */}
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-cream-100 group-hover:bg-maroon-900/10 border border-[#ECE6DC] flex items-center justify-center shrink-0 transition-colors">
+                  {/* Document Icon Container */}
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-cream-100 group-hover:bg-maroon-900/10 border border-[#ECE6DC] flex items-center justify-center shrink-0 transition-colors">
                     <FileText className="w-5 h-5 text-charcoal-700 group-hover:text-maroon-900 transition-colors" />
                   </div>
 
@@ -131,7 +146,7 @@ export function NoticeSection() {
                       {notice.title}
                     </span>
 
-                    <div className="flex items-center gap-2 mt-0.5">
+                    <div className="flex items-center gap-2 mt-1">
                       <span className="inline-block px-2.5 py-0.5 rounded-full bg-cream-100 group-hover:bg-maroon-100/70 text-charcoal-700 group-hover:text-maroon-900 font-body text-[11px] sm:text-[12px] font-medium transition-colors">
                         {notice.category}
                       </span>
@@ -152,6 +167,26 @@ export function NoticeSection() {
           </div>
 
         </div>
+
+        {/* Secretariat Enquiries Card */}
+        <div className="bg-white rounded-[24px] p-6 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="space-y-1 text-center sm:text-left">
+            <h3 className="font-display font-bold text-lg sm:text-xl text-charcoal-900">
+              Have Questions Regarding Official Circulars?
+            </h3>
+            <p className="font-body text-charcoal-600 text-sm">
+              Contact the Convocation Secretariat or Academic Office for clarification on registration, stoles, or medals.
+            </p>
+          </div>
+          <a
+            href="mailto:convocation@iiitbh.ac.in?subject=Enquiry%20Regarding%20Convocation%20Notice"
+            className="inline-flex items-center justify-center min-h-[44px] px-6 rounded-pill bg-maroon-050 text-maroon-900 border border-maroon-900/20 font-body font-semibold text-sm hover:bg-maroon-900 hover:text-white transition-all gap-2 shrink-0 cursor-pointer"
+          >
+            <Mail className="w-4 h-4" />
+            <span>Contact Secretariat</span>
+          </a>
+        </div>
+
       </div>
 
       {/* Notice Detail Modal */}
