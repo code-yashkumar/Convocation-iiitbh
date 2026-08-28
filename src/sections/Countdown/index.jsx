@@ -51,7 +51,7 @@ export function CountdownCard({
 
       {/* Main Dominant Days Numeral */}
       <div className="my-1.5 sm:my-2">
-        <div className="font-body font-bold text-[56px] sm:text-[62px] leading-[0.92] text-white tracking-tight tabular-nums">
+        <div className="font-mono font-bold text-[52px] sm:text-[58px] leading-[0.92] text-white tracking-tight tabular-nums">
           {String(timeLeft.days).padStart(2, '0')}
         </div>
         <div className="text-white/90 font-body text-[14px] sm:text-[15px] font-medium mt-0.5">
