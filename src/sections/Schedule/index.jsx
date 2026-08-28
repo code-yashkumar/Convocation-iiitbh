@@ -1,90 +1,243 @@
-import React from 'react';
-import { Clock, MapPin, CheckCircle2 } from 'lucide-react';
-import Card from '../../components/ui/Card';
+import React, { useState } from 'react';
+import { Clock, MapPin, Calendar, FileText, ArrowRight, Download, X, Sparkles } from 'lucide-react';
+import Modal from '../../components/ui/Modal';
+import Button from '../../components/ui/Button';
 
-const SCHEDULE_DATA = [
+const SUMMARY_SCHEDULE = [
+  {
+    id: 1,
+    time: '09:00 AM',
+    title: 'Registration',
+    description: 'Student registration and kit distribution',
+  },
+  {
+    id: 2,
+    time: '10:00 AM',
+    title: 'Academic Procession',
+    description: 'Procession of dignitaries and graduates',
+  },
+  {
+    id: 3,
+    time: '10:30 AM',
+    title: 'Convocation Ceremony',
+    description: 'Welcome address and conferment of degrees',
+  },
+  {
+    id: 4,
+    time: '12:30 PM',
+    title: 'Degree Distribution',
+    description: 'Distribution of degrees to graduates',
+  },
+  {
+    id: 5,
+    time: '01:30 PM',
+    title: 'Photography & Reception',
+    description: 'Group photography and hi-tea',
+  },
+];
+
+const DETAILED_SCHEDULE = [
   {
     time: '08:30 AM – 09:30 AM',
     title: 'Registration & Regalia Distribution',
     venue: 'Academic Block Lobby',
-    details: 'Robes collection, photo registration, and rehearsal briefing for graduating candidates.',
+    details: 'Robes & stoles collection, photo registration, and rehearsal briefing for graduating candidates.',
   },
   {
     time: '09:45 AM – 10:00 AM',
     title: 'Academic Procession Assembly',
-    venue: 'Senate Hall to Main Lecture Hall',
-    details: 'Assembly of the Board of Governors, Senate members, Director, and Chief Guest.',
+    venue: 'Academic Corridor to Main Lecture Hall',
+    details: 'Assembly and ceremonial entry of the Board of Governors, Senate members, Director, and Chief Guest.',
   },
   {
     time: '10:00 AM – 10:30 AM',
     title: 'Inauguration & Presidential Address',
     venue: 'Main Lecture Hall',
-    details: 'National Anthem, lighting of the lamp, welcome address by Director, and Opening Declaration.',
+    details: 'National Anthem, Vedic invocation, lighting of the lamp (Deep Prajwalan), welcome address by Director, and Opening Declaration.',
   },
   {
     time: '10:30 AM – 11:15 AM',
     title: 'Convocation Address by Chief Guest',
     venue: 'Main Lecture Hall',
-    details: 'Keynote address by the Chief Guest to the graduating batch.',
+    details: 'Keynote address by Prof. T N Singh (Director, IIT Patna) to the graduating batch and assembly.',
   },
   {
     time: '11:15 AM – 01:15 PM',
     title: 'Conferment of Degrees & Medals Awarding',
     venue: 'Main Lecture Hall',
-    details: 'Presentation of B.Tech, M.Tech, and Ph.D. degrees, President Gold Medal, and Institute Medals.',
+    details: 'Presentation of B.Tech, M.Tech, and Ph.D. degrees, President Gold Medal, Director Gold Medal, and Institute Medals.',
   },
   {
     time: '01:15 PM – 02:30 PM',
     title: 'Convocation Lunch & Photo Sessions',
-    venue: 'Institute Lawn',
-    details: 'Celebratory lunch with faculty, graduates, and their accompanying parents.',
+    venue: 'Institute Lawn Pavilion',
+    details: 'Celebratory fellowship lunch and batch photography with faculty, graduates, and accompanying parents.',
   },
 ];
 
 export function ScheduleSection() {
+  const [isFullScheduleOpen, setIsFullScheduleOpen] = useState(false);
+
   return (
-    <section className="py-16 max-w-container mx-auto px-5 sm:px-10 lg:px-20 scroll-mt-20 sm:scroll-mt-24" id="schedule">
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-maroon-050 mb-3">
-          <span className="type-label text-maroon-900 uppercase">Program Sequence</span>
-        </div>
-        <h2 className="type-display-lg text-text-default">Convocation Day Schedule</h2>
-        <p className="type-body-lg text-text-muted mt-2">
-          Detailed timeline of ceremonial events, academic procession, and degree distribution.
-        </p>
-      </div>
-
-      <div className="relative border-l-2 border-border ml-4 sm:ml-32 md:ml-40 space-y-8">
-        {SCHEDULE_DATA.map((item, idx) => (
-          <div key={idx} className="relative pl-6 sm:pl-8 group">
-            {/* Timeline indicator node */}
-            <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-maroon-900 ring-4 ring-bg-page flex items-center justify-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+    <section className="w-full py-16 sm:py-20 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="schedule">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
+        
+        {/* Main Schedule Container Card */}
+        <div className="bg-white rounded-[28px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-6 sm:p-10 lg:p-12 overflow-hidden">
+          
+          {/* Header Row */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-12">
+            <div>
+              <span className="font-body font-bold text-xs sm:text-[13px] text-maroon-900 tracking-wider uppercase block mb-1">
+                Event Schedule
+              </span>
+              <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
+                Schedule of Events
+              </h2>
             </div>
 
-            {/* Time label on desktop left */}
-            <div className="sm:absolute sm:-left-40 sm:top-1 sm:w-32 sm:text-right font-mono text-[13px] font-semibold text-maroon-900 pb-1 sm:pb-0">
-              {item.time}
+            <div>
+              <button
+                type="button"
+                onClick={() => setIsFullScheduleOpen(true)}
+                className="inline-flex items-center justify-center min-h-[44px] px-6 rounded-pill bg-white border border-maroon-900/30 text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
+              >
+                View Full Schedule
+              </button>
             </div>
-
-            {/* Card Content */}
-            <Card variant="standard" className="hover:border-maroon-900/30 transition-colors">
-              <div className="mb-2">
-                <h3 className="type-display-md text-text-default text-[20px] leading-snug">
-                  {item.title}
-                </h3>
-              </div>
-
-              <div className="flex items-center gap-2 text-text-muted type-body-sm mb-3">
-                <MapPin className="w-4 h-4 text-maroon-900" />
-                <span>{item.venue}</span>
-              </div>
-
-              <p className="type-body-md text-text-muted">{item.details}</p>
-            </Card>
           </div>
-        ))}
+
+          {/* 2-Column Grid: Left Timeline + Right College Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+            
+            {/* Left Column: Timeline List */}
+            <div className="lg:col-span-6 flex flex-col justify-between py-2">
+              <div className="relative pl-6 sm:pl-8 space-y-6 sm:space-y-7 before:content-[''] before:absolute before:left-[7px] before:top-2 before:bottom-3 before:w-[2px] before:bg-[#E8E2D8]">
+                {SUMMARY_SCHEDULE.map((item) => (
+                  <div key={item.id} className="relative group">
+                    {/* Circular Maroon Node with Ring */}
+                    <div className="absolute -left-[30px] sm:-left-[38px] top-1 w-4 h-4 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs flex items-center justify-center">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+                    </div>
+
+                    {/* Timeline Item Content Row */}
+                    <div className="flex items-start gap-4 sm:gap-6 pb-5 sm:pb-6 border-b border-[#ECE6DC] group-last:border-b-0 group-last:pb-0">
+                      {/* Time */}
+                      <span className="font-body font-semibold text-xs sm:text-sm text-charcoal-600 w-16 sm:w-20 shrink-0 mt-0.5 whitespace-nowrap">
+                        {item.time}
+                      </span>
+
+                      {/* Title & Description */}
+                      <div className="flex flex-col min-w-0">
+                        <h3 className="font-display font-bold text-base sm:text-[17px] text-charcoal-900 leading-snug group-hover:text-maroon-900 transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-0.5 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: College Campus Side Image */}
+            <div className="lg:col-span-6 flex items-center">
+              <div className="relative w-full h-[320px] sm:h-[380px] lg:h-full min-h-[340px] rounded-[24px] sm:rounded-[28px] overflow-hidden border border-[#E8E2D8] shadow-sm bg-cream-100 group">
+                <img
+                  src="/assets/iiitbh-campus-schedule.jpg"
+                  alt="IIIT Bhagalpur Permanent Campus at Sunset"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
+                />
+                
+                {/* Subtle Gradient Shadow Overlay at Bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-charcoal-950/10 to-transparent pointer-events-none" />
+
+                {/* Campus Location Caption Badge */}
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-3 sm:p-4 rounded-2xl bg-black/40 backdrop-blur-md border border-white/20 text-white flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <MapPin className="w-4 h-4 text-gold-400 shrink-0" />
+                    <div>
+                      <h4 className="font-display font-bold text-xs sm:text-sm text-white leading-tight">
+                        IIIT Bhagalpur Campus
+                      </h4>
+                      <span className="font-body text-[11px] sm:text-xs text-white/80">
+                        Main Lecture Hall & Academic Block
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/20 text-white shrink-0 hidden sm:inline-block">
+                    26 Sept 2026
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
+      {/* Comprehensive Detailed Schedule Modal */}
+      {isFullScheduleOpen && (
+        <Modal
+          isOpen={isFullScheduleOpen}
+          onClose={() => setIsFullScheduleOpen(false)}
+          title="Complete Convocation Day Schedule"
+          size="lg"
+        >
+          <div className="space-y-6">
+            <div className="p-4 rounded-2xl bg-cream-050 border border-border flex items-center justify-between text-xs font-body text-charcoal-700">
+              <span className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-maroon-900" />
+                <span>Date: <strong>26 September 2026 (Saturday)</strong></span>
+              </span>
+              <span className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-maroon-900" />
+                <span>Venue: <strong>Main Lecture Hall</strong></span>
+              </span>
+            </div>
+
+            {/* Timeline in Modal */}
+            <div className="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-[7px] before:top-2 before:bottom-3 before:w-[2px] before:bg-border">
+              {DETAILED_SCHEDULE.map((item, idx) => (
+                <div key={idx} className="relative">
+                  {/* Node */}
+                  <div className="absolute -left-[30px] top-1 w-3.5 h-3.5 rounded-full bg-maroon-900 ring-4 ring-white" />
+
+                  <div className="space-y-1">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="font-mono text-xs font-bold text-maroon-900">
+                        {item.time}
+                      </span>
+                      <span className="text-xs font-body text-charcoal-500">
+                        {item.venue}
+                      </span>
+                    </div>
+
+                    <h4 className="font-display font-bold text-base text-charcoal-900">
+                      {item.title}
+                    </h4>
+
+                    <p className="font-body text-charcoal-600 text-xs sm:text-sm leading-relaxed">
+                      {item.details}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div className="pt-4 border-t border-border flex items-center justify-end">
+              <Button variant="primary" onClick={() => setIsFullScheduleOpen(false)}>
+                Close Schedule
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </section>
   );
 }
