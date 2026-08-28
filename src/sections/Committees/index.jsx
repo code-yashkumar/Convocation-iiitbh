@@ -443,7 +443,7 @@ export function CommitteeSection() {
             Organizing Committees
           </h1>
           <p className="font-body text-charcoal-600 text-base sm:text-lg mt-3">
-            Official roster of faculty conveners, administrative coordinators, and committee members ensuring the seamless execution of the 3rd Convocation.
+            Official roster of 50 unique faculty conveners, administrative officers, and committee members across 22 specialized task forces for the 3rd Convocation.
           </p>
         </div>
 
@@ -464,8 +464,8 @@ export function CommitteeSection() {
               <UserCheck className="w-6 h-6" />
             </div>
             <div>
-              <div className="font-display font-bold text-2xl text-charcoal-900">70+ Faculty & Staff</div>
-              <div className="font-body text-xs text-charcoal-600 mt-0.5">Organizing Team Members</div>
+              <div className="font-display font-bold text-2xl text-charcoal-900">50 Unique Members</div>
+              <div className="font-body text-xs text-charcoal-600 mt-0.5">Faculty & Staff Appointees</div>
             </div>
           </div>
 
