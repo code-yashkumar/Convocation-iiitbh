@@ -79,12 +79,12 @@ export function HomeGalleryCarousel() {
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
-  // Auto rotation timer
+  // Auto rotation timer (2.5 seconds for faster switching)
   useEffect(() => {
     if (isPlaying) {
       timerRef.current = setInterval(() => {
         nextSlide();
-      }, 4000);
+      }, 2500);
     }
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
@@ -209,7 +209,7 @@ export function HomeGalleryCarousel() {
                     if (!isCenter) setCurrentIndex(idx);
                   }}
                   style={style}
-                  className={`absolute w-[82%] sm:w-[72%] lg:w-[65%] h-[88%] sm:h-[92%] rounded-[28px] sm:rounded-[32px] overflow-hidden border border-[#E8E2D8] shadow-[0_20px_50px_rgba(0,0,0,0.18)] bg-charcoal-950 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer group`}
+                  className={`absolute w-[82%] sm:w-[72%] lg:w-[65%] h-[88%] sm:h-[92%] rounded-[28px] sm:rounded-[32px] overflow-hidden border border-[#E8E2D8] shadow-[0_20px_50px_rgba(0,0,0,0.18)] bg-charcoal-950 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer group`}
                 >
                   {/* Photo */}
                   <img
