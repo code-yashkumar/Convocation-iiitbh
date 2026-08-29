@@ -127,9 +127,11 @@ export function NavBar() {
                   key={link.label}
                   href={`#${link.sectionId}`}
                   onClick={(e) => handleSectionClick(e, link.sectionId)}
-                  className="text-[14px] xl:text-[15px] font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1 whitespace-nowrap transition-colors focus-visible:outline-none cursor-pointer"
+                  className="relative group text-[14px] xl:text-[15px] font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer"
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {/* Progressing expanding maroon underline on hover */}
+                  <span className="absolute bottom-0 left-0 h-[2.5px] bg-maroon-900 w-0 group-hover:w-full transition-all duration-300 ease-out rounded-full" />
                 </a>
               );
             }
@@ -138,15 +140,26 @@ export function NavBar() {
               <NavLink
                 key={link.to}
                 to={link.to}
+                end={link.to === '/'}
                 className={({ isActive }) =>
-                  `text-[14px] xl:text-[15px] font-body transition-colors py-1 whitespace-nowrap focus-visible:outline-none ${
+                  `relative group text-[14px] xl:text-[15px] font-body py-1.5 whitespace-nowrap focus-visible:outline-none transition-colors duration-200 ${
                     isActive
-                      ? 'text-charcoal-900 font-bold'
+                      ? 'text-maroon-900 font-bold'
                       : 'text-charcoal-900/80 hover:text-maroon-900 font-medium'
                   }`
                 }
               >
-                {link.label}
+                {({ isActive }) => (
+                  <>
+                    <span>{link.label}</span>
+                    {/* Progressing expanding maroon underline on hover and solid on active */}
+                    <span
+                      className={`absolute bottom-0 left-0 h-[2.5px] bg-maroon-900 transition-all duration-300 ease-out rounded-full ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    />
+                  </>
+                )}
               </NavLink>
             );
           })}
@@ -205,12 +218,13 @@ export function NavBar() {
                 <NavLink
                   key={link.to}
                   to={link.to}
+                  end={link.to === '/'}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={({ isActive }) =>
-                    `py-3 px-4 rounded-md text-lg font-body font-semibold transition-colors ${
+                    `py-3 px-4 rounded-md text-lg font-body transition-colors ${
                       isActive
-                        ? 'bg-maroon-050 text-maroon-900'
-                        : 'text-charcoal-900 hover:bg-maroon-050/50'
+                        ? 'bg-maroon-050 text-maroon-900 font-bold border-l-4 border-maroon-900'
+                        : 'text-charcoal-900 hover:bg-maroon-050/50 font-semibold'
                     }`
                   }
                 >
