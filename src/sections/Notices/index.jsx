@@ -72,9 +72,9 @@ async function fetchNoticesFromGoogleSheet(sheetUrl) {
               const pdfUrl = getVal('pdf', 6) || getVal('link', 6) || '';
               const isPinnedRaw = getVal('pin', 7);
               const isPinned =
-                isPinnedRaw.toLowerCase() === 'true' ||
-                isPinnedRaw === '1' ||
-                isPinnedRaw.toLowerCase() === 'yes';
+                isPinnedRaw === true ||
+                (typeof isPinnedRaw === 'string' &&
+                  ['true', '1', 'yes', 'y', 'pinned'].includes(isPinnedRaw.trim().toLowerCase()));
 
               return {
                 id: `notice-${idx + 1}-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 30)}`,
@@ -101,8 +101,24 @@ async function fetchNoticesFromGoogleSheet(sheetUrl) {
     try {
       const res = await fetch(trimmed);
       const data = await res.json();
-      if (Array.isArray(data)) return data;
-      if (data && Array.isArray(data.notices)) return data.notices;
+      if (Array.isArray(data)) {
+        return data.map((n) => ({
+          ...n,
+          isPinned:
+            n.isPinned === true ||
+            (typeof n.isPinned === 'string' &&
+              ['true', '1', 'yes', 'y', 'pinned'].includes(n.isPinned.trim().toLowerCase())),
+        }));
+      }
+      if (data && Array.isArray(data.notices)) {
+        return data.notices.map((n) => ({
+          ...n,
+          isPinned:
+            n.isPinned === true ||
+            (typeof n.isPinned === 'string' &&
+              ['true', '1', 'yes', 'y', 'pinned'].includes(n.isPinned.trim().toLowerCase())),
+        }));
+      }
     } catch {
       // Fallback
     }
@@ -148,9 +164,9 @@ export function NoticeSection() {
     return ['All Notices', ...unique];
   }, [notices]);
 
-  // Filter notices by category and search keyword
+  // Filter notices by category, search keyword, and sort pinned notices first
   const filteredNotices = useMemo(() => {
-    return notices.filter((notice) => {
+    const list = notices.filter((notice) => {
       const matchesCategory =
         activeCategory === 'All Notices' || notice.category === activeCategory;
       if (!matchesCategory) return false;
@@ -166,6 +182,9 @@ export function NoticeSection() {
         notice.issuedBy.toLowerCase().includes(query)
       );
     });
+
+    // Pinned notices appear first in list
+    return list.sort((a, b) => (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0));
   }, [notices, activeCategory, searchTerm]);
 
   const handleShareNotice = (notice) => {
@@ -184,8 +203,8 @@ export function NoticeSection() {
     }
   };
 
-  // Find first pinned notice, or fallback to first notice
-  const pinnedNotice = notices.find((n) => n.isPinned) || notices[0];
+  // Find specifically marked pinned notice (if any)
+  const pinnedNotice = notices.find((n) => n.isPinned === true);
 
   return (
     <section className="w-full py-16 bg-cream-100 min-h-screen relative" id="notices">
@@ -215,7 +234,7 @@ export function NoticeSection() {
           </p>
         </div>
 
-        {/* Featured Pinned Announcement Banner */}
+        {/* Featured Pinned Announcement Banner (Only renders when isPinned is true) */}
         {pinnedNotice && (
           <div className="bg-gradient-to-br from-[#540D17] via-[#66101E] to-[#450A12] rounded-[28px] sm:rounded-[32px] text-white p-8 sm:p-10 lg:p-12 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50 mb-12">
             {/* Background Aesthetic Glows */}
@@ -358,15 +377,27 @@ export function NoticeSection() {
               <div
                 key={notice.id}
                 onClick={() => setSelectedNotice(notice)}
-                className="group bg-white rounded-[24px] p-6 sm:p-7 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+                className={`group bg-white rounded-[24px] p-6 sm:p-7 border shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] transition-all duration-300 flex flex-col justify-between cursor-pointer ${
+                  notice.isPinned
+                    ? 'border-gold-400/60 bg-gradient-to-b from-gold-50/20 via-white to-white ring-1 ring-gold-400/30'
+                    : 'border-[#E8E2D8] hover:border-maroon-900/30'
+                }`}
               >
                 <div>
-                  {/* Card Header: Category & Ref */}
+                  {/* Card Header: Category, Pinned Badge & Ref */}
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs font-semibold">
-                      {notice.category}
-                    </span>
-                    <span className="font-mono text-[11px] text-charcoal-400 font-medium truncate max-w-[140px]">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs font-semibold">
+                        {notice.category}
+                      </span>
+                      {notice.isPinned && (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gold-100 text-gold-900 border border-gold-300 font-body text-[11px] font-bold uppercase tracking-wider shadow-2xs">
+                          <Pin className="w-3 h-3 fill-gold-600 text-gold-700" />
+                          <span>Pinned</span>
+                        </span>
+                      )}
+                    </div>
+                    <span className="font-mono text-[11px] text-charcoal-400 font-medium truncate max-w-[130px]">
                       {notice.refNo}
                     </span>
                   </div>
@@ -443,10 +474,16 @@ export function NoticeSection() {
           <div className="space-y-6">
             {/* Meta row */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-border text-sm font-body">
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 flex-wrap">
                 <span className="px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 font-semibold text-xs border border-maroon-900/15">
                   {selectedNotice.category}
                 </span>
+                {selectedNotice.isPinned && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gold-100 text-gold-900 border border-gold-300 font-body text-xs font-bold uppercase tracking-wider">
+                    <Pin className="w-3 h-3 fill-gold-600 text-gold-700" />
+                    <span>Featured Pinned Circular</span>
+                  </span>
+                )}
                 <span className="inline-flex items-center gap-1.5 text-charcoal-600 text-xs">
                   <Calendar className="w-3.5 h-3.5 text-maroon-900" />
                   {selectedNotice.date}
