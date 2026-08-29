@@ -12,6 +12,7 @@ import NoticeSection from './sections/Notices';
 import ScheduleSection from './sections/Schedule';
 import AccommodationSection from './sections/Accommodation';
 import GallerySection from './sections/Gallery';
+import GalleryAlbumView from './sections/Gallery/GalleryAlbumView';
 import HomeGalleryCarousel from './sections/Gallery/HomeGalleryCarousel';
 import ArchiveSection from './sections/Archive';
 import RegistrationFormSection from './sections/RegistrationForm';
@@ -53,6 +54,7 @@ export function App() {
           <Route path="/accommodation" element={<PageWrapper><AccommodationSection /></PageWrapper>} />
           <Route path="/accommodations" element={<PageWrapper><AccommodationSection /></PageWrapper>} />
           <Route path="/gallery" element={<PageWrapper><GallerySection /></PageWrapper>} />
+          <Route path="/gallery/:slug" element={<PageWrapper><GalleryAlbumView /></PageWrapper>} />
           <Route path="/archive" element={<PageWrapper><ArchiveSection /></PageWrapper>} />
           <Route path="/information" element={<PageWrapper><InformationSection /></PageWrapper>} />
           <Route path="/committee" element={<PageWrapper><CommitteeSection /></PageWrapper>} />

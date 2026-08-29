@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Camera,
   Image as ImageIcon,
@@ -17,7 +18,8 @@ import {
   Check,
   Award,
   History,
-  ExternalLink
+  ExternalLink,
+  ArrowRight
 } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
@@ -26,6 +28,7 @@ import Button from '../../components/ui/Button';
 const GALLERY_COLLECTION = [
   {
     id: 1,
+    slug: 'degree-distribution',
     title: 'Degree Distribution Ceremony',
     category: 'Ceremony',
     edition: '2025',
@@ -39,6 +42,7 @@ const GALLERY_COLLECTION = [
   },
   {
     id: 2,
+    slug: 'convocation-evening',
     title: 'Convocation Evening',
     category: 'Moments',
     edition: '2025',
@@ -52,6 +56,7 @@ const GALLERY_COLLECTION = [
   },
   {
     id: 3,
+    slug: 'alumni-meet',
     title: 'Alumni Meet',
     category: 'Moments',
     edition: '2025',
@@ -65,6 +70,7 @@ const GALLERY_COLLECTION = [
   },
   {
     id: 4,
+    slug: 'speaker-session',
     title: 'Speaker Session',
     category: 'Dignitaries',
     edition: '2025',
@@ -281,71 +287,66 @@ export function GallerySection() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredItems.map((item, idx) => (
-              <div
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-10">
+            {filteredItems.map((item) => (
+              <Link
                 key={item.id}
-                onClick={() => setSelectedImageIndex(idx)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setSelectedImageIndex(idx);
-                  }
-                }}
-                tabIndex={0}
-                role="button"
-                aria-label={`View photo: ${item.title}`}
-                className="group relative bg-white rounded-[24px] overflow-hidden border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between cursor-pointer focus-visible:outline-none"
+                to={`/gallery/${item.slug}`}
+                aria-label={`View photo album: ${item.title}`}
+                className="group relative bg-white rounded-[28px] overflow-hidden border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(94,16,28,0.1)] hover:border-maroon-900/40 transition-all duration-300 flex flex-col justify-between cursor-pointer focus-visible:outline-none"
               >
                 <div>
                   {/* Image Container with Zoom and Badge */}
-                  <div className={`relative ${item.aspect} w-full overflow-hidden bg-cream-100`}>
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-cream-100">
                     <img
                       src={item.thumbUrl}
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 select-none"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 select-none"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-4">
-                      <span className="text-white text-xs font-body font-medium inline-flex items-center gap-1.5 bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">
-                        <Maximize2 className="w-3.5 h-3.5" />
-                        <span>Click to Enlarge</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-5">
+                      <span className="text-white text-xs font-body font-semibold inline-flex items-center gap-1.5 bg-maroon-900/90 px-4 py-1.5 rounded-full backdrop-blur-sm shadow-md">
+                        <Camera className="w-3.5 h-3.5" />
+                        <span>View Photo Album</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
 
                     {/* Top Category & Edition Badges */}
-                    <div className="absolute top-3 left-3 flex items-center gap-2">
-                      <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-maroon-900 font-body text-xs font-bold shadow-xs border border-white/40">
+                    <div className="absolute top-4 left-4 flex items-center gap-2">
+                      <span className="px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-maroon-900 font-body text-xs font-bold shadow-xs border border-white/50">
                         {item.category}
                       </span>
-                      <span className="px-2.5 py-1 rounded-full bg-maroon-900/85 backdrop-blur-md text-white font-body text-[11px] font-semibold">
+                      <span className="px-3 py-1 rounded-full bg-maroon-900/90 backdrop-blur-md text-white font-body text-xs font-semibold">
                         {item.edition} Edition
                       </span>
                     </div>
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-6">
-                    <h3 className="font-display font-bold text-lg text-charcoal-900 group-hover:text-maroon-900 transition-colors leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-2 line-clamp-2 leading-relaxed">
+                  <div className="p-6 sm:p-7">
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <h3 className="font-display font-bold text-xl sm:text-2xl text-charcoal-900 group-hover:text-maroon-900 transition-colors leading-snug">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="font-body text-charcoal-600 text-sm sm:text-base mt-2 leading-relaxed">
                       {item.caption}
                     </p>
                   </div>
                 </div>
 
                 {/* Footer Metadata */}
-                <div className="px-6 py-4 border-t border-[#ECE6DC] bg-cream-050/50 flex items-center justify-between text-xs text-charcoal-500 font-body">
+                <div className="px-6 sm:px-7 py-4 border-t border-[#ECE6DC] bg-cream-050/60 flex items-center justify-between text-xs sm:text-sm text-charcoal-600 font-body">
                   <div className="flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-maroon-900 shrink-0" />
-                    <span className="truncate max-w-[170px]">{item.venue}</span>
+                    <span className="truncate">{item.venue}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-charcoal-400">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>{item.date}</span>
+                  <div className="flex items-center gap-1 text-maroon-900 font-semibold group-hover:underline">
+                    <span>Explore Album</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
