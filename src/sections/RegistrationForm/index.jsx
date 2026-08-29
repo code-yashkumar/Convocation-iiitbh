@@ -183,7 +183,7 @@ export function RegistrationFormSection() {
                     onChange={(e) => handleChange('rollNumber', e.target.value)}
                     aria-invalid={Boolean(errors.rollNumber)}
                     aria-describedby={errors.rollNumber ? 'rollNumber-error' : undefined}
-                    placeholder="e.g. 220101001"
+                    placeholder="e.g. 240101170"
                     className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px]"
                   />
                   {errors.rollNumber && (
