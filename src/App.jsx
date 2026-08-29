@@ -11,6 +11,7 @@ import NoticeSection from './sections/Notices';
 import ScheduleSection from './sections/Schedule';
 import AccommodationSection from './sections/Accommodation';
 import GallerySection from './sections/Gallery';
+import HomeGalleryCarousel from './sections/Gallery/HomeGalleryCarousel';
 import ArchiveSection from './sections/Archive';
 import RegistrationFormSection from './sections/RegistrationForm';
 import InformationSection from './sections/Information';
@@ -23,7 +24,7 @@ function HomePage() {
       <DignitariesSection />
       <ScheduleSection />
       <AccommodationCTA />
-      <GallerySection />
+      <HomeGalleryCarousel />
       <RegistrationFormSection />
     </main>
   );
