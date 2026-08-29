@@ -58,7 +58,6 @@ const TRANSIT_OPTIONS = [
 ];
 
 export function HowToReachSection() {
-  const [selectedTransit, setSelectedTransit] = useState(TRANSIT_OPTIONS[0].id);
   const [copied, setCopied] = useState(false);
 
   const campusAddress = 'Indian Institute of Information Technology Bhagalpur, Sabour, Bhagalpur, Bihar 813210';
@@ -169,37 +168,25 @@ export function HowToReachSection() {
               </div>
             </div>
 
-            {/* Right Column: 5 Transit Mode Option Cards */}
+            {/* Right Column: 5 Transit Mode Option Cards with Pure Hover Effects */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-3 sm:space-y-3.5">
               {TRANSIT_OPTIONS.map((transit) => {
                 const IconComponent = transit.icon;
-                const isSelected = selectedTransit === transit.id;
 
                 return (
                   <div
                     key={transit.id}
-                    onClick={() => setSelectedTransit(transit.id)}
-                    className={`rounded-[20px] p-4 sm:p-4.5 border transition-all duration-300 flex items-center justify-between gap-4 cursor-pointer select-none ${
-                      isSelected
-                        ? 'bg-white border-maroon-900 shadow-[0_8px_24px_rgba(94,16,28,0.09)] ring-2 ring-maroon-900/20'
-                        : 'bg-cream-050/60 hover:bg-white border-[#ECE6DC] hover:border-maroon-900/30 hover:shadow-xs'
-                    }`}
+                    className="rounded-[20px] p-4 sm:p-4.5 border border-[#ECE6DC] bg-cream-050/60 hover:bg-white hover:border-maroon-900 hover:shadow-[0_8px_24px_rgba(94,16,28,0.09)] hover:ring-2 hover:ring-maroon-900/20 transition-all duration-300 flex items-center justify-between gap-4 group cursor-default select-none"
                   >
                     {/* Left: Icon + Title & Description */}
                     <div className="flex items-start gap-3.5 sm:gap-4 min-w-0">
-                      <div
-                        className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                          isSelected
-                            ? 'bg-maroon-900 text-white shadow-sm'
-                            : 'bg-maroon-050 text-maroon-900 border border-maroon-900/15'
-                        }`}
-                      >
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 bg-maroon-050 text-maroon-900 border border-maroon-900/15 group-hover:bg-maroon-900 group-hover:text-white group-hover:shadow-sm transition-colors duration-200">
                         <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
 
                       <div className="flex flex-col min-w-0">
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="font-display font-bold text-sm sm:text-[15px] text-charcoal-900">
+                          <span className="font-display font-bold text-sm sm:text-[15px] text-charcoal-900 group-hover:text-maroon-900 transition-colors">
                             {transit.title}
                           </span>
                           <span className="font-body text-xs text-charcoal-500 font-semibold">
@@ -213,15 +200,9 @@ export function HowToReachSection() {
                       </div>
                     </div>
 
-                    {/* Right: Distance Badge */}
+                    {/* Right: Distance Badge with Hover Highlight */}
                     <div className="shrink-0">
-                      <span
-                        className={`inline-block px-3 py-1 rounded-full font-mono text-xs font-bold whitespace-nowrap transition-colors ${
-                          isSelected
-                            ? 'bg-maroon-900 text-white shadow-xs'
-                            : 'bg-maroon-050 text-maroon-900 border border-maroon-900/15'
-                        }`}
-                      >
+                      <span className="inline-block px-3 py-1 rounded-full font-mono text-xs font-bold whitespace-nowrap bg-maroon-050 text-maroon-900 border border-maroon-900/15 group-hover:bg-maroon-900 group-hover:text-white group-hover:shadow-xs transition-colors duration-200">
                         {transit.distance}
                       </span>
                     </div>
