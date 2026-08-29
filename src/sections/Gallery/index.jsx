@@ -139,6 +139,30 @@ export function GallerySection() {
     }
   }, [selectedImageIndex]);
 
+  // Lightbox Touch Swipe handlers
+  const lightboxTouchStartX = React.useRef(0);
+  const lightboxTouchStartY = React.useRef(0);
+
+  const handleLightboxTouchStart = (e) => {
+    lightboxTouchStartX.current = e.touches[0].clientX;
+    lightboxTouchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleLightboxTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaX = touchEndX - lightboxTouchStartX.current;
+    const deltaY = touchEndY - lightboxTouchStartY.current;
+
+    if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) {
+        setSelectedImageIndex((prev) => (prev + 1) % filteredItems.length);
+      } else {
+        setSelectedImageIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
+      }
+    }
+  };
+
   const handleShare = () => {
     if (selectedImage) {
       navigator.clipboard.writeText(window.location.origin + '/gallery#' + selectedImage.id);
@@ -196,8 +220,8 @@ export function GallerySection() {
         </div>
 
         {/* Featured Hero Banner: Highlight of the Edition */}
-        <div className="relative rounded-[28px] sm:rounded-[32px] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-8 sm:mb-10 group">
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden">
+        <div className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-6 sm:mb-10 group">
+          <div className="relative aspect-[16/10] sm:aspect-[21/9] w-full overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600&auto=format&fit=crop"
               alt="Grand Academic Procession and Convocation Stage at IIIT Bhagalpur"
@@ -211,16 +235,16 @@ export function GallerySection() {
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/40 to-transparent" />
             
             {/* Banner Information Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 lg:p-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6 z-10">
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-10 lg:p-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 z-10">
               <div className="max-w-2xl space-y-2">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-maroon-900 font-body text-xs font-bold uppercase tracking-wider shadow-sm">
-                  <Sparkles className="w-3.5 h-3.5 fill-maroon-900 text-maroon-900" />
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white text-maroon-900 font-body text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm">
+                  <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-maroon-900 text-maroon-900" />
                   <span>Official Convocation Gallery Archives</span>
                 </div>
-                <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug">
+                <h2 className="font-display font-bold text-xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug">
                   Grand Academic Processions & Medallion Honors
                 </h2>
-                <p className="font-body text-white/80 text-xs sm:text-sm max-w-xl">
+                <p className="font-body text-white/80 text-xs sm:text-sm max-w-xl line-clamp-2 sm:line-clamp-none">
                   Explore moments across 2025 and 2021 editions. Live 2026 photographs and streaming highlights will go live on 26 September 2026.
                 </p>
               </div>
@@ -230,10 +254,10 @@ export function GallerySection() {
                   href="https://drive.google.com/drive/u/3/folders/1R-c4xV0crbNjCzuOWkCi5y2vytPULigu"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-white hover:bg-maroon-050 text-maroon-900 font-body font-semibold text-sm shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] px-5 sm:px-6 rounded-pill bg-white hover:bg-maroon-050 text-maroon-900 font-body font-semibold text-xs sm:text-sm shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  <span>View High-Res Photo</span>
+                  <span>View High-Res Photos</span>
                 </a>
               </div>
             </div>
@@ -241,16 +265,16 @@ export function GallerySection() {
         </div>
 
         {/* Filter and Control Bar */}
-        <div className="bg-white rounded-[24px] p-4 sm:p-5 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-white rounded-[22px] sm:rounded-[24px] p-3.5 sm:p-5 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 sm:mb-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4">
           
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+          {/* Category Filter Pills (Horizontal scroll on mobile) */}
+          <div className="overflow-x-auto no-scrollbar flex items-center gap-1.5 sm:gap-2 pb-0.5 sm:pb-0 -mx-0.5 px-0.5 w-full md:w-auto">
             {CATEGORIES.map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`min-h-[38px] px-4 sm:px-5 rounded-pill font-body text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none cursor-pointer ${
+                className={`min-h-[36px] sm:min-h-[38px] px-3.5 sm:px-5 rounded-pill font-body text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 select-none ${
                   activeCategory === category
                     ? 'bg-maroon-900 text-white shadow-xs'
                     : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'
@@ -261,18 +285,18 @@ export function GallerySection() {
             ))}
           </div>
 
-          {/* Edition / Year Selector with 2026 (Coming Soon) and 2021 */}
-          <div className="flex items-center gap-2.5 w-full md:w-auto justify-end flex-wrap">
-            <span className="font-body text-xs text-charcoal-500 font-semibold uppercase tracking-wider hidden sm:inline">
+          {/* Edition / Year Selector with 2026 and 2021 */}
+          <div className="overflow-x-auto no-scrollbar flex items-center gap-1.5 sm:gap-2.5 w-full md:w-auto justify-start md:justify-end pt-2 md:pt-0 border-t md:border-t-0 border-[#ECE6DC]">
+            <span className="font-body text-xs text-charcoal-500 font-semibold uppercase tracking-wider shrink-0 hidden sm:inline">
               Edition:
             </span>
-            <div className="flex items-center gap-1.5 bg-cream-050 p-1 rounded-pill border border-[#ECE6DC] flex-wrap">
+            <div className="flex items-center gap-1.5 bg-cream-050 p-1 rounded-pill border border-[#ECE6DC] shrink-0">
               {EDITIONS.map((edition) => (
                 <button
                   key={edition.id}
                   type="button"
                   onClick={() => setActiveEdition(edition.id)}
-                  className={`px-3 sm:px-3.5 py-1 rounded-pill text-xs font-body font-medium transition-all cursor-pointer ${
+                  className={`px-3 sm:px-3.5 py-1 rounded-pill text-xs font-body font-medium transition-all cursor-pointer whitespace-nowrap ${
                     activeEdition === edition.id
                       ? 'bg-white text-maroon-900 font-bold shadow-xs border border-maroon-900/20'
                       : 'text-charcoal-600 hover:text-charcoal-900'
@@ -388,19 +412,19 @@ export function GallerySection() {
         )}
 
         {/* Media Press Kit Download Banner */}
-        <div className="mt-16 bg-white rounded-[28px] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-12 sm:mt-16 bg-white rounded-[22px] sm:rounded-[28px] p-6 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="space-y-1 text-center sm:text-left">
-            <h3 className="font-display font-bold text-xl sm:text-2xl text-charcoal-900">
+            <h3 className="font-display font-bold text-lg sm:text-2xl text-charcoal-900">
               Official Media & Press Archive
             </h3>
-            <p className="font-body text-charcoal-600 text-sm max-w-xl">
+            <p className="font-body text-charcoal-600 text-xs sm:text-sm max-w-xl">
               High-resolution print-ready photographs, logo assets, and official press releases for publication and alumni archives.
             </p>
           </div>
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
             <a
               href="mailto:media@iiitbh.ac.in?subject=Request%20Convocation%202026%20High-Res%20Media%20Pack"
-              className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-sm shadow-sm transition-all gap-2 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-xs sm:text-sm shadow-sm transition-all gap-2 cursor-pointer text-center"
             >
               <Download className="w-4 h-4" />
               <span>Request Media Pack (ZIP)</span>
@@ -466,8 +490,12 @@ export function GallerySection() {
               </div>
             </div>
 
-            {/* Main Image Display */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] max-h-[60vh] bg-black flex items-center justify-center overflow-hidden">
+            {/* Main Image Display with Touch Swipe Support */}
+            <div
+              className="relative aspect-[16/10] sm:aspect-[16/9] max-h-[60vh] bg-black flex items-center justify-center overflow-hidden touch-pan-y select-none"
+              onTouchStart={handleLightboxTouchStart}
+              onTouchEnd={handleLightboxTouchEnd}
+            >
               <img
                 src={selectedImage.url}
                 alt={selectedImage.title}

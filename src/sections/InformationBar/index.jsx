@@ -106,22 +106,22 @@ const INFO_BAR_ITEMS = [
 export function InformationBar({ className = '' }) {
   return (
     <div
-      className={`w-full bg-white rounded-[24px] sm:rounded-[28px] border border-[#E4DED4] shadow-[0_8px_30px_rgba(0,0,0,0.06)] px-6 py-6 sm:px-10 sm:py-6 ${className}`}
+      className={`w-full bg-white rounded-[22px] sm:rounded-[28px] border border-[#E4DED4] shadow-[0_8px_30px_rgba(0,0,0,0.06)] px-4 py-4 sm:px-10 sm:py-6 ${className}`}
       aria-label="Convocation Key Information"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-center">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-4 sm:gap-8 items-center">
         {INFO_BAR_ITEMS.map((item) => {
           const IconComponent = item.icon;
           return (
-            <div key={item.label} className="flex items-center gap-4">
-              <div className="shrink-0 flex items-center justify-center">
-                <IconComponent className="w-8 h-8 text-maroon-900" />
+            <div key={item.label} className="flex items-start sm:items-center gap-2.5 sm:gap-4">
+              <div className="shrink-0 flex items-center justify-center mt-0.5 sm:mt-0">
+                <IconComponent className="w-5 h-5 min-[360px]:w-6 min-[360px]:h-6 sm:w-8 sm:h-8 text-maroon-900" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-body text-[12px] font-semibold tracking-wider text-charcoal-600 uppercase">
+              <div className="flex flex-col min-w-0">
+                <span className="font-body text-[10px] sm:text-[12px] font-semibold tracking-wider text-charcoal-600 uppercase">
                   {item.label}
                 </span>
-                <span className="font-body font-medium text-charcoal-900 text-[15px] sm:text-[16px] leading-tight mt-0.5 whitespace-nowrap">
+                <span className="font-body font-medium text-charcoal-900 text-[12.5px] min-[370px]:text-[13.5px] sm:text-[16px] leading-snug sm:leading-tight mt-0.5 whitespace-normal lg:whitespace-nowrap break-words">
                   {item.value}
                 </span>
               </div>

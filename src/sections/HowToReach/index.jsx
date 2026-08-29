@@ -104,39 +104,31 @@ export function HowToReachSection() {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Container Card */}
-        <div className="bg-white rounded-[28px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-6 sm:p-10 lg:p-12 overflow-hidden">
+        <div className="bg-white rounded-[24px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-5 sm:p-10 lg:p-12 overflow-hidden">
           
           {/* Header Row */}
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-3 border border-maroon-900/10 shadow-xs">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-3 border border-maroon-900/10 shadow-xs">
               <Compass className="w-4 h-4 text-maroon-900" />
               <span>Campus Directions & Travel Guide</span>
             </div>
 
-            <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
+            <h2 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
               How To Reach?
             </h2>
-            <p className="font-body text-charcoal-600 text-base sm:text-lg mt-3">
+            <p className="font-body text-charcoal-600 text-sm sm:text-lg mt-2 sm:mt-3">
               Comprehensive transit routes by air, rail, highway, and local cabs to the permanent campus of IIIT Bhagalpur at Sabour.
             </p>
           </div>
 
           {/* 2-Column Main Layout: Left Map + Right Transit Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch">
             
             {/* Left Column: Interactive Map & Direction Card */}
-            <div className="lg:col-span-7 flex flex-col justify-between relative rounded-[24px] sm:rounded-[28px] overflow-hidden border border-[#E8E2D8] bg-[#F5F2EB] shadow-sm min-h-[380px] sm:min-h-[440px] lg:min-h-[500px]">
-              {/* Embedded Google Maps View */}
-              <iframe
-                title="IIIT Bhagalpur Campus Map Location"
-                src="https://maps.google.com/maps?q=Indian%20Institute%20of%20Information%20Technology%20Bhagalpur%20Sabour&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                className="w-full h-full min-h-[380px] sm:min-h-[440px] lg:min-h-[500px] border-0 outline-none focus:outline-none"
-                loading="lazy"
-                allowFullScreen
-              />
-
-              {/* Map Floating Info Badge Overlay (Top Left) */}
-              <div className="absolute top-4 left-4 right-4 sm:right-auto sm:max-w-xs p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E8E2D8] shadow-md pointer-events-auto">
+            <div className="lg:col-span-7 flex flex-col justify-between relative rounded-[20px] sm:rounded-[28px] overflow-hidden border border-[#E8E2D8] bg-[#F5F2EB] shadow-sm">
+              
+              {/* Top Floating Badge on Desktop (sm+) only */}
+              <div className="hidden sm:block sm:absolute sm:top-4 sm:left-4 sm:right-auto sm:max-w-xs p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E8E2D8] shadow-md z-10 pointer-events-auto">
                 <div className="flex items-start justify-between gap-2">
                   <div className="space-y-0.5">
                     <h3 className="font-display font-bold text-sm sm:text-base text-charcoal-900 leading-tight">
@@ -165,14 +157,25 @@ export function HowToReachSection() {
                 </div>
               </div>
 
-              {/* Bottom Address Action Floating Card (Bottom Left) */}
-              <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm p-4 rounded-2xl bg-maroon-900 text-white shadow-xl border border-maroon-700/50 backdrop-blur-md pointer-events-auto flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+              {/* Embedded Google Maps View - Taller on mobile so plenty of map shows */}
+              <div className="w-full h-[320px] sm:h-[440px] lg:h-[500px]">
+                <iframe
+                  title="IIIT Bhagalpur Campus Map Location"
+                  src="https://maps.google.com/maps?q=Indian%20Institute%20of%20Information%20Technology%20Bhagalpur%20Sabour&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  className="w-full h-full border-0 outline-none focus:outline-none"
+                  loading="lazy"
+                  allowFullScreen
+                />
+              </div>
+
+              {/* Combined Unified Address & Map Actions Card (Floating on Desktop, Clean Bottom Card on Mobile) */}
+              <div className="p-4 rounded-t-none sm:rounded-2xl bg-maroon-900 text-white shadow-xl border-t sm:border border-maroon-700/50 backdrop-blur-md z-10 sm:absolute sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
                   <div className="font-mono text-[11px] text-gold-400 font-bold uppercase tracking-wider">
                     IIIT Bhagalpur Campus
                   </div>
                   <div className="font-body text-xs text-white/90 leading-tight">
-                    Sabour, Bhagalpur — 813210
+                    Sabour, Bhagalpur — 813210 (Bihar)
                   </div>
                 </div>
 
@@ -181,7 +184,7 @@ export function HowToReachSection() {
                     href={googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center min-h-[38px] px-4 rounded-pill bg-gold-500 hover:bg-gold-400 text-charcoal-950 font-body font-bold text-xs shadow-sm transition-all gap-1.5 cursor-pointer focus:outline-none focus-visible:outline-none"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center min-h-[38px] px-4 rounded-pill bg-gold-500 hover:bg-gold-400 text-charcoal-950 font-body font-bold text-xs shadow-sm transition-all gap-1.5 cursor-pointer focus:outline-none focus-visible:outline-none whitespace-nowrap"
                   >
                     <span>Open Map</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -189,7 +192,7 @@ export function HowToReachSection() {
                   <button
                     type="button"
                     onClick={handleCopyAddress}
-                    className="w-9 h-9 rounded-pill bg-white/15 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer focus:outline-none focus-visible:outline-none"
+                    className="w-9 h-9 rounded-pill bg-white/15 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer focus:outline-none focus-visible:outline-none shrink-0"
                     title="Copy full address"
                   >
                     {copied ? <Check className="w-4 h-4 text-emerald-300" /> : <Copy className="w-4 h-4" />}
@@ -198,40 +201,47 @@ export function HowToReachSection() {
               </div>
             </div>
 
-            {/* Right Column: 5 Transit Mode Option Cards (No blue ring/border on hover) */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-3 sm:space-y-3.5">
+            {/* Right Column: 5 Transit Mode Option Cards (Title fits 1 line on mobile) */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-2.5 sm:space-y-3.5">
               {TRANSIT_OPTIONS.map((transit) => {
                 const IconComponent = transit.icon;
 
                 return (
                   <div
                     key={transit.id}
-                    className="rounded-[20px] p-4 sm:p-4.5 border border-[#ECE6DC] bg-cream-050/60 hover:bg-white hover:border-maroon-900 hover:shadow-[0_8px_24px_rgba(94,16,28,0.08)] outline-none focus:outline-none transition-all duration-300 flex items-center justify-between gap-4 group cursor-default select-none"
+                    className="rounded-[18px] sm:rounded-[20px] p-3.5 sm:p-4 border border-[#ECE6DC] bg-cream-050/60 hover:bg-white hover:border-maroon-900 hover:shadow-[0_8px_24px_rgba(94,16,28,0.08)] outline-none focus:outline-none transition-all duration-300 flex items-center justify-between gap-3 sm:gap-4 group cursor-default select-none"
                   >
                     {/* Left: Icon + Title & Description */}
-                    <div className="flex items-start gap-3.5 sm:gap-4 min-w-0">
-                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 bg-maroon-050 text-maroon-900 border border-maroon-900/15 group-hover:bg-maroon-900 group-hover:text-white group-hover:shadow-sm transition-colors duration-200">
-                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <div className="flex items-start gap-3 sm:gap-3.5 min-w-0 flex-1">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 bg-maroon-050 text-maroon-900 border border-maroon-900/15 group-hover:bg-maroon-900 group-hover:text-white group-hover:shadow-sm transition-colors duration-200 mt-0.5">
+                        <IconComponent className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
                       </div>
 
-                      <div className="flex flex-col min-w-0">
-                        <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="font-display font-bold text-sm sm:text-[15px] text-charcoal-900 group-hover:text-maroon-900 transition-colors">
-                            {transit.title}
-                          </span>
-                          <span className="font-body text-xs text-charcoal-500 font-semibold">
-                            {transit.subtext}
+                      <div className="flex flex-col min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1.5 flex-nowrap min-w-0">
+                            <span className="font-display font-bold text-[12.5px] min-[360px]:text-[13.5px] sm:text-[15px] text-charcoal-900 group-hover:text-maroon-900 transition-colors whitespace-nowrap">
+                              {transit.title}
+                            </span>
+                            <span className="font-body text-[10.5px] min-[360px]:text-[11px] sm:text-xs text-charcoal-500 font-semibold whitespace-nowrap">
+                              {transit.subtext}
+                            </span>
+                          </div>
+
+                          {/* Mobile Distance Badge in top header line */}
+                          <span className="sm:hidden inline-block px-2 py-0.5 rounded-full font-mono text-[10.5px] font-bold whitespace-nowrap bg-maroon-050 text-maroon-900 border border-maroon-900/15 shrink-0">
+                            {transit.distance}
                           </span>
                         </div>
 
-                        <p className="font-body text-charcoal-600 text-xs sm:text-[13px] mt-1 leading-relaxed">
+                        <p className="font-body text-charcoal-600 text-[11px] min-[360px]:text-[12px] sm:text-[13px] mt-0.5 sm:mt-1 leading-relaxed">
                           {transit.description}
                         </p>
                       </div>
                     </div>
 
-                    {/* Right: Distance Badge with Hover Highlight */}
-                    <div className="shrink-0">
+                    {/* Right: Distance Badge on Desktop/Tablet */}
+                    <div className="hidden sm:block shrink-0">
                       <span className="inline-block px-3 py-1 rounded-full font-mono text-xs font-bold whitespace-nowrap bg-maroon-050 text-maroon-900 border border-maroon-900/15 group-hover:bg-maroon-900 group-hover:text-white group-hover:shadow-xs transition-colors duration-200">
                         {transit.distance}
                       </span>

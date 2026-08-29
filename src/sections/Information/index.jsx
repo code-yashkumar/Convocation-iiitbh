@@ -46,7 +46,7 @@ const GUIDELINES = [
 
 export function InformationSection() {
   return (
-    <section className="py-16 max-w-container mx-auto px-5 sm:px-10 lg:px-20" id="information">
+    <section className="py-8 sm:py-16 max-w-container mx-auto px-4 sm:px-10 lg:px-20" id="information">
       <SEO
         title="Guidelines, Academic Regalia & Protocol | 3rd Convocation 2026 — IIIT Bhagalpur"
         description="Essential dress code regulations, ceremonial stole guidelines, guest entry rules, degree in absentia dispatch protocols, and FAQs for IIIT Bhagalpur Convocation."
@@ -76,17 +76,17 @@ export function InformationSection() {
           }
         }}
       />
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-maroon-050 mb-3">
+      <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-maroon-050 mb-2 sm:mb-3">
           <span className="type-label text-maroon-900 uppercase">Guidelines & FAQs</span>
         </div>
-        <h1 className="type-display-lg text-text-default">General Instructions & Protocol</h1>
-        <p className="type-body-lg text-text-muted mt-2">
+        <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-text-default">General Instructions & Protocol</h1>
+        <p className="type-body-lg text-text-muted mt-2 text-sm sm:text-base">
           Essential guidelines for graduating scholars, faculty, and visiting guests.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
         {GUIDELINES.map((guide, idx) => {
           const Icon = guide.icon;
           return (

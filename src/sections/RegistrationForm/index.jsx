@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import { CheckCircle2, AlertCircle, MapPin, Package, Sparkles } from 'lucide-react';
-import { trackEvent } from '../../utils/analytics';
+import { trackCustomEvent } from '../../utils/telemetry';
 
 export function RegistrationFormSection() {
   const [formData, setFormData] = useState({
@@ -66,7 +66,7 @@ export function RegistrationFormSection() {
     } finally {
       setIsSubmitting(false);
       setSubmitted(true);
-      trackEvent('registration_submitted', {
+      trackCustomEvent('registration_submitted', {
         degree: formData.degree,
         department: formData.department,
         attending_in_person: formData.attendingInPerson,
@@ -82,13 +82,13 @@ export function RegistrationFormSection() {
   };
 
   return (
-    <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 max-w-container mx-auto px-5 sm:px-10 lg:px-20 scroll-mt-20 sm:scroll-mt-24" id="registration">
-      <div className="text-center max-w-2xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-maroon-050 mb-3">
+    <section className="pt-8 pb-6 sm:pt-10 sm:pb-8 max-w-container mx-auto px-4 sm:px-10 lg:px-20 scroll-mt-20 sm:scroll-mt-24" id="registration">
+      <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-maroon-050 mb-2 sm:mb-3">
           <span className="type-label text-maroon-900 uppercase">Degree Conferment Portal</span>
         </div>
-        <h2 className="type-display-lg text-text-default">Convocation Registration</h2>
-        <p className="type-body-lg text-text-muted mt-2">
+        <h2 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-text-default">Convocation Registration</h2>
+        <p className="type-body-lg text-text-muted mt-2 text-sm sm:text-base">
           Graduating students must register before October 31, 2026 to confirm attendance, regalia sizing, or postal degree delivery.
         </p>
       </div>
@@ -211,11 +211,11 @@ export function RegistrationFormSection() {
                     id="degree"
                     value={formData.degree}
                     onChange={(e) => handleChange('degree', e.target.value)}
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
+                    className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
                   >
-                    <option value="B.Tech">Bachelor of Technology (B.Tech)</option>
-                    <option value="M.Tech">Master of Technology (M.Tech)</option>
-                    <option value="Ph.D.">Doctor of Philosophy (Ph.D.)</option>
+                    <option value="B.Tech">B.Tech (Bachelor of Technology)</option>
+                    <option value="M.Tech">M.Tech (Master of Technology)</option>
+                    <option value="Ph.D.">Ph.D. (Doctor of Philosophy)</option>
                   </select>
                 </div>
 
@@ -227,12 +227,12 @@ export function RegistrationFormSection() {
                     id="department"
                     value={formData.department}
                     onChange={(e) => handleChange('department', e.target.value)}
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
+                    className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
                   >
-                    <option value="CSE">Computer Science & Engineering (CSE)</option>
-                    <option value="ECE">Electronics & Communication Engineering (ECE)</option>
-                    <option value="MEA">Mechatronics & Automation (MEA)</option>
-                    <option value="BSH">Basic Sciences & Humanities</option>
+                    <option value="CSE">CSE — Computer Science & Engg.</option>
+                    <option value="ECE">ECE — Electronics & Comm. Engg.</option>
+                    <option value="MEA">MEA — Mechatronics & Automation</option>
+                    <option value="BSH">BSH — Basic Sciences & Humanities</option>
                   </select>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.email)}
                     aria-describedby={errors.email ? 'email-error' : undefined}
                     placeholder="yash@iiitbh.ac.in"
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px]"
+                    className="w-full min-h-[46px] px-3.5 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[14px] sm:text-[15px] box-border"
                   />
                   {errors.email && (
                     <p id="email-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -275,7 +275,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.phone)}
                     aria-describedby={errors.phone ? 'phone-error' : undefined}
                     placeholder="+91 9876543210"
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px]"
+                    className="w-full min-h-[46px] px-3.5 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[14px] sm:text-[15px] box-border"
                   />
                   {errors.phone && (
                     <p id="phone-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -298,10 +298,10 @@ export function RegistrationFormSection() {
                         id="attendingInPerson"
                         value={formData.attendingInPerson}
                         onChange={(e) => handleChange('attendingInPerson', e.target.value)}
-                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
+                        className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
                       >
-                        <option value="yes">Yes, in person (Robes assigned)</option>
-                        <option value="no">No, in absentia (Degree via post)</option>
+                        <option value="yes">Yes, in Person (Robes assigned)</option>
+                        <option value="no">No, in Absentia (Degree via post)</option>
                       </select>
                     </div>
 
@@ -313,7 +313,7 @@ export function RegistrationFormSection() {
                         id="regaliaSize"
                         value={formData.regaliaSize}
                         onChange={(e) => handleChange('regaliaSize', e.target.value)}
-                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
+                        className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
                       >
                         <option value="S">Small (Height: 5'0" – 5'4")</option>
                         <option value="M">Medium (Height: 5'5" – 5'9")</option>
@@ -333,10 +333,10 @@ export function RegistrationFormSection() {
                         id="attendingInPerson"
                         value={formData.attendingInPerson}
                         onChange={(e) => handleChange('attendingInPerson', e.target.value)}
-                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
+                        className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
                       >
-                        <option value="yes">Yes, in person (Robes assigned)</option>
-                        <option value="no">No, in absentia (Degree via post)</option>
+                        <option value="yes">Yes, in Person (Robes assigned)</option>
+                        <option value="no">No, in Absentia (Degree via post)</option>
                       </select>
                     </div>
 

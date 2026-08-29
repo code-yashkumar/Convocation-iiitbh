@@ -20,6 +20,23 @@
     background-color: var(--color-bg-page);
     color: var(--color-text-default);
     accent-color: #5E101C;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Utility to hide scrollbars while preserving horizontal touch scrolling */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   /* Universal accessible focus ring across keyboard interactions */

@@ -41,7 +41,7 @@ export function CountdownCard({
 
   return (
     <div
-      className={`bg-[#580F1B] text-white rounded-[20px] p-5 sm:p-5.5 shadow-2xl flex flex-col justify-between select-none ${className}`}
+      className={`bg-[#540D17] text-white rounded-[22px] sm:rounded-[26px] p-5 sm:p-5.5 shadow-[0_12px_32px_rgba(84,13,23,0.3)] flex flex-col justify-between select-none border border-white/10 ${className}`}
       aria-label="Convocation Event Countdown"
     >
       {/* Header text */}

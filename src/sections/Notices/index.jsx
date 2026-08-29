@@ -24,7 +24,7 @@ import Modal from '../../components/ui/Modal';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
 import SEO from '../../components/common/SEO';
-import { trackEvent } from '../../utils/analytics';
+import { trackCustomEvent } from '../../utils/telemetry';
 import defaultNoticesData from '../../data/notices.json';
 
 // Helper to fetch and parse notices from Google Sheets
@@ -195,7 +195,7 @@ export function NoticeSection() {
     );
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
-    trackEvent('share_notice', {
+    trackCustomEvent('share_notice', {
       notice_id: notice.id,
       notice_title: notice.title,
       notice_ref: notice.refNo,
@@ -203,7 +203,7 @@ export function NoticeSection() {
   };
 
   const handleDownloadPdf = (notice) => {
-    trackEvent('download_notice_pdf', {
+    trackCustomEvent('download_notice_pdf', {
       notice_id: notice.id,
       notice_title: notice.title,
       notice_ref: notice.refNo,
@@ -277,7 +277,7 @@ export function NoticeSection() {
 
         {/* Featured Pinned Announcement Banner (Only renders when isPinned is true) */}
         {pinnedNotice && (
-          <div className="bg-gradient-to-br from-[#540D17] via-[#66101E] to-[#450A12] rounded-[28px] sm:rounded-[32px] text-white p-8 sm:p-10 lg:p-12 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50 mb-12">
+          <div className="bg-gradient-to-br from-[#540D17] via-[#66101E] to-[#450A12] rounded-[24px] sm:rounded-[32px] text-white p-6 sm:p-10 lg:p-12 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50 mb-8 sm:mb-12">
             {/* Background Aesthetic Glows */}
             <div className="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-gold-500/10 pointer-events-none blur-3xl" />
             <div className="absolute left-1/3 -bottom-20 w-64 h-64 rounded-full bg-white/5 pointer-events-none blur-2xl" />
@@ -362,9 +362,9 @@ export function NoticeSection() {
             )}
           </div>
 
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#ECE6DC]">
-            <div className="flex flex-wrap items-center gap-2">
+          {/* Category Filter Pills (Horizontal touch-scroll on mobile) */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-[#ECE6DC]">
+            <div className="overflow-x-auto no-scrollbar flex items-center gap-2 pb-1 sm:pb-0 -mx-1 px-1">
               {categories.map((cat) => {
                 const count =
                   cat === 'All Notices'
@@ -376,7 +376,7 @@ export function NoticeSection() {
                     key={cat}
                     type="button"
                     onClick={() => setActiveCategory(cat)}
-                    className={`min-h-[36px] px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer flex items-center gap-1.5 ${
+                    className={`min-h-[36px] px-3.5 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer flex items-center gap-1.5 shrink-0 select-none ${
                       activeCategory === cat
                         ? 'bg-maroon-900 text-white shadow-xs'
                         : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'
@@ -397,7 +397,7 @@ export function NoticeSection() {
               })}
             </div>
 
-            <span className="text-xs font-body text-charcoal-500">
+            <span className="text-xs font-body text-charcoal-500 shrink-0">
               Showing <strong>{filteredNotices.length}</strong> official circulars
             </span>
           </div>

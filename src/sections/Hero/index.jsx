@@ -65,9 +65,9 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-screen lg:h-screen lg:min-h-[720px] lg:max-h-[960px] flex flex-col justify-between pt-20 md:pt-24 pb-4 sm:pb-6 overflow-hidden bg-cream-100">
+    <section className="relative w-full min-h-screen lg:h-screen lg:min-h-[720px] lg:max-h-[960px] flex flex-col justify-between pt-20 md:pt-24 pb-6 overflow-hidden bg-cream-100">
       
-      {/* Full-width Background Image Layer starting from top */}
+      {/* Full-width Background Image Layer for Desktop (lg+) */}
       <div
         className="hidden lg:block absolute inset-0 bg-no-repeat bg-right-top bg-cover xl:bg-contain pointer-events-none z-0"
         style={{
@@ -76,96 +76,86 @@ export function Hero() {
       />
 
       {/* Main Middle Content Area */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-10 flex-1 flex items-center py-4 lg:py-2">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-10 flex-1 flex items-center py-2 sm:py-4 lg:py-2">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
           
           {/* Left Column: Hero Content Block (CONVOCATION 2026, Details, CTAs) */}
           <div className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center">
             
             {/* Title & Year */}
-            <div className="mb-3 sm:mb-4">
-              <h1 className="font-display font-bold text-[52px] sm:text-[68px] lg:text-[76px] xl:text-[82px] leading-[0.92] text-charcoal-900 tracking-tight">
-                <span>CONVOCATION</span>
-                <span className="block font-display font-bold text-[54px] sm:text-[70px] lg:text-[78px] xl:text-[84px] leading-[1] text-maroon-900 mt-1">
+            <div className="mb-2 sm:mb-4">
+              <h1 className="font-display font-bold text-[38px] sm:text-[52px] lg:text-[76px] xl:text-[82px] leading-[0.94] lg:leading-[0.92] text-charcoal-900 tracking-tight">
+                <span className="lg:hidden">Convocation</span>
+                <span className="hidden lg:inline">CONVOCATION</span>
+                <span className="block font-display font-bold text-[42px] sm:text-[56px] lg:text-[78px] xl:text-[84px] leading-[1] text-maroon-900 mt-0.5 sm:mt-1">
                   2026
                 </span>
               </h1>
             </div>
 
             {/* Subtitle Statement */}
-            <p className="font-body text-charcoal-900 text-[18px] sm:text-[22px] lg:text-[24px] leading-snug font-normal max-w-md mb-6 sm:mb-8">
-              A milestone of achievement, tradition and new beginnings.
+            <p className="font-body text-charcoal-700 sm:text-charcoal-900 text-[14px] sm:text-[17px] lg:text-[24px] leading-[1.4] sm:leading-snug font-normal max-w-md mb-6 sm:mb-8">
+              <span>A milestone of achievement,</span>
+              <span className="block sm:inline sm:ml-1">tradition and new beginnings.</span>
             </p>
 
-            {/* Event Quick Info Meta (Date + Venue side-by-side) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 max-w-lg mb-6 sm:mb-8">
+            {/* Event Quick Info Meta (Date + Venue) */}
+            <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3.5 sm:gap-6 max-w-lg mb-6 sm:mb-8">
               {/* Date Block */}
-              <div className="flex items-start gap-3.5">
-                <div className="shrink-0 mt-0.5">
-                  <HeroCalendarIcon className="w-7 h-7 text-maroon-900" />
+              <div className="flex items-center sm:items-start gap-3 sm:gap-3.5">
+                <div className="shrink-0">
+                  <HeroCalendarIcon className="w-6 h-6 sm:w-7 sm:h-7 text-maroon-900" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-body font-semibold text-charcoal-900 text-[15px] sm:text-[16px] leading-tight">
+                  <span className="font-body font-bold sm:font-semibold text-charcoal-900 text-[13.5px] sm:text-[15px] lg:text-[16px] leading-tight">
                     26 September 2026
                   </span>
-                  <span className="font-body text-charcoal-600 text-[13px] sm:text-[14px] leading-tight mt-0.5">
+                  <span className="font-body text-charcoal-600 text-[12px] sm:text-[13px] lg:text-[14px] leading-tight mt-0.5">
                     Saturday, 10:00 AM
                   </span>
                 </div>
               </div>
 
               {/* Venue Block */}
-              <div className="flex items-start gap-3.5">
-                <div className="shrink-0 mt-0.5">
-                  <HeroPinIcon className="w-7 h-7 text-maroon-900" />
+              <div className="flex items-center sm:items-start gap-3 sm:gap-3.5">
+                <div className="shrink-0">
+                  <HeroPinIcon className="w-6 h-6 sm:w-7 sm:h-7 text-maroon-900" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-body font-semibold text-charcoal-900 text-[15px] sm:text-[16px] leading-tight">
+                  <span className="font-body font-bold sm:font-semibold text-charcoal-900 text-[13.5px] sm:text-[15px] lg:text-[16px] leading-tight">
                     Main Lecture Hall
                   </span>
-                  <span className="font-body text-charcoal-600 text-[13px] sm:text-[14px] leading-tight mt-0.5">
+                  <span className="font-body text-charcoal-600 text-[12px] sm:text-[13px] lg:text-[14px] leading-tight mt-0.5">
                     IIIT Bhagalpur Campus
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Action Buttons (Smooth scrolling directly to section) */}
-            <div className="flex flex-wrap items-center gap-4">
+            {/* Action Buttons */}
+            <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-4 w-full lg:w-auto">
               <a
                 href="#registration"
                 onClick={(e) => handleScrollToSection(e, 'registration')}
-                className="inline-flex items-center justify-center min-h-[46px] px-8 rounded-pill bg-maroon-900 text-white font-body font-medium text-[15px] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
+                className="w-full lg:w-auto inline-flex items-center justify-center min-h-[50px] lg:min-h-[46px] px-8 rounded-[14px] lg:rounded-pill bg-maroon-900 text-white font-body font-semibold text-[15px] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer text-center"
               >
                 Register Now
               </a>
               <a
                 href="#schedule"
                 onClick={(e) => handleScrollToSection(e, 'schedule')}
-                className="group inline-flex items-center justify-center min-h-[46px] px-7 rounded-pill bg-white/80 border-2 border-maroon-900/30 text-maroon-900 font-body font-semibold text-[15px] shadow-sm hover:border-maroon-900 hover:bg-white hover:shadow-md hover:scale-[1.01] active:scale-95 transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer"
+                className="group w-full lg:w-auto inline-flex items-center justify-between lg:justify-center min-h-[50px] lg:min-h-[46px] px-6 lg:px-7 rounded-[14px] lg:rounded-pill bg-[#FBF9F6] border border-maroon-900 lg:border-maroon-900/30 text-maroon-900 font-body font-semibold text-[15px] shadow-xs lg:hover:border-maroon-900 hover:bg-white hover:shadow-md transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer text-center"
               >
-                <span>View Schedule</span>
-                <ArrowRight className="w-4 h-4 stroke-[2.5] text-maroon-900 group-hover:translate-x-1 transition-transform" />
+                <span className="flex-1 lg:flex-none text-center">View Schedule</span>
+                <ArrowRight className="w-4 h-4 stroke-[2.5] text-maroon-900 group-hover:translate-x-1 transition-transform shrink-0" />
               </a>
             </div>
-          </div>
 
-          {/* Right Column for Mobile/Tablet (< lg) */}
-          <div className="lg:hidden col-span-1 flex flex-col space-y-4">
-            <div className="w-full overflow-hidden rounded-2xl shadow-sm">
-              <img
-                src="/assets/convocation-hero-bg.png"
-                alt="IIIT Bhagalpur 3rd Convocation Ceremony - Dignitaries Presenting Degree Scrolls"
-                width="800"
-                height="533"
-                loading="eager"
-                fetchPriority="high"
-                className="w-full h-auto object-cover select-none"
-              />
-            </div>
-            <div className="w-full sm:w-[260px] mx-auto mb-6">
+            {/* Mobile Countdown Card (< lg) positioned directly under CTA buttons */}
+            <div className="lg:hidden w-full mt-5">
               <CountdownCard />
             </div>
+
           </div>
 
         </div>
@@ -176,7 +166,7 @@ export function Hero() {
         <CountdownCard />
       </div>
 
-      {/* Bottom Floating White Information Bar Container (Visible in Initial Screen) */}
+      {/* Bottom Floating White Information Bar Container */}
       <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-20 mt-4 lg:mt-2">
         <InformationBar />
       </div>

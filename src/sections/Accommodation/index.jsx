@@ -3,7 +3,7 @@ import { Building, MapPin, Phone, Star, Compass, ExternalLink, Mail, Hotel, Shie
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import SEO from '../../components/common/SEO';
-import { trackEvent } from '../../utils/analytics';
+import { trackCustomEvent } from '../../utils/telemetry';
 
 const NEARBY_HOTELS = [
   {
@@ -116,7 +116,7 @@ export function AccommodationSection() {
     navigator.clipboard.writeText(code);
     setCopiedCode(code);
     setTimeout(() => setCopiedCode(null), 2500);
-    trackEvent('copy_hotel_discount_code', { promo_code: code });
+    trackCustomEvent('copy_hotel_discount_code', { promo_code: code });
   };
 
   return (
@@ -150,39 +150,39 @@ export function AccommodationSection() {
           }
         }}
       />
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-12">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-4 border border-maroon-900/10 shadow-xs">
-            <Hotel className="w-4 h-4 text-maroon-900" />
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-[11.5px] sm:text-sm font-semibold mb-3 sm:mb-4 border border-maroon-900/10 shadow-xs whitespace-nowrap">
+            <Hotel className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-maroon-900 shrink-0" />
             <span>Alumni & Guest Hospitality</span>
           </div>
 
-          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
+          <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
             Accommodation & Nearby Hotels
           </h1>
-          <p className="font-body text-charcoal-600 text-base sm:text-lg mt-3">
+          <p className="font-body text-charcoal-600 text-sm sm:text-lg mt-2 sm:mt-3">
             Handpicked lodging options, partner hotel tariffs, and campus guest house details for alumni, parents, and guests attending the 3rd Convocation.
           </p>
         </div>
 
         {/* Campus Guest House Notice Banner */}
-        <div className="bg-white rounded-[24px] border border-[#E8E2D8] p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-maroon-050 text-maroon-900 flex items-center justify-center shrink-0 border border-maroon-900/15">
-              <Building className="w-6 h-6" />
+        <div className="bg-white rounded-[22px] sm:rounded-[24px] border border-[#E8E2D8] p-5 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] mb-8 sm:mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
+          <div className="flex items-start gap-3.5 sm:gap-4">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-maroon-050 text-maroon-900 flex items-center justify-center shrink-0 border border-maroon-900/15">
+              <Building className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h3 className="font-display font-bold text-xl text-charcoal-900">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h3 className="font-display font-bold text-lg sm:text-xl text-charcoal-900">
                   IIIT Bhagalpur Campus Guest House
                 </h3>
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold">
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] sm:text-xs font-semibold whitespace-nowrap">
                   Limited Rooms
                 </span>
               </div>
-              <p className="font-body text-charcoal-600 text-sm mt-1 max-w-2xl">
+              <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-1 max-w-2xl">
                 On-campus guest rooms are reserved for visiting dignitaries, keynote speakers, and immediate family of medalists on a first-come, first-served basis.
               </p>
             </div>
@@ -191,32 +191,32 @@ export function AccommodationSection() {
           <div className="flex items-center gap-3 shrink-0 w-full md:w-auto">
             <a
               href="mailto:guesthouse@iiitbh.ac.in?subject=Convocation%20Guest%20House%20Enquiry"
-              className="inline-flex items-center justify-center min-h-[44px] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-sm shadow-sm hover:bg-maroon-700 transition-all gap-2 w-full md:w-auto"
+              className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-xs sm:text-sm shadow-sm hover:bg-maroon-700 transition-all gap-2 w-full md:w-auto text-center whitespace-nowrap"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-4 h-4 shrink-0" />
               <span>Enquire Guest House</span>
             </a>
           </div>
         </div>
 
         {/* Nearby Verified Hotels Grid */}
-        <div className="mb-16">
-          <div className="flex items-center justify-between mb-8">
+        <div className="mb-12 sm:mb-16">
+          <div className="flex items-center justify-between mb-6 sm:mb-8">
             <div>
-              <h2 className="font-display font-bold text-2xl sm:text-3xl text-charcoal-900">
+              <h2 className="font-display font-bold text-xl sm:text-3xl text-charcoal-900">
                 Recommended Hotels & Lodging in Bhagalpur
               </h2>
-              <p className="font-body text-charcoal-600 text-sm sm:text-base mt-1">
+              <p className="font-body text-charcoal-600 text-xs sm:text-base mt-1">
                 Verified hotels situated within 15–20 minutes drive from IIIT Bhagalpur campus.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
             {NEARBY_HOTELS.map((hotel) => (
               <div
                 key={hotel.id}
-                className="bg-white rounded-[24px] p-6 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-[22px] sm:rounded-[24px] p-5 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Category Badge & Rating */}

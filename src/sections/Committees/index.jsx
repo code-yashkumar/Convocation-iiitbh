@@ -460,67 +460,67 @@ export function CommitteeSection() {
           }
         }}
       />
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-12">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-4 border border-maroon-900/10 shadow-xs">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-3 sm:mb-4 border border-maroon-900/10 shadow-xs">
             <Users className="w-4 h-4 text-maroon-900" />
             <span>Institutional Governance</span>
           </div>
 
-          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
+          <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
             Organizing Committees
           </h1>
-          <p className="font-body text-charcoal-600 text-base sm:text-lg mt-3">
+          <p className="font-body text-charcoal-600 text-sm sm:text-lg mt-2 sm:mt-3">
             Official roster of 40+ faculty conveners, administrative officers, and committee members across 22 specialized task forces for the 3rd Convocation.
           </p>
         </div>
 
         {/* Executive Stats Banner */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white rounded-[24px] p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-maroon-050 text-maroon-900 flex items-center justify-center shrink-0 border border-maroon-900/15">
-              <Shield className="w-6 h-6" />
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12">
+          <div className="bg-white rounded-2xl sm:rounded-[24px] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-maroon-050 text-maroon-900 flex items-center justify-center shrink-0 border border-maroon-900/15">
+              <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <div className="font-display font-bold text-2xl text-charcoal-900">22 Committees</div>
+              <div className="font-display font-bold text-xl sm:text-2xl text-charcoal-900">22 Committees</div>
               <div className="font-body text-xs text-charcoal-600 mt-0.5">Specialized Task Forces</div>
             </div>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-gold-500/20 text-maroon-900 flex items-center justify-center shrink-0 border border-gold-500/30">
-              <UserCheck className="w-6 h-6" />
+          <div className="bg-white rounded-2xl sm:rounded-[24px] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gold-500/20 text-maroon-900 flex items-center justify-center shrink-0 border border-gold-500/30">
+              <UserCheck className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <div className="font-display font-bold text-2xl text-charcoal-900">40+ Members</div>
+              <div className="font-display font-bold text-xl sm:text-2xl text-charcoal-900">40+ Members</div>
               <div className="font-body text-xs text-charcoal-600 mt-0.5">Faculty & Staff Appointees</div>
             </div>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-200">
-              <CheckCircle2 className="w-6 h-6" />
+          <div className="bg-white rounded-2xl sm:rounded-[24px] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-200">
+              <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <div className="font-display font-bold text-2xl text-charcoal-900">Full Preparedness</div>
+              <div className="font-display font-bold text-xl sm:text-2xl text-charcoal-900">Full Preparedness</div>
               <div className="font-body text-xs text-charcoal-600 mt-0.5">26 September 2026</div>
             </div>
           </div>
         </div>
 
         {/* Search & Filter Controls */}
-        <div className="bg-white rounded-[24px] p-5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-10 space-y-4">
+        <div className="bg-white rounded-[22px] sm:rounded-[24px] p-4 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 sm:mb-10 space-y-3.5 sm:space-y-4">
           {/* Search Input */}
           <div className="relative w-full">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-charcoal-400" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-5 sm:h-5 text-charcoal-400" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search by faculty name, designation, department, or committee name..."
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-cream-050 border border-[#ECE6DC] font-body text-sm text-charcoal-900 placeholder:text-charcoal-400 focus:outline-none focus:border-maroon-900 focus:bg-white transition-all"
+              placeholder="Search by faculty name, designation, or committee..."
+              className="w-full pl-11 sm:pl-12 pr-4 py-2.5 sm:py-3 rounded-xl bg-cream-050 border border-[#ECE6DC] font-body text-xs sm:text-sm text-charcoal-900 placeholder:text-charcoal-400 focus:outline-none focus:border-maroon-900 focus:bg-white transition-all"
             />
             {searchTerm && (
               <button
@@ -533,14 +533,14 @@ export function CommitteeSection() {
             )}
           </div>
 
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#ECE6DC]">
+          {/* Category Filter Pills (Horizontal scroll on mobile) */}
+          <div className="overflow-x-auto no-scrollbar flex items-center gap-1.5 sm:gap-2 pt-2 border-t border-[#ECE6DC] -mx-1 px-1">
             {CATEGORIES.map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`min-h-[34px] px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer ${
+                className={`min-h-[34px] px-3.5 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 select-none ${
                   activeCategory === category
                     ? 'bg-maroon-900 text-white shadow-xs'
                     : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'

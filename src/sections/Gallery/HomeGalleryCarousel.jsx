@@ -92,6 +92,62 @@ export function HomeGalleryCarousel() {
     };
   }, [isPlaying, nextSlide]);
 
+  // Touch and Drag swipe state & handlers
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    setIsPlaying(false);
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    setIsPlaying(true);
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaX = touchEndX - touchStartX.current;
+    const deltaY = touchEndY - touchStartY.current;
+
+    // Detect horizontal swipe if deltaX exceeds threshold and exceeds vertical movement
+    if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    setIsPlaying(false);
+    isDragging.current = true;
+    dragStartX.current = e.clientX;
+  };
+
+  const handleMouseUp = (e) => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    setIsPlaying(true);
+    const deltaX = e.clientX - dragStartX.current;
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging.current) {
+      isDragging.current = false;
+    }
+    setIsPlaying(true);
+  };
+
   // 3D Circular Ring Transformation Calculator
   const getSlideStyle = (index) => {
     let offset = (index - currentIndex) % totalSlides;
@@ -187,12 +243,16 @@ export function HomeGalleryCarousel() {
           </div>
         </div>
 
-        {/* 3D Circular Ring Carousel Container */}
+        {/* 3D Circular Ring Carousel Container with Touch & Drag Swipe Support */}
         <div
-          className="relative max-w-[1020px] mx-auto h-[380px] sm:h-[440px] lg:h-[490px] flex items-center justify-center select-none"
+          className="relative max-w-[1020px] mx-auto h-[380px] sm:h-[440px] lg:h-[490px] flex items-center justify-center select-none cursor-grab active:cursor-grabbing touch-pan-y"
           style={{ perspective: '1200px' }}
           onMouseEnter={() => setIsPlaying(false)}
-          onMouseLeave={() => setIsPlaying(true)}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
         >
           {/* Slides positioned in 3D circular cylinder space */}
           <div

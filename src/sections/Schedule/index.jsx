@@ -86,17 +86,17 @@ export function ScheduleSection() {
         <div className="bg-white rounded-[28px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-6 sm:p-10 lg:p-12 overflow-hidden">
           
           {/* Header Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-10">
             <div>
               <span className="font-body font-bold text-xs sm:text-[13px] text-maroon-900 tracking-wider uppercase block mb-1">
                 Event Schedule
               </span>
-              <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
+              <h2 className="font-display font-bold text-[28px] sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
                 Schedule of Events
               </h2>
             </div>
 
-            <div>
+            <div className="hidden sm:block">
               <button
                 type="button"
                 onClick={() => setIsFullScheduleOpen(true)}
@@ -108,7 +108,7 @@ export function ScheduleSection() {
           </div>
 
           {/* 2-Column Grid: Left Timeline + Right College Image */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-stretch">
             
             {/* Left Column: Balanced Symmetrical Timeline List */}
             <div className="lg:col-span-6 flex flex-col justify-between py-1">
@@ -117,19 +117,19 @@ export function ScheduleSection() {
                   const isFirst = idx === 0;
                   const isLast = idx === SUMMARY_SCHEDULE.length - 1;
                   return (
-                    <div key={item.id} className="flex items-stretch gap-3.5 sm:gap-5 group">
+                    <div key={item.id} className="flex items-stretch gap-3 sm:gap-5 group">
                       
                       {/* Column 1: Vertical Center Line + Bullet Node */}
-                      <div className="flex flex-col items-center shrink-0 w-6 relative">
+                      <div className="flex flex-col items-center shrink-0 w-5 sm:w-6 relative">
                         {/* Top Line Segment connecting directly to bullet center */}
                         <div
                           className={`w-[2px] bg-[#E8E2D8] ${
-                            isFirst ? 'h-5 opacity-0' : 'h-5'
+                            isFirst ? 'h-4 sm:h-5 opacity-0' : 'h-4 sm:h-5'
                           }`}
                         />
 
                         {/* Circular Maroon Bullet Node */}
-                        <div className="w-4 h-4 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs flex items-center justify-center shrink-0 z-10">
+                        <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs flex items-center justify-center shrink-0 z-10">
                           <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
                         </div>
 
@@ -142,8 +142,8 @@ export function ScheduleSection() {
                       </div>
 
                       {/* Column 2: Event Time */}
-                      <div className={`w-16 sm:w-20 shrink-0 ${isFirst ? 'pt-2.5' : 'pt-4 sm:pt-4.5'}`}>
-                        <span className="font-body font-bold text-xs sm:text-sm text-charcoal-700 whitespace-nowrap">
+                      <div className={`w-18 sm:w-20 shrink-0 ${isFirst ? 'pt-2' : 'pt-3.5 sm:pt-4.5'}`}>
+                        <span className="font-body font-bold text-xs sm:text-sm text-charcoal-800 whitespace-nowrap">
                           {item.time}
                         </span>
                       </div>
@@ -151,13 +151,13 @@ export function ScheduleSection() {
                       {/* Column 3: Title & Description with Balanced Dividing Lines */}
                       <div
                         className={`flex-1 border-b border-[#ECE6DC] group-last:border-b-0 min-w-0 ${
-                          isFirst ? 'pt-2 pb-4 sm:pb-5' : 'pt-4 sm:pt-4.5 pb-4 sm:pb-5'
+                          isFirst ? 'pt-1.5 pb-3.5 sm:pb-5' : 'pt-3 sm:pt-4.5 pb-3.5 sm:pb-5'
                         } group-last:pb-2`}
                       >
-                        <h3 className="font-display font-bold text-base sm:text-[17px] text-charcoal-900 leading-snug group-hover:text-maroon-900 transition-colors">
+                        <h3 className="font-display font-bold text-[15px] sm:text-[17px] text-charcoal-900 leading-snug group-hover:text-maroon-900 transition-colors">
                           {item.title}
                         </h3>
-                        <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-1 leading-relaxed">
+                        <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-0.5 sm:mt-1 leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -166,10 +166,21 @@ export function ScheduleSection() {
                   );
                 })}
               </div>
+
+              {/* Mobile View Full Schedule Button */}
+              <div className="sm:hidden mt-6 pt-2 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setIsFullScheduleOpen(true)}
+                  className="w-full inline-flex items-center justify-center min-h-[46px] px-8 rounded-pill bg-white border border-[#D9D0C5] text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
+                >
+                  View Full Schedule
+                </button>
+              </div>
             </div>
 
-            {/* Right Column: College Campus Side Image */}
-            <div className="lg:col-span-6 flex items-center">
+            {/* Right Column: College Campus Side Image (Visible on Desktop / Tablet) */}
+            <div className="hidden lg:flex lg:col-span-6 items-center">
               <div className="relative w-full h-[320px] sm:h-[380px] lg:h-full min-h-[340px] rounded-[24px] sm:rounded-[28px] overflow-hidden border border-[#E8E2D8] shadow-sm bg-cream-100 group">
                 <img
                   src="/assets/iiitbh-campus-schedule.jpg"

@@ -1,11 +1,11 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
 import AccommodationCTA from './components/common/AccommodationCTA';
 import SEO from './components/common/SEO';
-import GoogleAnalytics from './components/common/GoogleAnalytics';
+import { initTelemetry, trackPageView } from './utils/telemetry';
 
 // Section Views
 import Hero from './sections/Hero';
@@ -91,10 +91,22 @@ function PageWrapper({ children }) {
 }
 
 export function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    initTelemetry();
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      trackPageView(location.pathname + location.search, document.title);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [location.pathname, location.search]);
+
   return (
     <div className="min-h-screen flex flex-col bg-cream-100 text-charcoal-900 selection:bg-maroon-050 selection:text-maroon-900 font-body">
       <ScrollToTop />
-      <GoogleAnalytics />
       <NavBar />
       <div className="flex-1">
         <Routes>
