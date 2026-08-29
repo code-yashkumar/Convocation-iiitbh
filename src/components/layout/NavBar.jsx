@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import InstitutionCrest from '../ui/InstitutionCrest';
 
 const NAV_LINKS = [
+  { label: 'Home', to: '/' },
   { label: 'Notice', to: '/notices' },
   { label: 'Dignitaries', to: '/#dignitaries', isSectionLink: true, sectionId: 'dignitaries' },
   { label: 'Gallery', to: '/gallery' },
