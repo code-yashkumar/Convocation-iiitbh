@@ -350,16 +350,11 @@ export function GalleryAlbumView() {
               <img
                 src={photos[0].url}
                 alt={photos[0].title}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none opacity-90"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              
-              <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl backdrop-blur-md bg-black/40 border border-white/20 text-white flex items-center justify-between gap-3">
-                <span className="font-display font-bold text-sm sm:text-base truncate">
-                  {photos[0].title}
-                </span>
-                <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-white/20 text-white shrink-0">
-                  {photos[0].tag}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center shadow-lg">
+                  <Maximize2 className="w-5 h-5" />
                 </span>
               </div>
             </div>
@@ -374,16 +369,11 @@ export function GalleryAlbumView() {
               <img
                 src={photos[1].url}
                 alt={photos[1].title}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none opacity-90"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              
-              <div className="absolute bottom-4 left-4 right-4 p-2.5 rounded-xl backdrop-blur-md bg-black/40 border border-white/20 text-white flex items-center justify-between gap-2">
-                <span className="font-display font-bold text-xs sm:text-sm truncate">
-                  {photos[1].title}
-                </span>
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-white/20 text-white shrink-0">
-                  {photos[1].tag}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center shadow-lg">
+                  <Maximize2 className="w-5 h-5" />
                 </span>
               </div>
             </div>
@@ -398,16 +388,11 @@ export function GalleryAlbumView() {
               <img
                 src={photos[2].url}
                 alt={photos[2].title}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none opacity-90"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              
-              <div className="absolute bottom-4 left-4 right-4 p-2.5 rounded-xl backdrop-blur-md bg-black/40 border border-white/20 text-white flex items-center justify-between gap-2">
-                <span className="font-display font-bold text-xs sm:text-sm truncate">
-                  {photos[2].title}
-                </span>
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-white/20 text-white shrink-0">
-                  {photos[2].tag}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center shadow-lg">
+                  <Maximize2 className="w-5 h-5" />
                 </span>
               </div>
             </div>
@@ -422,16 +407,11 @@ export function GalleryAlbumView() {
               <img
                 src={photos[3].url}
                 alt={photos[3].title}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none opacity-90"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              
-              <div className="absolute bottom-4 left-4 right-4 p-2.5 rounded-xl backdrop-blur-md bg-black/40 border border-white/20 text-white flex items-center justify-between gap-2">
-                <span className="font-display font-bold text-xs sm:text-sm truncate">
-                  {photos[3].title}
-                </span>
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-white/20 text-white shrink-0">
-                  {photos[3].tag}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center shadow-lg">
+                  <Maximize2 className="w-5 h-5" />
                 </span>
               </div>
             </div>
@@ -447,12 +427,12 @@ export function GalleryAlbumView() {
                 <img
                   src={photos[4].url}
                   alt={photos[4].title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none opacity-90"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3 p-2 rounded-lg backdrop-blur-md bg-black/40 border border-white/20 text-white flex items-center justify-between gap-2">
-                  <span className="font-display font-bold text-xs truncate">{photos[4].title}</span>
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/20">{photos[4].tag}</span>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center shadow-lg">
+                    <Maximize2 className="w-4 h-4" />
+                  </span>
                 </div>
               </div>
             )}
@@ -465,12 +445,12 @@ export function GalleryAlbumView() {
                 <img
                   src={photos[5].url}
                   alt={photos[5].title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none opacity-90"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3 p-2 rounded-lg backdrop-blur-md bg-black/40 border border-white/20 text-white flex items-center justify-between gap-2">
-                  <span className="font-display font-bold text-xs truncate">{photos[5].title}</span>
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/20">{photos[5].tag}</span>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center shadow-lg">
+                    <Maximize2 className="w-4 h-4" />
+                  </span>
                 </div>
               </div>
             )}
