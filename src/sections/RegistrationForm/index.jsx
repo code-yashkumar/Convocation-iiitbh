@@ -18,6 +18,7 @@ export function RegistrationFormSection() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
 
   const validate = () => {
@@ -36,7 +37,7 @@ export function RegistrationFormSection() {
     return errs;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -44,7 +45,27 @@ export function RegistrationFormSection() {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const webhookUrl = import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL;
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            timestamp: new Date().toISOString(),
+            ...formData,
+          }),
+        });
+      }
+    } catch (err) {
+      console.warn('Backend webhook notice:', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   const handleChange = (field, value) => {
@@ -345,8 +366,10 @@ export function RegistrationFormSection() {
               </div>
 
               <div className="pt-4">
-                <Button type="submit" variant="primary" fullWidth>
-                  {formData.attendingInPerson === 'yes'
+                <Button type="submit" variant="primary" fullWidth disabled={isSubmitting}>
+                  {isSubmitting
+                    ? 'Submitting Registration...'
+                    : formData.attendingInPerson === 'yes'
                     ? 'Complete Registration & Reserve Robes'
                     : 'Complete Registration & Confirm Postal Delivery'}
                 </Button>
