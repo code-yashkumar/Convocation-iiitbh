@@ -69,11 +69,13 @@ export function Hero() {
   return (
     <section
       id="hero-section"
+      data-darkreader-ignore="true"
       className="relative w-full min-h-screen lg:h-screen lg:min-h-[720px] lg:max-h-[960px] flex flex-col justify-between pt-20 md:pt-24 pb-6 overflow-hidden bg-cream-100"
     >
       
       {/* 1. Full-width Background Image Layer for Desktop (lg+) */}
       <div
+        data-darkreader-ignore="true"
         className="hero-bg-layer hidden lg:block absolute inset-0 bg-no-repeat bg-right-top bg-cover xl:bg-contain pointer-events-none z-0"
         style={{
           backgroundImage: "url('/assets/convocation-hero-bg.png')",
@@ -83,6 +85,7 @@ export function Hero() {
       {/* 2. Main Hero Area (Content Block: CONVOCATION 2026, Details, CTAs, Countdown) */}
       <div
         id="main-hero-area"
+        data-darkreader-ignore="true"
         className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-10 flex-1 flex items-center py-2 sm:py-4 lg:py-2"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">

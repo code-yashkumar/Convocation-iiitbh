@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Dark Reader Hero & Event Bar Isolation Engine
  * 
  * Strict Dual-Layer Specification:
@@ -361,10 +361,16 @@ export function initDarkReaderHeroProtection() {
     if (!styleTag) {
       styleTag = document.createElement('style');
       styleTag.id = 'hero-darkreader-controller';
+      styleTag.setAttribute('data-darkreader-ignore', 'true');
       styleTag.textContent = HERO_DARKREADER_CSS;
       document.head.appendChild(styleTag);
-    } else if (document.head.lastElementChild !== styleTag) {
-      document.head.appendChild(styleTag);
+    } else {
+      if (!styleTag.hasAttribute('data-darkreader-ignore')) {
+        styleTag.setAttribute('data-darkreader-ignore', 'true');
+      }
+      if (document.head.lastElementChild !== styleTag) {
+        document.head.appendChild(styleTag);
+      }
     }
   };
 

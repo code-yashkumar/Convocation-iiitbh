@@ -108,6 +108,7 @@ export function InformationBar({ className = '' }) {
   return (
     <div
       id="event-info-bar"
+      data-darkreader-ignore="true"
       className={`event-info-bar w-full bg-white rounded-[22px] sm:rounded-[28px] border border-[#E4DED4] shadow-[0_8px_30px_rgba(0,0,0,0.06)] px-4 py-4 sm:px-10 sm:py-6 transition-colors duration-200 ${className}`}
       aria-label="Convocation Key Information"
     >

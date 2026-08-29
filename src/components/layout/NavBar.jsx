@@ -96,6 +96,7 @@ export function NavBar() {
   return (
     <header
       data-navbar-hero={isHeroMode ? 'true' : 'false'}
+      data-darkreader-ignore={isHeroMode ? 'true' : undefined}
       style={isHeroMode ? { colorScheme: 'light' } : undefined}
       className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-nav ${
         isScrolled

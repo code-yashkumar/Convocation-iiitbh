@@ -107,11 +107,9 @@
     }
     </script>
     <!-- Dark Reader Hero Isolation & Custom Event Bar Controller -->
-    <style id="hero-darkreader-controller">
+    <style data-darkreader-ignore id="hero-darkreader-controller">
+      /* Main Hero and Navbar Light Protection */
       #main-hero-area, #main-hero-area *, #hero-section .hero-bg-layer, header[data-navbar-hero="true"], header[data-navbar-hero="true"] * {
-        --darkreader-inline-color: inherit !important;
-        --darkreader-inline-bgcolor: transparent !important;
-        --darkreader-inline-bgimage: none !important;
         color-scheme: light !important;
       }
       html body #hero-section { background-color: #FBF9F5 !important; }
@@ -125,20 +123,52 @@
       html body header[data-navbar-hero="true"] .navbar-subtext { color: #525252 !important; -webkit-text-fill-color: #525252 !important; }
       html body header[data-navbar-hero="true"] .navbar-link span { color: rgba(26, 26, 26, 0.8) !important; -webkit-text-fill-color: rgba(26, 26, 26, 0.8) !important; }
       html body header[data-navbar-hero="true"] .navbar-link.active span { color: #5E101C !important; -webkit-text-fill-color: #5E101C !important; }
-      html[data-darkreader-active="true"] body .event-info-bar, html[data-darkreader-scheme="dark"] body .event-info-bar, html[data-darkreader-mode] body .event-info-bar, html.dark-reader-active body .event-info-bar {
+
+      /* Custom Intentional Dark Maroon Design for Event Information Bar under Dark Reader */
+      html[data-darkreader-active="true"] body .event-info-bar,
+      html[data-darkreader-scheme="dark"] body .event-info-bar,
+      html[data-darkreader-mode] body .event-info-bar,
+      html.dark-reader-active body .event-info-bar {
         background-color: #380B13 !important;
         border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45) !important;
       }
-      html[data-darkreader-active="true"] body .event-info-bar .info-bar-label, html[data-darkreader-scheme="dark"] body .event-info-bar .info-bar-label, html[data-darkreader-mode] body .event-info-bar .info-bar-label, html.dark-reader-active body .event-info-bar .info-bar-label {
+      html[data-darkreader-active="true"] body .event-info-bar .info-bar-label,
+      html[data-darkreader-scheme="dark"] body .event-info-bar .info-bar-label,
+      html[data-darkreader-mode] body .event-info-bar .info-bar-label,
+      html.dark-reader-active body .event-info-bar .info-bar-label {
         color: #E8D5B5 !important;
         -webkit-text-fill-color: #E8D5B5 !important;
       }
-      html[data-darkreader-active="true"] body .event-info-bar .info-bar-value, html[data-darkreader-scheme="dark"] body .event-info-bar .info-bar-value, html[data-darkreader-mode] body .event-info-bar .info-bar-value, html.dark-reader-active body .event-info-bar .info-bar-value {
+      html[data-darkreader-active="true"] body .event-info-bar .info-bar-value,
+      html[data-darkreader-scheme="dark"] body .event-info-bar .info-bar-value,
+      html[data-darkreader-mode] body .event-info-bar .info-bar-value,
+      html.dark-reader-active body .event-info-bar .info-bar-value {
         color: #FFFFFF !important;
         -webkit-text-fill-color: #FFFFFF !important;
       }
-      html[data-darkreader-active="true"] body .event-info-bar .info-bar-icon, html[data-darkreader-scheme="dark"] body .event-info-bar .info-bar-icon, html[data-darkreader-mode] body .event-info-bar .info-bar-icon, html.dark-reader-active body .event-info-bar .info-bar-icon {
+      html[data-darkreader-active="true"] body .event-info-bar .info-bar-icon,
+      html[data-darkreader-scheme="dark"] body .event-info-bar .info-bar-icon,
+      html[data-darkreader-mode] body .event-info-bar .info-bar-icon,
+      html.dark-reader-active body .event-info-bar .info-bar-icon {
         color: #F87171 !important;
+      }
+      html[data-darkreader-active="true"] body .event-info-bar svg,
+      html[data-darkreader-scheme="dark"] body .event-info-bar svg,
+      html[data-darkreader-mode] body .event-info-bar svg,
+      html.dark-reader-active body .event-info-bar svg {
+        color: #F87171 !important;
+        stroke: #F87171 !important;
+      }
+      html[data-darkreader-active="true"] body .event-info-bar svg path,
+      html[data-darkreader-scheme="dark"] body .event-info-bar svg path,
+      html[data-darkreader-mode] body .event-info-bar svg path {
+        fill: #F87171 !important;
+      }
+      html[data-darkreader-active="true"] body .event-info-bar .edition-dot,
+      html[data-darkreader-scheme="dark"] body .event-info-bar .edition-dot,
+      html[data-darkreader-mode] body .event-info-bar .edition-dot {
+        fill: #FBBF24 !important;
       }
     </style>
   </head>
