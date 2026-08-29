@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { CheckCircle2, AlertCircle, MapPin, Package, Sparkles } from 'lucide-react';
 
 export function RegistrationFormSection() {
   const [formData, setFormData] = useState({
@@ -14,6 +14,7 @@ export function RegistrationFormSection() {
     attendingInPerson: 'yes',
     guestCount: '2',
     regaliaSize: 'M',
+    postalAddress: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -28,6 +29,9 @@ export function RegistrationFormSection() {
     }
     if (!formData.phone.trim() || formData.phone.length < 10) {
       errs.phone = 'A valid 10-digit mobile number is required.';
+    }
+    if (formData.attendingInPerson === 'no' && !formData.postalAddress.trim()) {
+      errs.postalAddress = 'Postal delivery address is required for degree dispatch via speed post.';
     }
     return errs;
   };
@@ -58,7 +62,7 @@ export function RegistrationFormSection() {
         </div>
         <h2 className="type-display-lg text-text-default">Convocation Registration</h2>
         <p className="type-body-lg text-text-muted mt-2">
-          Graduating students must register before October 31, 2026 to confirm attendance and regalia sizing.
+          Graduating students must register before October 31, 2026 to confirm attendance, regalia sizing, or postal degree delivery.
         </p>
       </div>
 
@@ -70,11 +74,31 @@ export function RegistrationFormSection() {
                 <CheckCircle2 className="w-10 h-10 stroke-[2]" />
               </div>
               <h3 className="type-display-md text-text-default">Registration Confirmed!</h3>
-              <p className="type-body-md text-text-muted max-w-md mx-auto">
+              <p className="type-body-md text-text-muted max-w-md mx-auto leading-relaxed">
                 Thank you, <strong>{formData.fullName}</strong>. Your convocation registration for Roll No.{' '}
-                <strong>{formData.rollNumber}</strong> has been successfully submitted. Confirmation email has been sent to{' '}
+                <strong>{formData.rollNumber}</strong> ({formData.degree} - {formData.department}) has been successfully submitted. Confirmation email has been sent to{' '}
                 <strong>{formData.email}</strong>.
               </p>
+
+              {formData.attendingInPerson === 'no' ? (
+                <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 max-w-md mx-auto text-left text-xs font-body text-amber-900 space-y-1">
+                  <div className="flex items-center gap-2 font-bold text-sm text-amber-950">
+                    <Package className="w-4 h-4 text-amber-800" />
+                    <span>In Absentia Dispatch Delivery</span>
+                  </div>
+                  <p className="text-amber-800/90 leading-relaxed">
+                    Your degree scroll and certificates will be dispatched by Registered Speed Post to:
+                  </p>
+                  <p className="font-semibold text-charcoal-900 bg-white p-2.5 rounded-lg border border-amber-200">
+                    {formData.postalAddress}
+                  </p>
+                </div>
+              ) : (
+                <div className="p-3.5 rounded-xl bg-maroon-050/60 border border-maroon-900/15 max-w-md mx-auto text-center text-xs font-body text-maroon-900">
+                  <span>Robes Size reserved: <strong>{formData.regaliaSize}</strong> • Please collect your regalia on 26 September 2026 at the Academic Block.</span>
+                </div>
+              )}
+
               <div className="pt-4">
                 <Button
                   variant="secondary"
@@ -91,6 +115,7 @@ export function RegistrationFormSection() {
                       attendingInPerson: 'yes',
                       guestCount: '2',
                       regaliaSize: 'M',
+                      postalAddress: '',
                     });
                   }}
                 >
@@ -234,44 +259,96 @@ export function RegistrationFormSection() {
                 </div>
               </div>
 
-              {/* Attendance & Regalia */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 border-t border-border">
-                <div>
-                  <label htmlFor="attendingInPerson" className="block type-label text-text-default mb-2">
-                    Attending in Person?
-                  </label>
-                  <select
-                    id="attendingInPerson"
-                    value={formData.attendingInPerson}
-                    onChange={(e) => handleChange('attendingInPerson', e.target.value)}
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
-                  >
-                    <option value="yes">Yes, in person (Robes assigned)</option>
-                    <option value="no">No, in absentia (Degree via post)</option>
-                  </select>
-                </div>
+              {/* Attendance & Conditional Academic Robe or Wide Postal Address */}
+              <div className="pt-4 border-t border-border space-y-6">
+                {formData.attendingInPerson === 'yes' ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="attendingInPerson" className="block type-label text-text-default mb-2">
+                        Attending in Person?
+                      </label>
+                      <select
+                        id="attendingInPerson"
+                        value={formData.attendingInPerson}
+                        onChange={(e) => handleChange('attendingInPerson', e.target.value)}
+                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
+                      >
+                        <option value="yes">Yes, in person (Robes assigned)</option>
+                        <option value="no">No, in absentia (Degree via post)</option>
+                      </select>
+                    </div>
 
-                <div>
-                  <label htmlFor="regaliaSize" className="block type-label text-text-default mb-2">
-                    Academic Robe / Gown Size
-                  </label>
-                  <select
-                    id="regaliaSize"
-                    value={formData.regaliaSize}
-                    onChange={(e) => handleChange('regaliaSize', e.target.value)}
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
-                  >
-                    <option value="S">Small (Height: 5'0" – 5'4")</option>
-                    <option value="M">Medium (Height: 5'5" – 5'9")</option>
-                    <option value="L">Large (Height: 5'10" – 6'1")</option>
-                    <option value="XL">Extra Large (Height: 6'2"+)</option>
-                  </select>
-                </div>
+                    <div>
+                      <label htmlFor="regaliaSize" className="block type-label text-text-default mb-2">
+                        Academic Robe / Gown Size
+                      </label>
+                      <select
+                        id="regaliaSize"
+                        value={formData.regaliaSize}
+                        onChange={(e) => handleChange('regaliaSize', e.target.value)}
+                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
+                      >
+                        <option value="S">Small (Height: 5'0" – 5'4")</option>
+                        <option value="M">Medium (Height: 5'5" – 5'9")</option>
+                        <option value="L">Large (Height: 5'10" – 6'1")</option>
+                        <option value="XL">Extra Large (Height: 6'2"+)</option>
+                      </select>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-6">
+                    {/* Attending in person dropdown (Full width or standard) */}
+                    <div>
+                      <label htmlFor="attendingInPerson" className="block type-label text-text-default mb-2">
+                        Attending in Person?
+                      </label>
+                      <select
+                        id="attendingInPerson"
+                        value={formData.attendingInPerson}
+                        onChange={(e) => handleChange('attendingInPerson', e.target.value)}
+                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
+                      >
+                        <option value="yes">Yes, in person (Robes assigned)</option>
+                        <option value="no">No, in absentia (Degree via post)</option>
+                      </select>
+                    </div>
+
+                    {/* Wide Postal Delivery Address Field */}
+                    <div className="w-full">
+                      <div className="flex items-center justify-between mb-2">
+                        <label htmlFor="postalAddress" className="type-label text-text-default flex items-center gap-1.5">
+                          <MapPin className="w-4 h-4 text-maroon-900" />
+                          <span>Postal Delivery Address (For Degree Dispatch) <span className="text-error" aria-hidden="true">*</span></span>
+                        </label>
+                        <span className="text-xs font-body text-charcoal-500">Degree will be delivered via Speed Post</span>
+                      </div>
+                      <textarea
+                        id="postalAddress"
+                        rows={3}
+                        required
+                        value={formData.postalAddress}
+                        onChange={(e) => handleChange('postalAddress', e.target.value)}
+                        aria-invalid={Boolean(errors.postalAddress)}
+                        aria-describedby={errors.postalAddress ? 'postalAddress-error' : undefined}
+                        placeholder="Enter complete postal delivery address with Pin Code, Landmark, City & State (e.g. House No. 402, Block B, Green Heights, MG Road, Patna, Bihar - 800001)"
+                        className="w-full p-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus-visible:outline-none focus-visible:border-action-primary text-[15px] leading-relaxed resize-y"
+                      />
+                      {errors.postalAddress && (
+                        <p id="postalAddress-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-3.5 h-3.5" />
+                          {errors.postalAddress}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="pt-4">
                 <Button type="submit" variant="primary" fullWidth>
-                  Complete Registration & Reserve Robes
+                  {formData.attendingInPerson === 'yes'
+                    ? 'Complete Registration & Reserve Robes'
+                    : 'Complete Registration & Confirm Postal Delivery'}
                 </Button>
               </div>
             </form>
