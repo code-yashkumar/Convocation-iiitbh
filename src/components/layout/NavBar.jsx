@@ -99,20 +99,20 @@ export function NavBar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 h-20 md:h-[88px] flex items-center justify-between gap-4">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 h-16 md:h-[68px] flex items-center justify-between gap-4">
         
         {/* Left: Crest + Full Institution Wordmark in 1 single line */}
         <Link
           to="/"
-          className="flex items-center gap-3 group focus-visible:outline-none shrink-0"
+          className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none shrink-0"
           aria-label="IIIT Bhagalpur Convocation Portal Home"
         >
-          <InstitutionCrest className="w-10 h-10 sm:w-11 sm:h-11 shrink-0" />
+          <InstitutionCrest className="w-9 h-9 sm:w-10 sm:h-10 shrink-0" />
           <div className="flex flex-col whitespace-nowrap">
-            <span className="font-display font-bold text-[13px] sm:text-[15px] xl:text-[16px] text-charcoal-900 leading-tight whitespace-nowrap">
+            <span className="font-display font-bold text-[13px] sm:text-[14.5px] xl:text-[15.5px] text-charcoal-900 leading-tight whitespace-nowrap">
               Indian Institute of Information Technology Bhagalpur
             </span>
-            <span className="font-body text-[10.5px] sm:text-[11.5px] text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
+            <span className="font-body text-[10px] sm:text-[11px] text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
               भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
             </span>
           </div>

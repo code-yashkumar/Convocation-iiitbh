@@ -38,7 +38,7 @@ function HomePage() {
  * Subpage wrapper to account for the fixed transparent/glass navbar
  */
 function PageWrapper({ children }) {
-  return <div className="pt-24 sm:pt-28">{children}</div>;
+  return <div className="pt-[68px] sm:pt-[76px]">{children}</div>;
 }
 
 export function App() {

@@ -146,26 +146,26 @@ export function GallerySection() {
   };
 
   return (
-    <section className="w-full py-16 bg-cream-100 min-h-screen relative" id="gallery">
+    <section className="w-full pt-2 pb-16 sm:pt-4 sm:pb-20 bg-cream-100 min-h-screen relative" id="gallery">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-4 border border-maroon-900/10 shadow-xs">
-            <Camera className="w-4 h-4 text-maroon-900" />
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-[13px] font-semibold mb-2 border border-maroon-900/10 shadow-xs">
+            <Camera className="w-3.5 h-3.5 text-maroon-900" />
             <span>Visual Archives & Memories</span>
           </div>
 
           <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
             Convocation Photo & Video Gallery
           </h1>
-          <p className="font-body text-charcoal-600 text-base sm:text-lg mt-3">
+          <p className="font-body text-charcoal-600 text-sm sm:text-base mt-1.5 sm:mt-2">
             Immortalizing triumphant milestones, academic regalia processions, medal honors, and celebratory joy at IIIT Bhagalpur.
           </p>
         </div>
 
         {/* Featured Hero Banner: Highlight of the Edition */}
-        <div className="relative rounded-[28px] sm:rounded-[32px] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-14 group">
+        <div className="relative rounded-[28px] sm:rounded-[32px] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-8 sm:mb-10 group">
           <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600&auto=format&fit=crop"

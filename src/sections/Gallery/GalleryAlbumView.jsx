@@ -284,11 +284,11 @@ export function GalleryAlbumView() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-cream-100 py-12 sm:py-16">
+    <div className="w-full min-h-screen bg-cream-100 pt-3 pb-16 sm:pt-4 sm:pb-20">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Navigation Breadcrumb & Back Action */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <Link
             to="/gallery"
             className="inline-flex items-center gap-2 text-sm font-body font-semibold text-charcoal-700 hover:text-maroon-900 transition-colors group cursor-pointer"
