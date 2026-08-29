@@ -339,13 +339,13 @@ export function GalleryAlbumView() {
         </div>
 
         {/* Editorial Photo Bento Grid matching user's layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 mb-12">
           
           {/* Item 1: Top Wide Banner Photo (col-span-8) */}
           {photos[0] && (
             <div
               onClick={() => setSelectedPhotoIndex(0)}
-              className="md:col-span-8 relative aspect-[16/9] sm:aspect-[21/10] rounded-[24px] overflow-hidden border border-[#E8E2D8] shadow-sm group cursor-pointer bg-charcoal-950"
+              className="md:col-span-8 relative aspect-[16/9] sm:aspect-[21/10] rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
             >
               <img
                 src={photos[0].url}
@@ -364,7 +364,7 @@ export function GalleryAlbumView() {
           {photos[1] && (
             <div
               onClick={() => setSelectedPhotoIndex(1)}
-              className="md:col-span-4 relative aspect-[4/3] md:aspect-auto md:h-full rounded-[24px] overflow-hidden border border-[#E8E2D8] shadow-sm group cursor-pointer bg-charcoal-950 min-h-[220px]"
+              className="md:col-span-4 relative aspect-[4/3] md:aspect-auto md:h-full rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950 min-h-[220px]"
             >
               <img
                 src={photos[1].url}
@@ -379,11 +379,11 @@ export function GalleryAlbumView() {
             </div>
           )}
 
-          {/* Item 3: Bottom Left Square/Portrait Photo (col-span-4) */}
+          {/* Item 3: Bottom Left Square Photo (col-span-4) */}
           {photos[2] && (
             <div
               onClick={() => setSelectedPhotoIndex(2)}
-              className="md:col-span-4 relative aspect-[4/3] sm:aspect-[1/1] rounded-[24px] overflow-hidden border border-[#E8E2D8] shadow-sm group cursor-pointer bg-charcoal-950"
+              className="md:col-span-4 relative aspect-square rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
             >
               <img
                 src={photos[2].url}
@@ -398,11 +398,11 @@ export function GalleryAlbumView() {
             </div>
           )}
 
-          {/* Item 4: Bottom Center Portrait Photo (col-span-4) */}
+          {/* Item 4: Bottom Center Portrait/Square Photo (col-span-4) */}
           {photos[3] && (
             <div
               onClick={() => setSelectedPhotoIndex(3)}
-              className="md:col-span-4 relative aspect-[4/3] sm:aspect-[1/1] rounded-[24px] overflow-hidden border border-[#E8E2D8] shadow-sm group cursor-pointer bg-charcoal-950"
+              className="md:col-span-4 relative aspect-square rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
             >
               <img
                 src={photos[3].url}
@@ -418,11 +418,11 @@ export function GalleryAlbumView() {
           )}
 
           {/* Item 5 & 6: Bottom Right Stacked Photos (col-span-4) */}
-          <div className="md:col-span-4 flex flex-col gap-5 sm:gap-6 justify-between">
+          <div className="md:col-span-4 flex flex-col gap-4 sm:gap-6 justify-between">
             {photos[4] && (
               <div
                 onClick={() => setSelectedPhotoIndex(4)}
-                className="relative aspect-[16/9] flex-1 rounded-[24px] overflow-hidden border border-[#E8E2D8] shadow-sm group cursor-pointer bg-charcoal-950"
+                className="relative aspect-[16/9] flex-1 rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
               >
                 <img
                   src={photos[4].url}
@@ -440,7 +440,7 @@ export function GalleryAlbumView() {
             {photos[5] && (
               <div
                 onClick={() => setSelectedPhotoIndex(5)}
-                className="relative aspect-[16/9] flex-1 rounded-[24px] overflow-hidden border border-[#E8E2D8] shadow-sm group cursor-pointer bg-charcoal-950"
+                className="relative aspect-[16/9] flex-1 rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
               >
                 <img
                   src={photos[5].url}
