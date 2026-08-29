@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-MIT-maroon?style=flat-square)](LICENSE)
 [![Deployment](https://img.shields.io/badge/Deploy-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com)
 
-The official web portal for the **3rd Convocation (2026)** of the **Indian Institute of Information Technology Bhagalpur (IIIT Bhagalpur)**. Designed with an institutional ceremonial aesthetic, modern responsive typography, robust accessibility, and production-grade performance.
+The official web portal for the **3rd Convocation (2026)** of the **Indian Institute of Information Technology Bhagalpur (IIIT Bhagalpur)**. Designed with an institutional ceremonial aesthetic, modern responsive typography, robust accessibility, dynamic Google ecosystem integrations, and production-grade performance.
 
 ---
 
@@ -53,6 +53,41 @@ The official web portal for the **3rd Convocation (2026)** of the **Indian Insti
 
 ---
 
+## 🔄 Dynamic Content & Cloud Integrations
+
+### 📢 1. Live Notices Management via Google Sheets & Excel
+The portal features a zero-maintenance administrative workflow for publishing circulars and documents:
+- **Direct Google Visualization Protocol (`gviz/tq`)**: Live notices are fetched directly from published Google Sheets / Excel spreadsheets without requiring a complex backend database.
+- **Automated Column Keyword Matching**: The parser intelligently maps spreadsheet columns for `Title`, `Date`, `Category`, `File URL / PDF Link`, `IsPinned`, and `Importance`.
+- **Search, Filter & Direct PDF Viewer**: Instant in-browser search, category pills (Academic, Schedule, Guidelines, General), priority pinning, and an embedded PDF modal preview.
+- **Offline High-Availability Cache**: Bundled with a fallback JSON store (`src/data/notices.json`) ensuring 100% uptime even during network constraints.
+
+### 📸 2. Automated Gallery Sync with Google Drive
+High-resolution event photography is streamed directly from official Google Drive album folders:
+- **CLI Sync Automation Script** (`npm run sync-photos` / `scripts/sync-photos.cjs`):
+  Connects to Google Drive album folder IDs across four ceremonial categories:
+  1. *Degree Distribution*
+  2. *Convocation Evening*
+  3. *Alumni Meet*
+  4. *Speaker Session*
+- **Google CDN Optimization**: Automatically extracts Drive file IDs and constructs high-speed, cached CDN thumbnail endpoints (`https://lh3.googleusercontent.com/d/{id}`) and full-resolution view URLs.
+- **Structured JSON Manifest**: Compiles synced image arrays into `src/data/drivePhotos.json` for fast client-side rendering with lightbox previews.
+
+### 📝 3. Graduand Registration & Verification Flow
+A unified online registration portal for graduating students and attendees:
+- **Multi-Field Validation**:
+  - Full Name, Institute Roll Number, Department (CSE, ECE, MEA, DSAI), Degree (B.Tech, M.Tech, Ph.D).
+  - Validated contact information (Mobile and Institute / Personal Email).
+  - Attendance mode selection (In-person attendance or Postal dispatch with delivery address validation).
+  - Academic regalia / gown sizing (`S`, `M`, `L`, `XL`, `XXL`) and guest count allocation.
+- **Webhook Integration**:
+  - Submissions are dispatched asynchronously to a Google Apps Script / Google Sheets Webhook (`VITE_GOOGLE_SHEET_WEBHOOK_URL`).
+  - Automatically records timestamped student registrations in real time.
+- **Confirmation Pass & Feedback**:
+  - Instant submission confirmation modal with ceremonial congratulatory pass and reporting guidelines.
+
+---
+
 ## 📂 Project Structure
 
 ```text
@@ -63,11 +98,16 @@ ConvocationIIITBH/
 │   ├── robots.txt              # Search crawler directives
 │   ├── sitemap.xml             # Search engine sitemap
 │   └── _redirects              # Netlify SPA redirect fallback
+├── scripts/
+│   └── sync-photos.cjs         # Google Drive album photo sync automation script
 ├── src/
 │   ├── assets/                 # SVGs and static brand marks
 │   ├── components/
 │   │   ├── common/             # Reusable UI components (SEO, ScrollToTop, AccommodationCTA)
 │   │   └── layout/             # Header, Navigation Bar, and Footer
+│   ├── data/
+│   │   ├── drivePhotos.json    # Synced Google Drive image manifest
+│   │   └── notices.json        # High-availability notices fallback data
 │   ├── pages/                  # Top-level route pages (Home, 404)
 │   ├── sections/               # Modular homepage sections
 │   │   ├── Hero/               # Hero section & photographic backdrop
@@ -135,7 +175,7 @@ ConvocationIIITBH/
 | **Development** | `npm run dev` | Starts Vite dev server with Hot Module Replacement (HMR) at port 3000 |
 | **Production Build** | `npm run build` | Compiles and optimizes assets into the `dist/` directory |
 | **Preview Build** | `npm run preview` | Runs a local web server serving the production `dist/` build |
-| **Sync Photos** | `npm run sync-photos` | Utility script to index and organize gallery photographs |
+| **Sync Photos** | `npm run sync-photos` | Automates extraction and caching of Google Drive photo albums |
 
 ---
 
@@ -164,21 +204,16 @@ The repository includes a [`vercel.json`](./vercel.json) file with pre-configure
 
 ---
 
-## 🤝 Contributing & Git Workflow
+## 👨‍💻 Author & Lead Developer
 
-The project follows a standard multi-branch promotion pipeline:
+Designed, engineered, and architected with ❤️ by **[Yash Kumar](https://github.com/code-yashkumar)** for the **Indian Institute of Information Technology Bhagalpur**.
 
-```text
-feature / yash ───► dev ───► main (Production Release)
-```
-
-1. **Develop and commit** on your feature branch or `yash`.
-2. **Merge and test** on `dev`.
-3. **Promote to `main`** for production deployment.
+- **GitHub**: [@code-yashkumar](https://github.com/code-yashkumar)
+- **Institution**: Indian Institute of Information Technology Bhagalpur (IIITBH)
 
 ---
 
-## 📄 License & Attribution
+## 📄 License & Copyright
 
-Designed and developed for the **Indian Institute of Information Technology Bhagalpur**.
+Developed for the **Indian Institute of Information Technology Bhagalpur**.  
 © 2026 IIIT Bhagalpur. All rights reserved.
