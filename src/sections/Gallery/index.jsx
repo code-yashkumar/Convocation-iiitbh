@@ -16,7 +16,8 @@ import {
   Clock,
   Check,
   Award,
-  History
+  History,
+  ExternalLink
 } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
@@ -278,14 +279,15 @@ export function GallerySection() {
               </div>
 
               <div className="flex items-center gap-3 shrink-0">
-                <button
-                  type="button"
-                  onClick={() => setSelectedImageIndex(0)}
+                <a
+                  href="https://drive.google.com/drive/u/3/folders/1R-c4xV0crbNjCzuOWkCi5y2vytPULigu"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-white hover:bg-maroon-050 text-maroon-900 font-body font-semibold text-sm shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
                 >
-                  <Eye className="w-4 h-4" />
+                  <ExternalLink className="w-4 h-4" />
                   <span>View High-Res Photo</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
