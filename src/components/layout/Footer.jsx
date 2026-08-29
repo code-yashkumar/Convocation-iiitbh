@@ -8,7 +8,7 @@ import InstitutionCrest from '../ui/InstitutionCrest';
  */
 export function Footer() {
   return (
-    <footer className="w-full bg-bg-inverse text-text-on-primary mt-24">
+    <footer className="w-full bg-bg-inverse text-text-on-primary mt-4 sm:mt-6">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
           {/* Col 1: Institute Info */}

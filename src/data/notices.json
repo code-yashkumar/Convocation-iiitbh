@@ -1,0 +1,68 @@
+[
+  {
+    "id": "invitation-card",
+    "title": "Official Invitation Card & Programme Schedule",
+    "category": "Invitation",
+    "date": "10 September 2026",
+    "refNo": "IIITBH/CONV/2026/INV-01",
+    "isPinned": true,
+    "description": "Official Invitation Card for the 3rd Convocation of IIIT Bhagalpur. All graduating students of B.Tech, M.Tech, and Ph.D. programmes, along with esteemed dignitaries, guests, faculty members, and accompanying parents, are cordially invited to grace the auspicious occasion on 26 September 2026 at the Main Lecture Hall.",
+    "issuedBy": "Office of the Registrar & Convocation Secretariat",
+    "pdfUrl": ""
+  },
+  {
+    "id": "registration-date-time",
+    "title": "Degree Registration, Fee & Rehearsal Schedule",
+    "category": "Schedule",
+    "date": "08 September 2026",
+    "refNo": "IIITBH/CONV/2026/REG-02",
+    "isPinned": true,
+    "description": "Detailed guidelines and portal instructions for degree registration confirmation, ceremonial gown & stole collection timeline, security clearance, and mandatory full-dress rehearsal timings scheduled at the Main Lecture Hall.",
+    "issuedBy": "Associate Dean (Academic Affairs)",
+    "pdfUrl": ""
+  },
+  {
+    "id": "medal-winners",
+    "title": "Provisional List of Medal Winners & Rank Holders",
+    "category": "Highlight",
+    "date": "05 September 2026",
+    "refNo": "IIITBH/CONV/2026/MED-03",
+    "isPinned": false,
+    "description": "Provisional announcement of President Gold Medal, Director Gold Medal, Institute Silver Medals, and Departmental Best Project Award recipients for academic and research excellence across all graduating cohorts.",
+    "issuedBy": "Medals & Awards Finalization Committee",
+    "pdfUrl": ""
+  },
+  {
+    "id": "news",
+    "title": "Media Briefing & 4K Live Broadcast Advisory",
+    "category": "Update",
+    "date": "03 September 2026",
+    "refNo": "IIITBH/CONV/2026/NEWS-04",
+    "isPinned": false,
+    "description": "Official press advisory regarding media passes, photography zones, and high-definition multi-camera live streaming on YouTube and the institute portal for families unable to attend in person.",
+    "issuedBy": "Public Relations Office (PRO)",
+    "pdfUrl": ""
+  },
+  {
+    "id": "invitation",
+    "title": "General Invitation for Alumni & Corporate Partners",
+    "category": "General",
+    "date": "01 September 2026",
+    "refNo": "IIITBH/CONV/2026/GEN-05",
+    "isPinned": false,
+    "description": "General invitation circular for distinguished alumni, founding faculty, advisory board members, and industry recruitment partners to join the 3rd Convocation ceremony and alumni fellowship dinner.",
+    "issuedBy": "Alumni Relations & International Affairs Section",
+    "pdfUrl": ""
+  },
+  {
+    "id": "office-order",
+    "title": "Office Order on Committee Duties & Protocols",
+    "category": "Important",
+    "date": "28 August 2026",
+    "refNo": "IIITBH/CONV/2026/OFF-06",
+    "isPinned": false,
+    "description": "Official administrative office order regarding the constitution of 22 convocation sub-committees, duty assignments for faculty and staff, campus traffic management, and emergency medical protocols.",
+    "issuedBy": "Office of the Director, IIIT Bhagalpur",
+    "pdfUrl": ""
+  }
+]

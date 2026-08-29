@@ -13,31 +13,32 @@ import {
   Play,
   Maximize2
 } from 'lucide-react';
+import drivePhotosData from '../../data/drivePhotos.json';
 
 const CAROUSEL_SLIDES = [
   {
     id: 1,
-    title: 'Grand Academic Procession',
-    subtitle: 'Ceremonial entry of Senate members, Board of Governors, and dignitaries.',
+    title: 'Grand Academic Procession & Ceremony',
+    subtitle: 'Ceremonial entry of Senate members, Board of Governors, and graduating scholars.',
     edition: '2025 Edition',
-    venue: 'Main Academic Quadrangle',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1400&auto=format&fit=crop',
+    venue: 'Main Academic Hall',
+    image: drivePhotosData['degree-distribution']?.[0]?.url || 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1400&auto=format&fit=crop',
   },
   {
     id: 2,
     title: 'President & Director Gold Medals',
     subtitle: 'Celebrating pinnacle academic distinctions and top departmental honours.',
     edition: '2025 Edition',
-    venue: 'Main Lecture Hall',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1400&auto=format&fit=crop',
+    venue: 'Main Dias',
+    image: drivePhotosData['degree-distribution']?.[1]?.url || 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1400&auto=format&fit=crop',
   },
   {
     id: 3,
-    title: 'Celebratory Mortarboard Toss',
-    subtitle: 'Triumphant cap toss by the graduating B.Tech, M.Tech, and Ph.D. scholars.',
+    title: 'Convocation Evening Celebrations',
+    subtitle: 'Vibrant cultural performances, student felicitations, and gala fellowship dinner.',
     edition: '2025 Edition',
     venue: 'Institute Lawn Pavilion',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1400&auto=format&fit=crop',
+    image: drivePhotosData['convocation-evening']?.[0]?.url || 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1400&auto=format&fit=crop',
   },
   {
     id: 4,
@@ -49,19 +50,19 @@ const CAROUSEL_SLIDES = [
   },
   {
     id: 5,
-    title: '1st Inaugural Convocation Archive',
-    subtitle: 'Historic commencement of the founding batch of IIIT Bhagalpur.',
-    edition: '2021 Edition',
-    venue: 'Auditorium Hall',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1400&auto=format&fit=crop',
+    title: 'Speaker Session & Presidential Keynote',
+    subtitle: 'Visionary addresses by esteemed guests of honour and institute leadership.',
+    edition: '2025 Edition',
+    venue: 'Main Auditorium',
+    image: drivePhotosData['speaker-session']?.[0]?.url || 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1400&auto=format&fit=crop',
   },
   {
     id: 6,
-    title: 'Alumni Fellowship & Family Reception',
-    subtitle: 'Graduates cherishing memorable moments with mentors and proud families.',
+    title: 'Alumni Fellowship & Homecoming',
+    subtitle: 'Graduates cherishing memorable moments with mentors, faculty, and alumni.',
     edition: '2025 Edition',
     venue: 'Campus Guest House Lawn',
-    image: 'https://images.unsplash.com/photo-1525921429624-479b6a26d84d?q=80&w=1400&auto=format&fit=crop',
+    image: drivePhotosData['alumni-meet']?.[0]?.url || 'https://images.unsplash.com/photo-1525921429624-479b6a26d84d?q=80&w=1400&auto=format&fit=crop',
   },
 ];
 
@@ -157,7 +158,7 @@ export function HomeGalleryCarousel() {
   const currentSlide = CAROUSEL_SLIDES[currentIndex];
 
   return (
-    <section className="w-full pt-4 pb-12 sm:pt-6 sm:pb-16 bg-cream-100 relative overflow-hidden" id="home-gallery">
+    <section className="w-full pt-8 pb-6 sm:pt-10 sm:pb-8 bg-cream-100 relative overflow-hidden" id="home-gallery">
       <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Header */}
@@ -215,6 +216,9 @@ export function HomeGalleryCarousel() {
                   <img
                     src={slide.image}
                     alt={slide.title}
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center pointer-events-none group-hover:scale-105 transition-transform duration-700"
                   />
 

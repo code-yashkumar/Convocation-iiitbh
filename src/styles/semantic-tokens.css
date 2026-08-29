@@ -27,7 +27,7 @@
   --color-border-default: var(--color-border-subtle);
 
   /* Focus Indicator (WCAG AA Compliant Distinct Ring) */
-  --color-focus-ring: #2563EB;
+  --color-focus-ring: var(--color-maroon-900);
 
   /* Ceremonial (Strictly non-interactive / decorative) */
   --color-accent-gold: var(--color-gold-500);

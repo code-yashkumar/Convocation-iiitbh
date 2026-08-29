@@ -76,7 +76,7 @@ export function RegistrationFormSection() {
   };
 
   return (
-    <section className="py-16 max-w-container mx-auto px-5 sm:px-10 lg:px-20 scroll-mt-20 sm:scroll-mt-24" id="registration">
+    <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 max-w-container mx-auto px-5 sm:px-10 lg:px-20 scroll-mt-20 sm:scroll-mt-24" id="registration">
       <div className="text-center max-w-2xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-maroon-050 mb-3">
           <span className="type-label text-maroon-900 uppercase">Degree Conferment Portal</span>
@@ -146,11 +146,11 @@ export function RegistrationFormSection() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-              {/* Name & Roll Number */}
+              {/* Full Name & Roll Number */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="fullName" className="block type-label text-text-default mb-2">
-                    Full Name (as per degree) <span className="text-error" aria-hidden="true">*</span>
+                    Full Name <span className="text-error" aria-hidden="true">*</span>
                   </label>
                   <input
                     id="fullName"
@@ -161,7 +161,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.fullName)}
                     aria-describedby={errors.fullName ? 'fullName-error' : undefined}
                     placeholder="e.g. Yash Kumar"
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none focus-visible:border-action-primary text-[15px]"
+                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px]"
                   />
                   {errors.fullName && (
                     <p id="fullName-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -173,7 +173,7 @@ export function RegistrationFormSection() {
 
                 <div>
                   <label htmlFor="rollNumber" className="block type-label text-text-default mb-2">
-                    Institute Roll Number <span className="text-error" aria-hidden="true">*</span>
+                    Roll Number / Registration No. <span className="text-error" aria-hidden="true">*</span>
                   </label>
                   <input
                     id="rollNumber"
@@ -184,7 +184,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.rollNumber)}
                     aria-describedby={errors.rollNumber ? 'rollNumber-error' : undefined}
                     placeholder="e.g. 220101001"
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none focus-visible:border-action-primary text-[15px]"
+                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px]"
                   />
                   {errors.rollNumber && (
                     <p id="rollNumber-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -205,7 +205,7 @@ export function RegistrationFormSection() {
                     id="degree"
                     value={formData.degree}
                     onChange={(e) => handleChange('degree', e.target.value)}
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
+                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
                   >
                     <option value="B.Tech">Bachelor of Technology (B.Tech)</option>
                     <option value="M.Tech">Master of Technology (M.Tech)</option>
@@ -221,7 +221,7 @@ export function RegistrationFormSection() {
                     id="department"
                     value={formData.department}
                     onChange={(e) => handleChange('department', e.target.value)}
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
+                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
                   >
                     <option value="CSE">Computer Science & Engineering (CSE)</option>
                     <option value="ECE">Electronics & Communication Engineering (ECE)</option>
@@ -246,7 +246,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.email)}
                     aria-describedby={errors.email ? 'email-error' : undefined}
                     placeholder="yash@iiitbh.ac.in"
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none focus-visible:border-action-primary text-[15px]"
+                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px]"
                   />
                   {errors.email && (
                     <p id="email-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -269,7 +269,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.phone)}
                     aria-describedby={errors.phone ? 'phone-error' : undefined}
                     placeholder="+91 9876543210"
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none focus-visible:border-action-primary text-[15px]"
+                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px]"
                   />
                   {errors.phone && (
                     <p id="phone-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -292,7 +292,7 @@ export function RegistrationFormSection() {
                         id="attendingInPerson"
                         value={formData.attendingInPerson}
                         onChange={(e) => handleChange('attendingInPerson', e.target.value)}
-                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
+                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
                       >
                         <option value="yes">Yes, in person (Robes assigned)</option>
                         <option value="no">No, in absentia (Degree via post)</option>
@@ -307,7 +307,7 @@ export function RegistrationFormSection() {
                         id="regaliaSize"
                         value={formData.regaliaSize}
                         onChange={(e) => handleChange('regaliaSize', e.target.value)}
-                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
+                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
                       >
                         <option value="S">Small (Height: 5'0" – 5'4")</option>
                         <option value="M">Medium (Height: 5'5" – 5'9")</option>
@@ -318,7 +318,7 @@ export function RegistrationFormSection() {
                   </div>
                 ) : (
                   <div className="space-y-6">
-                    {/* Attending in person dropdown (Full width or standard) */}
+                    {/* Attending in person dropdown */}
                     <div>
                       <label htmlFor="attendingInPerson" className="block type-label text-text-default mb-2">
                         Attending in Person?
@@ -327,7 +327,7 @@ export function RegistrationFormSection() {
                         id="attendingInPerson"
                         value={formData.attendingInPerson}
                         onChange={(e) => handleChange('attendingInPerson', e.target.value)}
-                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus-visible:outline-none text-[15px]"
+                        className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] cursor-pointer"
                       >
                         <option value="yes">Yes, in person (Robes assigned)</option>
                         <option value="no">No, in absentia (Degree via post)</option>
@@ -352,7 +352,7 @@ export function RegistrationFormSection() {
                         aria-invalid={Boolean(errors.postalAddress)}
                         aria-describedby={errors.postalAddress ? 'postalAddress-error' : undefined}
                         placeholder="Enter complete postal delivery address with Pin Code, Landmark, City & State (e.g. House No. 402, Block B, Green Heights, MG Road, Patna, Bihar - 800001)"
-                        className="w-full p-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus-visible:outline-none focus-visible:border-action-primary text-[15px] leading-relaxed resize-y"
+                        className="w-full p-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] leading-relaxed resize-y"
                       />
                       {errors.postalAddress && (
                         <p id="postalAddress-error" className="type-body-sm text-error mt-1 flex items-center gap-1">

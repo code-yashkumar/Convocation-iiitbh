@@ -19,12 +19,13 @@
     font-family: var(--font-body);
     background-color: var(--color-bg-page);
     color: var(--color-text-default);
+    accent-color: #5E101C;
   }
 
-  /* Universal accessible focus ring across keyboard interactions (WCAG 2.1 AA) */
+  /* Universal accessible focus ring across keyboard interactions */
   :focus-visible {
-    outline: 2px solid var(--color-focus-ring) !important;
-    outline-offset: 2px !important;
+    outline: 2px solid #5E101C !important;
+    outline-offset: 1px !important;
   }
 
   /* Remove outline for pointer focus */
@@ -34,8 +35,32 @@
 
   /* Selection styling */
   ::selection {
-    background-color: var(--color-maroon-050);
-    color: var(--color-maroon-900);
+    background-color: #5E101C;
+    color: #FFFFFF;
+  }
+
+  /* Form controls focus, accent, and select styling */
+  input, select, textarea, button {
+    accent-color: #5E101C;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #5E101C !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(94, 16, 28, 0.18) !important;
+  }
+
+  select option {
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+    padding: 8px 12px;
+  }
+
+  select option:checked,
+  select option:hover,
+  select option:focus {
+    background-color: #5E101C !important;
+    color: #FFFFFF !important;
   }
 }
 

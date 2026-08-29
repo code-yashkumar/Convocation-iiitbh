@@ -24,6 +24,7 @@ import {
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import Button from '../../components/ui/Button';
+import drivePhotosData from '../../data/drivePhotos.json';
 
 const GALLERY_COLLECTION = [
   {
@@ -34,8 +35,8 @@ const GALLERY_COLLECTION = [
     edition: '2025',
     date: 'October 2025',
     venue: 'Main Auditorium Stage',
-    url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop',
-    thumbUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop',
+    url: drivePhotosData['degree-distribution']?.[0]?.url || 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop',
+    thumbUrl: drivePhotosData['degree-distribution']?.[0]?.url || 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop',
     caption: 'Official degree conferment and distribution of B.Tech, M.Tech, and Ph.D. degree scrolls and merit certificates to graduating scholars.',
     featured: true,
     aspect: 'aspect-[16/10]',
@@ -48,8 +49,8 @@ const GALLERY_COLLECTION = [
     edition: '2025',
     date: 'October 2025',
     venue: 'Institute Lawn Pavilion',
-    url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop',
-    thumbUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&auto=format&fit=crop',
+    url: drivePhotosData['convocation-evening']?.[0]?.url || 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop',
+    thumbUrl: drivePhotosData['convocation-evening']?.[0]?.url || 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&auto=format&fit=crop',
     caption: 'Celebratory convocation evening with cultural performances, student felicitations, and celebratory dinner.',
     featured: true,
     aspect: 'aspect-[4/3]',
@@ -62,8 +63,8 @@ const GALLERY_COLLECTION = [
     edition: '2025',
     date: 'October 2025',
     venue: 'Campus Guest House Lawn',
-    url: 'https://images.unsplash.com/photo-1525921429624-479b6a26d84d?q=80&w=1200&auto=format&fit=crop',
-    thumbUrl: 'https://images.unsplash.com/photo-1525921429624-479b6a26d84d?q=80&w=600&auto=format&fit=crop',
+    url: drivePhotosData['alumni-meet']?.[0]?.url || 'https://images.unsplash.com/photo-1525921429624-479b6a26d84d?q=80&w=1200&auto=format&fit=crop',
+    thumbUrl: drivePhotosData['alumni-meet']?.[0]?.url || 'https://images.unsplash.com/photo-1525921429624-479b6a26d84d?q=80&w=600&auto=format&fit=crop',
     caption: 'Homecoming assembly connecting distinguished alumni across graduating cohorts with faculty and mentors.',
     featured: false,
     aspect: 'aspect-[4/3]',
@@ -76,8 +77,8 @@ const GALLERY_COLLECTION = [
     edition: '2025',
     date: 'October 2025',
     venue: 'Main Lecture Hall',
-    url: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1200&auto=format&fit=crop',
-    thumbUrl: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600&auto=format&fit=crop',
+    url: drivePhotosData['speaker-session']?.[0]?.url || 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1200&auto=format&fit=crop',
+    thumbUrl: drivePhotosData['speaker-session']?.[0]?.url || 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600&auto=format&fit=crop',
     caption: 'Visionary keynote address and insights delivered by esteemed guests of honour and institute leadership.',
     featured: false,
     aspect: 'aspect-[16/10]',
@@ -301,6 +302,9 @@ export function GallerySection() {
                     <img
                       src={item.thumbUrl}
                       alt={item.title}
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 select-none"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-4">

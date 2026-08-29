@@ -70,7 +70,7 @@ export function HowToReachSection() {
   };
 
   return (
-    <section className="w-full py-16 sm:py-20 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="how-to-reach">
+    <section className="w-full pt-6 pb-6 sm:pt-8 sm:pb-8 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="how-to-reach">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Container Card */}

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Bell,
   FileText,
@@ -16,110 +16,141 @@ import {
   Pin,
   Share2,
   Check,
-  X
+  X,
+  RefreshCw,
+  FileSpreadsheet
 } from 'lucide-react';
 import Modal from '../../components/ui/Modal';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
+import defaultNoticesData from '../../data/notices.json';
 
-const NOTICES_DATA = [
-  {
-    id: 'invitation-card',
-    title: 'Official Invitation Card & Programme Schedule',
-    category: 'Invitation',
-    badgeVariant: 'maroon',
-    date: '10 September 2026',
-    displayDate: 'Sep 2026',
-    refNo: 'IIITBH/CONV/2026/INV-01',
-    isPinned: true,
-    description:
-      'Official Invitation Card for the 3rd Convocation of IIIT Bhagalpur. All graduating students of B.Tech, M.Tech, and Ph.D. programmes, along with esteemed dignitaries, guests, faculty members, and accompanying parents, are cordially invited to grace the auspicious occasion on 26 September 2026 at the Main Lecture Hall.',
-    pdfSize: '1.2 MB',
-    issuedBy: 'Office of the Registrar & Convocation Secretariat',
-  },
-  {
-    id: 'registration-date-time',
-    title: 'Degree Registration, Fee & Rehearsal Schedule',
-    category: 'Schedule',
-    badgeVariant: 'primary',
-    date: '08 September 2026',
-    displayDate: 'Sep 2026',
-    refNo: 'IIITBH/CONV/2026/REG-02',
-    isPinned: true,
-    description:
-      'Detailed guidelines and portal instructions for degree registration confirmation, ceremonial gown & stole collection timeline, security clearance, and mandatory full-dress rehearsal timings scheduled at the Main Lecture Hall.',
-    pdfSize: '450 KB',
-    issuedBy: 'Associate Dean (Academic Affairs)',
-  },
-  {
-    id: 'medal-winners',
-    title: 'Provisional List of Medal Winners & Rank Holders',
-    category: 'Highlight',
-    badgeVariant: 'secondary',
-    date: '05 September 2026',
-    displayDate: 'Sep 2026',
-    refNo: 'IIITBH/CONV/2026/MED-03',
-    isPinned: false,
-    description:
-      'Provisional announcement of President Gold Medal, Director Gold Medal, Institute Silver Medals, and Departmental Best Project Award recipients for academic and research excellence across all graduating cohorts.',
-    pdfSize: '620 KB',
-    issuedBy: 'Medals & Awards Finalization Committee',
-  },
-  {
-    id: 'news',
-    title: 'Media Briefing & 4K Live Broadcast Advisory',
-    category: 'Update',
-    badgeVariant: 'neutral',
-    date: '03 September 2026',
-    displayDate: 'Sep 2026',
-    refNo: 'IIITBH/CONV/2026/NEWS-04',
-    isPinned: false,
-    description:
-      'Official press advisory regarding media passes, photography zones, and high-definition multi-camera live streaming on YouTube and the institute portal for families unable to attend in person.',
-    pdfSize: '380 KB',
-    issuedBy: 'Public Relations Office (PRO)',
-  },
-  {
-    id: 'invitation',
-    title: 'General Invitation for Alumni & Corporate Partners',
-    category: 'General',
-    badgeVariant: 'neutral',
-    date: '01 September 2026',
-    displayDate: 'Sep 2026',
-    refNo: 'IIITBH/CONV/2026/GEN-05',
-    isPinned: false,
-    description:
-      'General invitation circular for distinguished alumni, founding faculty, advisory board members, and industry recruitment partners to join the 3rd Convocation ceremony and alumni fellowship dinner.',
-    pdfSize: '540 KB',
-    issuedBy: 'Alumni Relations & International Affairs Section',
-  },
-  {
-    id: 'office-order',
-    title: 'Office Order on Committee Duties & Protocols',
-    category: 'Important',
-    badgeVariant: 'maroon',
-    date: '28 August 2026',
-    displayDate: 'Sep 2026',
-    refNo: 'IIITBH/CONV/2026/OFF-06',
-    isPinned: false,
-    description:
-      'Official administrative office order regarding the constitution of 22 convocation sub-committees, duty assignments for faculty and staff, campus traffic management, and emergency medical protocols.',
-    pdfSize: '790 KB',
-    issuedBy: 'Office of the Director, IIIT Bhagalpur',
-  },
-];
+// Helper to fetch and parse notices from Google Sheets
+async function fetchNoticesFromGoogleSheet(sheetUrl) {
+  if (!sheetUrl || typeof sheetUrl !== 'string') return null;
+  const trimmed = sheetUrl.trim();
 
-const CATEGORIES = ['All Notices', 'Invitation', 'Schedule', 'Highlight', 'Update', 'Important', 'General'];
+  // Format A: Standard Google Sheet URL (https://docs.google.com/spreadsheets/d/ID/...)
+  const sheetIdMatch = trimmed.match(/\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
+  if (sheetIdMatch && sheetIdMatch[1]) {
+    const sheetId = sheetIdMatch[1];
+    const gidMatch = trimmed.match(/[#&?]gid=([0-9]+)/);
+    const gidParam = gidMatch ? `&gid=${gidMatch[1]}` : '';
+    const gvizUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json${gidParam}`;
+
+    try {
+      const res = await fetch(gvizUrl);
+      const text = await res.text();
+      const jsonMatch = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);/);
+      if (jsonMatch && jsonMatch[1]) {
+        const gvizData = JSON.parse(jsonMatch[1]);
+        const table = gvizData.table;
+        if (table && table.rows && table.rows.length > 0) {
+          const cols = (table.cols || []).map((c) => (c?.label || '').toLowerCase().trim());
+
+          return table.rows
+            .map((row, idx) => {
+              const cells = row.c || [];
+              const getVal = (colKeyword, fallbackIdx) => {
+                const matchedIdx = cols.findIndex((c) => c.includes(colKeyword.toLowerCase()));
+                const targetIdx = matchedIdx !== -1 ? matchedIdx : fallbackIdx;
+                const cell = cells[targetIdx];
+                if (!cell) return '';
+                return cell.f !== undefined
+                  ? String(cell.f).trim()
+                  : cell.v !== null && cell.v !== undefined
+                  ? String(cell.v).trim()
+                  : '';
+              };
+
+              const title = getVal('title', 0);
+              const category = getVal('category', 1) || 'General';
+              const date = getVal('date', 2) || '';
+              const refNo = getVal('ref', 3) || `IIITBH/CONV/2026/NOT-${idx + 1}`;
+              const description = getVal('description', 4) || '';
+              const issuedBy = getVal('issued', 5) || 'Office of the Registrar';
+              const pdfUrl = getVal('pdf', 6) || getVal('link', 6) || '';
+              const isPinnedRaw = getVal('pin', 7);
+              const isPinned =
+                isPinnedRaw.toLowerCase() === 'true' ||
+                isPinnedRaw === '1' ||
+                isPinnedRaw.toLowerCase() === 'yes';
+
+              return {
+                id: `notice-${idx + 1}-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 30)}`,
+                title,
+                category,
+                date,
+                refNo,
+                isPinned,
+                description,
+                issuedBy,
+                pdfUrl,
+              };
+            })
+            .filter((n) => n.title && n.title.length > 0);
+        }
+      }
+    } catch {
+      // Fallback
+    }
+  }
+
+  // Format B: Google Apps Script Webhook or JSON API
+  if (trimmed.includes('script.google.com') || trimmed.endsWith('.json')) {
+    try {
+      const res = await fetch(trimmed);
+      const data = await res.json();
+      if (Array.isArray(data)) return data;
+      if (data && Array.isArray(data.notices)) return data.notices;
+    } catch {
+      // Fallback
+    }
+  }
+
+  return null;
+}
 
 export function NoticeSection() {
+  const [notices, setNotices] = useState(defaultNoticesData);
   const [selectedNotice, setSelectedNotice] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All Notices');
   const [searchTerm, setSearchTerm] = useState('');
   const [copiedLink, setCopiedLink] = useState(false);
+  const [isLiveConnected, setIsLiveConnected] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Retrieve Google Sheet Link from .env
+  const sheetEnvUrl =
+    typeof import.meta !== 'undefined' &&
+    import.meta.env &&
+    (import.meta.env.VITE_NOTICES_SHEET_URL || import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL);
+
+  useEffect(() => {
+    if (sheetEnvUrl) {
+      setIsLoading(true);
+      fetchNoticesFromGoogleSheet(sheetEnvUrl)
+        .then((fetchedNotices) => {
+          if (fetchedNotices && Array.isArray(fetchedNotices) && fetchedNotices.length > 0) {
+            setNotices(fetchedNotices);
+            setIsLiveConnected(true);
+          }
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  }, [sheetEnvUrl]);
+
+  // Dynamic category list based on active notices
+  const categories = useMemo(() => {
+    const unique = Array.from(new Set(notices.map((n) => n.category).filter(Boolean)));
+    return ['All Notices', ...unique];
+  }, [notices]);
 
   // Filter notices by category and search keyword
   const filteredNotices = useMemo(() => {
-    return NOTICES_DATA.filter((notice) => {
+    return notices.filter((notice) => {
       const matchesCategory =
         activeCategory === 'All Notices' || notice.category === activeCategory;
       if (!matchesCategory) return false;
@@ -135,7 +166,7 @@ export function NoticeSection() {
         notice.issuedBy.toLowerCase().includes(query)
       );
     });
-  }, [activeCategory, searchTerm]);
+  }, [notices, activeCategory, searchTerm]);
 
   const handleShareNotice = (notice) => {
     navigator.clipboard.writeText(
@@ -145,7 +176,16 @@ export function NoticeSection() {
     setTimeout(() => setCopiedLink(false), 2000);
   };
 
-  const pinnedNotice = NOTICES_DATA.find((n) => n.id === 'invitation-card');
+  const handleDownloadPdf = (notice) => {
+    if (notice.pdfUrl && notice.pdfUrl.trim().length > 0) {
+      window.open(notice.pdfUrl.trim(), '_blank');
+    } else {
+      alert(`Downloading official PDF for: ${notice.title}`);
+    }
+  };
+
+  // Find first pinned notice, or fallback to first notice
+  const pinnedNotice = notices.find((n) => n.isPinned) || notices[0];
 
   return (
     <section className="w-full py-16 bg-cream-100 min-h-screen relative" id="notices">
@@ -153,9 +193,18 @@ export function NoticeSection() {
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-4 border border-maroon-900/10 shadow-xs">
-            <Bell className="w-4 h-4 text-maroon-900" />
-            <span>Official Communications</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold border border-maroon-900/10 shadow-xs">
+              <Bell className="w-4 h-4 text-maroon-900" />
+              <span>Official Communications</span>
+            </div>
+
+            {isLiveConnected && (
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-body text-xs font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Live Google Sheet Synced</span>
+              </div>
+            )}
           </div>
 
           <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
@@ -219,11 +268,11 @@ export function NoticeSection() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => alert(`Downloading official PDF for ${pinnedNotice.title} (${pinnedNotice.pdfSize})`)}
-                  className="inline-flex items-center justify-center min-h-[48px] px-6 rounded-pill bg-white/15 hover:bg-white/25 border border-white/30 text-white font-body font-semibold text-sm transition-all gap-2 cursor-pointer w-full sm:w-auto"
+                  onClick={() => handleDownloadPdf(pinnedNotice)}
+                  className="inline-flex items-center justify-center min-h-[48px] px-6 rounded-pill bg-white/15 hover:bg-white/25 border border-white/30 text-white font-body font-semibold text-sm transition-all gap-2 cursor-pointer w-full sm:w-auto whitespace-nowrap"
                 >
-                  <Download className="w-4 h-4" />
-                  <span>Download PDF ({pinnedNotice.pdfSize})</span>
+                  <Download className="w-4 h-4 shrink-0" />
+                  <span className="whitespace-nowrap">Download PDF</span>
                 </button>
               </div>
             </div>
@@ -256,11 +305,11 @@ export function NoticeSection() {
           {/* Category Filter Pills */}
           <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#ECE6DC]">
             <div className="flex flex-wrap items-center gap-2">
-              {CATEGORIES.map((cat) => {
+              {categories.map((cat) => {
                 const count =
                   cat === 'All Notices'
-                    ? NOTICES_DATA.length
-                    : NOTICES_DATA.filter((n) => n.category === cat).length;
+                    ? notices.length
+                    : notices.filter((n) => n.category === cat).length;
 
                 return (
                   <button
@@ -340,8 +389,8 @@ export function NoticeSection() {
                       <Calendar className="w-3.5 h-3.5 text-maroon-900" />
                       {notice.date}
                     </span>
-                    <span className="px-2 py-0.5 rounded-md bg-cream-100 border border-border text-[11px] font-mono font-medium text-charcoal-700">
-                      {notice.pdfSize} PDF
+                    <span className="px-2.5 py-0.5 rounded-md bg-cream-100 border border-border text-[11px] font-mono font-medium text-charcoal-700">
+                      PDF Document
                     </span>
                   </div>
 
@@ -453,11 +502,11 @@ export function NoticeSection() {
                 </Button>
                 <Button
                   variant="primary"
-                  className="gap-2"
-                  onClick={() => alert(`Downloading official PDF for ${selectedNotice.title} (${selectedNotice.pdfSize})`)}
+                  iconLeft={<Download className="w-4 h-4 shrink-0" />}
+                  className="whitespace-nowrap px-6 shrink-0"
+                  onClick={() => handleDownloadPdf(selectedNotice)}
                 >
-                  <Download className="w-4 h-4" />
-                  <span>Download PDF ({selectedNotice.pdfSize})</span>
+                  <span className="whitespace-nowrap">Download PDF</span>
                 </Button>
               </div>
             </div>
