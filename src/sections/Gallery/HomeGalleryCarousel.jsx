@@ -157,7 +157,7 @@ export function HomeGalleryCarousel() {
   const currentSlide = CAROUSEL_SLIDES[currentIndex];
 
   return (
-    <section className="w-full py-16 sm:py-20 bg-cream-100 relative overflow-hidden" id="home-gallery">
+    <section className="w-full pt-4 pb-12 sm:pt-6 sm:pb-16 bg-cream-100 relative overflow-hidden" id="home-gallery">
       <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Header */}
