@@ -43,7 +43,7 @@ function HomePage() {
   return (
     <main>
       <SEO
-        title="3rd Convocation 2026 | IIIT Bhagalpur Official Portal"
+        title="3rd Convocation 2026 | IIIT Bhagalpur"
         description="Official Convocation Portal of Indian Institute of Information Technology Bhagalpur (IIIT Bhagalpur). 3rd Convocation ceremony scheduled for 26 September 2026."
         canonicalUrl="https://convocation.iiitbh.ac.in/"
         schema={{

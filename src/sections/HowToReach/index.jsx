@@ -13,7 +13,6 @@ import {
   Sparkles
 } from 'lucide-react';
 import Card from '../../components/ui/Card';
-import SEO from '../../components/common/SEO';
 
 const TRANSIT_OPTIONS = [
   {
@@ -72,35 +71,6 @@ export function HowToReachSection() {
 
   return (
     <section className="w-full pt-6 pb-6 sm:pt-8 sm:pb-8 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="how-to-reach">
-      <SEO
-        title="How to Reach Campus — Travel & Navigation Guide | IIIT Bhagalpur"
-        description="Transit guide by air (Patna/Purnia), rail (Bhagalpur Junction), road highways, and local cabs to the permanent campus of IIIT Bhagalpur in Sabour."
-        canonicalUrl="https://convocation.iiitbh.ac.in/how-to-reach"
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": "How to Reach IIIT Bhagalpur Campus",
-          "url": "https://convocation.iiitbh.ac.in/how-to-reach",
-          "description": "Travel and navigation directions to the IIIT Bhagalpur campus in Sabour.",
-          "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://convocation.iiitbh.ac.in/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "How to Reach",
-                "item": "https://convocation.iiitbh.ac.in/how-to-reach"
-              }
-            ]
-          }
-        }}
-      />
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Container Card */}
