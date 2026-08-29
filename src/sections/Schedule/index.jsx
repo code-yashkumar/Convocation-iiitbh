@@ -79,7 +79,7 @@ export function ScheduleSection() {
   const [isFullScheduleOpen, setIsFullScheduleOpen] = useState(false);
 
   return (
-    <section className="w-full pt-14 pb-8 sm:pt-16 sm:pb-10 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="schedule">
+    <section className="w-full pt-6 pb-6 sm:pt-8 sm:pb-8 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="schedule">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Main Schedule Container Card */}

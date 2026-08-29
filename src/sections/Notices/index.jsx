@@ -377,10 +377,10 @@ export function NoticeSection() {
               <div
                 key={notice.id}
                 onClick={() => setSelectedNotice(notice)}
-                className={`group bg-white rounded-[24px] p-6 sm:p-7 border shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] transition-all duration-300 flex flex-col justify-between cursor-pointer ${
+                className={`group bg-white rounded-[24px] p-6 sm:p-7 border hover:border-maroon-900 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] transition-all duration-300 flex flex-col justify-between cursor-pointer ${
                   notice.isPinned
-                    ? 'border-gold-400/60 bg-gradient-to-b from-gold-50/20 via-white to-white ring-1 ring-gold-400/30'
-                    : 'border-[#E8E2D8] hover:border-maroon-900/30'
+                    ? 'border-maroon-900/60 bg-gradient-to-b from-maroon-050/30 via-white to-white shadow-[0_6px_24px_rgba(94,16,28,0.07)]'
+                    : 'border-[#E8E2D8]'
                 }`}
               >
                 <div>
@@ -391,8 +391,8 @@ export function NoticeSection() {
                         {notice.category}
                       </span>
                       {notice.isPinned && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gold-100 text-gold-900 border border-gold-300 font-body text-[11px] font-bold uppercase tracking-wider shadow-2xs">
-                          <Pin className="w-3 h-3 fill-gold-600 text-gold-700" />
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-maroon-900 text-white font-body text-[11px] font-bold uppercase tracking-wider shadow-xs">
+                          <Pin className="w-3 h-3 fill-white text-white" />
                           <span>Pinned</span>
                         </span>
                       )}
@@ -479,8 +479,8 @@ export function NoticeSection() {
                   {selectedNotice.category}
                 </span>
                 {selectedNotice.isPinned && (
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gold-100 text-gold-900 border border-gold-300 font-body text-xs font-bold uppercase tracking-wider">
-                    <Pin className="w-3 h-3 fill-gold-600 text-gold-700" />
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-maroon-900 text-white font-body text-xs font-bold uppercase tracking-wider shadow-xs">
+                    <Pin className="w-3 h-3 fill-white text-white" />
                     <span>Featured Pinned Circular</span>
                   </span>
                 )}
