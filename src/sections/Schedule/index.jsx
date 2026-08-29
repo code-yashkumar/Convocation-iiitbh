@@ -110,20 +110,21 @@ export function ScheduleSection() {
           {/* 2-Column Grid: Left Timeline + Right College Image */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
             
-            {/* Left Column: Mathematically Centered Timeline List */}
-            <div className="lg:col-span-6 flex flex-col justify-between py-2">
+            {/* Left Column: Balanced Symmetrical Timeline List */}
+            <div className="lg:col-span-6 flex flex-col justify-between py-1">
               <div className="flex flex-col">
                 {SUMMARY_SCHEDULE.map((item, idx) => {
+                  const isFirst = idx === 0;
                   const isLast = idx === SUMMARY_SCHEDULE.length - 1;
                   return (
-                    <div key={item.id} className="flex items-stretch gap-3 sm:gap-5 group">
+                    <div key={item.id} className="flex items-stretch gap-3.5 sm:gap-5 group">
                       
                       {/* Column 1: Vertical Center Line + Bullet Node */}
                       <div className="flex flex-col items-center shrink-0 w-6 relative">
-                        {/* Top Line Segment connecting through center */}
+                        {/* Top Line Segment connecting directly to bullet center */}
                         <div
                           className={`w-[2px] bg-[#E8E2D8] ${
-                            idx === 0 ? 'h-2.5 opacity-0' : 'h-3'
+                            isFirst ? 'h-5 opacity-0' : 'h-5'
                           }`}
                         />
 
@@ -132,7 +133,7 @@ export function ScheduleSection() {
                           <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
                         </div>
 
-                        {/* Bottom Line Segment running down to next bullet */}
+                        {/* Bottom Line Segment */}
                         <div
                           className={`w-[2px] bg-[#E8E2D8] flex-1 ${
                             isLast ? 'opacity-0' : 'opacity-100'
@@ -141,18 +142,22 @@ export function ScheduleSection() {
                       </div>
 
                       {/* Column 2: Event Time */}
-                      <div className="pt-0.5 w-16 sm:w-20 shrink-0">
+                      <div className={`w-16 sm:w-20 shrink-0 ${isFirst ? 'pt-2.5' : 'pt-4 sm:pt-4.5'}`}>
                         <span className="font-body font-bold text-xs sm:text-sm text-charcoal-700 whitespace-nowrap">
                           {item.time}
                         </span>
                       </div>
 
-                      {/* Column 3: Title & Description */}
-                      <div className="flex-1 pb-6 sm:pb-7 border-b border-[#ECE6DC] group-last:border-b-0 group-last:pb-0 pt-0 min-w-0">
+                      {/* Column 3: Title & Description with Balanced Dividing Lines */}
+                      <div
+                        className={`flex-1 border-b border-[#ECE6DC] group-last:border-b-0 min-w-0 ${
+                          isFirst ? 'pt-2 pb-4 sm:pb-5' : 'pt-4 sm:pt-4.5 pb-4 sm:pb-5'
+                        } group-last:pb-2`}
+                      >
                         <h3 className="font-display font-bold text-base sm:text-[17px] text-charcoal-900 leading-snug group-hover:text-maroon-900 transition-colors">
                           {item.title}
                         </h3>
-                        <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-0.5 leading-relaxed">
+                        <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-1 leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -221,21 +226,26 @@ export function ScheduleSection() {
               </span>
             </div>
 
-            {/* Timeline in Modal with Perfect Centering */}
+            {/* Timeline in Modal with Balanced Symmetrical Spacing */}
             <div className="flex flex-col">
               {DETAILED_SCHEDULE.map((item, idx) => {
+                const isFirst = idx === 0;
                 const isLast = idx === DETAILED_SCHEDULE.length - 1;
                 return (
                   <div key={idx} className="flex items-stretch gap-4">
                     {/* Line Column */}
                     <div className="flex flex-col items-center shrink-0 w-5 relative">
-                      <div className={`w-[2px] bg-border ${idx === 0 ? 'h-2 opacity-0' : 'h-2.5'}`} />
+                      <div className={`w-[2px] bg-border ${isFirst ? 'h-3 opacity-0' : 'h-3'}`} />
                       <div className="w-3.5 h-3.5 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs shrink-0 z-10" />
                       <div className={`w-[2px] bg-border flex-1 ${isLast ? 'opacity-0' : 'opacity-100'}`} />
                     </div>
 
                     {/* Details Column */}
-                    <div className="flex-1 pb-6 min-w-0">
+                    <div
+                      className={`flex-1 min-w-0 border-b border-border/60 ${
+                        isFirst ? 'pt-1 pb-4' : 'pt-3 pb-4'
+                      } ${isLast ? 'border-b-0 pb-1' : ''}`}
+                    >
                       <div className="space-y-1">
                         <div className="flex flex-wrap items-center justify-between gap-2">
                           <span className="font-mono text-xs font-bold text-maroon-900">
