@@ -15,6 +15,7 @@ import GallerySection from './sections/Gallery';
 import HomeGalleryCarousel from './sections/Gallery/HomeGalleryCarousel';
 import ArchiveSection from './sections/Archive';
 import RegistrationFormSection from './sections/RegistrationForm';
+import HowToReachSection from './sections/HowToReach';
 import InformationSection from './sections/Information';
 import CommitteeSection from './sections/Committees';
 
@@ -27,6 +28,7 @@ function HomePage() {
       <AccommodationCTA />
       <HomeGalleryCarousel />
       <RegistrationFormSection />
+      <HowToReachSection />
     </main>
   );
 }
@@ -55,6 +57,7 @@ export function App() {
           <Route path="/information" element={<PageWrapper><InformationSection /></PageWrapper>} />
           <Route path="/committee" element={<PageWrapper><CommitteeSection /></PageWrapper>} />
           <Route path="/committees" element={<PageWrapper><CommitteeSection /></PageWrapper>} />
+          <Route path="/how-to-reach" element={<PageWrapper><HowToReachSection /></PageWrapper>} />
         </Routes>
       </div>
       <Footer />
