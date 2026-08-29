@@ -10,7 +10,7 @@ export function AccommodationCTA({ className = '' }) {
     <div
       className={`w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 my-3 sm:my-5 ${className}`}
     >
-      <div className="relative bg-gradient-to-r from-[#500D16] via-[#66101E] to-[#450A12] text-white rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 lg:p-12 overflow-hidden shadow-[0_16px_40px_rgba(80,13,22,0.18)] border border-maroon-700/60 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+      <div className="relative bg-gradient-to-r from-[#500D16] via-[#66101E] to-[#450A12] text-white rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 lg:p-12 overflow-hidden shadow-sm border border-maroon-800/80 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
         {/* Background Ambient Glow */}
         <div className="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-gold-500/10 pointer-events-none blur-3xl" />
         <div className="absolute left-1/3 -top-20 w-64 h-64 rounded-full bg-white/5 pointer-events-none blur-2xl" />
