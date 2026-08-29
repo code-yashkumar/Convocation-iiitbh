@@ -1,213 +1,20 @@
-/**
- * Main stylesheet importing all token layers and Tailwind directives
+﻿/**
+ * Dark Reader Hero & Event Bar Isolation Engine
+ * 
+ * Strict Dual-Layer Specification:
+ * 1. MAIN HERO AREA: Protected 100% from Dark Reader.
+ *    - Photograph, cream background, headings, subtitle, date/venue, buttons, and countdown remain original light.
+ *    - Top transparent navbar remains in authentic dark text over the light hero.
+ * 2. EVENT INFORMATION BAR: Custom intentional dark design when Dark Reader is enabled.
+ *    - Background: Dark Maroon (#380B13)
+ *    - Text / Values: Pure White (#FFFFFF)
+ *    - Labels: Warm Off-White / Gold (#E8D5B5)
+ *    - Icons: Light Rose Accent (#F87171)
+ *    - In Light mode: White bar with dark text and maroon icons.
+ * 3. EVERYTHING BELOW HERO: Normal Dark Reader transformation enabled.
  */
-@import './tokens.css';
-@import './semantic-tokens.css';
-@import './typography.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    font-family: var(--font-body);
-    background-color: var(--color-bg-page);
-    color: var(--color-text-default);
-    accent-color: #5E101C;
-    overflow-x: hidden;
-    width: 100%;
-  }
-
-  body {
-    overflow-x: hidden;
-    width: 100%;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* Utility to hide scrollbars while preserving horizontal touch scrolling */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  /* Universal accessible focus ring across keyboard interactions */
-  :focus-visible {
-    outline: 2px solid #5E101C !important;
-    outline-offset: 1px !important;
-  }
-
-  /* Remove outline for pointer focus */
-  :focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  /* Selection styling */
-  ::selection {
-    background-color: #5E101C;
-    color: #FFFFFF;
-  }
-
-  /* Form controls focus, accent, and select styling */
-  input, select, textarea, button {
-    accent-color: #5E101C;
-  }
-
-  input:focus, select:focus, textarea:focus {
-    border-color: #5E101C !important;
-    outline: none !important;
-    box-shadow: 0 0 0 2px rgba(94, 16, 28, 0.18) !important;
-  }
-
-  select option {
-    background-color: #FFFFFF;
-    color: #1A1A1A;
-    padding: 8px 12px;
-  }
-
-  select option:checked,
-  select option:hover,
-  select option:focus {
-    background-color: #5E101C !important;
-    color: #FFFFFF !important;
-  }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 200ms ease-out forwards;
-}
-
-.animate-scaleIn {
-  animation: scaleIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Reduced motion support (Section 8.2 & Section 6) */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .animate-fadeIn,
-  .animate-scaleIn {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* Base Component Classes strictly following Section 5 & Section 10 */
-@layer components {
-  /* Buttons */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    min-width: 44px;
-    padding: 0 var(--space-6);
-    gap: var(--space-2);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-body);
-    font-size: var(--type-body-md-size);
-    font-weight: 600;
-    line-height: var(--type-body-md-line);
-    cursor: pointer;
-    transition: all var(--motion-button) ease;
-    text-decoration: none;
-    user-select: none;
-    border: 1px solid transparent;
-  }
-
-  .btn:disabled,
-  .btn[aria-disabled="true"] {
-    opacity: 0.4;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  .btn-compact {
-    min-height: 40px;
-    padding: 0 var(--space-4);
-    font-size: var(--type-body-sm-size);
-  }
-
-  .btn-primary {
-    background-color: var(--color-action-primary);
-    color: var(--color-text-on-primary);
-    border-color: transparent;
-  }
-
-  .btn-primary:hover:not(:disabled) {
-    background-color: var(--color-action-primary-hover);
-  }
-
-  .btn-secondary {
-    background-color: transparent;
-    color: var(--color-action-secondary);
-    border-color: var(--color-action-secondary);
-  }
-
-  .btn-secondary:hover:not(:disabled) {
-    background-color: var(--color-action-secondary-hover);
-  }
-
-  .btn-ghost {
-    background-color: transparent;
-    color: var(--color-action-primary);
-    border-color: transparent;
-  }
-
-  .btn-ghost:hover:not(:disabled) {
-    background-color: var(--color-maroon-050);
-    text-decoration: underline;
-  }
-
-  /* Cards */
-  .card-standard {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-default);
-    border-radius: var(--radius-md);
-    box-shadow: var(--elevation-card);
-  }
-
-  .card-feature {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-default);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--elevation-feature);
-  }
-
-  .card-inverse {
-    background-color: var(--color-bg-inverse);
-    color: var(--color-text-on-primary);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--elevation-feature);
-  }
-}
-
+const HERO_DARKREADER_CSS = `
 /* ==========================================================================
    1. MAIN HERO AREA & TOP NAVBAR: 100% LIGHT-MODE PROTECTION
    ========================================================================== */
@@ -222,6 +29,10 @@ header[data-navbar-hero="true"] * {
   --darkreader-inline-color: inherit !important;
   --darkreader-inline-bgcolor: transparent !important;
   --darkreader-inline-bgimage: none !important;
+  --darkreader-inline-border-top: initial !important;
+  --darkreader-inline-border-right: initial !important;
+  --darkreader-inline-border-bottom: initial !important;
+  --darkreader-inline-border-left: initial !important;
   color-scheme: light !important;
 }
 
@@ -505,4 +316,87 @@ html[data-darkreader-scheme="dark"] body .event-info-bar .edition-dot,
 html[data-darkreader-mode] body .event-info-bar .edition-dot {
   fill: #FBBF24 !important;
 }
+`;
 
+export function initDarkReaderHeroProtection() {
+  if (typeof document === 'undefined') return;
+
+  const checkDarkReaderActive = () => {
+    const isDarkReader =
+      Boolean(document.querySelector('meta[name="darkreader"]')) ||
+      Boolean(document.querySelector('style.darkreader')) ||
+      Boolean(document.querySelector('style[class*="darkreader"]')) ||
+      document.documentElement.hasAttribute('data-darkreader-mode') ||
+      document.documentElement.hasAttribute('data-darkreader-scheme') ||
+      document.documentElement.getAttribute('data-darkreader-scheme') === 'dark';
+
+    if (isDarkReader) {
+      document.documentElement.setAttribute('data-darkreader-active', 'true');
+      document.documentElement.classList.add('dark-reader-active');
+    } else {
+      document.documentElement.removeAttribute('data-darkreader-active');
+      document.documentElement.classList.remove('dark-reader-active');
+    }
+  };
+
+  const cleanProtectedElements = () => {
+    const targets = document.querySelectorAll(
+      '#main-hero-area, #main-hero-area *, header[data-navbar-hero="true"], header[data-navbar-hero="true"] *'
+    );
+    targets.forEach((el) => {
+      const attrs = el.getAttributeNames();
+      for (const attr of attrs) {
+        if (attr.startsWith('data-darkreader-inline-')) {
+          el.removeAttribute(attr);
+        }
+      }
+    });
+  };
+
+  const ensureStyleTag = () => {
+    checkDarkReaderActive();
+    cleanProtectedElements();
+
+    let styleTag = document.getElementById('hero-darkreader-controller');
+    if (!styleTag) {
+      styleTag = document.createElement('style');
+      styleTag.id = 'hero-darkreader-controller';
+      styleTag.textContent = HERO_DARKREADER_CSS;
+      document.head.appendChild(styleTag);
+    } else if (document.head.lastElementChild !== styleTag) {
+      document.head.appendChild(styleTag);
+    }
+  };
+
+  ensureStyleTag();
+
+  const headObserver = new MutationObserver(() => {
+    ensureStyleTag();
+  });
+
+  headObserver.observe(document.head, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+  });
+
+  const docObserver = new MutationObserver(() => {
+    checkDarkReaderActive();
+    cleanProtectedElements();
+  });
+
+  docObserver.observe(document.body || document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['data-darkreader-inline-color', 'data-darkreader-inline-bgcolor', 'style'],
+  });
+
+  const interval = setInterval(ensureStyleTag, 800);
+
+  return () => {
+    headObserver.disconnect();
+    docObserver.disconnect();
+    clearInterval(interval);
+  };
+}

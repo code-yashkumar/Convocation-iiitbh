@@ -41,6 +41,8 @@ function HeroPinIcon({ className = 'w-7 h-7 text-maroon-900' }) {
 
 /**
  * Hero Section strictly matching the reference UI mockup
+ * Layer 1: Main Hero Area (Photographic backdrop, typography, countdown) - Protected from Dark Reader
+ * Layer 2: Event Information Bar - Light in normal mode, custom dark maroon in Dark Reader mode
  */
 export function Hero() {
   const location = useLocation();
@@ -65,36 +67,42 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-screen lg:h-screen lg:min-h-[720px] lg:max-h-[960px] flex flex-col justify-between pt-20 md:pt-24 pb-6 overflow-hidden bg-cream-100">
+    <section
+      id="hero-section"
+      className="relative w-full min-h-screen lg:h-screen lg:min-h-[720px] lg:max-h-[960px] flex flex-col justify-between pt-20 md:pt-24 pb-6 overflow-hidden bg-cream-100"
+    >
       
-      {/* Full-width Background Image Layer for Desktop (lg+) */}
+      {/* 1. Full-width Background Image Layer for Desktop (lg+) */}
       <div
-        className="hidden lg:block absolute inset-0 bg-no-repeat bg-right-top bg-cover xl:bg-contain pointer-events-none z-0"
+        className="hero-bg-layer hidden lg:block absolute inset-0 bg-no-repeat bg-right-top bg-cover xl:bg-contain pointer-events-none z-0"
         style={{
           backgroundImage: "url('/assets/convocation-hero-bg.png')",
         }}
       />
 
-      {/* Main Middle Content Area */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-10 flex-1 flex items-center py-2 sm:py-4 lg:py-2">
+      {/* 2. Main Hero Area (Content Block: CONVOCATION 2026, Details, CTAs, Countdown) */}
+      <div
+        id="main-hero-area"
+        className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-10 flex-1 flex items-center py-2 sm:py-4 lg:py-2"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
           
-          {/* Left Column: Hero Content Block (CONVOCATION 2026, Details, CTAs) */}
+          {/* Left Column: Hero Content Block */}
           <div className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center">
             
             {/* Title & Year */}
             <div className="mb-2 sm:mb-4">
-              <h1 className="font-display font-bold text-[38px] sm:text-[52px] lg:text-[76px] xl:text-[82px] leading-[0.94] lg:leading-[0.92] text-charcoal-900 tracking-tight">
-                <span className="lg:hidden">Convocation</span>
-                <span className="hidden lg:inline">CONVOCATION</span>
-                <span className="block font-display font-bold text-[42px] sm:text-[56px] lg:text-[78px] xl:text-[84px] leading-[1] text-maroon-900 mt-0.5 sm:mt-1">
+              <h1 className="hero-title-main font-display font-bold text-[38px] sm:text-[52px] lg:text-[76px] xl:text-[82px] leading-[0.94] lg:leading-[0.92] text-charcoal-900 tracking-tight">
+                <span className="hero-title-main lg:hidden">Convocation</span>
+                <span className="hero-title-main hidden lg:inline">CONVOCATION</span>
+                <span className="hero-title-maroon block font-display font-bold text-[42px] sm:text-[56px] lg:text-[78px] xl:text-[84px] leading-[1] text-maroon-900 mt-0.5 sm:mt-1">
                   2026
                 </span>
               </h1>
             </div>
 
             {/* Subtitle Statement */}
-            <p className="font-body text-charcoal-700 sm:text-charcoal-900 text-[14px] sm:text-[17px] lg:text-[24px] leading-[1.4] sm:leading-snug font-normal max-w-md mb-6 sm:mb-8">
+            <p className="hero-subtitle font-body text-charcoal-700 sm:text-charcoal-900 text-[14px] sm:text-[17px] lg:text-[24px] leading-[1.4] sm:leading-snug font-normal max-w-md mb-6 sm:mb-8">
               <span>A milestone of achievement,</span>
               <span className="block sm:inline sm:ml-1">tradition and new beginnings.</span>
             </p>
@@ -104,13 +112,13 @@ export function Hero() {
               {/* Date Block */}
               <div className="flex items-center sm:items-start gap-3 sm:gap-3.5">
                 <div className="shrink-0">
-                  <HeroCalendarIcon className="w-6 h-6 sm:w-7 sm:h-7 text-maroon-900" />
+                  <HeroCalendarIcon className="hero-icon-maroon w-6 h-6 sm:w-7 sm:h-7 text-maroon-900" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-body font-bold sm:font-semibold text-charcoal-900 text-[13.5px] sm:text-[15px] lg:text-[16px] leading-tight">
+                  <span className="hero-meta-title font-body font-bold sm:font-semibold text-charcoal-900 text-[13.5px] sm:text-[15px] lg:text-[16px] leading-tight">
                     26 September 2026
                   </span>
-                  <span className="font-body text-charcoal-600 text-[12px] sm:text-[13px] lg:text-[14px] leading-tight mt-0.5">
+                  <span className="hero-meta-sub font-body text-charcoal-600 text-[12px] sm:text-[13px] lg:text-[14px] leading-tight mt-0.5">
                     Saturday, 10:00 AM
                   </span>
                 </div>
@@ -119,13 +127,13 @@ export function Hero() {
               {/* Venue Block */}
               <div className="flex items-center sm:items-start gap-3 sm:gap-3.5">
                 <div className="shrink-0">
-                  <HeroPinIcon className="w-6 h-6 sm:w-7 sm:h-7 text-maroon-900" />
+                  <HeroPinIcon className="hero-icon-maroon w-6 h-6 sm:w-7 sm:h-7 text-maroon-900" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-body font-bold sm:font-semibold text-charcoal-900 text-[13.5px] sm:text-[15px] lg:text-[16px] leading-tight">
+                  <span className="hero-meta-title font-body font-bold sm:font-semibold text-charcoal-900 text-[13.5px] sm:text-[15px] lg:text-[16px] leading-tight">
                     Main Lecture Hall
                   </span>
-                  <span className="font-body text-charcoal-600 text-[12px] sm:text-[13px] lg:text-[14px] leading-tight mt-0.5">
+                  <span className="hero-meta-sub font-body text-charcoal-600 text-[12px] sm:text-[13px] lg:text-[14px] leading-tight mt-0.5">
                     IIIT Bhagalpur Campus
                   </span>
                 </div>
@@ -137,14 +145,14 @@ export function Hero() {
               <a
                 href="#registration"
                 onClick={(e) => handleScrollToSection(e, 'registration')}
-                className="w-full lg:w-auto inline-flex items-center justify-center min-h-[50px] lg:min-h-[46px] px-8 rounded-[14px] lg:rounded-pill bg-maroon-900 text-white font-body font-semibold text-[15px] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer text-center"
+                className="hero-btn-primary w-full lg:w-auto inline-flex items-center justify-center min-h-[50px] lg:min-h-[46px] px-8 rounded-[14px] lg:rounded-pill bg-maroon-900 text-white font-body font-semibold text-[15px] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer text-center"
               >
                 Register Now
               </a>
               <a
                 href="#schedule"
                 onClick={(e) => handleScrollToSection(e, 'schedule')}
-                className="group w-full lg:w-auto inline-flex items-center justify-between lg:justify-center min-h-[50px] lg:min-h-[46px] px-6 lg:px-7 rounded-[14px] lg:rounded-pill bg-[#FBF9F6] border border-maroon-900 lg:border-maroon-900/30 text-maroon-900 font-body font-semibold text-[15px] shadow-xs lg:hover:border-maroon-900 hover:bg-white hover:shadow-md transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer text-center"
+                className="hero-btn-secondary group w-full lg:w-auto inline-flex items-center justify-between lg:justify-center min-h-[50px] lg:min-h-[46px] px-6 lg:px-7 rounded-[14px] lg:rounded-pill bg-[#FBF9F6] border border-maroon-900 lg:border-maroon-900/30 text-maroon-900 font-body font-semibold text-[15px] shadow-xs lg:hover:border-maroon-900 hover:bg-white hover:shadow-md transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer text-center"
               >
                 <span className="flex-1 lg:flex-none text-center">View Schedule</span>
                 <ArrowRight className="w-4 h-4 stroke-[2.5] text-maroon-900 group-hover:translate-x-1 transition-transform shrink-0" />
@@ -153,7 +161,7 @@ export function Hero() {
 
             {/* Mobile Countdown Card (< lg) positioned directly under CTA buttons */}
             <div className="lg:hidden w-full mt-5">
-              <CountdownCard />
+              <CountdownCard className="countdown-card" />
             </div>
 
           </div>
@@ -163,11 +171,11 @@ export function Hero() {
 
       {/* Desktop Countdown Card: Anchored with clear bottom spacing above the Information Bar */}
       <div className="hidden lg:block absolute right-8 sm:right-12 lg:right-14 xl:right-20 bottom-[136px] sm:bottom-[142px] lg:bottom-[148px] xl:bottom-[154px] w-[235px] xl:w-[250px] z-30">
-        <CountdownCard />
+        <CountdownCard className="countdown-card" />
       </div>
 
-      {/* Bottom Floating White Information Bar Container */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-20 mt-4 lg:mt-2">
+      {/* 3. Bottom Event Information Bar Container */}
+      <div id="event-info-bar-container" className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 lg:px-12 relative z-20 mt-4 lg:mt-2">
         <InformationBar />
       </div>
 

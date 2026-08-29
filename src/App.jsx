@@ -6,6 +6,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 import AccommodationCTA from './components/common/AccommodationCTA';
 import SEO from './components/common/SEO';
 import { initTelemetry, trackPageView } from './utils/telemetry';
+import { initDarkReaderHeroProtection } from './utils/themeDetection';
 
 // Synchronous Core Homepage Sections for instant LCP/FCP
 import Hero from './sections/Hero';
@@ -111,6 +112,10 @@ export function App() {
 
   useEffect(() => {
     initTelemetry();
+    const cleanupDarkReader = initDarkReaderHeroProtection();
+    return () => {
+      if (cleanupDarkReader) cleanupDarkReader();
+    };
   }, []);
 
   useEffect(() => {
