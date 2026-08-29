@@ -265,8 +265,8 @@ export function GallerySection() {
             {/* Banner Information Overlay */}
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 lg:p-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6 z-10">
               <div className="max-w-2xl space-y-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 font-body text-xs font-semibold uppercase tracking-wider">
-                  <Sparkles className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-maroon-900 font-body text-xs font-bold uppercase tracking-wider shadow-sm">
+                  <Sparkles className="w-3.5 h-3.5 fill-maroon-900 text-maroon-900" />
                   <span>Official Convocation Gallery Archives</span>
                 </div>
                 <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug">
