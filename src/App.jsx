@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
+import ScrollToTop from './components/common/ScrollToTop';
 import AccommodationCTA from './components/common/AccommodationCTA';
 
 // Section Views
@@ -40,6 +41,7 @@ function PageWrapper({ children }) {
 export function App() {
   return (
     <div className="min-h-screen flex flex-col bg-cream-100 text-charcoal-900 selection:bg-maroon-050 selection:text-maroon-900 font-body">
+      <ScrollToTop />
       <NavBar />
       <div className="flex-1">
         <Routes>
