@@ -110,25 +110,45 @@ export function ScheduleSection() {
           {/* 2-Column Grid: Left Timeline + Right College Image */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
             
-            {/* Left Column: Timeline List */}
+            {/* Left Column: Mathematically Centered Timeline List */}
             <div className="lg:col-span-6 flex flex-col justify-between py-2">
-              <div className="relative pl-6 sm:pl-8 space-y-6 sm:space-y-7 before:content-[''] before:absolute before:left-[7px] before:top-2 before:bottom-3 before:w-[2px] before:bg-[#E8E2D8]">
-                {SUMMARY_SCHEDULE.map((item) => (
-                  <div key={item.id} className="relative group">
-                    {/* Circular Maroon Node with Ring */}
-                    <div className="absolute -left-[30px] sm:-left-[38px] top-1 w-4 h-4 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs flex items-center justify-center">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
-                    </div>
+              <div className="flex flex-col">
+                {SUMMARY_SCHEDULE.map((item, idx) => {
+                  const isLast = idx === SUMMARY_SCHEDULE.length - 1;
+                  return (
+                    <div key={item.id} className="flex items-stretch gap-3 sm:gap-5 group">
+                      
+                      {/* Column 1: Vertical Center Line + Bullet Node */}
+                      <div className="flex flex-col items-center shrink-0 w-6 relative">
+                        {/* Top Line Segment connecting through center */}
+                        <div
+                          className={`w-[2px] bg-[#E8E2D8] ${
+                            idx === 0 ? 'h-2.5 opacity-0' : 'h-3'
+                          }`}
+                        />
 
-                    {/* Timeline Item Content Row */}
-                    <div className="flex items-start gap-4 sm:gap-6 pb-5 sm:pb-6 border-b border-[#ECE6DC] group-last:border-b-0 group-last:pb-0">
-                      {/* Time */}
-                      <span className="font-body font-semibold text-xs sm:text-sm text-charcoal-600 w-16 sm:w-20 shrink-0 mt-0.5 whitespace-nowrap">
-                        {item.time}
-                      </span>
+                        {/* Circular Maroon Bullet Node */}
+                        <div className="w-4 h-4 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs flex items-center justify-center shrink-0 z-10">
+                          <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+                        </div>
 
-                      {/* Title & Description */}
-                      <div className="flex flex-col min-w-0">
+                        {/* Bottom Line Segment running down to next bullet */}
+                        <div
+                          className={`w-[2px] bg-[#E8E2D8] flex-1 ${
+                            isLast ? 'opacity-0' : 'opacity-100'
+                          }`}
+                        />
+                      </div>
+
+                      {/* Column 2: Event Time */}
+                      <div className="pt-0.5 w-16 sm:w-20 shrink-0">
+                        <span className="font-body font-bold text-xs sm:text-sm text-charcoal-700 whitespace-nowrap">
+                          {item.time}
+                        </span>
+                      </div>
+
+                      {/* Column 3: Title & Description */}
+                      <div className="flex-1 pb-6 sm:pb-7 border-b border-[#ECE6DC] group-last:border-b-0 group-last:pb-0 pt-0 min-w-0">
                         <h3 className="font-display font-bold text-base sm:text-[17px] text-charcoal-900 leading-snug group-hover:text-maroon-900 transition-colors">
                           {item.title}
                         </h3>
@@ -136,9 +156,10 @@ export function ScheduleSection() {
                           {item.description}
                         </p>
                       </div>
+
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -200,33 +221,43 @@ export function ScheduleSection() {
               </span>
             </div>
 
-            {/* Timeline in Modal */}
-            <div className="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-[7px] before:top-2 before:bottom-3 before:w-[2px] before:bg-border">
-              {DETAILED_SCHEDULE.map((item, idx) => (
-                <div key={idx} className="relative">
-                  {/* Node */}
-                  <div className="absolute -left-[30px] top-1 w-3.5 h-3.5 rounded-full bg-maroon-900 ring-4 ring-white" />
-
-                  <div className="space-y-1">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="font-mono text-xs font-bold text-maroon-900">
-                        {item.time}
-                      </span>
-                      <span className="text-xs font-body text-charcoal-500">
-                        {item.venue}
-                      </span>
+            {/* Timeline in Modal with Perfect Centering */}
+            <div className="flex flex-col">
+              {DETAILED_SCHEDULE.map((item, idx) => {
+                const isLast = idx === DETAILED_SCHEDULE.length - 1;
+                return (
+                  <div key={idx} className="flex items-stretch gap-4">
+                    {/* Line Column */}
+                    <div className="flex flex-col items-center shrink-0 w-5 relative">
+                      <div className={`w-[2px] bg-border ${idx === 0 ? 'h-2 opacity-0' : 'h-2.5'}`} />
+                      <div className="w-3.5 h-3.5 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs shrink-0 z-10" />
+                      <div className={`w-[2px] bg-border flex-1 ${isLast ? 'opacity-0' : 'opacity-100'}`} />
                     </div>
 
-                    <h4 className="font-display font-bold text-base text-charcoal-900">
-                      {item.title}
-                    </h4>
+                    {/* Details Column */}
+                    <div className="flex-1 pb-6 min-w-0">
+                      <div className="space-y-1">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <span className="font-mono text-xs font-bold text-maroon-900">
+                            {item.time}
+                          </span>
+                          <span className="text-xs font-body text-charcoal-500">
+                            {item.venue}
+                          </span>
+                        </div>
 
-                    <p className="font-body text-charcoal-600 text-xs sm:text-sm leading-relaxed">
-                      {item.details}
-                    </p>
+                        <h4 className="font-display font-bold text-base text-charcoal-900">
+                          {item.title}
+                        </h4>
+
+                        <p className="font-body text-charcoal-600 text-xs sm:text-sm leading-relaxed">
+                          {item.details}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Footer */}
