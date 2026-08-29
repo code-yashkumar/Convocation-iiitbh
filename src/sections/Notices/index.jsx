@@ -24,6 +24,7 @@ import Modal from '../../components/ui/Modal';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
 import SEO from '../../components/common/SEO';
+import { trackEvent } from '../../utils/analytics';
 import defaultNoticesData from '../../data/notices.json';
 
 // Helper to fetch and parse notices from Google Sheets
@@ -194,9 +195,19 @@ export function NoticeSection() {
     );
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
+    trackEvent('share_notice', {
+      notice_id: notice.id,
+      notice_title: notice.title,
+      notice_ref: notice.refNo,
+    });
   };
 
   const handleDownloadPdf = (notice) => {
+    trackEvent('download_notice_pdf', {
+      notice_id: notice.id,
+      notice_title: notice.title,
+      notice_ref: notice.refNo,
+    });
     if (notice.pdfUrl && notice.pdfUrl.trim().length > 0) {
       window.open(notice.pdfUrl.trim(), '_blank');
     } else {

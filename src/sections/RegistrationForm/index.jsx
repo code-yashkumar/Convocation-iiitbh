@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import { CheckCircle2, AlertCircle, MapPin, Package, Sparkles } from 'lucide-react';
+import { trackEvent } from '../../utils/analytics';
 
 export function RegistrationFormSection() {
   const [formData, setFormData] = useState({
@@ -65,6 +66,11 @@ export function RegistrationFormSection() {
     } finally {
       setIsSubmitting(false);
       setSubmitted(true);
+      trackEvent('registration_submitted', {
+        degree: formData.degree,
+        department: formData.department,
+        attending_in_person: formData.attendingInPerson,
+      });
     }
   };
 

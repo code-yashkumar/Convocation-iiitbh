@@ -3,6 +3,7 @@ import { Building, MapPin, Phone, Star, Compass, ExternalLink, Mail, Hotel, Shie
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import SEO from '../../components/common/SEO';
+import { trackEvent } from '../../utils/analytics';
 
 const NEARBY_HOTELS = [
   {
@@ -115,6 +116,7 @@ export function AccommodationSection() {
     navigator.clipboard.writeText(code);
     setCopiedCode(code);
     setTimeout(() => setCopiedCode(null), 2500);
+    trackEvent('copy_hotel_discount_code', { promo_code: code });
   };
 
   return (

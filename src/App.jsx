@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
 import AccommodationCTA from './components/common/AccommodationCTA';
 import SEO from './components/common/SEO';
+import GoogleAnalytics from './components/common/GoogleAnalytics';
 
 // Section Views
 import Hero from './sections/Hero';
@@ -93,6 +94,7 @@ export function App() {
   return (
     <div className="min-h-screen flex flex-col bg-cream-100 text-charcoal-900 selection:bg-maroon-050 selection:text-maroon-900 font-body">
       <ScrollToTop />
+      <GoogleAnalytics />
       <NavBar />
       <div className="flex-1">
         <Routes>
