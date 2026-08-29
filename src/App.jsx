@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
@@ -7,20 +7,36 @@ import AccommodationCTA from './components/common/AccommodationCTA';
 import SEO from './components/common/SEO';
 import { initTelemetry, trackPageView } from './utils/telemetry';
 
-// Section Views
+// Synchronous Core Homepage Sections for instant LCP/FCP
 import Hero from './sections/Hero';
 import DignitariesSection from './sections/Dignitaries';
-import NoticeSection from './sections/Notices';
 import ScheduleSection from './sections/Schedule';
-import AccommodationSection from './sections/Accommodation';
-import GallerySection from './sections/Gallery';
-import GalleryAlbumView from './sections/Gallery/GalleryAlbumView';
 import HomeGalleryCarousel from './sections/Gallery/HomeGalleryCarousel';
-import ArchiveSection from './sections/Archive';
 import RegistrationFormSection from './sections/RegistrationForm';
 import HowToReachSection from './sections/HowToReach';
-import InformationSection from './sections/Information';
-import CommitteeSection from './sections/Committees';
+
+// Lazy Loaded Route Subpages for optimal code-splitting and bundle size
+const NoticeSection = lazy(() => import('./sections/Notices'));
+const AccommodationSection = lazy(() => import('./sections/Accommodation'));
+const GallerySection = lazy(() => import('./sections/Gallery'));
+const GalleryAlbumView = lazy(() => import('./sections/Gallery/GalleryAlbumView'));
+const ArchiveSection = lazy(() => import('./sections/Archive'));
+const InformationSection = lazy(() => import('./sections/Information'));
+const CommitteeSection = lazy(() => import('./sections/Committees'));
+
+/**
+ * Elegant ceremonial page loading spinner fallback
+ */
+function PageLoader() {
+  return (
+    <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 text-center" aria-label="Loading page content">
+      <div className="w-9 h-9 border-[3px] border-maroon-900/20 border-t-maroon-900 rounded-full animate-spin mb-3" />
+      <span className="font-body text-xs text-charcoal-500 font-medium tracking-wide uppercase">
+        Loading...
+      </span>
+    </div>
+  );
+}
 
 function HomePage() {
   return (
@@ -109,22 +125,24 @@ export function App() {
       <ScrollToTop />
       <NavBar />
       <div className="flex-1">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/notices" element={<PageWrapper><NoticeSection /></PageWrapper>} />
-          <Route path="/notice" element={<Navigate to="/notices" replace />} />
-          <Route path="/accommodation" element={<PageWrapper><AccommodationSection /></PageWrapper>} />
-          <Route path="/accommodations" element={<Navigate to="/accommodation" replace />} />
-          <Route path="/gallery" element={<PageWrapper><GallerySection /></PageWrapper>} />
-          <Route path="/gallery/:slug" element={<PageWrapper><GalleryAlbumView /></PageWrapper>} />
-          <Route path="/archive" element={<PageWrapper><ArchiveSection /></PageWrapper>} />
-          <Route path="/information" element={<PageWrapper><InformationSection /></PageWrapper>} />
-          <Route path="/committee" element={<PageWrapper><CommitteeSection /></PageWrapper>} />
-          <Route path="/committees" element={<Navigate to="/committee" replace />} />
-          <Route path="/how-to-reach" element={<PageWrapper><HowToReachSection /></PageWrapper>} />
-          {/* Catch-all route to avoid broken links / 404 indexing */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/notices" element={<PageWrapper><NoticeSection /></PageWrapper>} />
+            <Route path="/notice" element={<Navigate to="/notices" replace />} />
+            <Route path="/accommodation" element={<PageWrapper><AccommodationSection /></PageWrapper>} />
+            <Route path="/accommodations" element={<Navigate to="/accommodation" replace />} />
+            <Route path="/gallery" element={<PageWrapper><GallerySection /></PageWrapper>} />
+            <Route path="/gallery/:slug" element={<PageWrapper><GalleryAlbumView /></PageWrapper>} />
+            <Route path="/archive" element={<PageWrapper><ArchiveSection /></PageWrapper>} />
+            <Route path="/information" element={<PageWrapper><InformationSection /></PageWrapper>} />
+            <Route path="/committee" element={<PageWrapper><CommitteeSection /></PageWrapper>} />
+            <Route path="/committees" element={<Navigate to="/committee" replace />} />
+            <Route path="/how-to-reach" element={<PageWrapper><HowToReachSection /></PageWrapper>} />
+            {/* Catch-all route to avoid broken links / 404 indexing */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
       </div>
       <Footer />
     </div>
