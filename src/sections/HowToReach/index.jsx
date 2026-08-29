@@ -100,7 +100,7 @@ export function HowToReachSection() {
               <iframe
                 title="IIIT Bhagalpur Campus Map Location"
                 src="https://maps.google.com/maps?q=Indian%20Institute%20of%20Information%20Technology%20Bhagalpur%20Sabour&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                className="w-full h-full min-h-[380px] sm:min-h-[440px] lg:min-h-[500px] border-0"
+                className="w-full h-full min-h-[380px] sm:min-h-[440px] lg:min-h-[500px] border-0 outline-none focus:outline-none"
                 loading="lazy"
                 allowFullScreen
               />
@@ -120,7 +120,7 @@ export function HowToReachSection() {
                     href={googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-lg bg-maroon-050 hover:bg-maroon-900 text-maroon-900 hover:text-white flex items-center justify-center shrink-0 border border-maroon-900/15 transition-colors"
+                    className="w-8 h-8 rounded-lg bg-maroon-050 hover:bg-maroon-900 text-maroon-900 hover:text-white flex items-center justify-center shrink-0 border border-maroon-900/15 transition-colors focus:outline-none focus-visible:outline-none"
                     title="Open in Google Maps"
                   >
                     <ExternalLink className="w-4 h-4" />
@@ -151,7 +151,7 @@ export function HowToReachSection() {
                     href={googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center min-h-[38px] px-4 rounded-pill bg-gold-500 hover:bg-gold-400 text-charcoal-950 font-body font-bold text-xs shadow-sm transition-all gap-1.5 cursor-pointer"
+                    className="inline-flex items-center justify-center min-h-[38px] px-4 rounded-pill bg-gold-500 hover:bg-gold-400 text-charcoal-950 font-body font-bold text-xs shadow-sm transition-all gap-1.5 cursor-pointer focus:outline-none focus-visible:outline-none"
                   >
                     <span>Open Map</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -159,7 +159,7 @@ export function HowToReachSection() {
                   <button
                     type="button"
                     onClick={handleCopyAddress}
-                    className="w-9 h-9 rounded-pill bg-white/15 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                    className="w-9 h-9 rounded-pill bg-white/15 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer focus:outline-none focus-visible:outline-none"
                     title="Copy full address"
                   >
                     {copied ? <Check className="w-4 h-4 text-emerald-300" /> : <Copy className="w-4 h-4" />}
@@ -168,7 +168,7 @@ export function HowToReachSection() {
               </div>
             </div>
 
-            {/* Right Column: 5 Transit Mode Option Cards with Pure Hover Effects */}
+            {/* Right Column: 5 Transit Mode Option Cards (No blue ring/border on hover) */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-3 sm:space-y-3.5">
               {TRANSIT_OPTIONS.map((transit) => {
                 const IconComponent = transit.icon;
@@ -176,7 +176,7 @@ export function HowToReachSection() {
                 return (
                   <div
                     key={transit.id}
-                    className="rounded-[20px] p-4 sm:p-4.5 border border-[#ECE6DC] bg-cream-050/60 hover:bg-white hover:border-maroon-900 hover:shadow-[0_8px_24px_rgba(94,16,28,0.09)] hover:ring-2 hover:ring-maroon-900/20 transition-all duration-300 flex items-center justify-between gap-4 group cursor-default select-none"
+                    className="rounded-[20px] p-4 sm:p-4.5 border border-[#ECE6DC] bg-cream-050/60 hover:bg-white hover:border-maroon-900 hover:shadow-[0_8px_24px_rgba(94,16,28,0.08)] outline-none focus:outline-none transition-all duration-300 flex items-center justify-between gap-4 group cursor-default select-none"
                   >
                     {/* Left: Icon + Title & Description */}
                     <div className="flex items-start gap-3.5 sm:gap-4 min-w-0">
