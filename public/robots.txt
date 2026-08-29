@@ -1,0 +1,25 @@
+# ==============================================================================
+# IIIT Bhagalpur 3rd Convocation 2026 - Production Robots Configuration
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /assets/*.csv
+Disallow: /assets/*.xlsx
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Specific major search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap Index
+Sitemap: https://convocation.iiitbh.ac.in/sitemap.xml

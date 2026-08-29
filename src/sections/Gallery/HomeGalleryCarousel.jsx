@@ -216,6 +216,8 @@ export function HomeGalleryCarousel() {
                   <img
                     src={slide.image}
                     alt={slide.title}
+                    width="800"
+                    height="500"
                     loading="lazy"
                     decoding="async"
                     referrerPolicy="no-referrer"

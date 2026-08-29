@@ -3,6 +3,7 @@ import DataTable from '../../components/ui/DataTable';
 import Badge from '../../components/ui/Badge';
 import { Search, Download, Award } from 'lucide-react';
 import Button from '../../components/ui/Button';
+import SEO from '../../components/common/SEO';
 
 const ARCHIVE_STUDENTS = [
   { id: '1', roll: '220101001', name: 'Aarav Sharma', degree: 'B.Tech CSE', year: '2026', medal: 'Institute Gold Medal' },
@@ -47,11 +48,40 @@ export function ArchiveSection() {
 
   return (
     <section className="py-16 max-w-container mx-auto px-5 sm:px-10 lg:px-20" id="archive">
+      <SEO
+        title="Graduation Archive & Medal Winners | Convocation Records — IIIT Bhagalpur"
+        description="Searchable institutional graduation archive, medal recipients, and degree honors across convocation editions of IIIT Bhagalpur."
+        canonicalUrl="https://convocation.iiitbh.ac.in/archive"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "IIIT Bhagalpur Graduation Archive & Medal Honors",
+          "url": "https://convocation.iiitbh.ac.in/archive",
+          "description": "Historical roll of graduates and medal recipients from IIIT Bhagalpur.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://convocation.iiitbh.ac.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Archive",
+                "item": "https://convocation.iiitbh.ac.in/archive"
+              }
+            ]
+          }
+        }}
+      />
       <div className="text-center max-w-2xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-maroon-050 mb-3">
           <span className="type-label text-maroon-900 uppercase">Institutional Records</span>
         </div>
-        <h2 className="type-display-lg text-text-default">Graduation Archive & Honors</h2>
+        <h1 className="type-display-lg text-text-default">Graduation Archive & Honors</h1>
         <p className="type-body-lg text-text-muted mt-2">
           Directory of graduates, degree recipients, and medal awardees across convocation editions.
         </p>

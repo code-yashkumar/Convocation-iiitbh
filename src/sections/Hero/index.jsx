@@ -85,11 +85,11 @@ export function Hero() {
             {/* Title & Year */}
             <div className="mb-3 sm:mb-4">
               <h1 className="font-display font-bold text-[52px] sm:text-[68px] lg:text-[76px] xl:text-[82px] leading-[0.92] text-charcoal-900 tracking-tight">
-                CONVOCATION
+                <span>CONVOCATION</span>
+                <span className="block font-display font-bold text-[54px] sm:text-[70px] lg:text-[78px] xl:text-[84px] leading-[1] text-maroon-900 mt-1">
+                  2026
+                </span>
               </h1>
-              <div className="font-display font-bold text-[54px] sm:text-[70px] lg:text-[78px] xl:text-[84px] leading-[1] text-maroon-900 mt-1">
-                2026
-              </div>
             </div>
 
             {/* Subtitle Statement */}
@@ -155,7 +155,11 @@ export function Hero() {
             <div className="w-full overflow-hidden rounded-2xl shadow-sm">
               <img
                 src="/assets/convocation-hero-bg.png"
-                alt="IIIT Bhagalpur dignitaries presenting convocation degree"
+                alt="IIIT Bhagalpur 3rd Convocation Ceremony - Dignitaries Presenting Degree Scrolls"
+                width="800"
+                height="533"
+                loading="eager"
+                fetchPriority="high"
                 className="w-full h-auto object-cover select-none"
               />
             </div>

@@ -173,7 +173,11 @@ export function ScheduleSection() {
               <div className="relative w-full h-[320px] sm:h-[380px] lg:h-full min-h-[340px] rounded-[24px] sm:rounded-[28px] overflow-hidden border border-[#E8E2D8] shadow-sm bg-cream-100 group">
                 <img
                   src="/assets/iiitbh-campus-schedule.jpg"
-                  alt="IIIT Bhagalpur Permanent Campus at Sunset"
+                  alt="IIIT Bhagalpur Permanent Campus at Sunset — Convocation Venue"
+                  width="640"
+                  height="480"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
                 />
                 
@@ -185,9 +189,9 @@ export function ScheduleSection() {
                   <div className="flex items-center gap-2.5">
                     <MapPin className="w-4 h-4 text-gold-400 shrink-0" />
                     <div>
-                      <h4 className="font-display font-bold text-xs sm:text-sm text-white leading-tight">
+                      <h3 className="font-display font-bold text-xs sm:text-sm text-white leading-tight">
                         IIIT Bhagalpur Campus
-                      </h4>
+                      </h3>
                       <span className="font-body text-[11px] sm:text-xs text-white/80">
                         Main Lecture Hall & Academic Block
                       </span>

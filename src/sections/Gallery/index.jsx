@@ -24,6 +24,7 @@ import {
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import Button from '../../components/ui/Button';
+import SEO from '../../components/common/SEO';
 import drivePhotosData from '../../data/drivePhotos.json';
 
 const GALLERY_COLLECTION = [
@@ -148,6 +149,35 @@ export function GallerySection() {
 
   return (
     <section className="w-full pt-2 pb-16 sm:pt-4 sm:pb-20 bg-cream-100 min-h-screen relative" id="gallery">
+      <SEO
+        title="Photo & Video Gallery | Convocation Archives — IIIT Bhagalpur"
+        description="Explore high-resolution visual archives of degree distribution ceremonies, academic processions, medal awardees, and alumni meets at IIIT Bhagalpur."
+        canonicalUrl="https://convocation.iiitbh.ac.in/gallery"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          "name": "IIIT Bhagalpur Convocation Photo & Video Gallery",
+          "url": "https://convocation.iiitbh.ac.in/gallery",
+          "description": "Visual archives of convocation ceremonies and alumni assemblies of IIIT Bhagalpur.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://convocation.iiitbh.ac.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Gallery",
+                "item": "https://convocation.iiitbh.ac.in/gallery"
+              }
+            ]
+          }
+        }}
+      />
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Header */}
@@ -170,7 +200,11 @@ export function GallerySection() {
           <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600&auto=format&fit=crop"
-              alt="Grand Academic Procession IIIT Bhagalpur"
+              alt="Grand Academic Procession and Convocation Stage at IIIT Bhagalpur"
+              width="1600"
+              height="685"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none opacity-85"
             />
             {/* Dark Gradient Overlay */}

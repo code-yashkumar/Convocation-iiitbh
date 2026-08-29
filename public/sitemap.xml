@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://convocation.iiitbh.ac.in/assets/convocation-hero-bg.png</image:loc>
+      <image:title>IIIT Bhagalpur 3rd Convocation Ceremony 2026</image:title>
+    </image:image>
+  </url>
+
+  <!-- Official Notices & Circulars -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/notices</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Accommodation & Hotels -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/accommodation</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Gallery Main Page -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/gallery</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Gallery Album: Degree Distribution Ceremony -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/gallery/degree-distribution</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Gallery Album: Convocation Evening -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/gallery/convocation-evening</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Gallery Album: Alumni Meet -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/gallery/alumni-meet</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Gallery Album: Speaker Session -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/gallery/speaker-session</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Graduation Archive & Records -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/archive</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Information, Dress Code & Protocol -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/information</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Organizing Committees -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/committee</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- How to Reach & Directions -->
+  <url>
+    <loc>https://convocation.iiitbh.ac.in/how-to-reach</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

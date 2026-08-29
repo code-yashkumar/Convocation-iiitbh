@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
+import SEO from '../../components/common/SEO';
 
 const COMMITTEES_DATA = [
   {
@@ -430,6 +431,35 @@ export function CommitteeSection() {
 
   return (
     <section className="w-full py-16 bg-cream-100 min-h-screen relative" id="committees">
+      <SEO
+        title="Organizing & Steering Committees | 3rd Convocation 2026 — IIIT Bhagalpur"
+        description="Official roster of 22 specialized organizing committees, conveners, faculty, and staff coordinators managing the 3rd Convocation of IIIT Bhagalpur."
+        canonicalUrl="https://convocation.iiitbh.ac.in/committee"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "Convocation Organizing & Steering Committees",
+          "url": "https://convocation.iiitbh.ac.in/committee",
+          "description": "22 institutional committees constituted for the successful organization of the 3rd Convocation.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://convocation.iiitbh.ac.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Organizing Committees",
+                "item": "https://convocation.iiitbh.ac.in/committee"
+              }
+            ]
+          }
+        }}
+      />
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Page Header */}

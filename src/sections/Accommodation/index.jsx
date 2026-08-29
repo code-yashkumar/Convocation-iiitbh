@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Building, MapPin, Phone, Star, Compass, ExternalLink, Mail, Hotel, ShieldCheck, Sparkles } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
+import SEO from '../../components/common/SEO';
 
 const NEARBY_HOTELS = [
   {
@@ -118,6 +119,35 @@ export function AccommodationSection() {
 
   return (
     <section className="w-full py-16 bg-cream-100 min-h-screen">
+      <SEO
+        title="Accommodation & Nearby Hotels | 3rd Convocation 2026 — IIIT Bhagalpur"
+        description="Verified lodging directory, campus guest house reservation guidelines, and partner hotel tariffs in Bhagalpur with discount codes for convocation alumni, parents, and guests."
+        canonicalUrl="https://convocation.iiitbh.ac.in/accommodation"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ItemPage",
+          "name": "Accommodation & Nearby Hotels Directory",
+          "url": "https://convocation.iiitbh.ac.in/accommodation",
+          "description": "Hospitality and lodging options for guests attending the 3rd Convocation of IIIT Bhagalpur.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://convocation.iiitbh.ac.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Accommodation",
+                "item": "https://convocation.iiitbh.ac.in/accommodation"
+              }
+            ]
+          }
+        }}
+      />
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Page Header */}

@@ -23,6 +23,7 @@ import {
 import Modal from '../../components/ui/Modal';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
+import SEO from '../../components/common/SEO';
 import defaultNoticesData from '../../data/notices.json';
 
 // Helper to fetch and parse notices from Google Sheets
@@ -208,6 +209,35 @@ export function NoticeSection() {
 
   return (
     <section className="w-full py-16 bg-cream-100 min-h-screen relative" id="notices">
+      <SEO
+        title="Official Notices & Circulars | 3rd Convocation 2026 — IIIT Bhagalpur"
+        description="Official convocation notices, degree registration guidelines, medal lists, and ceremony circulars issued by IIIT Bhagalpur Convocation Secretariat."
+        canonicalUrl="https://convocation.iiitbh.ac.in/notices"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Convocation Notice Board & Official Circulars",
+          "url": "https://convocation.iiitbh.ac.in/notices",
+          "description": "Official convocation circulars and announcements for IIIT Bhagalpur 3rd Convocation 2026.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://convocation.iiitbh.ac.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Notices & Circulars",
+                "item": "https://convocation.iiitbh.ac.in/notices"
+              }
+            ]
+          }
+        }}
+      />
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Page Header */}

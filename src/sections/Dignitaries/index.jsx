@@ -80,7 +80,11 @@ export function DignitariesSection() {
                     <div className="w-full h-full rounded-full overflow-hidden bg-[#3F0A11] border-2 border-white/20">
                       <img
                         src={CHIEF_GUEST.image}
-                        alt="Prof. T N Singh, Director IIT Patna - Convocation Chief Guest"
+                        alt="Prof. T N Singh, Director IIT Patna - Chief Guest for 3rd Convocation"
+                        width="208"
+                        height="208"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover object-top select-none"
                       />
                     </div>
@@ -149,7 +153,11 @@ export function DignitariesSection() {
                     {dignitary.image ? (
                       <img
                         src={dignitary.image}
-                        alt={dignitary.name}
+                        alt={`${dignitary.name}, ${dignitary.role}, ${dignitary.designation}`}
+                        width="64"
+                        height="64"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover object-top select-none"
                       />
                     ) : (
@@ -157,9 +165,9 @@ export function DignitariesSection() {
                     )}
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-xl text-charcoal-900 group-hover:text-maroon-900 transition-colors leading-snug">
+                    <h3 className="font-display font-bold text-xl text-charcoal-900 group-hover:text-maroon-900 transition-colors leading-snug">
                       {dignitary.name}
-                    </h4>
+                    </h3>
                     <span className="font-body text-xs font-semibold text-maroon-900/80 uppercase tracking-wide">
                       {dignitary.role}
                     </span>

@@ -21,6 +21,7 @@ import {
   Shuffle
 } from 'lucide-react';
 import Button from '../../components/ui/Button';
+import SEO from '../../components/common/SEO';
 import drivePhotosData from '../../data/drivePhotos.json';
 
 // Helper to randomly shuffle an array
@@ -369,6 +370,41 @@ export function GalleryAlbumView() {
 
   return (
     <div className="w-full min-h-screen bg-cream-100 pt-3 pb-16 sm:pt-4 sm:pb-20">
+      <SEO
+        title={`${album.title} Photo Album | Convocation Gallery — IIIT Bhagalpur`}
+        description={`Explore photographs from the ${album.title} during the Convocation ceremonies at IIIT Bhagalpur.`}
+        canonicalUrl={`https://convocation.iiitbh.ac.in/gallery/${album.slug}`}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          "name": `${album.title} - IIIT Bhagalpur Convocation`,
+          "url": `https://convocation.iiitbh.ac.in/gallery/${album.slug}`,
+          "description": album.subtitle,
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://convocation.iiitbh.ac.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Gallery",
+                "item": "https://convocation.iiitbh.ac.in/gallery"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": album.title,
+                "item": `https://convocation.iiitbh.ac.in/gallery/${album.slug}`
+              }
+            ]
+          }
+        }}
+      />
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Navigation Breadcrumb & Back Action */}
