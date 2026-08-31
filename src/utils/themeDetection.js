@@ -62,18 +62,10 @@ html.dark-reader-active body #hero-section .hero-bg-layer {
     background-color: transparent !important;
     background-repeat: no-repeat !important;
     background-position: right top !important;
-    background-size: cover !important;
+    background-size: contain !important;
     filter: none !important;
     opacity: 1 !important;
     visibility: visible !important;
-  }
-}
-
-@media (min-width: 1280px) {
-  html body #hero-section .hero-bg-layer,
-  html[data-darkreader-scheme] body #hero-section .hero-bg-layer,
-  html[data-darkreader-mode] body #hero-section .hero-bg-layer {
-    background-size: contain !important;
   }
 }
 
