@@ -208,4 +208,17 @@
   }
 }
 
+/* ==========================================================================
+   Ultra-High Resolution (2K / 4K / 5K) Proportional Display Scaling
+   Scales the entire website proportionally on monitors wider than 1920px
+   so that it renders with the exact same visual ratio, size, and layout
+   as on a standard 1080p laptop screen.
+   ========================================================================== */
+@media (min-width: 1921px) {
+  html {
+    zoom: calc(100vw / 1920);
+  }
+}
+
+
 
