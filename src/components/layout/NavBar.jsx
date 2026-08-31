@@ -106,13 +106,15 @@ export function NavBar() {
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12 h-16 md:h-[68px] flex items-center justify-between gap-4">
         
-        {/* Left: Crest + Full Institution Wordmark */}
-        <Link
-          to="/"
+        {/* Left: Crest + Full Institution Wordmark (Redirects to official Institute portal) */}
+        <a
+          href="https://www.iiitbh.ac.in"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none shrink-0"
-          aria-label="IIIT Bhagalpur Convocation Portal Home"
+          aria-label="IIIT Bhagalpur Official Website"
         >
-          <InstitutionCrest className="navbar-crest w-8 h-8 sm:w-10 sm:h-10 shrink-0" />
+          <InstitutionCrest className="navbar-crest w-8 h-8 sm:w-10 sm:h-10 shrink-0 group-hover:scale-105 transition-transform" />
           <div className="flex flex-col whitespace-nowrap">
             <span className="navbar-title sm:hidden font-display font-bold text-[14px] text-charcoal-900 leading-tight tracking-wider uppercase">
               IIIT Bhagalpur
@@ -124,7 +126,7 @@ export function NavBar() {
               भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
             </span>
           </div>
-        </Link>
+        </a>
 
         {/* Center/Right Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0" aria-label="Main Navigation">

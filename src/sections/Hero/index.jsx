@@ -94,9 +94,9 @@ export function Hero() {
             
             {/* Title & Year */}
             <div className="mb-2 sm:mb-4">
-              <h1 className="hero-title-main font-display font-bold text-[38px] sm:text-[52px] lg:text-[76px] xl:text-[82px] leading-[0.94] lg:leading-[0.92] text-charcoal-900 tracking-tight">
-                <span className="hero-title-main lg:hidden">Convocation</span>
-                <span className="hero-title-main hidden lg:inline">CONVOCATION</span>
+              <h1 className="hero-title-main font-display font-bold text-[36px] sm:text-[48px] lg:text-[70px] xl:text-[76px] leading-[0.94] lg:leading-[0.92] text-charcoal-900 tracking-tight">
+                <span className="hero-title-main lg:hidden">3rd Convocation</span>
+                <span className="hero-title-main hidden lg:inline">3RD CONVOCATION</span>
                 <span className="hero-title-maroon block font-display font-bold text-[42px] sm:text-[56px] lg:text-[78px] xl:text-[84px] leading-[1] text-maroon-900 mt-0.5 sm:mt-1">
                   2026
                 </span>

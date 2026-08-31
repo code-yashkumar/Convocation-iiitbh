@@ -13,8 +13,14 @@ export function Footer() {
       {/* Mobile Sleek Major-Information Footer (< md) */}
       <div className="md:hidden px-5 py-7 space-y-5">
         {/* Brand & Edition */}
-        <div className="flex items-center gap-3">
-          <InstitutionCrest className="w-10 h-10 bg-white rounded-full p-1 shadow-sm shrink-0" />
+        <a
+          href="https://www.iiitbh.ac.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 group focus-visible:outline-none w-fit"
+          aria-label="IIIT Bhagalpur Official Website"
+        >
+          <InstitutionCrest className="w-10 h-10 bg-white rounded-full p-1 shadow-sm shrink-0 group-hover:scale-105 transition-transform" />
           <div className="flex flex-col">
             <span className="font-display font-bold text-base text-white leading-tight">
               IIIT Bhagalpur
@@ -23,7 +29,7 @@ export function Footer() {
               3rd Convocation 2026 • Sabour, Bihar
             </span>
           </div>
-        </div>
+        </a>
 
         {/* Primary Essential Links in a Sleek 2x2 Tap Grid */}
         <div className="grid grid-cols-2 gap-2 text-xs font-body">
@@ -89,8 +95,14 @@ export function Footer() {
           
           {/* Col 1: Institute Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <InstitutionCrest className="w-11 h-11 bg-white rounded-full p-1 shadow-sm shrink-0" />
+            <a
+              href="https://www.iiitbh.ac.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 group focus-visible:outline-none w-fit"
+              aria-label="IIIT Bhagalpur Official Website"
+            >
+              <InstitutionCrest className="w-11 h-11 bg-white rounded-full p-1 shadow-sm shrink-0 group-hover:scale-105 transition-transform" />
               <div className="flex flex-col">
                 <span className="font-display font-bold text-xl text-white leading-tight">
                   IIIT Bhagalpur
@@ -99,7 +111,7 @@ export function Footer() {
                   3rd Convocation 2026
                 </span>
               </div>
-            </div>
+            </a>
             <p className="font-body text-sm text-white/75 leading-relaxed">
               Indian Institute of Information Technology Bhagalpur is an Institute of National Importance under the Ministry of Education, Government of India.
             </p>
