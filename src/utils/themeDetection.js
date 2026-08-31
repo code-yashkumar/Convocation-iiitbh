@@ -44,20 +44,29 @@ html.dark-reader-active body #hero-section {
   background-color: #FBF9F5 !important;
 }
 
-/* Desktop Photographic Background Layer - Never Hidden, Inverted or Altered */
+/* Photographic Background Layer - Strictly Desktop (lg+) only, Completely Removed on Mobile */
 html body #hero-section .hero-bg-layer,
 html[data-darkreader-scheme] body #hero-section .hero-bg-layer,
 html[data-darkreader-mode] body #hero-section .hero-bg-layer,
 html.dark-reader-active body #hero-section .hero-bg-layer {
-  display: block !important;
-  background-image: url('/assets/convocation-hero-bg.png') !important;
-  background-color: transparent !important;
-  background-repeat: no-repeat !important;
-  background-position: right top !important;
-  background-size: cover !important;
-  filter: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  display: none !important;
+}
+
+@media (min-width: 1024px) {
+  html body #hero-section .hero-bg-layer,
+  html[data-darkreader-scheme] body #hero-section .hero-bg-layer,
+  html[data-darkreader-mode] body #hero-section .hero-bg-layer,
+  html.dark-reader-active body #hero-section .hero-bg-layer {
+    display: block !important;
+    background-image: url('/assets/convocation-hero-bg.png') !important;
+    background-color: transparent !important;
+    background-repeat: no-repeat !important;
+    background-position: right top !important;
+    background-size: cover !important;
+    filter: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 }
 
 @media (min-width: 1280px) {
