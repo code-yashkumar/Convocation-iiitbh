@@ -70,15 +70,15 @@ export function Hero() {
     <section
       id="hero-section"
       data-darkreader-ignore="true"
-      className="relative w-full min-h-screen lg:h-screen lg:min-h-[45rem] lg:max-h-[60rem] flex flex-col justify-between pt-20 md:pt-24 pb-6 overflow-hidden bg-cream-100"
+      className="relative w-full min-h-screen lg:h-screen lg:min-h-[45rem] lg:max-h-[60rem] 2xl:min-h-[50rem] 2xl:max-h-[70rem] flex flex-col justify-between pt-20 md:pt-24 pb-6 overflow-hidden bg-cream-100"
     >
-      {/* Unified Hero Stage Container: Holds the entire layout in perfect laptop proportions across all screen sizes up to 4K */}
-      <div className="relative max-w-[87.5rem] w-full mx-auto flex-1 flex flex-col justify-between px-6 sm:px-10 lg:px-12 z-10">
+      {/* Full-Width Hero Stage Container: Utilizes the complete screen width on laptops, ultra-wides, and 4K displays */}
+      <div className="relative w-full flex-1 flex flex-col justify-between px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28 z-10">
         
-        {/* 1. Full-width Background Image Layer for Desktop (lg+) - Anchored to container so it scales and aligns in lockstep */}
+        {/* 1. Full-width Background Image Layer - Spans seamlessly across the entire right half of the viewport */}
         <div
           data-darkreader-ignore="true"
-          className="hero-bg-layer hidden lg:block absolute right-0 top-0 bottom-0 w-full lg:w-[62%] xl:w-[58%] bg-no-repeat bg-right-top bg-contain pointer-events-none z-0"
+          className="hero-bg-layer hidden lg:block absolute right-0 top-0 bottom-0 w-full lg:w-[54%] xl:w-[56%] 2xl:w-[56%] bg-no-repeat bg-right-top bg-cover 2xl:bg-contain pointer-events-none z-0"
           style={{
             backgroundImage: "url('/assets/convocation-hero-bg.png')",
           }}
@@ -93,7 +93,7 @@ export function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
             
             {/* Left Column: Hero Content Block */}
-            <div className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center">
+            <div className="lg:col-span-7 xl:col-span-6 2xl:col-span-6 flex flex-col justify-center">
               
               {/* Title & Year */}
               <div className="mb-2 sm:mb-4">
@@ -174,8 +174,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Desktop Countdown Card: Anchored relative to the container */}
-        <div className="hidden lg:block absolute right-6 sm:right-10 lg:right-12 xl:right-14 bottom-[6.75rem] sm:bottom-[7.125rem] lg:bottom-[7.5rem] xl:bottom-[7.875rem] w-[14.7rem] xl:w-[15.625rem] z-30">
+        {/* Desktop Countdown Card: Anchored relative to the right side of the full-width stage */}
+        <div className="hidden lg:block absolute right-6 sm:right-10 lg:right-16 xl:right-20 2xl:right-28 bottom-[6.75rem] sm:bottom-[7.125rem] lg:bottom-[7.5rem] xl:bottom-[7.875rem] w-[14.7rem] xl:w-[15.625rem] 2xl:w-[17rem] z-30">
           <CountdownCard className="countdown-card" />
         </div>
 

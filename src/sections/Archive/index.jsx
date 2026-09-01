@@ -47,7 +47,7 @@ export function ArchiveSection() {
   ];
 
   return (
-    <section className="py-8 sm:py-16 max-w-container mx-auto px-4 sm:px-10 lg:px-20" id="archive">
+    <section className="py-8 sm:py-16 w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28" id="archive">
       <SEO
         title="Graduation Archive & Medal Winners | Convocation Records — IIIT Bhagalpur"
         description="Searchable institutional graduation archive, medal recipients, and degree honors across convocation editions of IIIT Bhagalpur."

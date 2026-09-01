@@ -104,7 +104,7 @@ export function NavBar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-[87.5rem] mx-auto px-6 sm:px-10 lg:px-12 h-16 md:h-[4.25rem] flex items-center justify-between gap-4">
+      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28 h-16 md:h-[4.25rem] flex items-center justify-between gap-4">
         
         {/* Left: Crest + Full Institution Wordmark (Redirects to official Institute portal) */}
         <a
