@@ -221,30 +221,30 @@ export function GallerySection() {
 
         {/* Featured Hero Banner: Highlight of the Edition */}
         <div className="relative rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-6 sm:mb-10 group">
-          <div className="relative aspect-[16/10] sm:aspect-[21/9] w-full overflow-hidden">
+          <div className="relative aspect-[6620/3035] w-full overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600&auto=format&fit=crop"
-              alt="Grand Academic Procession and Convocation Stage at IIIT Bhagalpur"
-              width="1600"
-              height="685"
-              loading="lazy"
+              src="/assets/gallery-archive-banner.jpg"
+              alt="IIIT Bhagalpur Convocation Dignitaries and Graduating Students Group Ceremony"
+              width="6620"
+              height="3035"
+              loading="eager"
               decoding="async"
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none opacity-85"
+              className="w-full h-full object-cover object-center select-none"
             />
-            {/* Dark Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/40 to-transparent" />
+            {/* Crisp Bottom Gradient Overlay only where text sits */}
+            <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
             
             {/* Banner Information Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-10 lg:p-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 z-10">
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 lg:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 z-10">
               <div className="max-w-2xl space-y-2">
                 <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white text-maroon-900 font-body text-[0.6875rem] sm:text-xs font-bold uppercase tracking-wider shadow-sm">
                   <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-maroon-900 text-maroon-900" />
                   <span>Official Convocation Gallery Archives</span>
                 </div>
-                <h2 className="font-display font-bold text-xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug">
+                <h2 className="font-display font-bold text-xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug drop-shadow-md">
                   Grand Academic Processions & Medallion Honors
                 </h2>
-                <p className="font-body text-white/80 text-xs sm:text-sm max-w-xl line-clamp-2 sm:line-clamp-none">
+                <p className="font-body text-white/90 text-xs sm:text-sm max-w-xl line-clamp-2 sm:line-clamp-none drop-shadow-sm">
                   Explore moments across 2025 and 2021 editions. Live 2026 photographs and streaming highlights will go live on 26 September 2026.
                 </p>
               </div>
