@@ -5,41 +5,6 @@ import CountdownCard from '../Countdown';
 import InformationBar from '../InformationBar';
 
 /**
- * Calendar Icon matching the hero quick info design
- */
-function HeroCalendarIcon({ className = 'w-7 h-7 text-maroon-900' }) {
-  return (
-    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <rect x="3" y="6" width="22" height="18" rx="4" stroke="#5E101C" strokeWidth="2" />
-      <line x1="3" y1="11" x2="25" y2="11" stroke="#5E101C" strokeWidth="1.75" />
-      <line x1="8" y1="3.5" x2="8" y2="7.5" stroke="#5E101C" strokeWidth="2" strokeLinecap="round" />
-      <line x1="20" y1="3.5" x2="20" y2="7.5" stroke="#5E101C" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="8.5" cy="16" r="1.2" fill="#5E101C" />
-      <circle cx="14" cy="16" r="1.2" fill="#5E101C" />
-      <circle cx="19.5" cy="16" r="1.2" fill="#5E101C" />
-      <circle cx="8.5" cy="20" r="1.2" fill="#5E101C" />
-      <circle cx="14" cy="20" r="1.2" fill="#5E101C" />
-    </svg>
-  );
-}
-
-/**
- * Location Pin Icon matching the hero quick info design
- */
-function HeroPinIcon({ className = 'w-7 h-7 text-maroon-900' }) {
-  return (
-    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <path
-        d="M14 24C14 24 22 17.5 22 11.5C22 7.08172 18.4183 3.5 14 3.5C9.58172 3.5 6 7.08172 6 11.5C6 17.5 14 24 14 24Z"
-        stroke="#5E101C"
-        strokeWidth="2"
-      />
-      <circle cx="14" cy="11.5" r="3.5" stroke="#5E101C" strokeWidth="1.75" />
-    </svg>
-  );
-}
-
-/**
  * Hero Section strictly matching the reference UI mockup
  * Layer 1: Main Hero Area (Photographic backdrop, typography, countdown) - Protected from Dark Reader
  * Layer 2: Event Information Bar - Light in normal mode, custom dark maroon in Dark Reader mode
@@ -125,20 +90,7 @@ export function Hero() {
               <span className="block sm:inline sm:ml-1">tradition and new beginnings.</span>
             </p>
 
-            {/* Event Quick Info Meta (Date) */}
-            <div className="flex items-center gap-3 sm:gap-[clamp(12px,0.9vw,28px)] max-w-lg lg:max-w-[clamp(520px,38vw,1300px)] mb-6 sm:mb-[clamp(24px,2.2vw,64px)]">
-              <div className="shrink-0">
-                <HeroCalendarIcon className="hero-icon-maroon w-6 h-6 sm:w-[clamp(28px,2vw,68px)] sm:h-[clamp(28px,2vw,68px)] text-maroon-900" />
-              </div>
-              <div className="flex flex-col">
-                <span className="hero-meta-title font-body font-bold sm:font-semibold text-charcoal-900 text-[13.5px] sm:text-[clamp(15px,1.1vw,36px)] leading-tight">
-                  26 September 2026
-                </span>
-                <span className="hero-meta-sub font-body text-charcoal-600 text-[12px] sm:text-[clamp(13px,0.9vw,30px)] leading-tight mt-0.5 sm:mt-[clamp(2px,0.2vw,8px)]">
-                  Saturday, 10:00 AM
-                </span>
-              </div>
-            </div>
+
 
             {/* Action Buttons */}
             <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-[clamp(16px,1.2vw,40px)] w-full lg:w-auto">
