@@ -104,32 +104,32 @@ export function NavBar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="w-full max-w-[clamp(1400px,94vw,3600px)] mx-auto px-6 sm:px-10 lg:px-[clamp(24px,3.5vw,120px)] h-16 md:h-[clamp(68px,4.8vw,160px)] flex items-center justify-between gap-4">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-16 md:h-[72px] flex items-center justify-between gap-4">
         
         {/* Left: Crest + Full Institution Wordmark (Redirects to official Institute portal) */}
         <a
           href="https://www.iiitbh.ac.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2.5 sm:gap-[clamp(12px,1.0vw,32px)] group focus-visible:outline-none shrink-0"
+          className="flex items-center gap-3 group focus-visible:outline-none shrink-0"
           aria-label="IIIT Bhagalpur Official Website"
         >
-          <InstitutionCrest className="navbar-crest w-8 h-8 sm:w-[clamp(40px,2.8vw,96px)] sm:h-[clamp(40px,2.8vw,96px)] shrink-0 group-hover:scale-105 transition-transform" />
+          <InstitutionCrest className="navbar-crest w-8 h-8 sm:w-11 sm:h-11 shrink-0 group-hover:scale-105 transition-transform" />
           <div className="flex flex-col whitespace-nowrap">
-            <span className="navbar-title sm:hidden font-display font-bold text-[14px] text-charcoal-900 leading-tight tracking-wider uppercase">
+            <span className="navbar-title sm:hidden font-display font-bold text-sm text-charcoal-900 leading-tight tracking-wider uppercase">
               IIIT Bhagalpur
             </span>
-            <span className="navbar-title hidden sm:inline font-display font-bold text-[14px] sm:text-[clamp(15px,1.15vw,36px)] text-charcoal-900 leading-tight whitespace-nowrap">
+            <span className="navbar-title hidden sm:inline font-display font-bold text-sm md:text-base text-charcoal-900 leading-tight whitespace-nowrap">
               Indian Institute of Information Technology Bhagalpur
             </span>
-            <span className="navbar-subtext hidden sm:inline font-body text-[10px] sm:text-[clamp(11px,0.8vw,26px)] text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
+            <span className="navbar-subtext hidden sm:inline font-body text-[11px] md:text-xs text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
               भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
             </span>
           </div>
         </a>
 
         {/* Center/Right Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-[clamp(20px,2.2vw,72px)] shrink-0" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0" aria-label="Main Navigation">
           {NAV_LINKS.map((link) => {
             if (link.isSectionLink) {
               return (
@@ -137,11 +137,11 @@ export function NavBar() {
                   key={link.label}
                   href={`#${link.sectionId}`}
                   onClick={(e) => handleSectionClick(e, link.sectionId)}
-                  className="navbar-link relative group text-[clamp(14px,1.05vw,32px)] font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer"
+                  className="navbar-link relative group text-sm font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer"
                 >
                   <span>{link.label}</span>
                   {/* Progressing expanding maroon underline on hover */}
-                  <span className="absolute bottom-0 left-0 h-[clamp(2.5px,0.2vw,6px)] bg-maroon-900 w-0 group-hover:w-full transition-all duration-300 ease-out rounded-full" />
+                  <span className="absolute bottom-0 left-0 h-[2.5px] bg-maroon-900 w-0 group-hover:w-full transition-all duration-300 ease-out rounded-full" />
                 </a>
               );
             }
@@ -152,7 +152,7 @@ export function NavBar() {
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `navbar-link relative group text-[clamp(14px,1.05vw,32px)] font-body py-1.5 whitespace-nowrap focus-visible:outline-none transition-colors duration-200 ${
+                  `navbar-link relative group text-sm font-body py-1.5 whitespace-nowrap focus-visible:outline-none transition-colors duration-200 ${
                     isActive
                       ? 'active text-maroon-900 font-bold'
                       : 'text-charcoal-900/80 hover:text-maroon-900 font-medium'
@@ -164,7 +164,7 @@ export function NavBar() {
                     <span>{link.label}</span>
                     {/* Progressing expanding maroon underline on hover and solid on active */}
                     <span
-                      className={`absolute bottom-0 left-0 h-[clamp(2.5px,0.2vw,6px)] bg-maroon-900 transition-all duration-300 ease-out rounded-full ${
+                      className={`absolute bottom-0 left-0 h-[2.5px] bg-maroon-900 transition-all duration-300 ease-out rounded-full ${
                         isActive ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}
                     />
@@ -181,7 +181,7 @@ export function NavBar() {
             href="https://forms.gle/1nxVrpcRUfgMhH938"
             target="_blank"
             rel="noopener noreferrer"
-            className="navbar-btn-cta inline-flex items-center justify-center min-h-[clamp(44px,3.2vw,100px)] px-[clamp(24px,1.8vw,60px)] rounded-pill bg-maroon-900 text-white font-body font-medium text-[clamp(14px,1.05vw,32px)] whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
+            className="navbar-btn-cta inline-flex items-center justify-center min-h-[44px] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-sm whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
           >
             Register Now
           </a>

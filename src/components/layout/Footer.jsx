@@ -91,40 +91,40 @@ export function Footer() {
       </div>
 
       {/* Desktop Full 4-Column Footer (md+) */}
-      <div className="hidden md:block w-full max-w-[clamp(1400px,94vw,3600px)] mx-auto px-6 sm:px-10 lg:px-[clamp(24px,3.5vw,120px)] py-[clamp(48px,4.5vw,120px)]">
+      <div className="hidden md:block w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-16">
         {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-[clamp(36px,3.2vw,96px)] pb-[clamp(36px,3.2vw,96px)] border-b border-white/10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-white/10">
           
           {/* Col 1: Institute Info */}
-          <div className="space-y-4 sm:space-y-[clamp(16px,1.2vw,36px)]">
+          <div className="space-y-4">
             <a
               href="https://www.iiitbh.ac.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 sm:gap-[clamp(12px,1.0vw,28px)] group focus-visible:outline-none w-fit"
+              className="flex items-center gap-3 group focus-visible:outline-none w-fit"
               aria-label="IIIT Bhagalpur Official Website"
             >
-              <InstitutionCrest className="w-11 h-11 sm:w-[clamp(44px,3.2vw,88px)] sm:h-[clamp(44px,3.2vw,88px)] bg-white rounded-full p-1 shadow-sm shrink-0 group-hover:scale-105 transition-transform" />
+              <InstitutionCrest className="w-11 h-11 bg-white rounded-full p-1 shadow-sm shrink-0 group-hover:scale-105 transition-transform" />
               <div className="flex flex-col">
-                <span className="font-display font-bold text-xl sm:text-[clamp(20px,1.5vw,40px)] text-white leading-tight">
+                <span className="font-display font-bold text-xl text-white leading-tight">
                   IIIT Bhagalpur
                 </span>
-                <span className="font-body text-xs sm:text-[clamp(12px,0.85vw,22px)] text-gold-400 font-medium tracking-wide">
+                <span className="font-body text-xs text-gold-400 font-medium tracking-wide">
                   3rd Convocation 2026
                 </span>
               </div>
             </a>
-            <p className="font-body text-sm sm:text-[clamp(14px,1.05vw,26px)] text-white/75 leading-relaxed">
+            <p className="font-body text-sm text-white/75 leading-relaxed">
               Indian Institute of Information Technology Bhagalpur is an Institute of National Importance under the Ministry of Education, Government of India.
             </p>
           </div>
 
           {/* Col 2: Quick Links */}
-          <div className="space-y-3.5 sm:space-y-[clamp(14px,1.1vw,32px)]">
-            <h3 className="font-body font-bold text-sm sm:text-[clamp(14px,1.05vw,28px)] text-gold-400 tracking-wider uppercase">
+          <div className="space-y-3.5">
+            <h3 className="font-body font-bold text-sm text-gold-400 tracking-wider uppercase">
               Quick Links
             </h3>
-            <ul className="space-y-2 sm:space-y-[clamp(8px,0.6vw,18px)] font-body text-sm sm:text-[clamp(14px,1.0vw,26px)]">
+            <ul className="space-y-2 font-body text-sm">
               <li>
                 <Link to="/#schedule" className="text-white/80 hover:text-gold-400 transition-colors">
                   Schedule of Events
@@ -164,11 +164,11 @@ export function Footer() {
           </div>
 
           {/* Col 3: Guidelines & Protocol */}
-          <div className="space-y-3.5 sm:space-y-[clamp(14px,1.1vw,32px)]">
-            <h3 className="font-body font-bold text-sm sm:text-[clamp(14px,1.05vw,28px)] text-gold-400 tracking-wider uppercase">
+          <div className="space-y-3.5">
+            <h3 className="font-body font-bold text-sm text-gold-400 tracking-wider uppercase">
               Guidelines
             </h3>
-            <ul className="space-y-2 sm:space-y-[clamp(8px,0.6vw,18px)] font-body text-sm sm:text-[clamp(14px,1.0vw,26px)]">
+            <ul className="space-y-2 font-body text-sm">
               <li>
                 <Link to="/information" className="text-white/80 hover:text-gold-400 transition-colors">
                   Academic Regalia & Dress Code
@@ -198,23 +198,23 @@ export function Footer() {
           </div>
 
           {/* Col 4: Secretariat Contact */}
-          <div className="space-y-3.5 sm:space-y-[clamp(14px,1.1vw,32px)]">
-            <h3 className="font-body font-bold text-sm sm:text-[clamp(14px,1.05vw,28px)] text-gold-400 tracking-wider uppercase">
+          <div className="space-y-3.5">
+            <h3 className="font-body font-bold text-sm text-gold-400 tracking-wider uppercase">
               Convocation Secretariat
             </h3>
-            <div className="space-y-2.5 sm:space-y-[clamp(10px,0.7vw,22px)] font-body text-sm sm:text-[clamp(14px,1.0vw,26px)] text-white/80">
-              <div className="flex items-start gap-2.5 sm:gap-[clamp(10px,0.7vw,22px)]">
-                <MapPin className="w-4 h-4 sm:w-[clamp(16px,1.1vw,28px)] sm:h-[clamp(16px,1.1vw,28px)] text-gold-400 mt-0.5 shrink-0" />
+            <div className="space-y-2.5 font-body text-sm text-white/80">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-gold-400 mt-0.5 shrink-0" />
                 <span className="leading-snug">IIIT Bhagalpur Permanent Campus, Sabour, Bihar 813210</span>
               </div>
-              <div className="flex items-center gap-2.5 sm:gap-[clamp(10px,0.7vw,22px)]">
-                <Mail className="w-4 h-4 sm:w-[clamp(16px,1.1vw,28px)] sm:h-[clamp(16px,1.1vw,28px)] text-gold-400 shrink-0" />
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-gold-400 shrink-0" />
                 <a href="mailto:convocation@iiitbh.ac.in" className="hover:text-gold-400 transition-colors truncate">
                   convocation@iiitbh.ac.in
                 </a>
               </div>
-              <div className="flex items-center gap-2.5 sm:gap-[clamp(10px,0.7vw,22px)]">
-                <Phone className="w-4 h-4 sm:w-[clamp(16px,1.1vw,28px)] sm:h-[clamp(16px,1.1vw,28px)] text-gold-400 shrink-0" />
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-gold-400 shrink-0" />
                 <a href="tel:+916412451005" className="hover:text-gold-400 transition-colors">
                   +91 641 245 1005
                 </a>
@@ -224,7 +224,7 @@ export function Footer() {
         </div>
 
         {/* Desktop Bottom Bar */}
-        <div className="pt-8 sm:pt-[clamp(28px,2.2vw,64px)] flex items-center justify-between text-xs sm:text-[clamp(12px,0.85vw,22px)] text-white/60 font-body">
+        <div className="pt-8 flex items-center justify-between text-xs text-white/60 font-body">
           <p>© {new Date().getFullYear()} IIIT Bhagalpur. All Rights Reserved.</p>
           <p className="text-white/50">
             Official Portal for 3rd Convocation

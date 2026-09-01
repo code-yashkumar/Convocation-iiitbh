@@ -71,22 +71,22 @@ export function HowToReachSection() {
 
   return (
     <section className="w-full pt-6 pb-6 sm:pt-8 sm:pb-8 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="how-to-reach">
-      <div className="w-full max-w-[clamp(1400px,94vw,3600px)] mx-auto px-6 sm:px-10 lg:px-[clamp(24px,3.5vw,120px)]">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Container Card */}
-        <div className="bg-white rounded-[clamp(20px,1.8vw,56px)] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-5 sm:p-10 lg:p-[clamp(36px,3vw,96px)] overflow-hidden">
+        <div className="bg-white rounded-[24px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-5 sm:p-10 lg:p-12 overflow-hidden">
           
           {/* Header Row */}
-          <div className="text-center max-w-[clamp(720px,58vw,1800px)] mx-auto mb-[clamp(36px,3.2vw,96px)]">
-            <div className="inline-flex items-center gap-2 px-3.5 sm:px-[clamp(16px,1.2vw,36px)] py-1.5 sm:py-[clamp(6px,0.45vw,14px)] rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-[clamp(13px,0.95vw,26px)] font-semibold mb-[clamp(14px,1.1vw,36px)] border border-maroon-900/10 shadow-xs">
-              <Compass className="w-4 h-4 sm:w-[clamp(16px,1.1vw,28px)] sm:h-[clamp(16px,1.1vw,28px)] text-maroon-900 shrink-0" />
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-3 border border-maroon-900/10 shadow-xs">
+              <Compass className="w-4 h-4 text-maroon-900 shrink-0" />
               <span>Campus Directions & Travel Guide</span>
             </div>
 
-            <h2 className="font-display font-bold text-2xl sm:text-4xl lg:text-[clamp(36px,2.8vw,80px)] leading-[1.2] text-charcoal-900 tracking-tight">
+            <h2 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
               How To Reach?
             </h2>
-            <p className="font-body text-charcoal-600 text-sm sm:text-[clamp(15px,1.1vw,32px)] leading-relaxed mt-[clamp(14px,1.1vw,36px)] max-w-[clamp(600px,48vw,1500px)] mx-auto">
+            <p className="font-body text-charcoal-600 text-sm sm:text-lg mt-3 max-w-2xl mx-auto leading-relaxed">
               Comprehensive transit routes by air, rail, highway, and local cabs to the permanent campus of IIIT Bhagalpur at Sabour.
             </p>
           </div>

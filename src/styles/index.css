@@ -209,14 +209,14 @@
 }
 
 /* ==========================================================================
-   Ultra-High Resolution (2K / 4K / 5K) Fluid Proportional Scaling
-   Scales the root rem base proportionally on screens wider than 1920px
-   so that all typography, images, containers, and cards scale seamlessly
-   with exact 1080p laptop visual ratios without zoom offset bugs.
+   Fluid Proportional Scaling for Desktop (1440px Reference Canvas)
+   Scales the root rem base proportionally on screens wider than 1440px
+   so that all typography, containers, cards, and spacing scale seamlessly
+   with exact laptop visual ratios across 1920px, 2560px, 3133px, and 4K.
    ========================================================================== */
-@media (min-width: 1921px) {
+@media (min-width: 1440px) {
   html {
-    font-size: calc(16px * (100vw / 1920));
+    font-size: calc(16px * (100vw / 1440));
   }
 }
 

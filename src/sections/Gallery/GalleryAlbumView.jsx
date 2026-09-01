@@ -405,7 +405,7 @@ export function GalleryAlbumView() {
           }
         }}
       />
-      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Navigation Breadcrumb & Back Action */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
@@ -444,29 +444,29 @@ export function GalleryAlbumView() {
         </div>
 
         {/* Album Header */}
-        <div className="bg-white rounded-[28px] sm:rounded-[clamp(28px,2.0vw,64px)] p-8 sm:p-[clamp(28px,2.2vw,70px)] border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] mb-8 sm:mb-[clamp(32px,2.5vw,72px)]">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-3 sm:mb-[clamp(12px,1.0vw,28px)]">
-            <span className="px-3.5 sm:px-[clamp(14px,1.0vw,30px)] py-1 sm:py-[clamp(5px,0.4vw,12px)] rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs sm:text-[clamp(12px,0.85vw,24px)] font-bold uppercase tracking-wider">
+        <div className="bg-white rounded-[28px] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] mb-8">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
+            <span className="px-3.5 py-1 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs font-bold uppercase tracking-wider">
               {album.category} Album
             </span>
 
-            <div className="flex items-center gap-3 sm:gap-[clamp(12px,1.0vw,28px)] text-xs sm:text-[clamp(12px,0.85vw,24px)] font-mono text-charcoal-500">
-              <span className="flex items-center gap-1.5 sm:gap-2">
-                <Calendar className="w-3.5 h-3.5 sm:w-[clamp(15px,1.05vw,26px)] sm:h-[clamp(15px,1.05vw,26px)] text-maroon-900" />
+            <div className="flex items-center gap-3 text-xs font-mono text-charcoal-500">
+              <span className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-maroon-900" />
                 {album.date}
               </span>
               <span>•</span>
-              <span className="flex items-center gap-1.5 sm:gap-2">
-                <MapPin className="w-3.5 h-3.5 sm:w-[clamp(15px,1.05vw,26px)] sm:h-[clamp(15px,1.05vw,26px)] text-maroon-900" />
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-maroon-900" />
                 {album.venue}
               </span>
             </div>
           </div>
 
-          <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-[clamp(36px,2.8vw,80px)] text-charcoal-900 tracking-tight leading-[1.2]">
+          <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
             {album.title}
           </h1>
-          <p className="font-body text-charcoal-600 text-sm sm:text-[clamp(15px,1.1vw,32px)] max-w-[clamp(640px,50vw,1600px)] mt-[clamp(14px,1.1vw,36px)] leading-relaxed">
+          <p className="font-body text-charcoal-600 text-sm sm:text-lg max-w-3xl mt-3 leading-relaxed">
             {album.subtitle}
           </p>
         </div>

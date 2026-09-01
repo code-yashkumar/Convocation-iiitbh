@@ -80,18 +80,18 @@ export function ScheduleSection() {
 
   return (
     <section className="w-full pt-6 pb-6 sm:pt-8 sm:pb-8 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="schedule">
-      <div className="w-full max-w-[clamp(1400px,94vw,3600px)] mx-auto px-6 sm:px-10 lg:px-[clamp(24px,3.5vw,120px)]">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Main Schedule Container Card */}
-        <div className="bg-white rounded-[clamp(20px,1.8vw,60px)] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-6 sm:p-10 lg:p-[clamp(36px,3.2vw,120px)] overflow-hidden">
+        <div className="bg-white rounded-[28px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-6 sm:p-10 lg:p-12 overflow-hidden">
           
           {/* Header Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-[clamp(28px,2.5vw,80px)]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-10">
             <div>
-              <span className="font-body font-bold text-xs sm:text-[clamp(13px,0.9vw,30px)] text-maroon-900 tracking-wider uppercase block mb-[clamp(8px,0.7vw,22px)]">
+              <span className="font-body font-bold text-xs sm:text-sm text-maroon-900 tracking-wider uppercase block mb-1">
                 Event Schedule
               </span>
-              <h2 className="font-display font-bold text-[28px] sm:text-4xl lg:text-[clamp(38px,3.0vw,115px)] text-charcoal-900 tracking-tight leading-[1.2]">
+              <h2 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
                 Schedule of Events
               </h2>
             </div>
@@ -100,7 +100,7 @@ export function ScheduleSection() {
               <button
                 type="button"
                 onClick={() => setIsFullScheduleOpen(true)}
-                className="inline-flex items-center justify-center min-h-[clamp(44px,3.2vw,100px)] px-[clamp(24px,1.8vw,60px)] rounded-pill bg-white border border-maroon-900/30 text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm sm:text-[clamp(14px,1.05vw,32px)] transition-all cursor-pointer"
+                className="inline-flex items-center justify-center min-h-[44px] px-6 rounded-pill bg-white border border-maroon-900/30 text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
               >
                 View Full Schedule
               </button>
