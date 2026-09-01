@@ -249,28 +249,28 @@ export function NoticeSection() {
           }
         }}
       />
-      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28">
+      <div className="w-full max-w-[clamp(1400px,94vw,3600px)] mx-auto px-6 sm:px-10 lg:px-[clamp(24px,3.5vw,120px)]">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold border border-maroon-900/10 shadow-xs">
-              <Bell className="w-4 h-4 text-maroon-900" />
+        <div className="text-center max-w-[clamp(720px,58vw,1800px)] mx-auto mb-[clamp(36px,3.2vw,96px)]">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-[clamp(8px,0.6vw,18px)] mb-[clamp(14px,1.1vw,36px)]">
+            <div className="inline-flex items-center gap-2 px-3.5 sm:px-[clamp(16px,1.2vw,36px)] py-1.5 sm:py-[clamp(6px,0.45vw,14px)] rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-[clamp(13px,0.95vw,26px)] font-semibold border border-maroon-900/10 shadow-xs">
+              <Bell className="w-4 h-4 sm:w-[clamp(16px,1.1vw,28px)] sm:h-[clamp(16px,1.1vw,28px)] text-maroon-900 shrink-0" />
               <span>Official Communications</span>
             </div>
 
             {isLiveConnected && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-body text-xs font-semibold">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="inline-flex items-center gap-1.5 px-3 sm:px-[clamp(14px,1.0vw,30px)] py-1 sm:py-[clamp(5px,0.4vw,12px)] rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-body text-xs sm:text-[clamp(12px,0.85vw,24px)] font-semibold">
+                <span className="w-2 h-2 sm:w-[clamp(8px,0.6vw,16px)] sm:h-[clamp(8px,0.6vw,16px)] rounded-full bg-emerald-500 animate-pulse" />
                 <span>Live Google Sheet Synced</span>
               </div>
             )}
           </div>
 
-          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
+          <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-[clamp(36px,2.8vw,80px)] leading-[1.2] text-charcoal-900 tracking-tight">
             Convocation Notice Board
           </h1>
-          <p className="font-body text-charcoal-600 text-base sm:text-lg mt-3">
+          <p className="font-body text-charcoal-600 text-sm sm:text-[clamp(15px,1.1vw,32px)] leading-relaxed mt-[clamp(14px,1.1vw,36px)] max-w-[clamp(600px,48vw,1500px)] mx-auto">
             Real-time updates, formal invitation circulars, medal winner lists, and administrative orders for the 3rd Convocation.
           </p>
         </div>

@@ -46,19 +46,19 @@ const DIGNITARIES = [
 export function DignitariesSection() {
   return (
     <section id="dignitaries" className="w-full pt-10 pb-6 sm:pt-16 sm:pb-8 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24">
-      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28">
+      <div className="w-full max-w-[clamp(1400px,94vw,3600px)] mx-auto px-6 sm:px-10 lg:px-[clamp(24px,3.5vw,120px)]">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl 2xl:max-w-4xl mx-auto mb-10 sm:mb-14 2xl:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 2xl:px-5 2xl:py-2 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm 2xl:text-lg font-semibold mb-3 2xl:mb-4 border border-maroon-900/10 shadow-xs">
-            <Award className="w-4 h-4 2xl:w-6 2xl:h-6 text-maroon-900" />
+        <div className="text-center max-w-[clamp(720px,58vw,1800px)] mx-auto mb-[clamp(36px,3.2vw,96px)]">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-[clamp(16px,1.2vw,36px)] py-1.5 sm:py-[clamp(6px,0.45vw,14px)] rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-[clamp(13px,0.95vw,26px)] font-semibold mb-[clamp(14px,1.1vw,36px)] border border-maroon-900/10 shadow-xs">
+            <Award className="w-4 h-4 sm:w-[clamp(16px,1.1vw,28px)] sm:h-[clamp(16px,1.1vw,28px)] text-maroon-900 shrink-0" />
             <span>Honourable Guests & Leadership</span>
           </div>
           
-          <h2 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-charcoal-900 tracking-tight">
+          <h2 className="font-display font-bold text-2xl sm:text-4xl lg:text-[clamp(36px,2.8vw,80px)] leading-[1.2] text-charcoal-900 tracking-tight">
             Eminent Dignitaries
           </h2>
-          <p className="font-body text-charcoal-600 text-sm sm:text-lg 2xl:text-2xl mt-2 sm:mt-3 2xl:mt-4">
+          <p className="font-body text-charcoal-600 text-sm sm:text-[clamp(15px,1.1vw,32px)] leading-relaxed mt-[clamp(14px,1.1vw,36px)] max-w-[clamp(600px,48vw,1500px)] mx-auto">
             Distinguished academicians, industry leaders, and institutional leadership gracing the 3rd Convocation.
           </p>
         </div>
