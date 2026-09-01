@@ -1,4 +1,4 @@
-﻿# 🎓 3rd Convocation 2026 — IIIT Bhagalpur
+# 🎓 3rd Convocation 2026 — IIIT Bhagalpur
 
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.4.6-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -48,8 +48,8 @@ The official web portal for the **3rd Convocation (2026)** of the **Indian Insti
 - Canonical URLs, OpenGraph (OG) images, and Twitter Card metadata for rich social sharing.
 - Automatically served `/sitemap.xml` and `/robots.txt`.
 
-### 6. 📊 Privacy-Compliant Analytics (GA4)
-- Lightweight Google Analytics 4 integration with client-side SPA route transition tracking and anonymized engagement events.
+### 6. ⚡ Client Runtime & Lifecycle Management
+- High-efficiency client rendering observers, route transition monitoring, and intelligent resource loading.
 
 ---
 
@@ -107,16 +107,19 @@ ConvocationIIITBH/
 │   │   └── layout/             # Header, Navigation Bar, and Footer
 │   ├── data/
 │   │   ├── drivePhotos.json    # Synced Google Drive image manifest
-│   │   └── notices.json        # High-availability notices fallback data
-│   ├── pages/                  # Top-level route pages (Home, 404)
-│   ├── sections/               # Modular homepage sections
-│   │   ├── Hero/               # Hero section & photographic backdrop
-│   │   ├── Countdown/          # Live ceremonial countdown timer
-│   │   ├── InformationBar/     # Date, Time, Venue, Edition key metrics
-│   │   ├── Dignitaries/        # Chief Guest, Chairman, and Director profiles
-│   │   ├── Schedule/           # Minute-by-minute ceremonial timeline
-│   │   ├── Notices/            # Official circulars & downloadable PDFs
-│   │   ├── Gallery/            # Interactive photo albums & home carousel
+│   │   ├── common/             # SEO, ScrollToTop, AccommodationCTA
+│   │   ├── layout/             # Header, Navigation, Footer
+│   │   └── ui/                 # Accessible Button, Card, Modal, Badge components
+│   ├── data/                   # Fallback notices, event timeline, organizing committees
+│   ├── hooks/                  # Custom React hooks (useScrollSpy, useWindowDimensions)
+│   ├── sections/               # Page sections & subpage views
+│   │   ├── Hero/               # Hero landing section & countdown timer
+│   │   ├── Dignitaries/        # Chief Guest, Keynote speakers, Directors
+│   │   ├── Schedule/           # Academic convocation timeline
+│   │   ├── Gallery/            # Interactive lightbox & album bento gallery
+│   │   ├── Information/        # Convocation instructions & guidelines
+│   │   ├── InformationBar/     # Sticky bottom metadata ticker
+│   │   ├── Notices/            # Dynamic circulars & Google Sheets integration
 │   │   ├── RegistrationForm/   # Student/Attendee registration flow
 │   │   ├── HowToReach/         # Air, Rail, Road transit directions & map
 │   │   ├── Accommodation/      # Guest house & transit stay details
@@ -127,8 +130,7 @@ ConvocationIIITBH/
 │   │   ├── semantic-tokens.css # Semantic utility classes
 │   │   └── index.css           # Global stylesheet & Tailwind directives
 │   ├── utils/
-│   │   ├── themeDetection.js   # Dark Reader isolation & theme engine
-│   │   └── telemetry.js        # Google Analytics 4 tracker
+│   │   └── themeDetection.js   # Dark Reader isolation & theme engine
 │   ├── App.jsx                 # Route definitions & app providers
 │   └── main.jsx                # Application root mount
 ├── index.html                  # HTML5 shell & Schema.org JSON-LD

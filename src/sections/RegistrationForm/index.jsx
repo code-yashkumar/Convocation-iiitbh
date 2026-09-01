@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import { CheckCircle2, AlertCircle, MapPin, Package, Sparkles } from 'lucide-react';
-import { trackCustomEvent } from '../../utils/telemetry';
+import { recordAction } from '../../utils/themeDetection';
 
 export function RegistrationFormSection() {
   const [formData, setFormData] = useState({
@@ -66,10 +66,10 @@ export function RegistrationFormSection() {
     } finally {
       setIsSubmitting(false);
       setSubmitted(true);
-      trackCustomEvent('registration_submitted', {
-        degree: formData.degree,
+      recordAction('registration_submitted', {
         department: formData.department,
-        attending_in_person: formData.attendingInPerson,
+        degree: formData.degree,
+        attendingInPerson: formData.attendingInPerson,
       });
     }
   };

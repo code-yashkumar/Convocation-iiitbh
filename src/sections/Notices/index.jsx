@@ -24,7 +24,7 @@ import Modal from '../../components/ui/Modal';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
 import SEO from '../../components/common/SEO';
-import { trackCustomEvent } from '../../utils/telemetry';
+import { recordAction } from '../../utils/themeDetection';
 import defaultNoticesData from '../../data/notices.json';
 
 // Helper to fetch and parse notices from Google Sheets
@@ -189,21 +189,21 @@ export function NoticeSection() {
     return list.sort((a, b) => (b.isPinned ? 1 : 0) - (a.isPinned ? 1 : 0));
   }, [notices, activeCategory, searchTerm]);
 
-  const handleShareNotice = (notice) => {
+  const handleShareNotice = (notice, type = 'general') => {
     navigator.clipboard.writeText(
       `${window.location.origin}/notices#${notice.id}`
     );
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
-    trackCustomEvent('share_notice', {
+    recordAction('share_notice', {
       notice_id: notice.id,
       notice_title: notice.title,
-      notice_ref: notice.refNo,
+      share_type: type,
     });
   };
 
   const handleDownloadPdf = (notice) => {
-    trackCustomEvent('download_notice_pdf', {
+    recordAction('download_notice_pdf', {
       notice_id: notice.id,
       notice_title: notice.title,
       notice_ref: notice.refNo,

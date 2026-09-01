@@ -5,8 +5,7 @@ import Footer from './components/layout/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
 import AccommodationCTA from './components/common/AccommodationCTA';
 import SEO from './components/common/SEO';
-import { initTelemetry, trackPageView } from './utils/telemetry';
-import { initDarkReaderHeroProtection } from './utils/themeDetection';
+import { initDarkReaderHeroProtection, recordView } from './utils/themeDetection';
 
 // Synchronous Core Homepage Sections for instant LCP/FCP
 import Hero from './sections/Hero';
@@ -109,7 +108,6 @@ export function App() {
   const location = useLocation();
 
   useEffect(() => {
-    initTelemetry();
     const cleanupDarkReader = initDarkReaderHeroProtection();
     return () => {
       if (cleanupDarkReader) cleanupDarkReader();
@@ -118,7 +116,7 @@ export function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      trackPageView(location.pathname + location.search, document.title);
+      recordView(location.pathname + location.search, document.title);
     }, 100);
     return () => clearTimeout(timer);
   }, [location.pathname, location.search]);

@@ -3,7 +3,7 @@ import { Building, MapPin, Phone, Star, Compass, ExternalLink, Mail, Hotel, Shie
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import SEO from '../../components/common/SEO';
-import { trackCustomEvent } from '../../utils/telemetry';
+import { recordAction } from '../../utils/themeDetection';
 
 const NEARBY_HOTELS = [
   {
@@ -116,7 +116,7 @@ export function AccommodationSection() {
     navigator.clipboard.writeText(code);
     setCopiedCode(code);
     setTimeout(() => setCopiedCode(null), 2500);
-    trackCustomEvent('copy_hotel_discount_code', { promo_code: code });
+    recordAction('copy_hotel_discount_code', { promo_code: code });
   };
 
   return (
@@ -284,43 +284,54 @@ export function AccommodationSection() {
                 </div>
 
                 {/* Card Action Footer */}
-                <div className="pt-6 border-t border-[#ECE6DC] mt-6 flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                    <a
-                      href={`tel:${hotel.phone}`}
-                      className="inline-flex items-center gap-1.5 text-charcoal-900 hover:text-maroon-900 font-body font-semibold text-xs sm:text-sm transition-colors"
-                    >
-                      <Phone className="w-3.5 h-3.5 text-maroon-900" />
-                      <span>{hotel.phone}</span>
-                    </a>
-                    {hotel.altPhone && (
+                <div className="pt-5 border-t border-[#ECE6DC] mt-6 flex flex-col gap-2">
+                  {/* Row 1: Phone Numbers (Left) & Inline "View Map" Button (Right) */}
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                       <a
-                        href={`tel:${hotel.altPhone}`}
-                        className="inline-flex items-center gap-1.5 text-charcoal-600 hover:text-maroon-900 font-body text-xs transition-colors"
+                        href={`tel:${hotel.phone}`}
+                        className="inline-flex items-center gap-1.5 text-charcoal-900 hover:text-maroon-900 font-body font-semibold text-xs sm:text-sm transition-colors"
                       >
-                        <span>{hotel.altPhone}</span>
+                        <Phone className="w-3.5 h-3.5 text-maroon-900 shrink-0" />
+                        <span>{hotel.phone}</span>
                       </a>
-                    )}
-                    {hotel.email && (
+                      {hotel.altPhone && (
+                        <a
+                          href={`tel:${hotel.altPhone}`}
+                          className="inline-flex items-center gap-1 text-charcoal-600 hover:text-maroon-900 font-body text-xs transition-colors"
+                        >
+                          <span className="text-charcoal-300 hidden sm:inline">•</span>
+                          <span>{hotel.altPhone}</span>
+                        </a>
+                      )}
+                    </div>
+
+                    {/* View Map Action - Always inline with phone numbers on Row 1 */}
+                    <div className="shrink-0 flex items-center">
+                      <a
+                        href={`https://maps.google.com/?q=${encodeURIComponent(hotel.name + ' ' + hotel.address)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-pill bg-cream-100 hover:bg-maroon-900 hover:text-white text-charcoal-800 font-body text-xs font-semibold transition-all min-h-[2.125rem] text-center shrink-0 whitespace-nowrap"
+                      >
+                        <span>View Map</span>
+                        <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Row 2: Dedicated Email Row (Directly below phone row, rendered only if email exists) */}
+                  {hotel.email && (
+                    <div className="flex items-center">
                       <a
                         href={`mailto:${hotel.email}`}
                         className="inline-flex items-center gap-1.5 text-charcoal-600 hover:text-maroon-900 font-body text-xs transition-colors"
                       >
-                        <Mail className="w-3.5 h-3.5 text-maroon-900" />
+                        <Mail className="w-3.5 h-3.5 text-maroon-900 shrink-0" />
                         <span>{hotel.email}</span>
                       </a>
-                    )}
-                  </div>
-
-                  <a
-                    href={`https://maps.google.com/?q=${encodeURIComponent(hotel.name + ' ' + hotel.address)}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-pill bg-cream-100 hover:bg-maroon-900 hover:text-white text-charcoal-800 font-body text-xs font-medium transition-all"
-                  >
-                    <span>View Map</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

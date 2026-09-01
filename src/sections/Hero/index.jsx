@@ -73,15 +73,15 @@ export function Hero() {
             <div className="mb-2 sm:mb-4">
               <h1 className="hero-title-main font-display font-bold text-4xl sm:text-5xl lg:text-[4.5rem] leading-[1.02] lg:leading-[1.0] text-charcoal-900 tracking-tight">
                 <span className="hero-title-main lg:hidden">
-                  3<span className="text-[0.62em] lowercase align-super font-semibold mr-1.5">rd</span> Convocation
+                  3<span className="text-[0.62em] lowercase align-super font-semibold mr-2">rd</span> Convocation
                 </span>
                 <span className="hero-title-main hidden lg:inline">
-                  <span className="block mb-1 lg:mb-1.5">
+                  <span className="block mb-1.5 lg:mb-2">
                     3<span className="text-[0.62em] lowercase align-super font-semibold">rd</span>
                   </span>
                   <span>CONVOCATION</span>
                 </span>
-                <span className="hero-title-maroon block font-display font-bold text-5xl sm:text-6xl lg:text-[5rem] leading-[1] text-maroon-900 mt-1.5 sm:mt-2">
+                <span className="hero-title-maroon block font-display font-bold text-5xl sm:text-6xl lg:text-[5rem] leading-[1] text-maroon-900 mt-0 sm:mt-0.5">
                   2026
                 </span>
               </h1>
