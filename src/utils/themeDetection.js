@@ -44,29 +44,20 @@ html.dark-reader-active body #hero-section {
   background-color: #FBF9F5 !important;
 }
 
-/* Photographic Background Layer - Strictly Desktop (lg+) only, Completely Removed on Mobile */
+/* Photographic Background Layer - Takes full width and height of the screen in all orientations */
 html body #hero-section .hero-bg-layer,
 html[data-darkreader-scheme] body #hero-section .hero-bg-layer,
 html[data-darkreader-mode] body #hero-section .hero-bg-layer,
 html.dark-reader-active body #hero-section .hero-bg-layer {
-  display: none !important;
-}
-
-@media (min-width: 1024px) {
-  html body #hero-section .hero-bg-layer,
-  html[data-darkreader-scheme] body #hero-section .hero-bg-layer,
-  html[data-darkreader-mode] body #hero-section .hero-bg-layer,
-  html.dark-reader-active body #hero-section .hero-bg-layer {
-    display: block !important;
-    background-image: url('/assets/convocation-hero-bg.png') !important;
-    background-color: transparent !important;
-    background-repeat: no-repeat !important;
-    background-position: right top !important;
-    background-size: contain !important;
-    filter: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
+  display: block !important;
+  background-image: url('/assets/convocation-hero-bg.png') !important;
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  filter: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* Hero Typography: "CONVOCATION 2026" */

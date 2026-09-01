@@ -75,10 +75,10 @@ export function Hero() {
       {/* Full-Width Hero Stage Container: Utilizes the complete screen width on laptops, ultra-wides, and 4K displays */}
       <div className="relative w-full flex-1 flex flex-col justify-between px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28 z-10">
         
-        {/* 1. Full-width Background Image Layer - Spans seamlessly across the entire right half of the viewport */}
+        {/* 1. Full-width Background Image Layer - Covers the whole width and height of the screen in all orientations */}
         <div
           data-darkreader-ignore="true"
-          className="hero-bg-layer hidden lg:block absolute right-0 top-0 bottom-0 w-full lg:w-[54%] xl:w-[56%] 2xl:w-[56%] bg-no-repeat bg-right-top bg-cover 2xl:bg-contain pointer-events-none z-0"
+          className="hero-bg-layer absolute inset-0 w-full h-full bg-no-repeat bg-center bg-cover pointer-events-none z-0"
           style={{
             backgroundImage: "url('/assets/convocation-hero-bg.png')",
           }}
