@@ -41,26 +41,26 @@ export function CountdownCard({
 
   return (
     <div
-      className={`bg-[#540D17] text-white rounded-[22px] sm:rounded-[26px] p-5 sm:p-5.5 shadow-[0_12px_32px_rgba(84,13,23,0.3)] flex flex-col justify-between select-none border border-white/10 ${className}`}
+      className={`bg-[#540D17] text-white rounded-[22px] sm:rounded-[26px] 2xl:rounded-[36px] p-5 sm:p-5.5 2xl:p-8 shadow-[0_12px_32px_rgba(84,13,23,0.3)] flex flex-col justify-between select-none border border-white/10 ${className}`}
       aria-label="Convocation Event Countdown"
     >
       {/* Header text */}
-      <div className="text-white/80 font-body text-[13px] font-medium tracking-tight">
+      <div className="text-white/80 font-body text-[13px] 2xl:text-[18px] font-medium tracking-tight">
         Convocation Begins In
       </div>
 
       {/* Main Dominant Days Numeral */}
-      <div className="my-1.5 sm:my-2">
-        <div className="font-mono font-bold text-[52px] sm:text-[58px] leading-[0.92] text-white tracking-tight tabular-nums">
+      <div className="my-1.5 sm:my-2 2xl:my-3">
+        <div className="font-mono font-bold text-[52px] sm:text-[58px] 2xl:text-[84px] 3xl:text-[96px] leading-[0.92] text-white tracking-tight tabular-nums">
           {String(timeLeft.days).padStart(2, '0')}
         </div>
-        <div className="text-white/90 font-body text-[14px] sm:text-[15px] font-medium mt-0.5">
+        <div className="text-white/90 font-body text-[14px] sm:text-[15px] 2xl:text-[22px] font-medium mt-0.5 2xl:mt-1">
           Days
         </div>
       </div>
 
       {/* Bottom Sub-Time Units */}
-      <div className="pt-3 border-t border-white/10 flex items-center justify-between text-white/80 font-body text-[11px] sm:text-[12px] tracking-tight">
+      <div className="pt-3 2xl:pt-5 border-t border-white/10 flex items-center justify-between text-white/80 font-body text-[11px] sm:text-[12px] 2xl:text-[17px] tracking-tight">
         <span className="tabular-nums font-medium">
           {String(timeLeft.hours).padStart(2, '0')} Hours
         </span>

@@ -104,32 +104,32 @@ export function NavBar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28 h-16 md:h-[4.25rem] flex items-center justify-between gap-4">
+      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28 h-16 md:h-[4.25rem] 2xl:h-[5.75rem] flex items-center justify-between gap-4">
         
         {/* Left: Crest + Full Institution Wordmark (Redirects to official Institute portal) */}
         <a
           href="https://www.iiitbh.ac.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none shrink-0"
+          className="flex items-center gap-2.5 sm:gap-3 2xl:gap-4 group focus-visible:outline-none shrink-0"
           aria-label="IIIT Bhagalpur Official Website"
         >
-          <InstitutionCrest className="navbar-crest w-8 h-8 sm:w-10 sm:h-10 shrink-0 group-hover:scale-105 transition-transform" />
+          <InstitutionCrest className="navbar-crest w-8 h-8 sm:w-10 sm:h-10 2xl:w-14 2xl:h-14 shrink-0 group-hover:scale-105 transition-transform" />
           <div className="flex flex-col whitespace-nowrap">
             <span className="navbar-title sm:hidden font-display font-bold text-[14px] text-charcoal-900 leading-tight tracking-wider uppercase">
               IIIT Bhagalpur
             </span>
-            <span className="navbar-title hidden sm:inline font-display font-bold text-[13px] sm:text-[14.5px] xl:text-[15.5px] text-charcoal-900 leading-tight whitespace-nowrap">
+            <span className="navbar-title hidden sm:inline font-display font-bold text-[13px] sm:text-[14.5px] xl:text-[15.5px] 2xl:text-[21px] text-charcoal-900 leading-tight whitespace-nowrap">
               Indian Institute of Information Technology Bhagalpur
             </span>
-            <span className="navbar-subtext hidden sm:inline font-body text-[10px] sm:text-[11px] text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
+            <span className="navbar-subtext hidden sm:inline font-body text-[10px] sm:text-[11px] 2xl:text-[14px] text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
               भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
             </span>
           </div>
         </a>
 
         {/* Center/Right Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 2xl:gap-12 shrink-0" aria-label="Main Navigation">
           {NAV_LINKS.map((link) => {
             if (link.isSectionLink) {
               return (
@@ -137,11 +137,11 @@ export function NavBar() {
                   key={link.label}
                   href={`#${link.sectionId}`}
                   onClick={(e) => handleSectionClick(e, link.sectionId)}
-                  className="navbar-link relative group text-[14px] xl:text-[15px] font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer"
+                  className="navbar-link relative group text-[14px] xl:text-[15px] 2xl:text-[20px] font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer"
                 >
                   <span>{link.label}</span>
                   {/* Progressing expanding maroon underline on hover */}
-                  <span className="absolute bottom-0 left-0 h-[2.5px] bg-maroon-900 w-0 group-hover:w-full transition-all duration-300 ease-out rounded-full" />
+                  <span className="absolute bottom-0 left-0 h-[2.5px] 2xl:h-[4px] bg-maroon-900 w-0 group-hover:w-full transition-all duration-300 ease-out rounded-full" />
                 </a>
               );
             }
@@ -152,7 +152,7 @@ export function NavBar() {
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `navbar-link relative group text-[14px] xl:text-[15px] font-body py-1.5 whitespace-nowrap focus-visible:outline-none transition-colors duration-200 ${
+                  `navbar-link relative group text-[14px] xl:text-[15px] 2xl:text-[20px] font-body py-1.5 whitespace-nowrap focus-visible:outline-none transition-colors duration-200 ${
                     isActive
                       ? 'active text-maroon-900 font-bold'
                       : 'text-charcoal-900/80 hover:text-maroon-900 font-medium'
@@ -164,7 +164,7 @@ export function NavBar() {
                     <span>{link.label}</span>
                     {/* Progressing expanding maroon underline on hover and solid on active */}
                     <span
-                      className={`absolute bottom-0 left-0 h-[2.5px] bg-maroon-900 transition-all duration-300 ease-out rounded-full ${
+                      className={`absolute bottom-0 left-0 h-[2.5px] 2xl:h-[4px] bg-maroon-900 transition-all duration-300 ease-out rounded-full ${
                         isActive ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}
                     />
@@ -180,7 +180,7 @@ export function NavBar() {
           <a
             href="#registration"
             onClick={(e) => handleSectionClick(e, 'registration')}
-            className="navbar-btn-cta inline-flex items-center justify-center min-h-[42px] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-[14px] xl:text-[15px] whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
+            className="navbar-btn-cta inline-flex items-center justify-center min-h-[42px] 2xl:min-h-[54px] px-6 2xl:px-9 rounded-pill bg-maroon-900 text-white font-body font-medium text-[14px] xl:text-[15px] 2xl:text-[20px] whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
           >
             Register Now
           </a>

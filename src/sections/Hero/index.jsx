@@ -70,7 +70,7 @@ export function Hero() {
     <section
       id="hero-section"
       data-darkreader-ignore="true"
-      className="relative w-full min-h-screen lg:h-screen lg:min-h-[45rem] lg:max-h-[60rem] 2xl:min-h-[50rem] 2xl:max-h-[70rem] flex flex-col justify-between pt-20 md:pt-24 pb-6 overflow-hidden bg-cream-100"
+      className="relative w-full min-h-screen lg:h-screen flex flex-col justify-between pt-20 md:pt-24 2xl:pt-28 pb-6 2xl:pb-8 overflow-hidden bg-cream-100"
     >
       {/* Full-Width Hero Stage Container: Utilizes the complete screen width on laptops, ultra-wides, and 4K displays */}
       <div className="relative w-full flex-1 flex flex-col justify-between px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28 z-10">
@@ -88,7 +88,7 @@ export function Hero() {
         <div
           id="main-hero-area"
           data-darkreader-ignore="true"
-          className="relative z-10 flex-1 flex items-center py-2 sm:py-4 lg:py-2"
+          className="relative z-10 flex-1 flex items-center py-2 sm:py-4 lg:py-2 2xl:py-6"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
             
@@ -96,49 +96,49 @@ export function Hero() {
             <div className="lg:col-span-7 xl:col-span-6 2xl:col-span-6 flex flex-col justify-center">
               
               {/* Title & Year */}
-              <div className="mb-2 sm:mb-4">
-                <h1 className="hero-title-main font-display font-bold text-[2.25rem] sm:text-[3rem] lg:text-[4.375rem] xl:text-[4.75rem] leading-[0.94] lg:leading-[0.92] text-charcoal-900 tracking-tight">
+              <div className="mb-2 sm:mb-4 2xl:mb-6">
+                <h1 className="hero-title-main font-display font-bold text-[2.25rem] sm:text-[3rem] lg:text-[4.375rem] xl:text-[4.75rem] 2xl:text-[5.75rem] 3xl:text-[6.5rem] leading-[0.94] lg:leading-[0.92] text-charcoal-900 tracking-tight">
                   <span className="hero-title-main lg:hidden">3rd Convocation</span>
                   <span className="hero-title-main hidden lg:inline">3RD CONVOCATION</span>
-                  <span className="hero-title-maroon block font-display font-bold text-[2.625rem] sm:text-[3.5rem] lg:text-[4.875rem] xl:text-[5.25rem] leading-[1] text-maroon-900 mt-0.5 sm:mt-1">
+                  <span className="hero-title-maroon block font-display font-bold text-[2.625rem] sm:text-[3.5rem] lg:text-[4.875rem] xl:text-[5.25rem] 2xl:text-[6.25rem] 3xl:text-[7.25rem] leading-[1] text-maroon-900 mt-0.5 sm:mt-1 2xl:mt-2">
                     2026
                   </span>
                 </h1>
               </div>
 
               {/* Subtitle Statement */}
-              <p className="hero-subtitle font-body text-charcoal-700 sm:text-charcoal-900 text-[0.875rem] sm:text-[1.0625rem] lg:text-[1.5rem] leading-[1.4] sm:leading-snug font-normal max-w-md mb-6 sm:mb-8">
+              <p className="hero-subtitle font-body text-charcoal-700 sm:text-charcoal-900 text-[0.875rem] sm:text-[1.0625rem] lg:text-[1.375rem] 2xl:text-[1.75rem] 3xl:text-[2rem] leading-[1.4] sm:leading-snug font-normal max-w-md lg:max-w-xl 2xl:max-w-2xl mb-6 sm:mb-8 2xl:mb-12">
                 <span>A milestone of achievement,</span>
                 <span className="block sm:inline sm:ml-1">tradition and new beginnings.</span>
               </p>
 
               {/* Event Quick Info Meta (Date + Venue) */}
-              <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3.5 sm:gap-6 max-w-lg mb-6 sm:mb-8">
+              <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3.5 sm:gap-6 2xl:gap-10 max-w-lg 2xl:max-w-2xl mb-6 sm:mb-8 2xl:mb-12">
                 {/* Date Block */}
-                <div className="flex items-center sm:items-start gap-3 sm:gap-3.5">
+                <div className="flex items-center sm:items-start gap-3 sm:gap-3.5 2xl:gap-5">
                   <div className="shrink-0">
-                    <HeroCalendarIcon className="hero-icon-maroon w-6 h-6 sm:w-7 sm:h-7 text-maroon-900" />
+                    <HeroCalendarIcon className="hero-icon-maroon w-6 h-6 sm:w-7 sm:h-7 2xl:w-11 2xl:h-11 text-maroon-900" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="hero-meta-title font-body font-bold sm:font-semibold text-charcoal-900 text-[0.84375rem] sm:text-[0.9375rem] lg:text-[1rem] leading-tight">
+                    <span className="hero-meta-title font-body font-bold sm:font-semibold text-charcoal-900 text-[0.84375rem] sm:text-[0.9375rem] lg:text-[1rem] 2xl:text-[1.375rem] leading-tight">
                       26 September 2026
                     </span>
-                    <span className="hero-meta-sub font-body text-charcoal-600 text-[0.75rem] sm:text-[0.8125rem] lg:text-[0.875rem] leading-tight mt-0.5">
+                    <span className="hero-meta-sub font-body text-charcoal-600 text-[0.75rem] sm:text-[0.8125rem] lg:text-[0.875rem] 2xl:text-[1.125rem] leading-tight mt-0.5 2xl:mt-1">
                       Saturday, 10:00 AM
                     </span>
                   </div>
                 </div>
 
                 {/* Venue Block */}
-                <div className="flex items-center sm:items-start gap-3 sm:gap-3.5">
+                <div className="flex items-center sm:items-start gap-3 sm:gap-3.5 2xl:gap-5">
                   <div className="shrink-0">
-                    <HeroPinIcon className="hero-icon-maroon w-6 h-6 sm:w-7 sm:h-7 text-maroon-900" />
+                    <HeroPinIcon className="hero-icon-maroon w-6 h-6 sm:w-7 sm:h-7 2xl:w-11 2xl:h-11 text-maroon-900" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="hero-meta-title font-body font-bold sm:font-semibold text-charcoal-900 text-[0.84375rem] sm:text-[0.9375rem] lg:text-[1rem] leading-tight">
+                    <span className="hero-meta-title font-body font-bold sm:font-semibold text-charcoal-900 text-[0.84375rem] sm:text-[0.9375rem] lg:text-[1rem] 2xl:text-[1.375rem] leading-tight">
                       Main Lecture Hall
                     </span>
-                    <span className="hero-meta-sub font-body text-charcoal-600 text-[0.75rem] sm:text-[0.8125rem] lg:text-[0.875rem] leading-tight mt-0.5">
+                    <span className="hero-meta-sub font-body text-charcoal-600 text-[0.75rem] sm:text-[0.8125rem] lg:text-[0.875rem] 2xl:text-[1.125rem] leading-tight mt-0.5 2xl:mt-1">
                       IIIT Bhagalpur Campus
                     </span>
                   </div>
@@ -146,21 +146,21 @@ export function Hero() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-4 w-full lg:w-auto">
+              <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 lg:gap-4 2xl:gap-6 w-full lg:w-auto">
                 <a
                   href="#registration"
                   onClick={(e) => handleScrollToSection(e, 'registration')}
-                  className="hero-btn-primary w-full lg:w-auto inline-flex items-center justify-center min-h-[3.125rem] lg:min-h-[2.875rem] px-8 rounded-[0.875rem] lg:rounded-pill bg-maroon-900 text-white font-body font-semibold text-[0.9375rem] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer text-center"
+                  className="hero-btn-primary w-full lg:w-auto inline-flex items-center justify-center min-h-[3.125rem] lg:min-h-[3rem] 2xl:min-h-[4.25rem] px-8 2xl:px-14 rounded-[0.875rem] lg:rounded-pill bg-maroon-900 text-white font-body font-semibold text-[0.9375rem] 2xl:text-[1.375rem] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer text-center"
                 >
                   Register Now
                 </a>
                 <a
                   href="#schedule"
                   onClick={(e) => handleScrollToSection(e, 'schedule')}
-                  className="hero-btn-secondary group w-full lg:w-auto inline-flex items-center justify-between lg:justify-center min-h-[3.125rem] lg:min-h-[2.875rem] px-6 lg:px-7 rounded-[0.875rem] lg:rounded-pill bg-[#FBF9F6] border border-maroon-900 lg:border-maroon-900/30 text-maroon-900 font-body font-semibold text-[0.9375rem] shadow-xs lg:hover:border-maroon-900 hover:bg-white hover:shadow-md transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer text-center"
+                  className="hero-btn-secondary group w-full lg:w-auto inline-flex items-center justify-between lg:justify-center min-h-[3.125rem] lg:min-h-[3rem] 2xl:min-h-[4.25rem] px-6 lg:px-7 2xl:px-12 rounded-[0.875rem] lg:rounded-pill bg-[#FBF9F6] border border-maroon-900 lg:border-maroon-900/30 text-maroon-900 font-body font-semibold text-[0.9375rem] 2xl:text-[1.375rem] shadow-xs lg:hover:border-maroon-900 hover:bg-white hover:shadow-md transition-all duration-200 gap-2.5 2xl:gap-4 focus-visible:outline-none cursor-pointer text-center"
                 >
                   <span className="flex-1 lg:flex-none text-center">View Schedule</span>
-                  <ArrowRight className="w-4 h-4 stroke-[2.5] text-maroon-900 group-hover:translate-x-1 transition-transform shrink-0" />
+                  <ArrowRight className="w-4 h-4 2xl:w-6 2xl:h-6 stroke-[2.5] text-maroon-900 group-hover:translate-x-1 transition-transform shrink-0" />
                 </a>
               </div>
 
@@ -175,12 +175,12 @@ export function Hero() {
         </div>
 
         {/* Desktop Countdown Card: Anchored relative to the right side of the full-width stage */}
-        <div className="hidden lg:block absolute right-6 sm:right-10 lg:right-16 xl:right-20 2xl:right-28 bottom-[6.75rem] sm:bottom-[7.125rem] lg:bottom-[7.5rem] xl:bottom-[7.875rem] w-[14.7rem] xl:w-[15.625rem] 2xl:w-[17rem] z-30">
+        <div className="hidden lg:block absolute right-6 sm:right-10 lg:right-16 xl:right-20 2xl:right-28 bottom-[6.75rem] sm:bottom-[7.125rem] lg:bottom-[7.5rem] xl:bottom-[7.875rem] 2xl:bottom-[10.5rem] w-[14.7rem] xl:w-[15.625rem] 2xl:w-[22rem] 3xl:w-[26rem] z-30">
           <CountdownCard className="countdown-card" />
         </div>
 
         {/* 3. Bottom Event Information Bar Container */}
-        <div id="event-info-bar-container" className="w-full relative z-20 mt-4 lg:mt-2">
+        <div id="event-info-bar-container" className="w-full relative z-20 mt-4 lg:mt-2 2xl:mt-4">
           <InformationBar />
         </div>
 
