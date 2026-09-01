@@ -99,7 +99,7 @@ export function DataTable({
               paginatedData.map((row, idx) => (
                 <tr
                   key={row.id || idx}
-                  className="min-h-[56px] hover:bg-cream-100 transition-colors"
+                  className="min-h-[3.5rem] hover:bg-cream-100 transition-colors"
                 >
                   {columns.map((col) => (
                     <td
@@ -114,7 +114,7 @@ export function DataTable({
             ) : (
               <tr>
                 <td colSpan={columns.length} className="text-center py-16">
-                  <div className="flex flex-col items-center justify-center min-h-[240px] text-text-muted">
+                  <div className="flex flex-col items-center justify-center min-h-[15rem] text-text-muted">
                     <Inbox className="w-12 h-12 stroke-[1.5] text-maroon-900/40 mb-3" />
                     <p className="type-body-md">{emptyMessage}</p>
                   </div>
@@ -144,7 +144,7 @@ export function DataTable({
             </div>
           ))
         ) : (
-          <div className="bg-bg-surface border border-border rounded-md p-8 flex flex-col items-center justify-center min-h-[240px] text-text-muted">
+          <div className="bg-bg-surface border border-border rounded-md p-8 flex flex-col items-center justify-center min-h-[15rem] text-text-muted">
             <Inbox className="w-12 h-12 stroke-[1.5] text-maroon-900/40 mb-3" />
             <p className="type-body-md">{emptyMessage}</p>
           </div>

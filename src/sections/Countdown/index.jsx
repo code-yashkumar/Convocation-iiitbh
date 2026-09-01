@@ -41,26 +41,26 @@ export function CountdownCard({
 
   return (
     <div
-      className={`bg-[#540D17] text-white rounded-[clamp(20px,1.5vw,54px)] p-5 sm:p-[clamp(18px,1.35vw,50px)] shadow-[0_12px_32px_rgba(84,13,23,0.3)] flex flex-col justify-between select-none border border-white/10 ${className}`}
+      className={`bg-[#540D17] text-white rounded-[1.25rem] p-5 shadow-[0_0.75rem_2rem_rgba(84,13,23,0.3)] flex flex-col justify-between select-none border border-white/10 ${className}`}
       aria-label="Convocation Event Countdown"
     >
       {/* Header text */}
-      <div className="text-white/80 font-body text-[13px] sm:text-[clamp(13px,0.9vw,32px)] font-medium tracking-tight">
+      <div className="text-white/80 font-body text-[0.8125rem] font-medium tracking-tight">
         Convocation Begins In
       </div>
 
       {/* Main Dominant Days Numeral */}
-      <div className="my-1.5 sm:my-[clamp(6px,0.5vw,20px)]">
-        <div className="font-mono font-bold text-[52px] sm:text-[clamp(52px,3.8vw,144px)] leading-[0.92] text-white tracking-tight tabular-nums">
+      <div className="my-1.5">
+        <div className="font-mono font-bold text-[3.25rem] leading-[0.92] text-white tracking-tight tabular-nums">
           {String(timeLeft.days).padStart(2, '0')}
         </div>
-        <div className="text-white/90 font-body text-[14px] sm:text-[clamp(14px,1.0vw,38px)] font-medium mt-0.5">
+        <div className="text-white/90 font-body text-[0.875rem] font-medium mt-0.5">
           Days
         </div>
       </div>
 
       {/* Bottom Sub-Time Units */}
-      <div className="pt-3 sm:pt-[clamp(10px,0.8vw,28px)] border-t border-white/10 flex items-center justify-between text-white/80 font-body text-[11px] sm:text-[clamp(11px,0.8vw,30px)] tracking-tight">
+      <div className="pt-3 border-t border-white/10 flex items-center justify-between text-white/80 font-body text-[0.6875rem] tracking-tight">
         <span className="tabular-nums font-medium">
           {String(timeLeft.hours).padStart(2, '0')} Hours
         </span>

@@ -25,7 +25,7 @@ export function Footer() {
             <span className="font-display font-bold text-base text-white leading-tight">
               IIIT Bhagalpur
             </span>
-            <span className="font-body text-[11.5px] text-gold-400 font-medium">
+            <span className="font-body text-[0.71875rem] text-gold-400 font-medium">
               3rd Convocation 2026 • Sabour, Bihar
             </span>
           </div>
@@ -69,14 +69,14 @@ export function Footer() {
         <div className="flex items-center gap-2 pt-0.5">
           <a
             href="mailto:convocation@iiitbh.ac.in"
-            className="flex-1 py-2 px-3 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-[11.5px] font-body text-white/90 flex items-center justify-center gap-1.5 truncate"
+            className="flex-1 py-2 px-3 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-[0.71875rem] font-body text-white/90 flex items-center justify-center gap-1.5 truncate"
           >
             <Mail className="w-3.5 h-3.5 text-gold-400 shrink-0" />
             <span className="truncate">Email Secretariat</span>
           </a>
           <a
             href="tel:+916412451005"
-            className="flex-1 py-2 px-3 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-[11.5px] font-body text-white/90 flex items-center justify-center gap-1.5 shrink-0"
+            className="flex-1 py-2 px-3 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-[0.71875rem] font-body text-white/90 flex items-center justify-center gap-1.5 shrink-0"
           >
             <Phone className="w-3.5 h-3.5 text-gold-400 shrink-0" />
             <span>+91 641 245 1005</span>
@@ -84,7 +84,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/50 font-body">
+        <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[0.6875rem] text-white/50 font-body">
           <span>© {new Date().getFullYear()} IIIT Bhagalpur</span>
           <span>Official Convocation Portal</span>
         </div>

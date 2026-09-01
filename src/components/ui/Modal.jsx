@@ -116,7 +116,7 @@ export function Modal({
       <div
         ref={modalRef}
         tabIndex={-1}
-        className={`relative z-10 w-full max-w-[560px] max-h-[80vh] flex flex-col bg-bg-surface rounded-md shadow-modal p-8 overflow-hidden focus:outline-none transition-all duration-modal animate-scaleIn ${className}`}
+        className={`relative z-10 w-full max-w-[35rem] max-h-[80vh] flex flex-col bg-bg-surface rounded-md shadow-modal p-8 overflow-hidden focus:outline-none transition-all duration-modal animate-scaleIn ${className}`}
       >
         {/* Header */}
         <div className="flex items-start justify-between gap-4 pb-4 border-b border-border">
@@ -129,14 +129,14 @@ export function Modal({
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-pill text-text-muted hover:text-text-default hover:bg-maroon-050 transition-colors focus-visible:outline-none"
+            className="inline-flex items-center justify-center w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-pill text-text-muted hover:text-text-default hover:bg-maroon-050 transition-colors focus-visible:outline-none"
           >
             <X className="w-5 h-5 stroke-[1.75]" />
           </button>
         </div>
 
         {/* Scrollable Body if content exceeds 80vh */}
-        <div className="flex-1 overflow-y-auto pt-6 text-text-default font-body text-[16px] leading-[24px]">
+        <div className="flex-1 overflow-y-auto pt-6 text-text-default font-body text-[1rem] leading-[1.5rem]">
           {children}
         </div>
       </div>

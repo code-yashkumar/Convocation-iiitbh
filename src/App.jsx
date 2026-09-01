@@ -30,7 +30,7 @@ const CommitteeSection = lazy(() => import('./sections/Committees'));
 function PageLoader() {
   return (
     <div className="min-h-[50vh] flex flex-col items-center justify-center p-8 text-center" aria-label="Loading page content">
-      <div className="w-9 h-9 border-[3px] border-maroon-900/20 border-t-maroon-900 rounded-full animate-spin mb-3" />
+      <div className="w-9 h-9 border-[0.1875rem] border-maroon-900/20 border-t-maroon-900 rounded-full animate-spin mb-3" />
       <span className="font-body text-xs text-charcoal-500 font-medium tracking-wide uppercase">
         Loading...
       </span>
@@ -102,7 +102,7 @@ function HomePage() {
  * Subpage wrapper to account for the fixed transparent/glass navbar
  */
 function PageWrapper({ children }) {
-  return <div className="pt-[68px] sm:pt-[76px]">{children}</div>;
+  return <div className="pt-[4.25rem] sm:pt-[4.75rem]">{children}</div>;
 }
 
 export function App() {

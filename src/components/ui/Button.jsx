@@ -34,10 +34,10 @@ export const Button = forwardRef(function Button(
     'inline-flex items-center justify-center select-none font-body font-semibold transition-all duration-button focus-visible:outline-none',
     'rounded-pill border text-center',
     size === 'compact'
-      ? 'min-h-[40px] px-4 text-[14px] leading-[20px]'
-      : 'min-h-[48px] px-6 text-[16px] leading-[24px]',
+      ? 'min-h-[2.5rem] px-4 text-[0.875rem] leading-[1.25rem]'
+      : 'min-h-[3rem] px-6 text-[1rem] leading-[1.5rem]',
     // Ensure minimum touch target requirement (44px x 44px)
-    'min-w-[44px]',
+    'min-w-[2.75rem]',
     fullWidth ? 'w-full' : '',
     disabled ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'cursor-pointer',
   ];

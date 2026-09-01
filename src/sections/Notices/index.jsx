@@ -277,7 +277,7 @@ export function NoticeSection() {
 
         {/* Featured Pinned Announcement Banner (Only renders when isPinned is true) */}
         {pinnedNotice && (
-          <div className="bg-gradient-to-br from-[#540D17] via-[#66101E] to-[#450A12] rounded-[24px] sm:rounded-[32px] text-white p-6 sm:p-10 lg:p-12 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50 mb-8 sm:mb-12">
+          <div className="bg-gradient-to-br from-[#540D17] via-[#66101E] to-[#450A12] rounded-[1.5rem] sm:rounded-[2rem] text-white p-6 sm:p-10 lg:p-12 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50 mb-8 sm:mb-12">
             {/* Background Aesthetic Glows */}
             <div className="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-gold-500/10 pointer-events-none blur-3xl" />
             <div className="absolute left-1/3 -bottom-20 w-64 h-64 rounded-full bg-white/5 pointer-events-none blur-2xl" />
@@ -321,7 +321,7 @@ export function NoticeSection() {
                 <button
                   type="button"
                   onClick={() => setSelectedNotice(pinnedNotice)}
-                  className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-pill bg-gold-500 text-charcoal-950 font-body font-bold text-sm shadow-md hover:bg-gold-400 active:scale-95 transition-all gap-2 cursor-pointer w-full sm:w-auto"
+                  className="inline-flex items-center justify-center min-h-[3rem] px-7 rounded-pill bg-gold-500 text-charcoal-950 font-body font-bold text-sm shadow-md hover:bg-gold-400 active:scale-95 transition-all gap-2 cursor-pointer w-full sm:w-auto"
                 >
                   <FileText className="w-4 h-4 text-charcoal-950" />
                   <span>View Full Circular</span>
@@ -329,7 +329,7 @@ export function NoticeSection() {
                 <button
                   type="button"
                   onClick={() => handleDownloadPdf(pinnedNotice)}
-                  className="inline-flex items-center justify-center min-h-[48px] px-6 rounded-pill bg-white/15 hover:bg-white/25 border border-white/30 text-white font-body font-semibold text-sm transition-all gap-2 cursor-pointer w-full sm:w-auto whitespace-nowrap"
+                  className="inline-flex items-center justify-center min-h-[3rem] px-6 rounded-pill bg-white/15 hover:bg-white/25 border border-white/30 text-white font-body font-semibold text-sm transition-all gap-2 cursor-pointer w-full sm:w-auto whitespace-nowrap"
                 >
                   <Download className="w-4 h-4 shrink-0" />
                   <span className="whitespace-nowrap">Download PDF</span>
@@ -340,7 +340,7 @@ export function NoticeSection() {
         )}
 
         {/* Search & Category Filter Controls */}
-        <div className="bg-white rounded-[24px] p-5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-10 space-y-4">
+        <div className="bg-white rounded-[1.5rem] p-5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-10 space-y-4">
           {/* Search Bar */}
           <div className="relative w-full">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-charcoal-400" />
@@ -376,7 +376,7 @@ export function NoticeSection() {
                     key={cat}
                     type="button"
                     onClick={() => setActiveCategory(cat)}
-                    className={`min-h-[36px] px-3.5 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer flex items-center gap-1.5 shrink-0 select-none ${
+                    className={`min-h-[2.25rem] px-3.5 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer flex items-center gap-1.5 shrink-0 select-none ${
                       activeCategory === cat
                         ? 'bg-maroon-900 text-white shadow-xs'
                         : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'
@@ -384,7 +384,7 @@ export function NoticeSection() {
                   >
                     <span>{cat}</span>
                     <span
-                      className={`text-[11px] px-1.5 py-0.2 rounded-full ${
+                      className={`text-[0.6875rem] px-1.5 py-0.2 rounded-full ${
                         activeCategory === cat
                           ? 'bg-white/20 text-white'
                           : 'bg-cream-200 text-charcoal-600'
@@ -405,7 +405,7 @@ export function NoticeSection() {
 
         {/* Grid of Notice Cards */}
         {filteredNotices.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-[24px] border border-[#E8E2D8] p-8 mb-12">
+          <div className="text-center py-16 bg-white rounded-[1.5rem] border border-[#E8E2D8] p-8 mb-12">
             <FileText className="w-12 h-12 text-charcoal-300 mx-auto mb-3" />
             <h3 className="font-display font-bold text-xl text-charcoal-800">No circulars matched</h3>
             <p className="font-body text-charcoal-500 text-sm mt-1">
@@ -418,7 +418,7 @@ export function NoticeSection() {
               <div
                 key={notice.id}
                 onClick={() => setSelectedNotice(notice)}
-                className={`group bg-white rounded-[24px] p-6 sm:p-7 border hover:border-maroon-900 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] transition-all duration-300 flex flex-col justify-between cursor-pointer ${
+                className={`group bg-white rounded-[1.5rem] p-6 sm:p-7 border hover:border-maroon-900 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] transition-all duration-300 flex flex-col justify-between cursor-pointer ${
                   notice.isPinned
                     ? 'border-maroon-900/60 bg-gradient-to-b from-maroon-050/30 via-white to-white shadow-[0_6px_24px_rgba(94,16,28,0.07)]'
                     : 'border-[#E8E2D8]'
@@ -432,13 +432,13 @@ export function NoticeSection() {
                         {notice.category}
                       </span>
                       {notice.isPinned && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-maroon-900 text-white font-body text-[11px] font-bold uppercase tracking-wider shadow-xs">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-maroon-900 text-white font-body text-[0.6875rem] font-bold uppercase tracking-wider shadow-xs">
                           <Pin className="w-3 h-3 fill-white text-white" />
                           <span>Pinned</span>
                         </span>
                       )}
                     </div>
-                    <span className="font-mono text-[11px] text-charcoal-400 font-medium truncate max-w-[130px]">
+                    <span className="font-mono text-[0.6875rem] text-charcoal-400 font-medium truncate max-w-[8.125rem]">
                       {notice.refNo}
                     </span>
                   </div>
@@ -461,7 +461,7 @@ export function NoticeSection() {
                       <Calendar className="w-3.5 h-3.5 text-maroon-900" />
                       {notice.date}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-md bg-cream-100 border border-border text-[11px] font-mono font-medium text-charcoal-700">
+                    <span className="px-2.5 py-0.5 rounded-md bg-cream-100 border border-border text-[0.6875rem] font-mono font-medium text-charcoal-700">
                       PDF Document
                     </span>
                   </div>
@@ -477,7 +477,7 @@ export function NoticeSection() {
         )}
 
         {/* Secretariat Assistance Banner */}
-        <div className="bg-white rounded-[28px] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="bg-white rounded-[1.75rem] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1.5 text-center sm:text-left">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs font-semibold mb-1 border border-maroon-900/10">
               <ShieldCheck className="w-3.5 h-3.5 text-maroon-900" />
@@ -494,7 +494,7 @@ export function NoticeSection() {
           <div className="flex items-center gap-3 shrink-0">
             <a
               href="mailto:convocation@iiitbh.ac.in?subject=Enquiry%20Regarding%20Convocation%20Notice"
-              className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-sm shadow-sm transition-all gap-2 cursor-pointer"
+              className="inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-sm shadow-sm transition-all gap-2 cursor-pointer"
             >
               <Mail className="w-4 h-4" />
               <span>Contact Secretariat</span>
@@ -546,7 +546,7 @@ export function NoticeSection() {
               <h4 className="font-body text-xs font-bold text-charcoal-500 uppercase tracking-wider">
                 Circular Details
               </h4>
-              <p className="font-body text-charcoal-800 text-[15px] leading-relaxed">
+              <p className="font-body text-charcoal-800 text-[0.9375rem] leading-relaxed">
                 {selectedNotice.description}
               </p>
             </div>

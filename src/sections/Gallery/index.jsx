@@ -220,7 +220,7 @@ export function GallerySection() {
         </div>
 
         {/* Featured Hero Banner: Highlight of the Edition */}
-        <div className="relative rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-6 sm:mb-10 group">
+        <div className="relative rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-6 sm:mb-10 group">
           <div className="relative aspect-[16/10] sm:aspect-[21/9] w-full overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600&auto=format&fit=crop"
@@ -237,7 +237,7 @@ export function GallerySection() {
             {/* Banner Information Overlay */}
             <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-10 lg:p-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 z-10">
               <div className="max-w-2xl space-y-2">
-                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white text-maroon-900 font-body text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-sm">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white text-maroon-900 font-body text-[0.6875rem] sm:text-xs font-bold uppercase tracking-wider shadow-sm">
                   <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-maroon-900 text-maroon-900" />
                   <span>Official Convocation Gallery Archives</span>
                 </div>
@@ -254,7 +254,7 @@ export function GallerySection() {
                   href="https://drive.google.com/drive/u/3/folders/1R-c4xV0crbNjCzuOWkCi5y2vytPULigu"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[44px] px-5 sm:px-6 rounded-pill bg-white hover:bg-maroon-050 text-maroon-900 font-body font-semibold text-xs sm:text-sm shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[2.75rem] px-5 sm:px-6 rounded-pill bg-white hover:bg-maroon-050 text-maroon-900 font-body font-semibold text-xs sm:text-sm shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span>View High-Res Photos</span>
@@ -265,7 +265,7 @@ export function GallerySection() {
         </div>
 
         {/* Filter and Control Bar */}
-        <div className="bg-white rounded-[22px] sm:rounded-[24px] p-3.5 sm:p-5 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 sm:mb-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4">
+        <div className="bg-white rounded-[1.375rem] sm:rounded-[1.5rem] p-3.5 sm:p-5 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 sm:mb-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4">
           
           {/* Category Filter Pills (Horizontal scroll on mobile) */}
           <div className="overflow-x-auto no-scrollbar flex items-center gap-1.5 sm:gap-2 pb-0.5 sm:pb-0 -mx-0.5 px-0.5 w-full md:w-auto">
@@ -274,7 +274,7 @@ export function GallerySection() {
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`min-h-[36px] sm:min-h-[38px] px-3.5 sm:px-5 rounded-pill font-body text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 select-none ${
+                className={`min-h-[2.25rem] sm:min-h-[2.375rem] px-3.5 sm:px-5 rounded-pill font-body text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 select-none ${
                   activeCategory === category
                     ? 'bg-maroon-900 text-white shadow-xs'
                     : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'
@@ -311,7 +311,7 @@ export function GallerySection() {
 
         {/* 2026 Coming Soon Notice when 2026 edition is selected */}
         {activeEdition === '2026' && (
-          <div className="bg-white rounded-[28px] p-8 sm:p-12 border-2 border-dashed border-maroon-900/25 text-center my-8 shadow-sm max-w-3xl mx-auto">
+          <div className="bg-white rounded-[1.75rem] p-8 sm:p-12 border-2 border-dashed border-maroon-900/25 text-center my-8 shadow-sm max-w-3xl mx-auto">
             <div className="w-14 h-14 rounded-full bg-maroon-050 text-maroon-900 flex items-center justify-center mx-auto mb-4 border border-maroon-900/15">
               <Clock className="w-7 h-7" />
             </div>
@@ -338,7 +338,7 @@ export function GallerySection() {
 
         {/* Gallery Grid (Responsive Masonry-like Cards) */}
         {filteredItems.length === 0 && activeEdition !== '2026' ? (
-          <div className="text-center py-16 bg-white rounded-[24px] border border-[#E8E2D8] p-8">
+          <div className="text-center py-16 bg-white rounded-[1.5rem] border border-[#E8E2D8] p-8">
             <ImageIcon className="w-12 h-12 text-charcoal-300 mx-auto mb-3" />
             <h3 className="font-display font-bold text-xl text-charcoal-800">No photos found</h3>
             <p className="font-body text-charcoal-500 text-sm mt-1">
@@ -352,7 +352,7 @@ export function GallerySection() {
                 key={item.id}
                 to={`/gallery/${item.slug}`}
                 aria-label={`View photo album: ${item.title}`}
-                className="group relative bg-white rounded-[24px] overflow-hidden border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.09)] hover:border-maroon-900/40 transition-all duration-300 flex flex-col justify-between cursor-pointer focus-visible:outline-none"
+                className="group relative bg-white rounded-[1.5rem] overflow-hidden border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.09)] hover:border-maroon-900/40 transition-all duration-300 flex flex-col justify-between cursor-pointer focus-visible:outline-none"
               >
                 <div>
                   {/* Image Container with Zoom and Badge */}
@@ -378,7 +378,7 @@ export function GallerySection() {
                       <span className="px-3 py-0.5 rounded-full bg-white/95 backdrop-blur-md text-maroon-900 font-body text-xs font-bold shadow-xs border border-white/50">
                         {item.category}
                       </span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-maroon-900/90 backdrop-blur-md text-white font-body text-[11px] font-semibold">
+                      <span className="px-2.5 py-0.5 rounded-full bg-maroon-900/90 backdrop-blur-md text-white font-body text-[0.6875rem] font-semibold">
                         {item.edition} Edition
                       </span>
                     </div>
@@ -386,7 +386,7 @@ export function GallerySection() {
 
                   {/* Card Content */}
                   <div className="p-5 sm:p-6">
-                    <h3 className="font-display font-bold text-lg sm:text-[19px] text-charcoal-900 group-hover:text-maroon-900 transition-colors leading-snug">
+                    <h3 className="font-display font-bold text-lg sm:text-[1.1875rem] text-charcoal-900 group-hover:text-maroon-900 transition-colors leading-snug">
                       {item.title}
                     </h3>
                     <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-2 line-clamp-2 leading-relaxed">
@@ -399,7 +399,7 @@ export function GallerySection() {
                 <div className="px-5 sm:px-6 py-3.5 border-t border-[#ECE6DC] bg-cream-050/60 flex items-center justify-between text-xs text-charcoal-600 font-body">
                   <div className="flex items-center gap-1.5 min-w-0">
                     <MapPin className="w-3.5 h-3.5 text-maroon-900 shrink-0" />
-                    <span className="truncate max-w-[150px]">{item.venue}</span>
+                    <span className="truncate max-w-[9.375rem]">{item.venue}</span>
                   </div>
                   <div className="flex items-center gap-1 text-maroon-900 font-semibold group-hover:underline shrink-0">
                     <span>Explore</span>
@@ -412,7 +412,7 @@ export function GallerySection() {
         )}
 
         {/* Media Press Kit Download Banner */}
-        <div className="mt-12 sm:mt-16 bg-white rounded-[22px] sm:rounded-[28px] p-6 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
+        <div className="mt-12 sm:mt-16 bg-white rounded-[1.375rem] sm:rounded-[1.75rem] p-6 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h3 className="font-display font-bold text-lg sm:text-2xl text-charcoal-900">
               Official Media & Press Archive
@@ -424,7 +424,7 @@ export function GallerySection() {
           <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
             <a
               href="mailto:media@iiitbh.ac.in?subject=Request%20Convocation%202026%20High-Res%20Media%20Pack"
-              className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-xs sm:text-sm shadow-sm transition-all gap-2 cursor-pointer text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-xs sm:text-sm shadow-sm transition-all gap-2 cursor-pointer text-center"
             >
               <Download className="w-4 h-4" />
               <span>Request Media Pack (ZIP)</span>
@@ -443,7 +443,7 @@ export function GallerySection() {
           onClick={() => setSelectedImageIndex(null)}
         >
           <div
-            className="relative max-w-5xl w-full bg-charcoal-950 rounded-[28px] border border-white/10 overflow-hidden shadow-2xl flex flex-col"
+            className="relative max-w-5xl w-full bg-charcoal-950 rounded-[1.75rem] border border-white/10 overflow-hidden shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Bar */}

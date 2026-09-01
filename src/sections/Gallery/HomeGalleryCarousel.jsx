@@ -215,7 +215,7 @@ export function HomeGalleryCarousel() {
 
   return (
     <section className="w-full pt-8 pb-6 sm:pt-10 sm:pb-8 bg-cream-100 relative overflow-hidden" id="home-gallery">
-      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-12">
@@ -235,7 +235,7 @@ export function HomeGalleryCarousel() {
           <div className="flex items-center justify-center sm:justify-end gap-3 shrink-0">
             <Link
               to="/gallery"
-              className="inline-flex items-center justify-center min-h-[44px] px-6 rounded-pill bg-white hover:bg-maroon-050 text-charcoal-900 hover:text-maroon-900 border border-maroon-900/30 hover:border-maroon-900 shadow-xs font-body font-semibold text-sm transition-all gap-2 cursor-pointer"
+              className="inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-white hover:bg-maroon-050 text-charcoal-900 hover:text-maroon-900 border border-maroon-900/30 hover:border-maroon-900 shadow-xs font-body font-semibold text-sm transition-all gap-2 cursor-pointer"
             >
               <span>Explore Full Gallery</span>
               <ArrowRight className="w-4 h-4" />
@@ -245,7 +245,7 @@ export function HomeGalleryCarousel() {
 
         {/* 3D Circular Ring Carousel Container with Touch & Drag Swipe Support */}
         <div
-          className="relative max-w-[1020px] mx-auto h-[380px] sm:h-[440px] lg:h-[490px] flex items-center justify-center select-none cursor-grab active:cursor-grabbing touch-pan-y"
+          className="relative max-w-[63.75rem] mx-auto h-[23.75rem] sm:h-[27.5rem] lg:h-[30.625rem] flex items-center justify-center select-none cursor-grab active:cursor-grabbing touch-pan-y"
           style={{ perspective: '1200px' }}
           onMouseEnter={() => setIsPlaying(false)}
           onMouseLeave={handleMouseLeave}
@@ -270,7 +270,7 @@ export function HomeGalleryCarousel() {
                     if (!isCenter) setCurrentIndex(idx);
                   }}
                   style={style}
-                  className={`absolute w-[82%] sm:w-[72%] lg:w-[65%] h-[88%] sm:h-[92%] rounded-[28px] sm:rounded-[32px] overflow-hidden border border-[#E8E2D8] shadow-[0_20px_50px_rgba(0,0,0,0.18)] bg-charcoal-950 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer group`}
+                  className={`absolute w-[82%] sm:w-[72%] lg:w-[65%] h-[88%] sm:h-[92%] rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden border border-[#E8E2D8] shadow-[0_20px_50px_rgba(0,0,0,0.18)] bg-charcoal-950 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer group`}
                 >
                   {/* Photo */}
                   <img
@@ -319,7 +319,7 @@ export function HomeGalleryCarousel() {
 
                   {/* Active Card Glow Border */}
                   {isCenter && (
-                    <div className="absolute inset-0 rounded-[28px] sm:rounded-[32px] ring-2 ring-gold-400/40 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-[1.75rem] sm:rounded-[2rem] ring-2 ring-gold-400/40 pointer-events-none" />
                   )}
                 </div>
               );

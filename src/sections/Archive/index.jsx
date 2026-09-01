@@ -100,7 +100,7 @@ export function ArchiveSection() {
             placeholder="Search by name, roll no..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 min-h-[44px] rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-300 focus-visible:outline-none focus-visible:border-action-primary text-[14px]"
+            className="w-full pl-10 pr-4 min-h-[2.75rem] rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-300 focus-visible:outline-none focus-visible:border-action-primary text-sm"
           />
         </div>
 
@@ -109,7 +109,7 @@ export function ArchiveSection() {
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
             aria-label="Filter by graduation year"
-            className="min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default text-[14px] focus-visible:outline-none"
+            className="min-h-[2.75rem] px-4 rounded-sm bg-bg-surface border border-border text-text-default text-sm focus-visible:outline-none"
           >
             <option value="All">All Convocation Years</option>
             <option value="2026">2026 (3rd Convocation)</option>

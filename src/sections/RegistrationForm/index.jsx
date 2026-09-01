@@ -167,7 +167,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.fullName)}
                     aria-describedby={errors.fullName ? 'fullName-error' : undefined}
                     placeholder="e.g. Yash Kumar"
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px]"
+                    className="w-full min-h-[2.75rem] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.9375rem]"
                   />
                   {errors.fullName && (
                     <p id="fullName-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -190,7 +190,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.rollNumber)}
                     aria-describedby={errors.rollNumber ? 'rollNumber-error' : undefined}
                     placeholder="e.g. 240101170"
-                    className="w-full min-h-[44px] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px]"
+                    className="w-full min-h-[2.75rem] px-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.9375rem]"
                   />
                   {errors.rollNumber && (
                     <p id="rollNumber-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -211,7 +211,7 @@ export function RegistrationFormSection() {
                     id="degree"
                     value={formData.degree}
                     onChange={(e) => handleChange('degree', e.target.value)}
-                    className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
+                    className="w-full max-w-full min-h-[2.875rem] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.84375rem] sm:text-[0.9375rem] cursor-pointer box-border"
                   >
                     <option value="B.Tech">B.Tech (Bachelor of Technology)</option>
                     <option value="M.Tech">M.Tech (Master of Technology)</option>
@@ -227,7 +227,7 @@ export function RegistrationFormSection() {
                     id="department"
                     value={formData.department}
                     onChange={(e) => handleChange('department', e.target.value)}
-                    className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
+                    className="w-full max-w-full min-h-[2.875rem] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.84375rem] sm:text-[0.9375rem] cursor-pointer box-border"
                   >
                     <option value="CSE">CSE — Computer Science & Engg.</option>
                     <option value="ECE">ECE — Electronics & Comm. Engg.</option>
@@ -252,7 +252,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.email)}
                     aria-describedby={errors.email ? 'email-error' : undefined}
                     placeholder="yash@iiitbh.ac.in"
-                    className="w-full min-h-[46px] px-3.5 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[14px] sm:text-[15px] box-border"
+                    className="w-full min-h-[2.875rem] px-3.5 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.875rem] sm:text-[0.9375rem] box-border"
                   />
                   {errors.email && (
                     <p id="email-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -275,7 +275,7 @@ export function RegistrationFormSection() {
                     aria-invalid={Boolean(errors.phone)}
                     aria-describedby={errors.phone ? 'phone-error' : undefined}
                     placeholder="+91 9876543210"
-                    className="w-full min-h-[46px] px-3.5 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[14px] sm:text-[15px] box-border"
+                    className="w-full min-h-[2.875rem] px-3.5 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.875rem] sm:text-[0.9375rem] box-border"
                   />
                   {errors.phone && (
                     <p id="phone-error" className="type-body-sm text-error mt-1 flex items-center gap-1">
@@ -298,7 +298,7 @@ export function RegistrationFormSection() {
                         id="attendingInPerson"
                         value={formData.attendingInPerson}
                         onChange={(e) => handleChange('attendingInPerson', e.target.value)}
-                        className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
+                        className="w-full max-w-full min-h-[2.875rem] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.84375rem] sm:text-[0.9375rem] cursor-pointer box-border"
                       >
                         <option value="yes">Yes, in Person (Robes assigned)</option>
                         <option value="no">No, in Absentia (Degree via post)</option>
@@ -313,7 +313,7 @@ export function RegistrationFormSection() {
                         id="regaliaSize"
                         value={formData.regaliaSize}
                         onChange={(e) => handleChange('regaliaSize', e.target.value)}
-                        className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
+                        className="w-full max-w-full min-h-[2.875rem] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.84375rem] sm:text-[0.9375rem] cursor-pointer box-border"
                       >
                         <option value="S">Small (Height: 5'0" – 5'4")</option>
                         <option value="M">Medium (Height: 5'5" – 5'9")</option>
@@ -333,7 +333,7 @@ export function RegistrationFormSection() {
                         id="attendingInPerson"
                         value={formData.attendingInPerson}
                         onChange={(e) => handleChange('attendingInPerson', e.target.value)}
-                        className="w-full max-w-full min-h-[46px] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[13.5px] sm:text-[15px] cursor-pointer box-border"
+                        className="w-full max-w-full min-h-[2.875rem] px-3 sm:px-4 rounded-xl sm:rounded-sm bg-bg-surface border border-border text-text-default focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.84375rem] sm:text-[0.9375rem] cursor-pointer box-border"
                       >
                         <option value="yes">Yes, in Person (Robes assigned)</option>
                         <option value="no">No, in Absentia (Degree via post)</option>
@@ -358,7 +358,7 @@ export function RegistrationFormSection() {
                         aria-invalid={Boolean(errors.postalAddress)}
                         aria-describedby={errors.postalAddress ? 'postalAddress-error' : undefined}
                         placeholder="Enter complete postal delivery address with Pin Code, Landmark, City & State (e.g. House No. 402, Block B, Green Heights, MG Road, Patna, Bihar - 800001)"
-                        className="w-full p-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[15px] leading-relaxed resize-y"
+                        className="w-full p-4 rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-400 focus:border-maroon-900 focus:ring-1 focus:ring-maroon-900/30 focus:outline-none focus-visible:outline-none text-[0.9375rem] leading-relaxed resize-y"
                       />
                       {errors.postalAddress && (
                         <p id="postalAddress-error" className="type-body-sm text-error mt-1 flex items-center gap-1">

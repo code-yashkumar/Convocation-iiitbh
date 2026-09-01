@@ -479,7 +479,7 @@ export function CommitteeSection() {
 
         {/* Executive Stats Banner */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12">
-          <div className="bg-white rounded-2xl sm:rounded-[24px] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
+          <div className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-maroon-050 text-maroon-900 flex items-center justify-center shrink-0 border border-maroon-900/15">
               <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
@@ -489,7 +489,7 @@ export function CommitteeSection() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl sm:rounded-[24px] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
+          <div className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gold-500/20 text-maroon-900 flex items-center justify-center shrink-0 border border-gold-500/30">
               <UserCheck className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
@@ -499,7 +499,7 @@ export function CommitteeSection() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl sm:rounded-[24px] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
+          <div className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-200">
               <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
@@ -511,7 +511,7 @@ export function CommitteeSection() {
         </div>
 
         {/* Search & Filter Controls */}
-        <div className="bg-white rounded-[22px] sm:rounded-[24px] p-4 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 sm:mb-10 space-y-3.5 sm:space-y-4">
+        <div className="bg-white rounded-[1.375rem] sm:rounded-[1.5rem] p-4 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 sm:mb-10 space-y-3.5 sm:space-y-4">
           {/* Search Input */}
           <div className="relative w-full">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-5 sm:h-5 text-charcoal-400" />
@@ -540,7 +540,7 @@ export function CommitteeSection() {
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`min-h-[34px] px-3.5 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 select-none ${
+                className={`min-h-[2.125rem] px-3.5 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 select-none ${
                   activeCategory === category
                     ? 'bg-maroon-900 text-white shadow-xs'
                     : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'
@@ -554,7 +554,7 @@ export function CommitteeSection() {
 
         {/* Committees Grid (2 Columns on Large Displays) */}
         {filteredCommittees.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-[24px] border border-[#E8E2D8] p-8">
+          <div className="text-center py-16 bg-white rounded-[1.5rem] border border-[#E8E2D8] p-8">
             <Users className="w-12 h-12 text-charcoal-300 mx-auto mb-3" />
             <h3 className="font-display font-bold text-xl text-charcoal-800">No committee members matched</h3>
             <p className="font-body text-charcoal-500 text-sm mt-1">
@@ -562,57 +562,57 @@ export function CommitteeSection() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-[clamp(20px,1.8vw,64px)]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {filteredCommittees.map((committee) => (
               <div
                 key={committee.id}
-                className="bg-white rounded-[24px] sm:rounded-[clamp(24px,1.67vw,56px)] p-6 sm:p-[clamp(24px,1.94vw,64px)] border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(94,16,28,0.06)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-[1.5rem] p-6 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(94,16,28,0.06)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Category Badge & Committee Number */}
-                  <div className="flex items-center justify-between gap-3 mb-4 sm:mb-[clamp(16px,1.25vw,36px)]">
-                    <span className="px-3 py-1 sm:px-[clamp(12px,0.9vw,28px)] sm:py-[clamp(4px,0.35vw,12px)] rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs sm:text-[clamp(12px,0.85vw,26px)] font-semibold">
+                  <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5">
+                    <span className="px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs font-semibold">
                       {committee.category}
                     </span>
-                    <span className="font-mono text-xs sm:text-[clamp(12px,0.85vw,26px)] font-bold text-charcoal-400">
+                    <span className="font-mono text-xs font-bold text-charcoal-400">
                       #{String(committee.id).padStart(2, '0')}
                     </span>
                   </div>
 
                   {/* Committee Name */}
-                  <h3 className="font-display font-bold text-xl sm:text-[clamp(20px,1.53vw,48px)] text-charcoal-900 leading-snug">
+                  <h3 className="font-display font-bold text-xl sm:text-2xl text-charcoal-900 leading-snug">
                     {committee.id}. {committee.name}
                   </h3>
 
                   {/* Conveners Box */}
-                  <div className="mt-5 sm:mt-[clamp(18px,1.3vw,40px)] space-y-2.5 sm:space-y-[clamp(10px,0.8vw,24px)]">
+                  <div className="mt-5 space-y-2.5">
                     {committee.convener && (
-                      <div className="p-3.5 sm:p-[clamp(14px,1.1vw,32px)] rounded-xl sm:rounded-[clamp(12px,0.9vw,26px)] bg-gradient-to-r from-maroon-050/80 to-cream-050 border border-maroon-900/15 flex items-start justify-between gap-3">
+                      <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-maroon-050/80 to-cream-050 border border-maroon-900/15 flex items-start justify-between gap-3">
                         <div className="space-y-0.5">
-                          <span className="font-body text-[11px] sm:text-[clamp(11px,0.8vw,24px)] font-bold text-maroon-900 uppercase tracking-wider">
+                          <span className="font-body text-[0.6875rem] font-bold text-maroon-900 uppercase tracking-wider">
                             Convener
                           </span>
-                          <h4 className="font-display font-bold text-base sm:text-[clamp(16px,1.25vw,36px)] text-charcoal-900">
+                          <h4 className="font-display font-bold text-base text-charcoal-900">
                             {committee.convener.name}
                           </h4>
                         </div>
-                        <span className="font-body text-xs sm:text-[clamp(12px,0.9vw,28px)] font-semibold text-charcoal-700 bg-white px-2.5 py-1 sm:px-[clamp(10px,0.8vw,24px)] sm:py-[clamp(4px,0.35vw,12px)] rounded-md border border-maroon-900/10 shrink-0">
+                        <span className="font-body text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-maroon-900/10 shrink-0">
                           {committee.convener.designation}
                         </span>
                       </div>
                     )}
 
                     {committee.coConvener && (
-                      <div className="p-3.5 sm:p-[clamp(14px,1.1vw,32px)] rounded-xl sm:rounded-[clamp(12px,0.9vw,26px)] bg-cream-050 border border-[#ECE6DC] flex items-start justify-between gap-3">
+                      <div className="p-3.5 sm:p-4 rounded-xl bg-cream-050 border border-[#ECE6DC] flex items-start justify-between gap-3">
                         <div className="space-y-0.5">
-                          <span className="font-body text-[11px] sm:text-[clamp(11px,0.8vw,24px)] font-bold text-charcoal-700 uppercase tracking-wider">
+                          <span className="font-body text-[0.6875rem] font-bold text-charcoal-700 uppercase tracking-wider">
                             Co-Convener
                           </span>
-                          <h4 className="font-display font-bold text-base sm:text-[clamp(16px,1.25vw,36px)] text-charcoal-900">
+                          <h4 className="font-display font-bold text-base text-charcoal-900">
                             {committee.coConvener.name}
                           </h4>
                         </div>
-                        <span className="font-body text-xs sm:text-[clamp(12px,0.9vw,28px)] font-semibold text-charcoal-700 bg-white px-2.5 py-1 sm:px-[clamp(10px,0.8vw,24px)] sm:py-[clamp(4px,0.35vw,12px)] rounded-md border border-border shrink-0">
+                        <span className="font-body text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-border shrink-0">
                           {committee.coConvener.designation}
                         </span>
                       </div>
@@ -620,20 +620,20 @@ export function CommitteeSection() {
                   </div>
 
                   {/* Committee Members List */}
-                  <div className="mt-5 sm:mt-[clamp(18px,1.3vw,40px)]">
-                    <h4 className="font-body text-xs sm:text-[clamp(12px,0.85vw,26px)] font-bold text-charcoal-500 uppercase tracking-wider mb-2.5">
+                  <div className="mt-5">
+                    <h4 className="font-body text-xs font-bold text-charcoal-500 uppercase tracking-wider mb-2.5">
                       Members
                     </h4>
-                    <div className="space-y-2 sm:space-y-[clamp(8px,0.6vw,18px)]">
+                    <div className="space-y-2">
                       {committee.members.map((member, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-2.5 sm:p-[clamp(10px,0.8vw,24px)] rounded-lg bg-cream-050/60 border border-[#ECE6DC] text-xs sm:text-[clamp(13.5px,1.0vw,30px)] font-body"
+                          className="flex items-center justify-between p-2.5 sm:p-3 rounded-lg bg-cream-050/60 border border-[#ECE6DC] text-xs sm:text-sm font-body"
                         >
                           <span className="font-semibold text-charcoal-900">
                             {member.name}
                           </span>
-                          <span className="text-charcoal-600 text-xs sm:text-[clamp(12px,0.85vw,26px)] font-medium text-right shrink-0 ml-2">
+                          <span className="text-charcoal-600 text-xs font-medium text-right shrink-0 ml-2">
                             {member.designation}
                           </span>
                         </div>
@@ -643,7 +643,7 @@ export function CommitteeSection() {
                 </div>
 
                 {/* Footer indicator */}
-                <div className="mt-6 pt-4 border-t border-[#ECE6DC] flex items-center justify-between text-xs sm:text-[clamp(12px,0.85vw,26px)] text-charcoal-500 font-body">
+                <div className="mt-6 pt-4 border-t border-[#ECE6DC] flex items-center justify-between text-xs text-charcoal-500 font-body">
                   <span>IIIT Bhagalpur 3rd Convocation Secretariat</span>
                   <span className="font-semibold text-maroon-900">{committee.members.length + (committee.convener ? 1 : 0) + (committee.coConvener ? 1 : 0)} Personnel</span>
                 </div>

@@ -444,7 +444,7 @@ export function GalleryAlbumView() {
         </div>
 
         {/* Album Header */}
-        <div className="bg-white rounded-[28px] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] mb-8">
+        <div className="bg-white rounded-[1.75rem] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] mb-8">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
             <span className="px-3.5 py-1 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs font-bold uppercase tracking-wider">
               {album.category} Album
@@ -481,7 +481,7 @@ export function GalleryAlbumView() {
             {photos[0] && (
               <div
                 onClick={() => setSelectedPhotoIndex(0)}
-                className="md:col-span-8 relative h-[260px] sm:h-[360px] md:h-[420px] lg:h-[480px] rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
+                className="md:col-span-8 relative h-[16.25rem] sm:h-[22.5rem] md:h-[26.25rem] lg:h-[30rem] rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
               >
                 <img
                   src={photos[0].url}
@@ -504,7 +504,7 @@ export function GalleryAlbumView() {
             {photos[1] && (
               <div
                 onClick={() => setSelectedPhotoIndex(1)}
-                className="md:col-span-4 relative h-[260px] sm:h-[360px] md:h-[420px] lg:h-[480px] rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
+                className="md:col-span-4 relative h-[16.25rem] sm:h-[22.5rem] md:h-[26.25rem] lg:h-[30rem] rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
               >
                 <img
                   src={photos[1].url}
@@ -531,7 +531,7 @@ export function GalleryAlbumView() {
             {photos[2] && (
               <div
                 onClick={() => setSelectedPhotoIndex(2)}
-                className="md:col-span-4 relative h-[220px] sm:h-[260px] md:h-[300px] lg:h-[320px] rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
+                className="md:col-span-4 relative h-[13.75rem] sm:h-[16.25rem] md:h-[18.75rem] lg:h-[20rem] rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
               >
                 <img
                   src={photos[2].url}
@@ -554,7 +554,7 @@ export function GalleryAlbumView() {
             {photos[3] && (
               <div
                 onClick={() => setSelectedPhotoIndex(3)}
-                className="md:col-span-4 relative h-[220px] sm:h-[260px] md:h-[300px] lg:h-[320px] rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
+                className="md:col-span-4 relative h-[13.75rem] sm:h-[16.25rem] md:h-[18.75rem] lg:h-[20rem] rounded-none overflow-hidden border border-[#E8E2D8] shadow-xs group cursor-pointer bg-charcoal-950"
               >
                 <img
                   src={photos[3].url}
@@ -574,7 +574,7 @@ export function GalleryAlbumView() {
             )}
 
             {/* Item 5 & 6: Stacked Photos (col-span-4) */}
-            <div className="md:col-span-4 flex flex-col gap-4 justify-between h-[220px] sm:h-[260px] md:h-[300px] lg:h-[320px]">
+            <div className="md:col-span-4 flex flex-col gap-4 justify-between h-[13.75rem] sm:h-[16.25rem] md:h-[18.75rem] lg:h-[20rem]">
               {photos[4] && (
                 <div
                   onClick={() => setSelectedPhotoIndex(4)}
@@ -686,7 +686,7 @@ export function GalleryAlbumView() {
         )}
 
         {/* Other Albums Quick Navigation Bar */}
-        <div className="bg-white rounded-[24px] p-6 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="bg-white rounded-[1.5rem] p-6 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <h3 className="font-display font-bold text-lg sm:text-xl text-charcoal-900">
               Explore More Convocation Albums
@@ -740,7 +740,7 @@ export function GalleryAlbumView() {
             </div>
 
             {/* Photo Container */}
-            <div className="relative flex-1 min-h-[350px] sm:min-h-[480px] bg-black flex items-center justify-center p-2">
+            <div className="relative flex-1 min-h-[21.875rem] sm:min-h-[30rem] bg-black flex items-center justify-center p-2">
               <img
                 src={selectedPhoto.url}
                 alt={selectedPhoto.title}

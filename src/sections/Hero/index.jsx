@@ -35,7 +35,7 @@ export function Hero() {
     <section
       id="hero-section"
       data-darkreader-ignore="true"
-      className="relative w-full min-h-screen lg:h-[100dvh] flex flex-col justify-between pt-[clamp(72px,5.2vw,160px)] pb-[clamp(16px,1.5vw,48px)] overflow-hidden bg-[#F7F4EE]"
+      className="relative w-full min-h-screen lg:h-[100dvh] flex flex-col justify-between pt-[4.5rem] lg:pt-[5rem] pb-[1rem] lg:pb-[1.5rem] overflow-hidden bg-[#F7F4EE]"
     >
       {/* 1. Full-Height Photographic Background Layer (Desktop: lg+) - Preserves 100% full original photograph without cropping */}
       <div
@@ -71,14 +71,14 @@ export function Hero() {
             
             {/* Title & Year */}
             <div className="mb-2 sm:mb-4">
-              <h1 className="hero-title-main font-display font-bold text-4xl sm:text-5xl lg:text-[72px] leading-[0.94] lg:leading-[0.92] text-charcoal-900 tracking-tight">
+              <h1 className="hero-title-main font-display font-bold text-4xl sm:text-5xl lg:text-[4.5rem] leading-[0.94] lg:leading-[0.92] text-charcoal-900 tracking-tight">
                 <span className="hero-title-main lg:hidden">
                   3<span className="text-[0.62em] lowercase align-super font-semibold">rd</span> Convocation
                 </span>
                 <span className="hero-title-main hidden lg:inline">
                   3<span className="text-[0.62em] lowercase align-super font-semibold">rd</span> CONVOCATION
                 </span>
-                <span className="hero-title-maroon block font-display font-bold text-5xl sm:text-6xl lg:text-[80px] leading-[1] text-maroon-900 mt-1 sm:mt-2">
+                <span className="hero-title-maroon block font-display font-bold text-5xl sm:text-6xl lg:text-[5rem] leading-[1] text-maroon-900 mt-1 sm:mt-2">
                   2026
                 </span>
               </h1>
@@ -96,14 +96,14 @@ export function Hero() {
                 href="https://forms.gle/1nxVrpcRUfgMhH938"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hero-btn-primary w-full sm:w-auto inline-flex items-center justify-center min-h-[48px] px-8 rounded-pill bg-maroon-900 text-white font-body font-semibold text-base shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer text-center"
+                className="hero-btn-primary w-full sm:w-auto inline-flex items-center justify-center min-h-[3rem] px-8 rounded-pill bg-maroon-900 text-white font-body font-semibold text-base shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer text-center"
               >
                 Register Now
               </a>
               <a
                 href="#schedule"
                 onClick={(e) => handleScrollToSection(e, 'schedule')}
-                className="hero-btn-secondary group w-full sm:w-auto inline-flex items-center justify-between sm:justify-center min-h-[48px] px-6 rounded-pill bg-[#FBF9F6] border border-maroon-900/30 text-maroon-900 font-body font-semibold text-base shadow-xs hover:border-maroon-900 hover:bg-white hover:shadow-md transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer text-center"
+                className="hero-btn-secondary group w-full sm:w-auto inline-flex items-center justify-between sm:justify-center min-h-[3rem] px-6 rounded-pill bg-[#FBF9F6] border border-maroon-900/30 text-maroon-900 font-body font-semibold text-base shadow-xs hover:border-maroon-900 hover:bg-white hover:shadow-md transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer text-center"
               >
                 <span className="flex-1 sm:flex-none text-center">View Schedule</span>
                 <ArrowRight className="w-4 h-4 stroke-[2.5] text-maroon-900 group-hover:translate-x-1 transition-transform shrink-0" />

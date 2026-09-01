@@ -97,7 +97,7 @@ export function InformationSection() {
                 <div className="w-10 h-10 rounded-md bg-maroon-050 flex items-center justify-center">
                   <Icon className="w-5 h-5 text-maroon-900 stroke-[1.75]" />
                 </div>
-                <h3 className="type-display-md text-text-default text-[18px]">
+                <h3 className="type-display-md text-text-default text-lg">
                   {guide.title}
                 </h3>
               </div>

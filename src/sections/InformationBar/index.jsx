@@ -109,22 +109,22 @@ export function InformationBar({ className = '' }) {
     <div
       id="event-info-bar"
       data-darkreader-ignore="true"
-      className={`event-info-bar w-full bg-white rounded-[clamp(18px,1.6vw,56px)] border border-[#E4DED4] shadow-[0_8px_30px_rgba(0,0,0,0.06)] px-4 py-4 sm:px-[clamp(24px,2.5vw,90px)] sm:py-[clamp(16px,1.5vw,52px)] transition-colors duration-200 ${className}`}
+      className={`event-info-bar w-full bg-white rounded-[1.25rem] border border-[#E4DED4] shadow-[0_0.5rem_1.875rem_rgba(0,0,0,0.06)] px-4 py-4 sm:px-6 sm:py-4.5 transition-colors duration-200 ${className}`}
       aria-label="Convocation Key Information"
     >
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-4 sm:gap-[clamp(16px,1.8vw,64px)] items-center">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-4 sm:gap-6 items-center">
         {INFO_BAR_ITEMS.map((item) => {
           const IconComponent = item.icon;
           return (
-            <div key={item.label} className="flex items-start sm:items-center gap-2.5 sm:gap-[clamp(12px,1.0vw,36px)]">
+            <div key={item.label} className="flex items-start sm:items-center gap-2.5 sm:gap-3">
               <div className="info-bar-icon shrink-0 flex items-center justify-center mt-0.5 sm:mt-0 text-maroon-900">
-                <IconComponent className="w-5 h-5 min-[360px]:w-6 min-[360px]:h-6 sm:w-[clamp(28px,2.2vw,75px)] sm:h-[clamp(28px,2.2vw,75px)]" />
+                <IconComponent className="w-5 h-5 min-[360px]:w-6 min-[360px]:h-6 sm:w-7 sm:h-7" />
               </div>
               <div className="flex flex-col min-w-0">
-                <span className="info-bar-label font-body text-[10px] sm:text-[clamp(11px,0.83vw,28px)] font-semibold tracking-wider text-charcoal-600 uppercase">
+                <span className="info-bar-label font-body text-[0.625rem] sm:text-[0.6875rem] font-semibold tracking-wider text-charcoal-600 uppercase">
                   {item.label}
                 </span>
-                <span className="info-bar-value font-body font-medium text-charcoal-900 text-[12.5px] min-[370px]:text-[13.5px] sm:text-[clamp(15px,1.11vw,38px)] leading-snug sm:leading-tight mt-0.5 whitespace-normal lg:whitespace-nowrap break-words">
+                <span className="info-bar-value font-body font-medium text-charcoal-900 text-[0.78125rem] min-[370px]:text-[0.84375rem] sm:text-[0.9375rem] leading-snug sm:leading-tight mt-0.5 whitespace-normal lg:whitespace-nowrap break-words">
                   {item.value}
                 </span>
               </div>

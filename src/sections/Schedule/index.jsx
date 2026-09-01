@@ -83,7 +83,7 @@ export function ScheduleSection() {
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Main Schedule Container Card */}
-        <div className="bg-white rounded-[28px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-6 sm:p-10 lg:p-12 overflow-hidden">
+        <div className="bg-white rounded-[1.75rem] sm:rounded-[2rem] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-6 sm:p-10 lg:p-12 overflow-hidden">
           
           {/* Header Row */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-10">
@@ -100,7 +100,7 @@ export function ScheduleSection() {
               <button
                 type="button"
                 onClick={() => setIsFullScheduleOpen(true)}
-                className="inline-flex items-center justify-center min-h-[44px] px-6 rounded-pill bg-white border border-maroon-900/30 text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
+                className="inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-white border border-maroon-900/30 text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
               >
                 View Full Schedule
               </button>
@@ -123,7 +123,7 @@ export function ScheduleSection() {
                       <div className="flex flex-col items-center shrink-0 w-5 sm:w-6 relative">
                         {/* Top Line Segment connecting directly to bullet center */}
                         <div
-                          className={`w-[2px] bg-[#E8E2D8] ${
+                          className={`w-[0.125rem] bg-[#E8E2D8] ${
                             isFirst ? 'h-4 sm:h-5 opacity-0' : 'h-4 sm:h-5'
                           }`}
                         />
@@ -135,7 +135,7 @@ export function ScheduleSection() {
 
                         {/* Bottom Line Segment */}
                         <div
-                          className={`w-[2px] bg-[#E8E2D8] flex-1 ${
+                          className={`w-[0.125rem] bg-[#E8E2D8] flex-1 ${
                             isLast ? 'opacity-0' : 'opacity-100'
                           }`}
                         />
@@ -154,7 +154,7 @@ export function ScheduleSection() {
                           isFirst ? 'pt-1.5 pb-3.5 sm:pb-5' : 'pt-3 sm:pt-4.5 pb-3.5 sm:pb-5'
                         } group-last:pb-2`}
                       >
-                        <h3 className="font-display font-bold text-[15px] sm:text-[17px] text-charcoal-900 leading-snug group-hover:text-maroon-900 transition-colors">
+                        <h3 className="font-display font-bold text-[0.9375rem] sm:text-[1.0625rem] text-charcoal-900 leading-snug group-hover:text-maroon-900 transition-colors">
                           {item.title}
                         </h3>
                         <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-0.5 sm:mt-1 leading-relaxed">
@@ -172,7 +172,7 @@ export function ScheduleSection() {
                 <button
                   type="button"
                   onClick={() => setIsFullScheduleOpen(true)}
-                  className="w-full inline-flex items-center justify-center min-h-[46px] px-8 rounded-pill bg-white border border-[#D9D0C5] text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
+                  className="w-full inline-flex items-center justify-center min-h-[2.875rem] px-8 rounded-pill bg-white border border-[#D9D0C5] text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
                 >
                   View Full Schedule
                 </button>
@@ -181,7 +181,7 @@ export function ScheduleSection() {
 
             {/* Right Column: College Campus Side Image (Visible on Desktop / Tablet) */}
             <div className="hidden lg:flex lg:col-span-6 items-center">
-              <div className="relative w-full h-[320px] sm:h-[380px] lg:h-full min-h-[340px] rounded-[24px] sm:rounded-[28px] overflow-hidden border border-[#E8E2D8] shadow-sm bg-cream-100 group">
+              <div className="relative w-full h-[20rem] sm:h-[23.75rem] lg:h-full min-h-[21.25rem] rounded-[1.5rem] sm:rounded-[1.75rem] overflow-hidden border border-[#E8E2D8] shadow-sm bg-cream-100 group">
                 <img
                   src="/assets/iiitbh-campus-schedule.jpg"
                   alt="IIIT Bhagalpur Permanent Campus at Sunset — Convocation Venue"
@@ -203,12 +203,12 @@ export function ScheduleSection() {
                       <h3 className="font-display font-bold text-xs sm:text-sm text-white leading-tight">
                         IIIT Bhagalpur Campus
                       </h3>
-                      <span className="font-body text-[11px] sm:text-xs text-white/80">
+                      <span className="font-body text-[0.6875rem] sm:text-xs text-white/80">
                         Main Lecture Hall & Academic Block
                       </span>
                     </div>
                   </div>
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/20 text-white shrink-0 hidden sm:inline-block">
+                  <span className="text-[0.6875rem] font-mono px-2.5 py-0.5 rounded-full bg-white/20 text-white shrink-0 hidden sm:inline-block">
                     26 Sept 2026
                   </span>
                 </div>
@@ -250,9 +250,9 @@ export function ScheduleSection() {
                   <div key={idx} className="flex items-stretch gap-4">
                     {/* Line Column */}
                     <div className="flex flex-col items-center shrink-0 w-5 relative">
-                      <div className={`w-[2px] bg-border ${isFirst ? 'h-3 opacity-0' : 'h-3'}`} />
+                      <div className={`w-[0.125rem] bg-border ${isFirst ? 'h-3 opacity-0' : 'h-3'}`} />
                       <div className="w-3.5 h-3.5 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs shrink-0 z-10" />
-                      <div className={`w-[2px] bg-border flex-1 ${isLast ? 'opacity-0' : 'opacity-100'}`} />
+                      <div className={`w-[0.125rem] bg-border flex-1 ${isLast ? 'opacity-0' : 'opacity-100'}`} />
                     </div>
 
                     {/* Details Column */}

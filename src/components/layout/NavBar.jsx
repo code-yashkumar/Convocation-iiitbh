@@ -104,7 +104,7 @@ export function NavBar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-16 md:h-[72px] flex items-center justify-between gap-4">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-16 md:h-[4.5rem] flex items-center justify-between gap-4">
         
         {/* Left: Crest + Full Institution Wordmark (Redirects to official Institute portal) */}
         <a
@@ -122,7 +122,7 @@ export function NavBar() {
             <span className="navbar-title hidden sm:inline font-display font-bold text-sm md:text-base text-charcoal-900 leading-tight whitespace-nowrap">
               Indian Institute of Information Technology Bhagalpur
             </span>
-            <span className="navbar-subtext hidden sm:inline font-body text-[11px] md:text-xs text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
+            <span className="navbar-subtext hidden sm:inline font-body text-[0.6875rem] md:text-xs text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
               भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
             </span>
           </div>
@@ -141,7 +141,7 @@ export function NavBar() {
                 >
                   <span>{link.label}</span>
                   {/* Progressing expanding maroon underline on hover */}
-                  <span className="absolute bottom-0 left-0 h-[2.5px] bg-maroon-900 w-0 group-hover:w-full transition-all duration-300 ease-out rounded-full" />
+                  <span className="absolute bottom-0 left-0 h-[0.15625rem] bg-maroon-900 w-0 group-hover:w-full transition-all duration-300 ease-out rounded-full" />
                 </a>
               );
             }
@@ -164,7 +164,7 @@ export function NavBar() {
                     <span>{link.label}</span>
                     {/* Progressing expanding maroon underline on hover and solid on active */}
                     <span
-                      className={`absolute bottom-0 left-0 h-[2.5px] bg-maroon-900 transition-all duration-300 ease-out rounded-full ${
+                      className={`absolute bottom-0 left-0 h-[0.15625rem] bg-maroon-900 transition-all duration-300 ease-out rounded-full ${
                         isActive ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}
                     />
@@ -181,7 +181,7 @@ export function NavBar() {
             href="https://forms.gle/1nxVrpcRUfgMhH938"
             target="_blank"
             rel="noopener noreferrer"
-            className="navbar-btn-cta inline-flex items-center justify-center min-h-[44px] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-sm whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
+            className="navbar-btn-cta inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-sm whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
           >
             Register Now
           </a>
@@ -194,7 +194,7 @@ export function NavBar() {
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-nav"
           aria-label={isMobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
-          className="navbar-hamburger-btn lg:hidden inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl text-maroon-900 hover:bg-maroon-050/70 active:bg-maroon-050 transition-colors focus-visible:outline-none cursor-pointer"
+          className="navbar-hamburger-btn lg:hidden inline-flex items-center justify-center w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-xl text-maroon-900 hover:bg-maroon-050/70 active:bg-maroon-050 transition-colors focus-visible:outline-none cursor-pointer"
         >
           {isMobileMenuOpen ? (
             <X className="w-6 h-6 stroke-[2.4] text-maroon-900" aria-hidden="true" />
@@ -221,7 +221,7 @@ export function NavBar() {
       {isMobileMenuOpen && (
         <div
           id="mobile-nav"
-          className="fixed inset-0 top-16 md:top-[68px] z-50 bg-cream-100/98 backdrop-blur-xl flex flex-col p-6 space-y-6 lg:hidden animate-fadeIn overflow-y-auto"
+          className="fixed inset-0 top-16 md:top-[4.25rem] z-50 bg-cream-100/98 backdrop-blur-xl flex flex-col p-6 space-y-6 lg:hidden animate-fadeIn overflow-y-auto"
         >
           <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation">
             {NAV_LINKS.map((link) => {
@@ -263,7 +263,7 @@ export function NavBar() {
               href="https://forms.gle/1nxVrpcRUfgMhH938"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-full min-h-[48px] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[15px] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all text-center whitespace-nowrap cursor-pointer"
+              className="inline-flex items-center justify-center w-full min-h-[3rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[0.9375rem] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all text-center whitespace-nowrap cursor-pointer"
             >
               Register Now
             </a>

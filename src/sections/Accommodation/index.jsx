@@ -168,7 +168,7 @@ export function AccommodationSection() {
         </div>
 
         {/* Campus Guest House Notice Banner */}
-        <div className="bg-white rounded-[22px] sm:rounded-[24px] border border-[#E8E2D8] p-5 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] mb-8 sm:mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
+        <div className="bg-white rounded-[1.375rem] sm:rounded-[1.5rem] border border-[#E8E2D8] p-5 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] mb-8 sm:mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
           <div className="flex items-start gap-3.5 sm:gap-4">
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-maroon-050 text-maroon-900 flex items-center justify-center shrink-0 border border-maroon-900/15">
               <Building className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -178,7 +178,7 @@ export function AccommodationSection() {
                 <h3 className="font-display font-bold text-lg sm:text-xl text-charcoal-900">
                   IIIT Bhagalpur Campus Guest House
                 </h3>
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] sm:text-xs font-semibold whitespace-nowrap">
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[0.6875rem] sm:text-xs font-semibold whitespace-nowrap">
                   Limited Rooms
                 </span>
               </div>
@@ -191,7 +191,7 @@ export function AccommodationSection() {
           <div className="flex items-center gap-3 shrink-0 w-full md:w-auto">
             <a
               href="mailto:guesthouse@iiitbh.ac.in?subject=Convocation%20Guest%20House%20Enquiry"
-              className="inline-flex items-center justify-center min-h-[46px] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-xs sm:text-sm shadow-sm hover:bg-maroon-700 transition-all gap-2 w-full md:w-auto text-center whitespace-nowrap"
+              className="inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-xs sm:text-sm shadow-sm hover:bg-maroon-700 transition-all gap-2 w-full md:w-auto text-center whitespace-nowrap"
             >
               <Mail className="w-4 h-4 shrink-0" />
               <span>Enquire Guest House</span>
@@ -216,7 +216,7 @@ export function AccommodationSection() {
             {NEARBY_HOTELS.map((hotel) => (
               <div
                 key={hotel.id}
-                className="bg-white rounded-[22px] sm:rounded-[24px] p-5 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-[1.375rem] sm:rounded-[1.5rem] p-5 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Category Badge & Rating */}
@@ -269,7 +269,7 @@ export function AccommodationSection() {
                       <span className="font-body text-xs font-semibold text-maroon-900">
                         {hotel.discountNote}
                       </span>
-                      <span className="font-mono text-[11px] text-charcoal-600 mt-0.5">
+                      <span className="font-mono text-[0.6875rem] text-charcoal-600 mt-0.5">
                         Code: <span className="font-bold text-maroon-900">{hotel.discountCode}</span>
                       </span>
                     </div>
@@ -328,7 +328,7 @@ export function AccommodationSection() {
         </div>
 
         {/* Transit & Travel Guide */}
-        <div className="bg-white rounded-[28px] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+        <div className="bg-white rounded-[1.75rem] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
           <div className="mb-8">
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-charcoal-900">
               Travel & Transportation Guide

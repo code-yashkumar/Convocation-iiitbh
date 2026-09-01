@@ -65,7 +65,7 @@ export function DignitariesSection() {
 
         {/* Highest Visual Hierarchy: Chief Guest Featured Banner */}
         <div className="mb-8 sm:mb-12 2xl:mb-16">
-          <div className="bg-gradient-to-br from-[#540D17] to-[#731322] rounded-[24px] sm:rounded-[32px] 2xl:rounded-[44px] text-white p-6 sm:p-10 lg:p-12 2xl:p-16 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50">
+          <div className="bg-gradient-to-br from-[#540D17] to-[#731322] rounded-[1.5rem] sm:rounded-[2rem] 2xl:rounded-[2.75rem] text-white p-6 sm:p-10 lg:p-12 2xl:p-16 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50">
             {/* Background Aesthetic Elements */}
             <div className="absolute -right-16 -top-16 w-80 h-80 2xl:w-96 2xl:h-96 rounded-full bg-gold-500/10 pointer-events-none blur-2xl" />
             <div className="absolute right-1/4 -bottom-20 w-64 h-64 2xl:w-80 2xl:h-80 rounded-full bg-white/5 pointer-events-none" />
@@ -96,7 +96,7 @@ export function DignitariesSection() {
                   </div>
                 </div>
 
-                <div className="mt-3.5 sm:mt-4 2xl:mt-6 inline-flex items-center gap-1.5 px-3.5 py-1 2xl:px-5 2xl:py-1.5 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 font-body text-[11px] sm:text-xs 2xl:text-base font-semibold tracking-wide uppercase">
+                <div className="mt-3.5 sm:mt-4 2xl:mt-6 inline-flex items-center gap-1.5 px-3.5 py-1 2xl:px-5 2xl:py-1.5 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 font-body text-[0.6875rem] sm:text-xs 2xl:text-base font-semibold tracking-wide uppercase">
                   <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 2xl:w-5 2xl:h-5 fill-gold-400 text-gold-400" />
                   <span>Convocation Chief Guest</span>
                 </div>
@@ -119,7 +119,7 @@ export function DignitariesSection() {
 
                 {/* Citation / Bio */}
                 <div className="mt-3 sm:mt-4 2xl:mt-6 pt-3 sm:pt-4 2xl:pt-6 border-t border-white/15">
-                  <p className="font-body text-white/80 text-xs sm:text-[15px] 2xl:text-[20px] leading-relaxed max-w-2xl 2xl:max-w-3xl mx-auto lg:mx-0">
+                  <p className="font-body text-white/80 text-xs sm:text-[0.9375rem] 2xl:text-[1.25rem] leading-relaxed max-w-2xl 2xl:max-w-3xl mx-auto lg:mx-0">
                     {CHIEF_GUEST.bio}
                   </p>
                 </div>
@@ -134,12 +134,12 @@ export function DignitariesSection() {
           {DIGNITARIES.map((dignitary) => (
             <div
               key={dignitary.name}
-              className="bg-white rounded-2xl sm:rounded-[24px] 2xl:rounded-[32px] p-5 sm:p-7 2xl:p-10 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-2xl sm:rounded-[1.5rem] 2xl:rounded-[2rem] p-5 sm:p-7 2xl:p-10 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Header Tag */}
                 <div className="flex items-center justify-between gap-2 mb-4 sm:mb-6 2xl:mb-8">
-                  <span className="px-2.5 sm:px-3 py-1 2xl:px-4 2xl:py-1.5 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-[11px] sm:text-xs 2xl:text-base font-semibold tracking-wide">
+                  <span className="px-2.5 sm:px-3 py-1 2xl:px-4 2xl:py-1.5 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-[0.6875rem] sm:text-xs 2xl:text-base font-semibold tracking-wide">
                     {dignitary.role}
                   </span>
                   <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-cream-100 flex items-center justify-center text-charcoal-500 group-hover:text-maroon-900 transition-colors">
@@ -168,7 +168,7 @@ export function DignitariesSection() {
                     <h3 className="font-display font-bold text-lg sm:text-xl text-charcoal-900 group-hover:text-maroon-900 transition-colors leading-snug">
                       {dignitary.name}
                     </h3>
-                    <span className="font-body text-[11px] sm:text-xs font-semibold text-maroon-900/80 uppercase tracking-wide">
+                    <span className="font-body text-[0.6875rem] sm:text-xs font-semibold text-maroon-900/80 uppercase tracking-wide">
                       {dignitary.role}
                     </span>
                   </div>
