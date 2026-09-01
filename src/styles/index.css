@@ -209,14 +209,14 @@
 }
 
 /* ==========================================================================
-   Ultra-High Resolution (2K / 4K / 5K) Proportional Display Scaling
-   Scales the entire website proportionally on monitors wider than 1920px
-   so that it renders with the exact same visual ratio, size, and layout
-   as on a standard 1080p laptop screen.
+   Ultra-High Resolution (2K / 4K / 5K) Fluid Proportional Scaling
+   Scales the root rem base proportionally on screens wider than 1920px
+   so that all typography, images, containers, and cards scale seamlessly
+   with exact 1080p laptop visual ratios without zoom offset bugs.
    ========================================================================== */
 @media (min-width: 1921px) {
   html {
-    zoom: calc(100vw / 1920);
+    font-size: calc(16px * (100vw / 1920));
   }
 }
 

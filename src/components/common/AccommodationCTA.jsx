@@ -8,7 +8,7 @@ import { Hotel, ArrowRight, MapPin, Sparkles } from 'lucide-react';
 export function AccommodationCTA({ className = '' }) {
   return (
     <div
-      className={`w-full max-w-[1400px] mx-auto px-4 sm:px-10 lg:px-12 my-5 sm:my-8 ${className}`}
+      className={`w-full max-w-[87.5rem] mx-auto px-4 sm:px-10 lg:px-12 my-5 sm:my-8 ${className}`}
     >
       <div className="relative bg-gradient-to-r from-[#500D16] via-[#66101E] to-[#450A12] text-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 overflow-hidden shadow-sm border border-maroon-800/80 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
         {/* Background Ambient Glow */}

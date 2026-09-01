@@ -215,7 +215,7 @@ export function HomeGalleryCarousel() {
 
   return (
     <section className="w-full pt-8 pb-6 sm:pt-10 sm:pb-8 bg-cream-100 relative overflow-hidden" id="home-gallery">
-      <div className="max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[77.5rem] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-12">

@@ -405,7 +405,7 @@ export function GalleryAlbumView() {
           }
         }}
       />
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[87.5rem] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Navigation Breadcrumb & Back Action */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">

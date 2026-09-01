@@ -80,7 +80,7 @@ export function ScheduleSection() {
 
   return (
     <section className="w-full pt-6 pb-6 sm:pt-8 sm:pb-8 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="schedule">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-[87.5rem] mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Main Schedule Container Card */}
         <div className="bg-white rounded-[28px] sm:rounded-[32px] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-6 sm:p-10 lg:p-12 overflow-hidden">

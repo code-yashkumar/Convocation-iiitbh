@@ -460,7 +460,7 @@ export function CommitteeSection() {
           }
         }}
       />
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-12">
+      <div className="max-w-[87.5rem] mx-auto px-5 sm:px-10 lg:px-12">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">

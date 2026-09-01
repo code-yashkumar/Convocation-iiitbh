@@ -89,7 +89,7 @@ export function Footer() {
       </div>
 
       {/* Desktop Full 4-Column Footer (md+) */}
-      <div className="hidden md:block max-w-[1400px] mx-auto px-10 lg:px-12 py-16">
+      <div className="hidden md:block max-w-[87.5rem] mx-auto px-10 lg:px-12 py-16">
         {/* Main 4-Column Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-white/10">
           

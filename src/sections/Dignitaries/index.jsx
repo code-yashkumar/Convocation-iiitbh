@@ -46,7 +46,7 @@ const DIGNITARIES = [
 export function DignitariesSection() {
   return (
     <section id="dignitaries" className="w-full pt-10 pb-6 sm:pt-16 sm:pb-8 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-10 lg:px-12">
+      <div className="max-w-[87.5rem] mx-auto px-5 sm:px-10 lg:px-12">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
