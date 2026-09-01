@@ -13,7 +13,6 @@ import Hero from './sections/Hero';
 import DignitariesSection from './sections/Dignitaries';
 import ScheduleSection from './sections/Schedule';
 import HomeGalleryCarousel from './sections/Gallery/HomeGalleryCarousel';
-import RegistrationFormSection from './sections/RegistrationForm';
 import HowToReachSection from './sections/HowToReach';
 
 // Lazy Loaded Route Subpages for optimal code-splitting and bundle size
@@ -94,7 +93,6 @@ function HomePage() {
       <ScheduleSection />
       <AccommodationCTA />
       <HomeGalleryCarousel />
-      <RegistrationFormSection />
       <HowToReachSection />
     </main>
   );

@@ -202,19 +202,19 @@ export function GallerySection() {
           }
         }}
       />
-      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28">
+      <div className="w-full max-w-[clamp(1400px,94vw,3600px)] mx-auto px-6 sm:px-10 lg:px-[clamp(24px,3.5vw,120px)]">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-[13px] font-semibold mb-2 border border-maroon-900/10 shadow-xs">
-            <Camera className="w-3.5 h-3.5 text-maroon-900" />
+        <div className="text-center max-w-[clamp(720px,58vw,1800px)] mx-auto mb-[clamp(36px,3.2vw,96px)]">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-[clamp(16px,1.2vw,36px)] py-1.5 sm:py-[clamp(6px,0.45vw,14px)] rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-[clamp(13px,0.95vw,26px)] font-semibold mb-[clamp(14px,1.1vw,36px)] border border-maroon-900/10 shadow-xs">
+            <Camera className="w-3.5 h-3.5 sm:w-[clamp(16px,1.1vw,28px)] sm:h-[clamp(16px,1.1vw,28px)] text-maroon-900 shrink-0" />
             <span>Visual Archives & Memories</span>
           </div>
 
-          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
+          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-[clamp(36px,2.8vw,80px)] leading-[1.2] text-charcoal-900 tracking-tight">
             Convocation Photo & Video Gallery
           </h1>
-          <p className="font-body text-charcoal-600 text-sm sm:text-base mt-1.5 sm:mt-2">
+          <p className="font-body text-charcoal-600 text-sm sm:text-[clamp(15px,1.1vw,32px)] leading-relaxed mt-[clamp(14px,1.1vw,36px)] max-w-[clamp(600px,48vw,1500px)] mx-auto">
             Immortalizing triumphant milestones, academic regalia processions, medal honors, and celebratory joy at IIIT Bhagalpur.
           </p>
         </div>

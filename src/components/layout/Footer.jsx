@@ -40,13 +40,15 @@ export function Footer() {
             <span>Event Schedule</span>
             <ChevronRight className="w-3.5 h-3.5 text-gold-400" />
           </Link>
-          <Link
-            to="/#registration"
+          <a
+            href="https://forms.gle/1nxVrpcRUfgMhH938"
+            target="_blank"
+            rel="noopener noreferrer"
             className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-white/85 flex items-center justify-between"
           >
             <span>Registration</span>
             <ChevronRight className="w-3.5 h-3.5 text-gold-400" />
-          </Link>
+          </a>
           <Link
             to="/information"
             className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-white/85 flex items-center justify-between"
@@ -129,9 +131,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/#registration" className="text-white/80 hover:text-gold-400 transition-colors">
+                <a
+                  href="https://forms.gle/1nxVrpcRUfgMhH938"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-gold-400 transition-colors"
+                >
                   Candidate Registration
-                </Link>
+                </a>
               </li>
               <li>
                 <Link to="/accommodation" className="text-white/80 hover:text-gold-400 transition-colors">

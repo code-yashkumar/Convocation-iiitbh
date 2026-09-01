@@ -460,19 +460,19 @@ export function CommitteeSection() {
           }
         }}
       />
-      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-28">
+      <div className="w-full max-w-[clamp(1400px,94vw,3600px)] mx-auto px-6 sm:px-10 lg:px-[clamp(24px,3.5vw,120px)]">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-3 sm:mb-4 border border-maroon-900/10 shadow-xs">
-            <Users className="w-4 h-4 text-maroon-900" />
+        <div className="text-center max-w-[clamp(720px,58vw,1800px)] mx-auto mb-[clamp(36px,3.2vw,96px)]">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-[clamp(16px,1.2vw,36px)] py-1.5 sm:py-[clamp(6px,0.45vw,14px)] rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-[clamp(13px,0.95vw,26px)] font-semibold mb-[clamp(14px,1.1vw,36px)] border border-maroon-900/10 shadow-xs">
+            <Users className="w-4 h-4 sm:w-[clamp(16px,1.1vw,28px)] sm:h-[clamp(16px,1.1vw,28px)] text-maroon-900 shrink-0" />
             <span>Institutional Governance</span>
           </div>
 
-          <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight">
+          <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-[clamp(36px,2.8vw,80px)] leading-[1.2] text-charcoal-900 tracking-tight">
             Organizing Committees
           </h1>
-          <p className="font-body text-charcoal-600 text-sm sm:text-lg mt-2 sm:mt-3">
+          <p className="font-body text-charcoal-600 text-sm sm:text-[clamp(15px,1.1vw,32px)] leading-relaxed mt-[clamp(14px,1.1vw,36px)] max-w-[clamp(600px,48vw,1500px)] mx-auto">
             Official roster of 40+ faculty conveners, administrative officers, and committee members across 22 specialized task forces for the 3rd Convocation.
           </p>
         </div>
@@ -562,57 +562,57 @@ export function CommitteeSection() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-[clamp(20px,1.8vw,64px)]">
             {filteredCommittees.map((committee) => (
               <div
                 key={committee.id}
-                className="bg-white rounded-[24px] p-6 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(94,16,28,0.06)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-[24px] sm:rounded-[clamp(24px,1.67vw,56px)] p-6 sm:p-[clamp(24px,1.94vw,64px)] border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(94,16,28,0.06)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Category Badge & Committee Number */}
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs font-semibold">
+                  <div className="flex items-center justify-between gap-3 mb-4 sm:mb-[clamp(16px,1.25vw,36px)]">
+                    <span className="px-3 py-1 sm:px-[clamp(12px,0.9vw,28px)] sm:py-[clamp(4px,0.35vw,12px)] rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs sm:text-[clamp(12px,0.85vw,26px)] font-semibold">
                       {committee.category}
                     </span>
-                    <span className="font-mono text-xs font-bold text-charcoal-400">
+                    <span className="font-mono text-xs sm:text-[clamp(12px,0.85vw,26px)] font-bold text-charcoal-400">
                       #{String(committee.id).padStart(2, '0')}
                     </span>
                   </div>
 
                   {/* Committee Name */}
-                  <h3 className="font-display font-bold text-xl sm:text-2xl text-charcoal-900 leading-snug">
+                  <h3 className="font-display font-bold text-xl sm:text-[clamp(20px,1.53vw,48px)] text-charcoal-900 leading-snug">
                     {committee.id}. {committee.name}
                   </h3>
 
                   {/* Conveners Box */}
-                  <div className="mt-5 space-y-2.5">
+                  <div className="mt-5 sm:mt-[clamp(18px,1.3vw,40px)] space-y-2.5 sm:space-y-[clamp(10px,0.8vw,24px)]">
                     {committee.convener && (
-                      <div className="p-3.5 rounded-xl bg-gradient-to-r from-maroon-050/80 to-cream-050 border border-maroon-900/15 flex items-start justify-between gap-3">
+                      <div className="p-3.5 sm:p-[clamp(14px,1.1vw,32px)] rounded-xl sm:rounded-[clamp(12px,0.9vw,26px)] bg-gradient-to-r from-maroon-050/80 to-cream-050 border border-maroon-900/15 flex items-start justify-between gap-3">
                         <div className="space-y-0.5">
-                          <span className="font-body text-[11px] font-bold text-maroon-900 uppercase tracking-wider">
+                          <span className="font-body text-[11px] sm:text-[clamp(11px,0.8vw,24px)] font-bold text-maroon-900 uppercase tracking-wider">
                             Convener
                           </span>
-                          <h4 className="font-display font-bold text-base text-charcoal-900">
+                          <h4 className="font-display font-bold text-base sm:text-[clamp(16px,1.25vw,36px)] text-charcoal-900">
                             {committee.convener.name}
                           </h4>
                         </div>
-                        <span className="font-body text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-maroon-900/10 shrink-0">
+                        <span className="font-body text-xs sm:text-[clamp(12px,0.9vw,28px)] font-semibold text-charcoal-700 bg-white px-2.5 py-1 sm:px-[clamp(10px,0.8vw,24px)] sm:py-[clamp(4px,0.35vw,12px)] rounded-md border border-maroon-900/10 shrink-0">
                           {committee.convener.designation}
                         </span>
                       </div>
                     )}
 
                     {committee.coConvener && (
-                      <div className="p-3.5 rounded-xl bg-cream-050 border border-[#ECE6DC] flex items-start justify-between gap-3">
+                      <div className="p-3.5 sm:p-[clamp(14px,1.1vw,32px)] rounded-xl sm:rounded-[clamp(12px,0.9vw,26px)] bg-cream-050 border border-[#ECE6DC] flex items-start justify-between gap-3">
                         <div className="space-y-0.5">
-                          <span className="font-body text-[11px] font-bold text-charcoal-700 uppercase tracking-wider">
+                          <span className="font-body text-[11px] sm:text-[clamp(11px,0.8vw,24px)] font-bold text-charcoal-700 uppercase tracking-wider">
                             Co-Convener
                           </span>
-                          <h4 className="font-display font-bold text-base text-charcoal-900">
+                          <h4 className="font-display font-bold text-base sm:text-[clamp(16px,1.25vw,36px)] text-charcoal-900">
                             {committee.coConvener.name}
                           </h4>
                         </div>
-                        <span className="font-body text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-border shrink-0">
+                        <span className="font-body text-xs sm:text-[clamp(12px,0.9vw,28px)] font-semibold text-charcoal-700 bg-white px-2.5 py-1 sm:px-[clamp(10px,0.8vw,24px)] sm:py-[clamp(4px,0.35vw,12px)] rounded-md border border-border shrink-0">
                           {committee.coConvener.designation}
                         </span>
                       </div>
@@ -620,20 +620,20 @@ export function CommitteeSection() {
                   </div>
 
                   {/* Committee Members List */}
-                  <div className="mt-5">
-                    <h4 className="font-body text-xs font-bold text-charcoal-500 uppercase tracking-wider mb-2.5">
+                  <div className="mt-5 sm:mt-[clamp(18px,1.3vw,40px)]">
+                    <h4 className="font-body text-xs sm:text-[clamp(12px,0.85vw,26px)] font-bold text-charcoal-500 uppercase tracking-wider mb-2.5">
                       Members
                     </h4>
-                    <div className="space-y-2">
+                    <div className="space-y-2 sm:space-y-[clamp(8px,0.6vw,18px)]">
                       {committee.members.map((member, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-2.5 rounded-lg bg-cream-050/60 border border-[#ECE6DC] text-xs sm:text-sm font-body"
+                          className="flex items-center justify-between p-2.5 sm:p-[clamp(10px,0.8vw,24px)] rounded-lg bg-cream-050/60 border border-[#ECE6DC] text-xs sm:text-[clamp(13.5px,1.0vw,30px)] font-body"
                         >
                           <span className="font-semibold text-charcoal-900">
                             {member.name}
                           </span>
-                          <span className="text-charcoal-600 text-xs font-medium text-right shrink-0 ml-2">
+                          <span className="text-charcoal-600 text-xs sm:text-[clamp(12px,0.85vw,26px)] font-medium text-right shrink-0 ml-2">
                             {member.designation}
                           </span>
                         </div>
@@ -643,7 +643,7 @@ export function CommitteeSection() {
                 </div>
 
                 {/* Footer indicator */}
-                <div className="mt-6 pt-4 border-t border-[#ECE6DC] flex items-center justify-between text-xs text-charcoal-500 font-body">
+                <div className="mt-6 pt-4 border-t border-[#ECE6DC] flex items-center justify-between text-xs sm:text-[clamp(12px,0.85vw,26px)] text-charcoal-500 font-body">
                   <span>IIIT Bhagalpur 3rd Convocation Secretariat</span>
                   <span className="font-semibold text-maroon-900">{committee.members.length + (committee.convener ? 1 : 0) + (committee.coConvener ? 1 : 0)} Personnel</span>
                 </div>
