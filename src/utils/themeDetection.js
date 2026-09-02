@@ -41,23 +41,28 @@ html body #hero-section,
 html[data-darkreader-scheme] body #hero-section,
 html[data-darkreader-mode] body #hero-section,
 html.dark-reader-active body #hero-section {
-  background-color: #FBF9F5 !important;
+  background-color: #F7F4EE !important;
 }
 
-/* Photographic Background Layer - Takes full width and height of the screen in all orientations */
-html body #hero-section .hero-bg-layer,
-html[data-darkreader-scheme] body #hero-section .hero-bg-layer,
-html[data-darkreader-mode] body #hero-section .hero-bg-layer,
-html.dark-reader-active body #hero-section .hero-bg-layer {
-  display: block !important;
-  background-image: url('/assets/convocation-hero-bg.png') !important;
-  background-color: transparent !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-  background-size: cover !important;
-  filter: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+/* Photographic Background Layer - Visible on desktop (lg+), completely hidden on mobile/tablet */
+@media (min-width: 1024px) {
+  html body #hero-section .hero-bg-layer,
+  html[data-darkreader-scheme] body #hero-section .hero-bg-layer,
+  html[data-darkreader-mode] body #hero-section .hero-bg-layer,
+  html.dark-reader-active body #hero-section .hero-bg-layer {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  html body #hero-section .hero-bg-layer,
+  html[data-darkreader-scheme] body #hero-section .hero-bg-layer,
+  html[data-darkreader-mode] body #hero-section .hero-bg-layer,
+  html.dark-reader-active body #hero-section .hero-bg-layer {
+    display: none !important;
+    visibility: hidden !important;
+  }
 }
 
 /* Hero Typography: "CONVOCATION 2026" */

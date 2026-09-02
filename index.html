@@ -112,8 +112,13 @@
       #main-hero-area, #main-hero-area *, #hero-section .hero-bg-layer, header[data-navbar-hero="true"], header[data-navbar-hero="true"] * {
         color-scheme: light !important;
       }
-      html body #hero-section { background-color: #FBF9F5 !important; }
-      html body #hero-section .hero-bg-layer { display: block !important; background-image: url('/assets/convocation-hero-bg.png') !important; filter: none !important; opacity: 1 !important; background-size: cover !important; background-position: center center !important; }
+      html body #hero-section { background-color: #F7F4EE !important; }
+      @media (min-width: 1024px) {
+        html body #hero-section .hero-bg-layer { display: block !important; }
+      }
+      @media (max-width: 1023.98px) {
+        html body #hero-section .hero-bg-layer { display: none !important; }
+      }
       html body #main-hero-area .hero-title-main { color: #1A1A1A !important; -webkit-text-fill-color: #1A1A1A !important; }
       html body #main-hero-area .hero-title-maroon { color: #5E101C !important; -webkit-text-fill-color: #5E101C !important; }
       html body #main-hero-area .hero-subtitle { color: #404040 !important; -webkit-text-fill-color: #404040 !important; }
