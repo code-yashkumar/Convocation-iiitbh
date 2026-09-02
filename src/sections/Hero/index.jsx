@@ -106,7 +106,7 @@ export function Hero() {
               <a
                 href="#schedule"
                 onClick={(e) => handleScrollToSection(e, 'schedule')}
-                className="hero-btn-secondary group w-full sm:w-auto inline-flex items-center justify-between sm:justify-center min-h-[3rem] px-6 rounded-[0.875rem] lg:rounded-pill bg-[#FBF9F6] border border-maroon-900/30 text-maroon-900 font-body font-semibold text-base shadow-xs hover:border-maroon-900 hover:bg-white hover:shadow-md transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer text-center"
+                className="hero-btn-secondary group w-full sm:w-auto inline-flex items-center justify-between sm:justify-center min-h-[3rem] px-6 rounded-[0.875rem] lg:rounded-pill bg-[#FBF9F6] border border-maroon-900 lg:border-maroon-900/30 lg:hover:border-maroon-900 text-maroon-900 font-body font-semibold text-base shadow-xs hover:bg-white hover:shadow-md transition-all duration-200 gap-2.5 focus-visible:outline-none cursor-pointer text-center"
               >
                 <span className="flex-1 sm:flex-none text-center">View Schedule</span>
                 <ArrowRight className="w-4 h-4 stroke-[2.5] text-maroon-900 group-hover:translate-x-1 transition-transform shrink-0" />
