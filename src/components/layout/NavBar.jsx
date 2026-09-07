@@ -1,7 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, ExternalLink } from 'lucide-react';
 import InstitutionCrest from '../ui/InstitutionCrest';
+
+const EDITIONS_OPTIONS = [
+  {
+    label: 'Convocation 2025',
+    edition: '2nd Convocation',
+    href: 'https://www.iiitbh.ac.in/convocation/',
+    isExternal: true,
+  },
+  {
+    label: 'Convocation 2021',
+    edition: '1st Convocation',
+    to: '/archive',
+    isExternal: false,
+  },
+];
 
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
@@ -10,7 +25,6 @@ const NAV_LINKS = [
   { label: 'Archive', to: '/archive' },
   { label: 'Information', to: '/information' },
   { label: 'Committee', to: '/committee' },
-  { label: 'Editions', href: 'https://www.iiitbh.ac.in/convocation/', isExternal: true },
 ];
 
 /**
@@ -19,6 +33,9 @@ const NAV_LINKS = [
 export function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isEditionsOpen, setIsEditionsOpen] = useState(false);
+  const [isMobileEditionsOpen, setIsMobileEditionsOpen] = useState(false);
+  const desktopEditionsRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -71,16 +88,35 @@ export function NavBar() {
     }
   };
 
-  // Close mobile menu on Esc key
+  // Close menus on Esc key or outside click
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
+      if (e.key === 'Escape') {
+        if (isMobileMenuOpen) setIsMobileMenuOpen(false);
+        if (isEditionsOpen) setIsEditionsOpen(false);
       }
     };
+
+    const handleClickOutside = (e) => {
+      if (desktopEditionsRef.current && !desktopEditionsRef.current.contains(e.target)) {
+        setIsEditionsOpen(false);
+      }
+    };
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isMobileMenuOpen]);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen, isEditionsOpen]);
+
+  // Reset dropdowns on route changes
+  useEffect(() => {
+    setIsEditionsOpen(false);
+    setIsMobileMenuOpen(false);
+    setIsMobileEditionsOpen(false);
+  }, [location.pathname]);
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
@@ -131,22 +167,6 @@ export function NavBar() {
         {/* Center/Right Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0" aria-label="Main Navigation">
           {NAV_LINKS.map((link) => {
-            if (link.isExternal) {
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="navbar-link relative group text-sm font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer"
-                >
-                  <span>{link.label}</span>
-                  {/* Progressing expanding maroon underline on hover */}
-                  <span className="absolute bottom-0 left-0 h-[0.15625rem] bg-maroon-900 w-0 group-hover:w-full transition-all duration-300 ease-out rounded-full" />
-                </a>
-              );
-            }
-
             if (link.isSectionLink) {
               return (
                 <a
@@ -189,6 +209,75 @@ export function NavBar() {
               </NavLink>
             );
           })}
+
+          {/* Editions Dropdown (Positioned directly after Committee) */}
+          <div className="relative" ref={desktopEditionsRef}>
+            <button
+              type="button"
+              onClick={() => setIsEditionsOpen(!isEditionsOpen)}
+              aria-expanded={isEditionsOpen}
+              aria-haspopup="true"
+              className={`navbar-link relative group inline-flex items-center gap-1.5 text-sm font-body font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer ${
+                isEditionsOpen ? 'text-maroon-900 font-bold' : 'text-charcoal-900/80 hover:text-maroon-900'
+              }`}
+            >
+              <span>Editions</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  isEditionsOpen ? 'rotate-180 text-maroon-900' : 'text-charcoal-500 group-hover:text-maroon-900'
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-[0.15625rem] bg-maroon-900 transition-all duration-300 ease-out rounded-full ${
+                  isEditionsOpen ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}
+              />
+            </button>
+
+            {/* Desktop Dropdown Menu */}
+            {isEditionsOpen && (
+              <div
+                className="absolute right-0 top-full mt-2 w-56 py-2 bg-white rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.12)] border border-[#ECE6DC] z-50 animate-fadeIn"
+                role="menu"
+              >
+                {EDITIONS_OPTIONS.map((item) => {
+                  if (item.isExternal) {
+                    return (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsEditionsOpen(false)}
+                        className="flex items-center justify-between px-4 py-2.5 text-sm font-body text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/80 transition-colors rounded-xl mx-1.5 cursor-pointer"
+                        role="menuitem"
+                      >
+                        <div className="flex flex-col">
+                          <span className="font-semibold text-charcoal-900">{item.label}</span>
+                          <span className="text-[0.6875rem] text-charcoal-600 font-normal">{item.edition}</span>
+                        </div>
+                        <ExternalLink className="w-3.5 h-3.5 text-charcoal-500 shrink-0" />
+                      </a>
+                    );
+                  }
+                  return (
+                    <Link
+                      key={item.label}
+                      to={item.to}
+                      onClick={() => setIsEditionsOpen(false)}
+                      className="flex items-center justify-between px-4 py-2.5 text-sm font-body text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/80 transition-colors rounded-xl mx-1.5 cursor-pointer"
+                      role="menuitem"
+                    >
+                      <div className="flex flex-col">
+                        <span className="font-semibold text-charcoal-900">{item.label}</span>
+                        <span className="text-[0.6875rem] text-charcoal-600 font-normal">{item.edition}</span>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Desktop CTA Button (Strictly in 1 single line) */}
@@ -241,21 +330,6 @@ export function NavBar() {
         >
           <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation">
             {NAV_LINKS.map((link) => {
-              if (link.isExternal) {
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 transition-colors cursor-pointer"
-                  >
-                    {link.label}
-                  </a>
-                );
-              }
-
               if (link.isSectionLink) {
                 return (
                   <a
@@ -287,6 +361,60 @@ export function NavBar() {
                 </NavLink>
               );
             })}
+
+            {/* Mobile Editions Expandable Dropdown Item */}
+            <div className="flex flex-col">
+              <button
+                type="button"
+                onClick={() => setIsMobileEditionsOpen(!isMobileEditionsOpen)}
+                className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 transition-colors flex items-center justify-between w-full text-left cursor-pointer"
+              >
+                <span>Editions</span>
+                <ChevronDown
+                  className={`w-4 h-4 text-maroon-900 transition-transform duration-200 ${
+                    isMobileEditionsOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {isMobileEditionsOpen && (
+                <div className="pl-3 pr-2 py-1.5 space-y-1 bg-white/90 rounded-xl mt-1 border border-[#ECE6DC] shadow-xs">
+                  {EDITIONS_OPTIONS.map((item) => {
+                    if (item.isExternal) {
+                      return (
+                        <a
+                          key={item.label}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 flex items-center justify-between cursor-pointer"
+                        >
+                          <div className="flex flex-col">
+                            <span className="font-semibold text-charcoal-900">{item.label}</span>
+                            <span className="text-xs text-charcoal-600 font-normal">{item.edition}</span>
+                          </div>
+                          <ExternalLink className="w-3.5 h-3.5 text-charcoal-500 shrink-0" />
+                        </a>
+                      );
+                    }
+                    return (
+                      <Link
+                        key={item.label}
+                        to={item.to}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 flex items-center justify-between cursor-pointer"
+                      >
+                        <div className="flex flex-col">
+                          <span className="font-semibold text-charcoal-900">{item.label}</span>
+                          <span className="text-xs text-charcoal-600 font-normal">{item.edition}</span>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </nav>
 
           <div className="pt-4 border-t border-[#E8E2D8]">
