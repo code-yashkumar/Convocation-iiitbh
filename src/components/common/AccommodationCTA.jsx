@@ -11,9 +11,9 @@ export function AccommodationCTA({ className = '' }) {
       className={`w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 my-5 sm:my-8 ${className}`}
     >
       <div className="relative bg-gradient-to-r from-[#500D16] via-[#66101E] to-[#450A12] text-white rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-10 lg:p-12 overflow-hidden shadow-sm border border-maroon-800/80 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
-        {/* Background Aesthetic Elements: Two Clean Geometric Circles on the Right */}
-        <div className="absolute right-1/3 sm:right-[32%] -bottom-24 w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-white/5 pointer-events-none" />
-        <div className="absolute -right-10 sm:-right-8 -bottom-20 w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-white/5 pointer-events-none" />
+        {/* Background Aesthetic Elements: Circular Blobs at Top-Left and Bottom-Right */}
+        <div className="absolute left-6 sm:left-14 -top-36 sm:-top-52 w-80 h-80 sm:w-[26rem] sm:h-[26rem] rounded-full bg-white/5 pointer-events-none" />
+        <div className="absolute right-4 sm:right-10 -bottom-36 sm:-bottom-52 w-80 h-80 sm:w-[26rem] sm:h-[26rem] rounded-full bg-white/5 pointer-events-none" />
 
         {/* Left Content */}
         <div className="relative z-10 max-w-2xl space-y-2.5 sm:space-y-3">
@@ -35,7 +35,7 @@ export function AccommodationCTA({ className = '' }) {
         <div className="relative z-10 shrink-0 w-full sm:w-auto">
           <Link
             to="/accommodation"
-            className="group inline-flex items-center justify-center min-h-[3rem] sm:min-h-[3.125rem] px-5 sm:px-8 rounded-pill bg-gold-500 text-charcoal-950 font-body font-bold text-[0.8125rem] min-[360px]:text-[0.84375rem] sm:text-[0.9375rem] shadow-lg hover:bg-gold-400 active:scale-95 transition-all gap-2 sm:gap-3 w-full sm:w-auto whitespace-nowrap text-center"
+            className="group inline-flex items-center justify-center min-h-[3rem] sm:min-h-[3.125rem] px-4 sm:px-8 rounded-pill bg-gold-500 text-charcoal-950 font-body font-bold text-xs min-[360px]:text-[0.8125rem] sm:text-[0.9375rem] shadow-lg hover:bg-gold-400 active:scale-95 transition-all gap-1.5 sm:gap-3 w-full sm:w-auto text-center"
           >
             <Hotel className="w-4 h-4 text-charcoal-950 shrink-0" />
             <span>Explore Nearby Hotels & Stays</span>
