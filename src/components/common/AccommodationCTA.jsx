@@ -11,9 +11,9 @@ export function AccommodationCTA({ className = '' }) {
       className={`w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 my-5 sm:my-8 ${className}`}
     >
       <div className="relative bg-gradient-to-r from-[#500D16] via-[#66101E] to-[#450A12] text-white rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-10 lg:p-12 overflow-hidden shadow-sm border border-maroon-800/80 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
-        {/* Background Aesthetic Elements */}
-        <div className="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-gold-500/10 pointer-events-none blur-2xl" />
-        <div className="absolute right-1/3 sm:right-1/4 -bottom-24 w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-white/5 pointer-events-none" />
+        {/* Background Aesthetic Elements: Two Clean Geometric Circles on the Right */}
+        <div className="absolute right-1/3 sm:right-[32%] -bottom-24 w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-white/5 pointer-events-none" />
+        <div className="absolute -right-10 sm:-right-8 -bottom-20 w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-white/5 pointer-events-none" />
 
         {/* Left Content */}
         <div className="relative z-10 max-w-2xl space-y-2.5 sm:space-y-3">
