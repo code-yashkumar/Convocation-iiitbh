@@ -17,7 +17,8 @@ const DIGNITARIES = [
   {
     name: 'Prof. Pragati Kumar',
     role: 'Guest of Honour',
-    designation: 'Vice Chancellor, SMVD University',
+    subtitle: 'Vice Chancellor',
+    designation: 'SMVD University',
     badge: 'Guest of Honour',
     badgeVariant: 'secondary',
     initials: 'PK',
@@ -26,7 +27,8 @@ const DIGNITARIES = [
   {
     name: 'Dr. Ashok Khade',
     role: 'Chairperson',
-    designation: 'Board of Governors, IIIT Bhagalpur',
+    subtitle: 'Board of Governors',
+    designation: 'IIIT Bhagalpur',
     badge: 'Chairperson',
     badgeVariant: 'primary',
     initials: 'AK',
@@ -35,6 +37,7 @@ const DIGNITARIES = [
   {
     name: 'Prof. Madhusudan Singh',
     role: 'Director',
+    subtitle: 'Director',
     designation: 'IIIT Bhagalpur',
     badge: 'Director',
     badgeVariant: 'primary',
@@ -169,7 +172,7 @@ export function DignitariesSection() {
                       {dignitary.name}
                     </h3>
                     <span className="font-body text-[0.6875rem] sm:text-xs font-semibold text-maroon-900/80 uppercase tracking-wide">
-                      {dignitary.role}
+                      {dignitary.subtitle || dignitary.role}
                     </span>
                   </div>
                 </div>
