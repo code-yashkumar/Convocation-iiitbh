@@ -15,6 +15,22 @@ import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import SEO from '../../components/common/SEO';
 
+/**
+ * Extracts 2-letter initials from full name, skipping titles (e.g. Dr. Dheeraj Kr. Sinha -> DK)
+ */
+const getInitials = (fullName) => {
+  if (!fullName) return '';
+  const clean = fullName
+    .replace(/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.|Shri|Smt\.|Er\.|Adv\.)\s+/i, '')
+    .trim();
+  const words = clean.split(/\s+/).filter(Boolean);
+  if (words.length === 0) return '';
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  const first = words[0].replace(/[^A-Za-z]/g, '')[0] || words[0][0];
+  const second = words[1].replace(/[^A-Za-z]/g, '')[0] || words[1][0];
+  return (first + second).toUpperCase();
+};
+
 const COMMITTEES_DATA = [
   {
     id: 1,
@@ -588,13 +604,19 @@ export function CommitteeSection() {
                   <div className="mt-5 space-y-2.5">
                     {committee.convener && (
                       <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-maroon-050/80 to-cream-050 border border-maroon-900/15 flex items-start justify-between gap-3">
-                        <div className="space-y-0.5">
-                          <span className="font-body text-[0.6875rem] font-bold text-maroon-900 uppercase tracking-wider">
-                            Convener
-                          </span>
-                          <h4 className="font-display font-bold text-base text-charcoal-900">
-                            {committee.convener.name}
-                          </h4>
+                        <div className="flex items-center gap-3 min-w-0">
+                          {/* Profile Circle with Initials */}
+                          <div className="w-9 h-9 rounded-full bg-maroon-900 text-white font-display font-bold text-xs flex items-center justify-center shrink-0 shadow-xs border border-maroon-800 select-none">
+                            {getInitials(committee.convener.name)}
+                          </div>
+                          <div className="space-y-0.5 min-w-0">
+                            <span className="font-body text-[0.6875rem] font-bold text-maroon-900 uppercase tracking-wider block">
+                              Convener
+                            </span>
+                            <h4 className="font-display font-bold text-base text-charcoal-900 truncate">
+                              {committee.convener.name}
+                            </h4>
+                          </div>
                         </div>
                         <span className="font-body text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-maroon-900/10 shrink-0">
                           {committee.convener.designation}
@@ -604,13 +626,19 @@ export function CommitteeSection() {
 
                     {committee.coConvener && (
                       <div className="p-3.5 sm:p-4 rounded-xl bg-cream-050 border border-[#ECE6DC] flex items-start justify-between gap-3">
-                        <div className="space-y-0.5">
-                          <span className="font-body text-[0.6875rem] font-bold text-charcoal-700 uppercase tracking-wider">
-                            Co-Convener
-                          </span>
-                          <h4 className="font-display font-bold text-base text-charcoal-900">
-                            {committee.coConvener.name}
-                          </h4>
+                        <div className="flex items-center gap-3 min-w-0">
+                          {/* Profile Circle with Initials */}
+                          <div className="w-9 h-9 rounded-full bg-maroon-900/10 text-maroon-900 border border-maroon-900/20 font-display font-bold text-xs flex items-center justify-center shrink-0 select-none">
+                            {getInitials(committee.coConvener.name)}
+                          </div>
+                          <div className="space-y-0.5 min-w-0">
+                            <span className="font-body text-[0.6875rem] font-bold text-charcoal-700 uppercase tracking-wider block">
+                              Co-Convener
+                            </span>
+                            <h4 className="font-display font-bold text-base text-charcoal-900 truncate">
+                              {committee.coConvener.name}
+                            </h4>
+                          </div>
                         </div>
                         <span className="font-body text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-border shrink-0">
                           {committee.coConvener.designation}
@@ -630,9 +658,15 @@ export function CommitteeSection() {
                           key={idx}
                           className="flex items-center justify-between p-2.5 sm:p-3 rounded-lg bg-cream-050/60 border border-[#ECE6DC] text-xs sm:text-sm font-body"
                         >
-                          <span className="font-semibold text-charcoal-900">
-                            {member.name}
-                          </span>
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            {/* Profile Circle with Initials */}
+                            <div className="w-7 h-7 rounded-full bg-maroon-900/10 text-maroon-900 font-display font-bold text-[0.6875rem] flex items-center justify-center shrink-0 border border-maroon-900/15 select-none">
+                              {getInitials(member.name)}
+                            </div>
+                            <span className="font-semibold text-charcoal-900 truncate">
+                              {member.name}
+                            </span>
+                          </div>
                           <span className="text-charcoal-600 text-xs font-medium text-right shrink-0 ml-2">
                             {member.designation}
                           </span>
