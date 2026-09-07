@@ -97,11 +97,11 @@ export function HowToReachSection() {
             {/* Left Column: Interactive Map & Direction Card */}
             <div className="lg:col-span-7 flex flex-col justify-between relative rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden border border-[#E8E2D8] bg-[#F5F2EB] shadow-sm min-h-[20rem] sm:min-h-[28rem] lg:min-h-0 h-full">
               
-              {/* Top Custom Location Card: 100% Solid white & wide enough to cleanly conceal Google's default card */}
-              <div className="hidden sm:block sm:absolute sm:top-0 sm:left-0 w-[27rem] max-w-[92%] p-5 bg-white border-b border-r border-[#DDD5C7] rounded-br-2xl rounded-tl-[1.75rem] shadow-lg z-10 pointer-events-auto">
-                <div className="flex items-start justify-between gap-3">
-                  <div className="space-y-1">
-                    <h3 className="font-display font-bold text-[1.0625rem] text-charcoal-900 leading-snug">
+              {/* Top Floating Badge on Desktop (sm+) */}
+              <div className="hidden sm:block sm:absolute sm:top-4 sm:left-4 sm:right-auto sm:max-w-xs p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E8E2D8] shadow-md z-10 pointer-events-auto">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="space-y-0.5">
+                    <h3 className="font-display font-bold text-sm sm:text-base text-charcoal-900 leading-tight">
                       Indian Institute of Information Technology Bhagalpur
                     </h3>
                     <p className="font-body text-xs text-charcoal-600">
@@ -112,16 +112,16 @@ export function HowToReachSection() {
                     href={googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8.5 h-8.5 rounded-lg bg-maroon-050 hover:bg-maroon-900 text-maroon-900 hover:text-white flex items-center justify-center shrink-0 border border-maroon-900/15 transition-colors focus:outline-none focus-visible:outline-none shadow-xs"
+                    className="w-8 h-8 rounded-lg bg-maroon-050 hover:bg-maroon-900 text-maroon-900 hover:text-white flex items-center justify-center shrink-0 border border-maroon-900/15 transition-colors focus:outline-none focus-visible:outline-none"
                     title="Open in Google Maps"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
 
-                <div className="flex items-center gap-2 mt-3 pt-2.5 border-t border-[#ECE6DC] text-xs font-body text-charcoal-600">
-                  <span className="text-amber-500 font-bold">4.4 ★</span>
-                  <span>(319+ reviews)</span>
+                <div className="flex items-center gap-2 mt-2 pt-2 border-t border-[#ECE6DC] text-xs font-body text-charcoal-600">
+                  <span className="text-amber-500 font-bold">4.3 ★</span>
+                  <span>(318+ reviews)</span>
                   <span className="text-charcoal-300">•</span>
                   <span className="text-emerald-700 font-semibold">Campus Open</span>
                 </div>
