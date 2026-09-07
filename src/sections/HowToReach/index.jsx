@@ -131,7 +131,7 @@ export function HowToReachSection() {
               <div className="w-full h-[20rem] sm:h-full sm:absolute sm:inset-0">
                 <iframe
                   title="IIIT Bhagalpur Campus Map Location"
-                  src="https://maps.google.com/maps?q=25.255278,87.042778&hl=en&z=15&output=embed"
+                  src="https://maps.google.com/maps?q=25.26035,87.0395&hl=en&z=15&output=embed"
                   className="w-full h-full border-0 outline-none focus:outline-none"
                   loading="lazy"
                   allowFullScreen
