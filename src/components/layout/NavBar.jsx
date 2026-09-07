@@ -6,11 +6,11 @@ import InstitutionCrest from '../ui/InstitutionCrest';
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'Notice', to: '/notices' },
-  { label: 'Dignitaries', to: '/#dignitaries', isSectionLink: true, sectionId: 'dignitaries' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Archive', to: '/archive' },
   { label: 'Information', to: '/information' },
   { label: 'Committee', to: '/committee' },
+  { label: 'Editions', href: 'https://www.iiitbh.ac.in/convocation/', isExternal: true },
 ];
 
 /**
@@ -131,6 +131,22 @@ export function NavBar() {
         {/* Center/Right Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0" aria-label="Main Navigation">
           {NAV_LINKS.map((link) => {
+            if (link.isExternal) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="navbar-link relative group text-sm font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer"
+                >
+                  <span>{link.label}</span>
+                  {/* Progressing expanding maroon underline on hover */}
+                  <span className="absolute bottom-0 left-0 h-[0.15625rem] bg-maroon-900 w-0 group-hover:w-full transition-all duration-300 ease-out rounded-full" />
+                </a>
+              );
+            }
+
             if (link.isSectionLink) {
               return (
                 <a
@@ -225,6 +241,21 @@ export function NavBar() {
         >
           <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation">
             {NAV_LINKS.map((link) => {
+              if (link.isExternal) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 transition-colors cursor-pointer"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+
               if (link.isSectionLink) {
                 return (
                   <a
