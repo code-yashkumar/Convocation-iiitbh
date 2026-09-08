@@ -90,7 +90,7 @@ const INFO_BAR_ITEMS = [
   {
     icon: MapPinDesignIcon,
     label: 'VENUE',
-    value: 'Main Lecture Hall',
+    value: 'Bhagalpur',
   },
   {
     icon: EditionIcon,
