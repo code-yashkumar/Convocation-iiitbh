@@ -59,7 +59,7 @@ const DETAILED_SCHEDULE = [
     time: '10:30 AM – 11:15 AM',
     title: 'Convocation Address by Chief Guest',
     venue: 'Main Lecture Hall',
-    details: 'Keynote address by Prof. T N Singh (Director, IIT Patna) to the graduating batch and assembly.',
+    details: 'Keynote address by the Chief Guest to the graduating batch and assembly.',
   },
   {
     time: '11:15 AM – 01:15 PM',
