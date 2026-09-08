@@ -14,6 +14,7 @@ const CHIEF_GUEST = {
 };
 
 const DIGNITARIES = [
+  /*
   {
     name: 'Prof. Pragati Kumar',
     role: 'Guest of Honour',
@@ -24,6 +25,7 @@ const DIGNITARIES = [
     initials: 'PK',
     image: '/assets/dignitaries/prof-pragati-kumar.jpg',
   },
+  */
   {
     name: 'Dr. Ashok Khade',
     role: 'Chairperson',
@@ -66,19 +68,17 @@ export function DignitariesSection() {
           </p>
         </div>
 
-        {/* Highest Visual Hierarchy: Chief Guest Featured Banner */}
+        {/* Highest Visual Hierarchy: Chief Guest Featured Banner (Commented out for now) */}
+        {/*
         <div className="mb-8 sm:mb-12 2xl:mb-16">
           <div className="bg-gradient-to-br from-[#540D17] to-[#731322] rounded-[1.5rem] sm:rounded-[2rem] 2xl:rounded-[2.75rem] text-white p-6 sm:p-10 lg:p-12 2xl:p-16 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50">
-            {/* Background Aesthetic Elements */}
             <div className="absolute -right-16 -top-16 w-80 h-80 2xl:w-96 2xl:h-96 rounded-full bg-gold-500/10 pointer-events-none blur-2xl" />
             <div className="absolute right-1/4 -bottom-20 w-64 h-64 2xl:w-80 2xl:h-80 rounded-full bg-white/5 pointer-events-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 2xl:gap-16 items-center relative z-10">
               
-              {/* Chief Guest Avatar / Photo with Gold Seal */}
               <div className="lg:col-span-4 flex flex-col items-center text-center">
                 <div className="relative">
-                  {/* Outer Gold Ring */}
                   <div className="w-36 h-36 sm:w-48 sm:h-48 lg:w-52 lg:h-52 2xl:w-64 2xl:h-64 rounded-full bg-gradient-to-b from-gold-400 via-gold-500 to-gold-600 p-1.5 2xl:p-2 shadow-2xl flex items-center justify-center">
                     <div className="w-full h-full rounded-full overflow-hidden bg-[#3F0A11] border-2 border-white/20">
                       <img
@@ -93,7 +93,6 @@ export function DignitariesSection() {
                     </div>
                   </div>
 
-                  {/* Gold Star Badge on Avatar */}
                   <div className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 w-9 h-9 sm:w-10 sm:h-10 2xl:w-14 2xl:h-14 rounded-full bg-gold-500 text-charcoal-950 flex items-center justify-center shadow-lg border-2 border-[#540D17]">
                     <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 2xl:w-7 2xl:h-7 fill-charcoal-950" />
                   </div>
@@ -105,7 +104,6 @@ export function DignitariesSection() {
                 </div>
               </div>
 
-              {/* Chief Guest Information & Citation */}
               <div className="lg:col-span-8 flex flex-col justify-center text-center lg:text-left">
                 <div className="mb-2 2xl:mb-4">
                   <span className="font-body text-gold-400 text-xs sm:text-base 2xl:text-xl font-semibold tracking-wider uppercase">
@@ -120,7 +118,6 @@ export function DignitariesSection() {
                   </div>
                 </div>
 
-                {/* Citation / Bio */}
                 <div className="mt-3 sm:mt-4 2xl:mt-6 pt-3 sm:pt-4 2xl:pt-6 border-t border-white/15">
                   <p className="font-body text-white/80 text-xs sm:text-[0.9375rem] 2xl:text-[1.25rem] leading-relaxed max-w-2xl 2xl:max-w-3xl mx-auto lg:mx-0">
                     {CHIEF_GUEST.bio}
@@ -131,9 +128,10 @@ export function DignitariesSection() {
             </div>
           </div>
         </div>
+        */}
 
-        {/* Secondary Visual Hierarchy: 3 Column Grid for Guest of Honour, Chairperson, and Director */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 2xl:gap-10">
+        {/* Secondary Visual Hierarchy: Dignitaries Cards */}
+        <div className={`grid grid-cols-1 ${DIGNITARIES.length === 2 ? 'md:grid-cols-2 max-w-4xl mx-auto' : 'md:grid-cols-3'} gap-4 sm:gap-8 2xl:gap-10`}>
           {DIGNITARIES.map((dignitary) => (
             <div
               key={dignitary.name}
