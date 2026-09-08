@@ -124,7 +124,7 @@ export function InformationBar({ className = '' }) {
                 <span className="info-bar-label font-body text-[0.625rem] sm:text-[0.6875rem] font-semibold tracking-wider text-charcoal-600 uppercase">
                   {item.label}
                 </span>
-                <span className="info-bar-value font-body font-medium text-charcoal-900 text-[0.78125rem] min-[370px]:text-[0.84375rem] sm:text-[0.9375rem] leading-snug sm:leading-tight mt-0.5 whitespace-normal lg:whitespace-nowrap break-words">
+                <span className="info-bar-value font-body font-medium text-charcoal-900 text-[0.78125rem] min-[370px]:text-[0.84375rem] sm:text-[0.9375rem] leading-snug sm:leading-tight mt-0.5 whitespace-normal lg:whitespace-nowrap break-normal">
                   {item.value}
                 </span>
               </div>

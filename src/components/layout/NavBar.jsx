@@ -140,25 +140,25 @@ export function NavBar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-16 md:h-[4.5rem] flex items-center justify-between gap-4">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-10 lg:px-12 h-16 md:h-[4.5rem] flex items-center justify-between gap-4">
         
         {/* Left: Crest + Full Institution Wordmark (Redirects to official Institute portal) */}
         <a
           href="https://www.iiitbh.ac.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 group focus-visible:outline-none shrink-0"
+          className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none shrink-0"
           aria-label="IIIT Bhagalpur Official Website"
         >
-          <InstitutionCrest className="navbar-crest w-8 h-8 sm:w-11 sm:h-11 shrink-0 group-hover:scale-105 transition-transform" />
+          <InstitutionCrest className="navbar-crest w-8 h-8 md:w-11 md:h-11 shrink-0 group-hover:scale-105 transition-transform" />
           <div className="flex flex-col whitespace-nowrap">
-            <span className="navbar-title sm:hidden font-display font-bold text-sm text-charcoal-900 leading-tight tracking-wider uppercase">
+            <span className="navbar-title md:hidden font-display font-bold text-sm text-charcoal-900 leading-tight tracking-wider uppercase">
               IIIT Bhagalpur
             </span>
-            <span className="navbar-title hidden sm:inline font-display font-bold text-sm md:text-base text-charcoal-900 leading-tight whitespace-nowrap">
+            <span className="navbar-title hidden md:inline font-display font-bold text-sm md:text-base text-charcoal-900 leading-tight whitespace-nowrap">
               Indian Institute of Information Technology Bhagalpur
             </span>
-            <span className="navbar-subtext hidden sm:inline font-body text-[0.6875rem] md:text-xs text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
+            <span className="navbar-subtext hidden md:inline font-body text-[0.6875rem] md:text-xs text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
               भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
             </span>
           </div>
