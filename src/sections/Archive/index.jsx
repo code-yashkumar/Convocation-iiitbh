@@ -6,14 +6,13 @@ import Button from '../../components/ui/Button';
 import SEO from '../../components/common/SEO';
 
 const ARCHIVE_STUDENTS = [
-  { id: '1', roll: '220101001', name: 'Aarav Sharma', degree: 'B.Tech CSE', year: '2026', medal: 'Institute Gold Medal' },
-  { id: '2', roll: '220101015', name: 'Ananya Verma', degree: 'B.Tech ECE', year: '2026', medal: 'Director Silver Medal' },
-  { id: '3', roll: '220102008', name: 'Rohan Gupta', degree: 'B.Tech Mechatronics', year: '2026', medal: 'Best Project Award' },
-  { id: '4', roll: '220101032', name: 'Ishita Patel', degree: 'B.Tech CSE', year: '2026', medal: 'Academic Distinction' },
-  { id: '5', roll: '240201002', name: 'Dr. Vivek Kumar', degree: 'Ph.D. CSE', year: '2026', medal: 'Best Thesis Award' },
-  { id: '6', roll: '230101004', name: 'Pooja Singh', degree: 'M.Tech CSE', year: '2026', medal: 'First Rank' },
-  { id: '7', roll: '210101010', name: 'Aditya Mishra', degree: 'B.Tech CSE', year: '2025', medal: 'President Gold Medal' },
-  { id: '8', roll: '210102004', name: 'Sneha Roy', degree: 'B.Tech ECE', year: '2025', medal: 'Institute Silver Medal' },
+  { id: '1', roll: '2201005CS', name: 'Ankur Dwivedi', degree: 'B.Tech CSE', year: '2026', medal: "President's Gold Medal" },
+  { id: '2', roll: '240201007', name: 'Gaurav Singh Rajput', degree: 'M.Tech CSE (AI & Data Science)', year: '2026', medal: "Chairman's Gold Medal" },
+  { id: '3', roll: '2201005CS', name: 'Ankur Dwivedi', degree: 'B.Tech CSE', year: '2026', medal: "Director's Gold Medal" },
+  { id: '4', roll: '2201163EC', name: 'Rahul Kumar', degree: 'B.Tech ECE', year: '2026', medal: "Director's Gold Medal" },
+  { id: '5', roll: '2201196ME', name: 'Shiekh Mahammad Arzu', degree: 'B.Tech MEA', year: '2026', medal: "Director's Gold Medal" },
+  { id: '6', roll: '210101010', name: 'Aditya Mishra', degree: 'B.Tech CSE', year: '2025', medal: "President's Gold Medal" },
+  { id: '7', roll: '210102004', name: 'Sneha Roy', degree: 'B.Tech ECE', year: '2025', medal: "Director's Gold Medal" },
 ];
 
 export function ArchiveSection() {
@@ -131,7 +130,7 @@ export function ArchiveSection() {
       <DataTable
         columns={columns}
         data={filteredData}
-        pageSize={5}
+        pageSize={10}
         emptyMessage="No student records found matching your query."
       />
     </section>
