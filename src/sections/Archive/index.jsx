@@ -6,13 +6,36 @@ import Button from '../../components/ui/Button';
 import SEO from '../../components/common/SEO';
 
 const ARCHIVE_STUDENTS = [
+  // 3rd Convocation (2026)
   { id: '1', roll: '2201005CS', name: 'Ankur Dwivedi', degree: 'B.Tech CSE', year: '2026', medal: "President's Gold Medal" },
   { id: '2', roll: '240201007', name: 'Gaurav Singh Rajput', degree: 'M.Tech CSE (AI & Data Science)', year: '2026', medal: "Chairman's Gold Medal" },
   { id: '3', roll: '2201005CS', name: 'Ankur Dwivedi', degree: 'B.Tech CSE', year: '2026', medal: "Director's Gold Medal" },
   { id: '4', roll: '2201163EC', name: 'Rahul Kumar', degree: 'B.Tech ECE', year: '2026', medal: "Director's Gold Medal" },
   { id: '5', roll: '2201196ME', name: 'Shiekh Mahammad Arzu', degree: 'B.Tech MEA', year: '2026', medal: "Director's Gold Medal" },
-  { id: '6', roll: '210101010', name: 'Aditya Mishra', degree: 'B.Tech CSE', year: '2025', medal: "President's Gold Medal" },
-  { id: '7', roll: '210102004', name: 'Sneha Roy', degree: 'B.Tech ECE', year: '2025', medal: "Director's Gold Medal" },
+
+  // 2nd Convocation (2025) - President's Gold Medal
+  { id: '6', roll: '180101004', name: 'Amirul Islam', degree: 'B.Tech CSE (2018-22)', year: '2025', medal: "President's Gold Medal" },
+  { id: '7', roll: '1901063', name: 'Shiva Patel', degree: 'B.Tech CSE (2019-23)', year: '2025', medal: "President's Gold Medal" },
+  { id: '8', roll: '2001023', name: 'Harsh Rastogi', degree: 'B.Tech CSE (2020-24)', year: '2025', medal: "President's Gold Medal" },
+  { id: '9', roll: '2101061CS', name: 'Vinit Kumar Singh', degree: 'B.Tech CSE (2021-25)', year: '2025', medal: "President's Gold Medal" },
+
+  // 2nd Convocation (2025) - Chairman's Gold Medal
+  { id: '10', roll: '2102010', name: 'Dibya Bashishtha', degree: 'M.Tech ECE - SPML (2021-23)', year: '2025', medal: "Chairman's Gold Medal" },
+  { id: '11', roll: '230202001', name: 'Md Abdulbari Ansari', degree: 'M.Tech ECE - VLSI & ES (2023-25)', year: '2025', medal: "Chairman's Gold Medal" },
+
+  // 2nd Convocation (2025) - Director's Gold Medal
+  { id: '12', roll: '180101004', name: 'Amirul Islam', degree: 'B.Tech CSE (2018-22)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '13', roll: '180102040', name: 'Suraj Kumar', degree: 'B.Tech ECE (2018-22)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '14', roll: '180103011', name: 'Gopesh Krishna Yadav', degree: 'B.Tech MEA (2018-22)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '15', roll: '1901063', name: 'Shiva Patel', degree: 'B.Tech CSE (2019-23)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '16', roll: '1901046', name: 'Praveen Saraswat', degree: 'B.Tech ECE (2019-23)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '17', roll: '1901036', name: 'Ishaan Srivastava', degree: 'B.Tech MEA (2019-23)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '18', roll: '2001023', name: 'Harsh Rastogi', degree: 'B.Tech CSE (2020-24)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '19', roll: '2001034', name: 'Pushkal Agarwal', degree: 'B.Tech ECE (2020-24)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '20', roll: '2001104', name: 'Ankit Kumar', degree: 'B.Tech MEA (2020-24)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '21', roll: '2101061CS', name: 'Vinit Kumar Singh', degree: 'B.Tech CSE (2021-25)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '22', roll: '2101065EC', name: 'Priyanshu Raj', degree: 'B.Tech ECE (2021-25)', year: '2025', medal: "Director's Gold Medal" },
+  { id: '23', roll: '2101201ME', name: 'Priya Mishra', degree: 'B.Tech MEA (2021-25)', year: '2025', medal: "Director's Gold Medal" },
 ];
 
 export function ArchiveSection() {
