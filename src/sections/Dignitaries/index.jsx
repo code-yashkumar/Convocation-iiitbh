@@ -109,9 +109,12 @@ export function DignitariesSection() {
                   <h3 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-white tracking-tight mt-1 2xl:mt-2">
                     {CHIEF_GUEST.name}
                   </h3>
-                  <div className="flex items-start justify-center lg:justify-start gap-2 text-white/90 font-body text-base sm:text-xl 2xl:text-2xl font-medium mt-1.5 2xl:mt-2">
-                    <Building2 className="w-4 h-4 sm:w-5 sm:h-5 2xl:w-7 2xl:h-7 text-gold-400 shrink-0 mt-1 sm:mt-1 lg:mt-0.5" />
-                    <span>{CHIEF_GUEST.designation}</span>
+                  <div className="flex items-start justify-center lg:justify-start gap-2 text-white/90 font-body text-sm sm:text-base lg:text-xl 2xl:text-2xl font-medium mt-1.5 2xl:mt-2">
+                    <Building2 className="w-4 h-4 sm:w-5 sm:h-5 2xl:w-7 2xl:h-7 text-gold-400 shrink-0 mt-0.5 sm:mt-1 lg:mt-0.5" />
+                    <span className="leading-snug text-left">
+                      <span className="block whitespace-nowrap lg:inline lg:whitespace-normal">Member of Parliament,</span>{' '}
+                      <span className="block whitespace-nowrap lg:inline lg:whitespace-normal">Rajya Sabha</span>
+                    </span>
                   </div>
                 </div>
 
