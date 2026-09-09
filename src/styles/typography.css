@@ -6,6 +6,7 @@
 :root {
   /* Font Stacks */
   --font-display: "Playfair Display", "Georgia", serif;
+  --font-frank: "Frank Ruhl Libre", "Playfair Display", "Georgia", serif;
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
 
@@ -74,6 +75,10 @@
 /* Typography Utility Classes */
 .font-display {
   font-family: var(--font-display);
+}
+
+.font-frank {
+  font-family: var(--font-frank);
 }
 
 .font-body {

@@ -237,7 +237,7 @@ export function ScheduleSection() {
               </span>
               <span className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-maroon-900" />
-                <span>Venue: <strong>Main Lecture Hall</strong></span>
+                <span>Venue: <strong>Bhagalpur</strong></span>
               </span>
             </div>
 

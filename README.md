@@ -16,7 +16,7 @@ The official web portal for the **3rd Convocation (2026)** of the **Indian Insti
 - **Date**: Saturday, 26 September 2026
 - **Time**: 10:00 AM Onwards
 - **Venue**: Main Lecture Hall, Permanent Campus, IIIT Bhagalpur, Sabour, Bihar — 813210
-- **Chief Guest**: Prof. T. N. Singh, Director, IIT Patna
+- **Chief Guest**: Shri Vinod Tawde, Member of Parliament, Rajya Sabha
 
 ---
 

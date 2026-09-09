@@ -35,10 +35,10 @@
     <meta name="twitter:image" content="https://convocation.iiitbh.ac.in/assets/convocation-hero-bg.png" />
     <meta name="twitter:image:alt" content="IIIT Bhagalpur 3rd Convocation Ceremony 2026" />
 
-    <!-- Google Fonts: Playfair Display, Inter, IBM Plex Mono -->
+    <!-- Google Fonts: Frank Ruhl Libre, Playfair Display, Inter, IBM Plex Mono, Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
 
     <!-- Schema.org Initial Static Structured Data (JSON-LD) for Immediate Crawler Indexing -->
     <script type="application/ld+json">
@@ -111,19 +111,27 @@
       #main-hero-area, #main-hero-area *, #hero-section .hero-bg-layer, header[data-navbar-hero="true"], header[data-navbar-hero="true"] * {
         color-scheme: light !important;
       }
-      html body #hero-section { background-color: #F7F4EE !important; }
       @media (min-width: 1024px) {
-        html body #hero-section .hero-bg-layer { display: block !important; }
+        html body #hero-section { background-color: #F7F4EE !important; }
+        html body #hero-section .hero-bg-layer-desktop { display: block !important; }
+        html body #hero-section .hero-bg-layer-mobile { display: none !important; }
       }
       @media (max-width: 1023.98px) {
-        html body #hero-section .hero-bg-layer { display: none !important; }
+        html body #hero-section { background-color: #F4E6DD !important; }
+        html body #hero-section .hero-bg-layer-desktop { display: none !important; }
+        html body #hero-section .hero-bg-layer-mobile { display: block !important; }
+      }
+      html body #main-hero-area .hero-title-main,
+      html body #main-hero-area .hero-title-maroon,
+      html body .font-frank {
+        font-family: 'Frank Ruhl Libre', 'Playfair Display', Georgia, serif !important;
       }
       html body #main-hero-area .hero-title-main { color: #1A1A1A !important; -webkit-text-fill-color: #1A1A1A !important; }
       html body #main-hero-area .hero-title-maroon { color: #5E101C !important; -webkit-text-fill-color: #5E101C !important; }
       html body #main-hero-area .hero-subtitle { color: #404040 !important; -webkit-text-fill-color: #404040 !important; }
       html body #main-hero-area .hero-meta-title { color: #1A1A1A !important; -webkit-text-fill-color: #1A1A1A !important; }
       html body #main-hero-area .hero-meta-sub { color: #525252 !important; -webkit-text-fill-color: #525252 !important; }
-      html body header[data-navbar-hero="true"] .navbar-title { color: #1A1A1A !important; -webkit-text-fill-color: #1A1A1A !important; }
+      html body header[data-navbar-hero="true"] .navbar-title { color: #515151 !important; -webkit-text-fill-color: #515151 !important; }
       html body header[data-navbar-hero="true"] .navbar-subtext { color: #525252 !important; -webkit-text-fill-color: #525252 !important; }
       html body header[data-navbar-hero="true"] .navbar-link span { color: rgba(26, 26, 26, 0.8) !important; -webkit-text-fill-color: rgba(26, 26, 26, 0.8) !important; }
       html body header[data-navbar-hero="true"] .navbar-link.active span { color: #5E101C !important; -webkit-text-fill-color: #5E101C !important; }

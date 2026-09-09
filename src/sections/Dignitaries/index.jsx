@@ -4,28 +4,26 @@ import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 
 const CHIEF_GUEST = {
-  name: 'Prof. T N Singh',
+  name: 'Shri Vinod Tawde',
   role: 'Chief Guest',
-  designation: 'Director, IIT Patna',
+  designation: 'Member of Parliament, Rajya Sabha',
   badge: 'Chief Guest',
-  bio: 'Eminent academician, distinguished researcher, and administrative visionary leading the Indian Institute of Technology Patna. Conferred with multiple national and international honors for contributions to engineering education and scientific research.',
-  initials: 'TNS',
-  image: '/assets/dignitaries/prof-tn-singh.jpg',
+  bio: 'Distinguished statesman, national public leader, and Member of Parliament (Rajya Sabha). Renowned for visionary leadership in educational reforms, public policy, and youth empowerment across the nation.',
+  initials: 'VT',
+  image: '/assets/dignitaries/shri-vinod-tawde.jpg',
 };
 
 const DIGNITARIES = [
-  /*
   {
-    name: 'Prof. Pragati Kumar',
+    name: 'Mr. Varun Goyal',
     role: 'Guest of Honour',
-    subtitle: 'Vice Chancellor',
-    designation: 'SMVD University',
+    subtitle: 'University Relations Leader',
+    designation: 'Nokia Solutions and Networks India',
     badge: 'Guest of Honour',
     badgeVariant: 'secondary',
-    initials: 'PK',
-    image: '/assets/dignitaries/prof-pragati-kumar.jpg',
+    initials: 'VG',
+    image: '/assets/dignitaries/mr-varun-goyal.jpg',
   },
-  */
   {
     name: 'Dr. Ashok Khade',
     role: 'Chairperson',
@@ -68,8 +66,7 @@ export function DignitariesSection() {
           </p>
         </div>
 
-        {/* Highest Visual Hierarchy: Chief Guest Featured Banner (Commented out for now) */}
-        {/*
+        {/* Highest Visual Hierarchy: Chief Guest Featured Banner */}
         <div className="mb-8 sm:mb-12 2xl:mb-16">
           <div className="bg-gradient-to-br from-[#540D17] to-[#731322] rounded-[1.5rem] sm:rounded-[2rem] 2xl:rounded-[2.75rem] text-white p-6 sm:p-10 lg:p-12 2xl:p-16 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50">
             <div className="absolute -right-16 -top-16 w-80 h-80 2xl:w-96 2xl:h-96 rounded-full bg-gold-500/10 pointer-events-none blur-2xl" />
@@ -83,7 +80,7 @@ export function DignitariesSection() {
                     <div className="w-full h-full rounded-full overflow-hidden bg-[#3F0A11] border-2 border-white/20">
                       <img
                         src={CHIEF_GUEST.image}
-                        alt="Prof. T N Singh, Director IIT Patna - Chief Guest for 3rd Convocation"
+                        alt={`${CHIEF_GUEST.name}, ${CHIEF_GUEST.designation} - Chief Guest for 3rd Convocation`}
                         width="208"
                         height="208"
                         loading="lazy"
@@ -128,7 +125,6 @@ export function DignitariesSection() {
             </div>
           </div>
         </div>
-        */}
 
         {/* Secondary Visual Hierarchy: Dignitaries Cards */}
         <div className={`grid grid-cols-1 ${DIGNITARIES.length === 2 ? 'md:grid-cols-2 max-w-4xl mx-auto' : 'md:grid-cols-3'} gap-4 sm:gap-8 2xl:gap-10`}>

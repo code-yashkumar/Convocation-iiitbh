@@ -61,6 +61,8 @@ export default {
         display: ['var(--font-display)'],
         body: ['var(--font-body)'],
         mono: ['var(--font-mono)'],
+        roboto: ['"Roboto"', 'sans-serif'],
+        frank: ['"Frank Ruhl Libre"', 'serif'],
       },
       spacing: {
         1: 'var(--space-1)',   /* 4px */

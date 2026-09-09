@@ -201,8 +201,8 @@ html[data-darkreader-scheme] body header[data-navbar-hero="true"] .navbar-title,
 html[data-darkreader-scheme] body header[data-navbar-hero="true"] .navbar-title span,
 html[data-darkreader-mode] body header[data-navbar-hero="true"] .navbar-title,
 html.dark-reader-active body header[data-navbar-hero="true"] .navbar-title {
-  color: #1A1A1A !important;
-  -webkit-text-fill-color: #1A1A1A !important;
+  color: #515151 !important;
+  -webkit-text-fill-color: #515151 !important;
 }
 
 html body header[data-navbar-hero="true"] .navbar-subtext,

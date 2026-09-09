@@ -151,14 +151,22 @@ export function NavBar() {
           aria-label="IIIT Bhagalpur Official Website"
         >
           <InstitutionCrest className="navbar-crest w-8 h-8 md:w-11 md:h-11 shrink-0 group-hover:scale-105 transition-transform" />
-          <div className="flex flex-col whitespace-nowrap">
-            <span className="navbar-title md:hidden font-display font-bold text-sm text-charcoal-900 leading-tight tracking-wider uppercase">
-              IIIT Bhagalpur
+          {/* Mobile title (< md) */}
+          <div className="flex flex-col md:hidden leading-tight whitespace-nowrap">
+            <span className="navbar-title font-roboto font-bold text-[0.6875rem] sm:text-xs text-[#515151] leading-tight">
+              Indian Institute of Information Technology
             </span>
-            <span className="navbar-title hidden md:inline font-display font-bold text-sm md:text-base text-charcoal-900 leading-tight whitespace-nowrap">
+            <span className="navbar-title font-roboto font-bold text-[0.6875rem] sm:text-xs text-[#515151] leading-tight">
+              Bhagalpur
+            </span>
+          </div>
+
+          {/* Desktop title (>= md) */}
+          <div className="hidden md:flex flex-col whitespace-nowrap">
+            <span className="navbar-title font-roboto font-bold text-sm md:text-base text-[#515151] leading-tight translate-y-[1px] whitespace-nowrap">
               Indian Institute of Information Technology Bhagalpur
             </span>
-            <span className="navbar-subtext hidden md:inline font-body text-[0.6875rem] md:text-xs text-charcoal-600 leading-tight mt-0.5 whitespace-nowrap">
+            <span className="navbar-subtext font-body text-[0.6875rem] md:text-xs text-charcoal-600 leading-tight whitespace-nowrap">
               भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
             </span>
           </div>
