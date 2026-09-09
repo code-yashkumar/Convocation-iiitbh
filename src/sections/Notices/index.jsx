@@ -258,13 +258,6 @@ export function NoticeSection() {
               <Bell className="w-4 h-4 text-maroon-900 shrink-0" />
               <span>Official Communications</span>
             </div>
-
-            {isLiveConnected && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-body text-xs font-semibold">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Live Google Sheet Synced</span>
-              </div>
-            )}
           </div>
 
           <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">

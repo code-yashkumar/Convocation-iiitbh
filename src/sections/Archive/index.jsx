@@ -113,7 +113,7 @@ export function ArchiveSection() {
           >
             <option value="All">All Convocation Years</option>
             <option value="2026">2026 (3rd Convocation)</option>
-            <option value="2025">2025 (4th Convocation)</option>
+            <option value="2025">2025 (2nd Convocation)</option>
           </select>
 
           <Button
