@@ -307,12 +307,16 @@ export function NoticeSection() {
                 </p>
 
                 <div className="flex items-center gap-4 text-xs sm:text-sm text-white/70 font-body pt-1">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-4 h-4 text-gold-400" />
-                    {pinnedNotice.date}
-                  </span>
-                  <span>•</span>
-                  <span>Issued by: {pinnedNotice.issuedBy}</span>
+                  {pinnedNotice.date && pinnedNotice.date.trim() ? (
+                    <>
+                      <span className="flex items-center gap-1.5">
+                        <Calendar className="w-4 h-4 text-gold-400" />
+                        {pinnedNotice.date}
+                      </span>
+                      {pinnedNotice.issuedBy && <span>•</span>}
+                    </>
+                  ) : null}
+                  {pinnedNotice.issuedBy && <span>Issued by: {pinnedNotice.issuedBy}</span>}
                 </div>
               </div>
 
@@ -457,10 +461,14 @@ export function NoticeSection() {
                 {/* Card Footer */}
                 <div className="pt-4 border-t border-[#ECE6DC] space-y-3">
                   <div className="flex items-center justify-between text-xs font-body text-charcoal-500">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-maroon-900" />
-                      {notice.date}
-                    </span>
+                    {notice.date && notice.date.trim() ? (
+                      <span className="flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-maroon-900" />
+                        {notice.date}
+                      </span>
+                    ) : (
+                      <span />
+                    )}
                     <span className="px-2.5 py-0.5 rounded-md bg-cream-100 border border-border text-[0.6875rem] font-mono font-medium text-charcoal-700">
                       PDF Document
                     </span>
@@ -525,10 +533,12 @@ export function NoticeSection() {
                     <span>Featured Pinned Circular</span>
                   </span>
                 )}
-                <span className="inline-flex items-center gap-1.5 text-charcoal-600 text-xs">
-                  <Calendar className="w-3.5 h-3.5 text-maroon-900" />
-                  {selectedNotice.date}
-                </span>
+                {selectedNotice.date && selectedNotice.date.trim() ? (
+                  <span className="inline-flex items-center gap-1.5 text-charcoal-600 text-xs">
+                    <Calendar className="w-3.5 h-3.5 text-maroon-900" />
+                    {selectedNotice.date}
+                  </span>
+                ) : null}
               </div>
               <span className="font-mono text-xs font-medium text-charcoal-500 bg-cream-100 px-2.5 py-1 rounded-md border border-border">
                 Ref: {selectedNotice.refNo}
