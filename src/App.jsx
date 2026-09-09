@@ -73,7 +73,7 @@ function HomePage() {
               "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
               "location": {
                 "@type": "Place",
-                "name": "Main Lecture Hall, IIIT Bhagalpur Campus",
+                "name": "Town Hall, Bhagalpur",
                 "address": {
                   "@type": "PostalAddress",
                   "streetAddress": "Sabour",

@@ -90,7 +90,7 @@ const INFO_BAR_ITEMS = [
   {
     icon: MapPinDesignIcon,
     label: 'VENUE',
-    value: 'Bhagalpur',
+    value: 'Town Hall, Bhagalpur',
   },
   {
     icon: EditionIcon,

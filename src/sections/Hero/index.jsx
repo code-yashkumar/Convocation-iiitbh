@@ -143,7 +143,7 @@ export function Hero() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-body font-bold text-sm sm:text-base text-charcoal-900 leading-snug">
-                    Bhagalpur
+                    Town Hall, Bhagalpur
                   </span>
                   <span className="font-body text-xs sm:text-sm text-charcoal-600 leading-tight mt-0.5">
                     Bihar
