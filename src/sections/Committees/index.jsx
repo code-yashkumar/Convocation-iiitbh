@@ -476,10 +476,10 @@ export function CommitteeSection() {
           }
         }}
       />
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-3 border border-maroon-900/10 shadow-xs">
             <Users className="w-4 h-4 text-maroon-900 shrink-0" />
             <span>Institutional Governance</span>
@@ -488,61 +488,61 @@ export function CommitteeSection() {
           <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
             Organizing Committees
           </h1>
-          <p className="font-body text-charcoal-600 text-sm sm:text-lg mt-3 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-charcoal-600 text-xs sm:text-base md:text-lg mt-2.5 sm:mt-3 max-w-2xl mx-auto leading-relaxed">
             Official roster of 40+ faculty conveners, administrative officers, and committee members across 22 specialized task forces for the 3rd Convocation.
           </p>
         </div>
 
         {/* Executive Stats Banner */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12">
-          <div className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-maroon-050 text-maroon-900 flex items-center justify-center shrink-0 border border-maroon-900/15">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6 mb-8 sm:mb-10 md:mb-12">
+          <div className="bg-white rounded-2xl md:rounded-[1.5rem] p-4 sm:p-4.5 md:p-4.5 lg:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-xl md:rounded-2xl bg-maroon-050 text-maroon-900 flex items-center justify-center shrink-0 border border-maroon-900/15">
               <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div>
-              <div className="font-display font-bold text-xl sm:text-2xl text-charcoal-900">22 Committees</div>
-              <div className="font-body text-xs text-charcoal-600 mt-0.5">Specialized Task Forces</div>
+            <div className="min-w-0">
+              <div className="font-display font-bold text-lg sm:text-xl md:text-xl lg:text-2xl text-charcoal-900 leading-tight">22 Committees</div>
+              <div className="font-body text-xs md:text-xs lg:text-sm text-charcoal-600 mt-0.5 leading-snug">Specialized Task Forces</div>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gold-500/20 text-maroon-900 flex items-center justify-center shrink-0 border border-gold-500/30">
+          <div className="bg-white rounded-2xl md:rounded-[1.5rem] p-4 sm:p-4.5 md:p-4.5 lg:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-xl md:rounded-2xl bg-gold-500/20 text-maroon-900 flex items-center justify-center shrink-0 border border-gold-500/30">
               <UserCheck className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div>
-              <div className="font-display font-bold text-xl sm:text-2xl text-charcoal-900">40+ Members</div>
-              <div className="font-body text-xs text-charcoal-600 mt-0.5">Faculty & Staff Appointees</div>
+            <div className="min-w-0">
+              <div className="font-display font-bold text-lg sm:text-xl md:text-xl lg:text-2xl text-charcoal-900 leading-tight">40+ Members</div>
+              <div className="font-body text-xs md:text-xs lg:text-sm text-charcoal-600 mt-0.5 leading-snug">Faculty & Staff Appointees</div>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-200">
+          <div className="bg-white rounded-2xl md:rounded-[1.5rem] p-4 sm:p-4.5 md:p-4.5 lg:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center gap-3.5 sm:gap-4">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-xl md:rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-200">
               <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div>
-              <div className="font-display font-bold text-xl sm:text-2xl text-charcoal-900">Full Preparedness</div>
-              <div className="font-body text-xs text-charcoal-600 mt-0.5">26 September 2026</div>
+            <div className="min-w-0">
+              <div className="font-display font-bold text-lg sm:text-xl md:text-xl lg:text-2xl text-charcoal-900 leading-tight">Full Preparedness</div>
+              <div className="font-body text-xs md:text-xs lg:text-sm text-charcoal-600 mt-0.5 leading-snug">26 September 2026</div>
             </div>
           </div>
         </div>
 
         {/* Search & Filter Controls */}
-        <div className="bg-white rounded-[1.375rem] sm:rounded-[1.5rem] p-4 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 sm:mb-10 space-y-3.5 sm:space-y-4">
+        <div className="bg-white rounded-2xl md:rounded-[1.5rem] p-3.5 sm:p-5 md:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 sm:mb-10 space-y-3 sm:space-y-4">
           {/* Search Input */}
           <div className="relative w-full">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-5 sm:h-5 text-charcoal-400" />
+            <Search className="absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-charcoal-400" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search by faculty name, designation, or committee..."
-              className="w-full pl-11 sm:pl-12 pr-4 py-2.5 sm:py-3 rounded-xl bg-cream-050 border border-[#ECE6DC] font-body text-xs sm:text-sm text-charcoal-900 placeholder:text-charcoal-400 focus:outline-none focus:border-maroon-900 focus:bg-white transition-all"
+              className="w-full pl-10 sm:pl-11 md:pl-12 pr-14 sm:pr-16 py-2.5 sm:py-3 rounded-xl bg-cream-050 border border-[#ECE6DC] font-body text-xs sm:text-sm text-charcoal-900 placeholder:text-charcoal-400 focus:outline-none focus:border-maroon-900 focus:bg-white transition-all"
             />
             {searchTerm && (
               <button
                 type="button"
                 onClick={() => setSearchTerm('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-body font-semibold text-maroon-900 hover:underline"
+                className="absolute right-3.5 sm:right-4 top-1/2 -translate-y-1/2 text-xs font-body font-semibold text-maroon-900 hover:underline cursor-pointer"
               >
                 Clear
               </button>
@@ -550,13 +550,13 @@ export function CommitteeSection() {
           </div>
 
           {/* Category Filter Pills (Horizontal scroll on mobile) */}
-          <div className="overflow-x-auto no-scrollbar flex items-center gap-1.5 sm:gap-2 pt-2 border-t border-[#ECE6DC] -mx-1 px-1">
+          <div className="overflow-x-auto no-scrollbar flex items-center gap-1.5 sm:gap-2 pt-2 sm:pt-2.5 border-t border-[#ECE6DC] -mx-1 px-1">
             {CATEGORIES.map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`min-h-[2.125rem] px-3.5 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 select-none ${
+                className={`min-h-[2.125rem] px-3 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 whitespace-nowrap select-none ${
                   activeCategory === category
                     ? 'bg-maroon-900 text-white shadow-xs'
                     : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'
@@ -570,24 +570,24 @@ export function CommitteeSection() {
 
         {/* Committees Grid (2 Columns on Large Displays) */}
         {filteredCommittees.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-[1.5rem] border border-[#E8E2D8] p-8">
+          <div className="text-center py-16 bg-white rounded-2xl md:rounded-[1.5rem] border border-[#E8E2D8] p-6 sm:p-8">
             <Users className="w-12 h-12 text-charcoal-300 mx-auto mb-3" />
-            <h3 className="font-display font-bold text-xl text-charcoal-800">No committee members matched</h3>
-            <p className="font-body text-charcoal-500 text-sm mt-1">
+            <h3 className="font-display font-bold text-lg sm:text-xl text-charcoal-800">No committee members matched</h3>
+            <p className="font-body text-charcoal-500 text-xs sm:text-sm mt-1">
               Try searching with another keyword or selecting "All" category.
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {filteredCommittees.map((committee) => (
               <div
                 key={committee.id}
-                className="bg-white rounded-[1.5rem] p-6 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(94,16,28,0.06)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 md:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(94,16,28,0.06)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Category Badge & Committee Number */}
-                  <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5">
-                    <span className="px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-xs font-semibold">
+                  <div className="flex items-center justify-between gap-2.5 mb-3.5 sm:mb-5">
+                    <span className="px-2.5 sm:px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 border border-maroon-900/15 font-body text-[0.6875rem] sm:text-xs font-semibold">
                       {committee.category}
                     </span>
                     <span className="font-mono text-xs font-bold text-charcoal-400">
@@ -596,51 +596,51 @@ export function CommitteeSection() {
                   </div>
 
                   {/* Committee Name */}
-                  <h3 className="font-display font-bold text-xl sm:text-2xl text-charcoal-900 leading-snug">
+                  <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-charcoal-900 leading-snug">
                     {committee.id}. {committee.name}
                   </h3>
 
                   {/* Conveners Box */}
-                  <div className="mt-5 space-y-2.5">
+                  <div className="mt-4 sm:mt-5 space-y-2 sm:space-y-2.5">
                     {committee.convener && (
-                      <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-maroon-050/80 to-cream-050 border border-maroon-900/15 flex items-start justify-between gap-3">
-                        <div className="flex items-center gap-3 min-w-0">
+                      <div className="p-3 sm:p-3.5 md:p-4 rounded-xl bg-gradient-to-r from-maroon-050/80 to-cream-050 border border-maroon-900/15 flex items-center justify-between gap-2.5 sm:gap-3">
+                        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                           {/* Profile Circle with Initials */}
-                          <div className="w-9 h-9 rounded-full bg-maroon-900 text-white font-display font-bold text-xs flex items-center justify-center shrink-0 shadow-xs border border-maroon-800 select-none">
+                          <div className="w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-full bg-maroon-900 text-white font-display font-bold text-xs flex items-center justify-center shrink-0 shadow-xs border border-maroon-800 select-none">
                             {getInitials(committee.convener.name)}
                           </div>
                           <div className="space-y-0.5 min-w-0">
-                            <span className="font-body text-[0.6875rem] font-bold text-maroon-900 uppercase tracking-wider block">
+                            <span className="font-body text-[0.625rem] sm:text-[0.6875rem] font-bold text-maroon-900 uppercase tracking-wider block">
                               Convener
                             </span>
-                            <h4 className="font-display font-bold text-base text-charcoal-900 truncate">
+                            <h4 className="font-display font-bold text-sm sm:text-base text-charcoal-900 truncate">
                               {committee.convener.name}
                             </h4>
                           </div>
                         </div>
-                        <span className="font-body text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-maroon-900/10 shrink-0">
+                        <span className="font-body text-[0.6875rem] sm:text-xs font-semibold text-charcoal-700 bg-white px-2 sm:px-2.5 py-1 rounded-md border border-maroon-900/10 shrink-0 text-right max-w-[45%] truncate">
                           {committee.convener.designation}
                         </span>
                       </div>
                     )}
 
                     {committee.coConvener && (
-                      <div className="p-3.5 sm:p-4 rounded-xl bg-cream-050 border border-[#ECE6DC] flex items-start justify-between gap-3">
-                        <div className="flex items-center gap-3 min-w-0">
+                      <div className="p-3 sm:p-3.5 md:p-4 rounded-xl bg-cream-050 border border-[#ECE6DC] flex items-center justify-between gap-2.5 sm:gap-3">
+                        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                           {/* Profile Circle with Initials */}
-                          <div className="w-9 h-9 rounded-full bg-maroon-900/10 text-maroon-900 border border-maroon-900/20 font-display font-bold text-xs flex items-center justify-center shrink-0 select-none">
+                          <div className="w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-full bg-maroon-900/10 text-maroon-900 border border-maroon-900/20 font-display font-bold text-xs flex items-center justify-center shrink-0 select-none">
                             {getInitials(committee.coConvener.name)}
                           </div>
                           <div className="space-y-0.5 min-w-0">
-                            <span className="font-body text-[0.6875rem] font-bold text-charcoal-700 uppercase tracking-wider block">
+                            <span className="font-body text-[0.625rem] sm:text-[0.6875rem] font-bold text-charcoal-700 uppercase tracking-wider block">
                               Co-Convener
                             </span>
-                            <h4 className="font-display font-bold text-base text-charcoal-900 truncate">
+                            <h4 className="font-display font-bold text-sm sm:text-base text-charcoal-900 truncate">
                               {committee.coConvener.name}
                             </h4>
                           </div>
                         </div>
-                        <span className="font-body text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-border shrink-0">
+                        <span className="font-body text-[0.6875rem] sm:text-xs font-semibold text-charcoal-700 bg-white px-2 sm:px-2.5 py-1 rounded-md border border-border shrink-0 text-right max-w-[45%] truncate">
                           {committee.coConvener.designation}
                         </span>
                       </div>
@@ -648,26 +648,26 @@ export function CommitteeSection() {
                   </div>
 
                   {/* Committee Members List */}
-                  <div className="mt-5">
-                    <h4 className="font-body text-xs font-bold text-charcoal-500 uppercase tracking-wider mb-2.5">
+                  <div className="mt-4 sm:mt-5">
+                    <h4 className="font-body text-[0.6875rem] sm:text-xs font-bold text-charcoal-500 uppercase tracking-wider mb-2 sm:mb-2.5">
                       Members
                     </h4>
-                    <div className="space-y-2">
+                    <div className="space-y-1.5 sm:space-y-2">
                       {committee.members.map((member, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-2.5 sm:p-3 rounded-lg bg-cream-050/60 border border-[#ECE6DC] text-xs sm:text-sm font-body"
+                          className="flex items-center justify-between p-2 sm:p-2.5 md:p-3 rounded-lg bg-cream-050/60 border border-[#ECE6DC] text-xs sm:text-sm font-body gap-2"
                         >
-                          <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
                             {/* Profile Circle with Initials */}
-                            <div className="w-7 h-7 rounded-full bg-maroon-900/10 text-maroon-900 font-display font-bold text-[0.6875rem] flex items-center justify-center shrink-0 border border-maroon-900/15 select-none">
+                            <div className="w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-maroon-900/10 text-maroon-900 font-display font-bold text-[0.625rem] sm:text-[0.6875rem] flex items-center justify-center shrink-0 border border-maroon-900/15 select-none">
                               {getInitials(member.name)}
                             </div>
-                            <span className="font-semibold text-charcoal-900 truncate">
+                            <span className="font-semibold text-charcoal-900 truncate text-xs sm:text-sm">
                               {member.name}
                             </span>
                           </div>
-                          <span className="text-charcoal-600 text-xs font-medium text-right shrink-0 ml-2">
+                          <span className="text-charcoal-600 text-[0.6875rem] sm:text-xs font-medium text-right shrink-0 max-w-[48%] truncate ml-1 sm:ml-2">
                             {member.designation}
                           </span>
                         </div>
@@ -677,9 +677,9 @@ export function CommitteeSection() {
                 </div>
 
                 {/* Footer indicator */}
-                <div className="mt-6 pt-4 border-t border-[#ECE6DC] flex items-center justify-between text-xs text-charcoal-500 font-body">
-                  <span>IIIT Bhagalpur 3rd Convocation Secretariat</span>
-                  <span className="font-semibold text-maroon-900">{committee.members.length + (committee.convener ? 1 : 0) + (committee.coConvener ? 1 : 0)} Personnel</span>
+                <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-[#ECE6DC] flex items-center justify-between text-[0.6875rem] sm:text-xs text-charcoal-500 font-body">
+                  <span className="truncate mr-2">IIIT Bhagalpur 3rd Convocation Secretariat</span>
+                  <span className="font-semibold text-maroon-900 shrink-0">{committee.members.length + (committee.convener ? 1 : 0) + (committee.coConvener ? 1 : 0)} Personnel</span>
                 </div>
               </div>
             ))}
