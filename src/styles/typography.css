@@ -72,21 +72,28 @@
   --type-numeral-countdown-font: var(--font-body);
 }
 
-/* Typography Utility Classes */
+/* Typography Utility Classes with Apple Optical Tracking */
 .font-display {
   font-family: var(--font-display);
+  letter-spacing: -0.022em;
+  text-rendering: optimizeLegibility;
 }
 
 .font-frank {
   font-family: var(--font-frank);
+  letter-spacing: -0.025em;
+  text-rendering: optimizeLegibility;
 }
 
 .font-body {
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .font-mono {
   font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1;
 }
 
 .type-display-xl {
@@ -94,6 +101,7 @@
   font-size: var(--type-display-xl-size);
   line-height: var(--type-display-xl-line);
   font-weight: var(--type-display-xl-weight);
+  letter-spacing: -0.03em;
 }
 
 .type-display-lg {
@@ -101,6 +109,7 @@
   font-size: var(--type-display-lg-size);
   line-height: var(--type-display-lg-line);
   font-weight: var(--type-display-lg-weight);
+  letter-spacing: -0.025em;
 }
 
 .type-display-md {
@@ -108,6 +117,7 @@
   font-size: var(--type-display-md-size);
   line-height: var(--type-display-md-line);
   font-weight: var(--type-display-md-weight);
+  letter-spacing: -0.02em;
 }
 
 .type-display-accent {
@@ -115,6 +125,7 @@
   font-size: var(--type-display-accent-size);
   line-height: var(--type-display-accent-line);
   font-weight: var(--type-display-accent-weight);
+  letter-spacing: -0.025em;
 }
 
 .type-body-xl {
@@ -122,6 +133,7 @@
   font-size: var(--type-body-xl-size);
   line-height: var(--type-body-xl-line);
   font-weight: var(--type-body-xl-weight);
+  letter-spacing: -0.01em;
 }
 
 .type-body-lg {
@@ -129,6 +141,7 @@
   font-size: var(--type-body-lg-size);
   line-height: var(--type-body-lg-line);
   font-weight: var(--type-body-lg-weight);
+  letter-spacing: -0.005em;
 }
 
 .type-body-md {
@@ -150,7 +163,7 @@
   font-size: var(--type-label-size);
   line-height: var(--type-label-line);
   font-weight: var(--type-label-weight);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
 .type-numeral-countdown {
@@ -159,6 +172,7 @@
   line-height: var(--type-numeral-countdown-line);
   font-weight: var(--type-numeral-countdown-weight);
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
 /* Responsive adjustments for headings on mobile */
@@ -166,14 +180,17 @@
   .type-display-xl {
     font-size: 2.5rem;
     line-height: 1.15;
+    letter-spacing: -0.025em;
   }
   .type-display-lg {
     font-size: 2rem;
     line-height: 1.2;
+    letter-spacing: -0.02em;
   }
   .type-display-accent {
     font-size: 2.5rem;
     line-height: 1.15;
+    letter-spacing: -0.02em;
   }
   .type-numeral-countdown {
     font-size: 2.5rem;

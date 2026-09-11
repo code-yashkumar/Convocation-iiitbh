@@ -235,7 +235,7 @@ export function HomeGalleryCarousel() {
           <div className="flex items-center justify-center sm:justify-end gap-3 shrink-0">
             <Link
               to="/gallery"
-              className="inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-white hover:bg-maroon-050 text-charcoal-900 hover:text-maroon-900 border border-maroon-900/30 hover:border-maroon-900 shadow-xs font-body font-semibold text-sm transition-all gap-2 cursor-pointer"
+              className="inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-white hover:bg-maroon-050 text-charcoal-900 hover:text-maroon-900 border border-maroon-900/30 hover:border-maroon-900 active:scale-95 shadow-xs font-body font-semibold text-sm transition-all gap-2 cursor-pointer"
             >
               <span>Explore Full Gallery</span>
               <ArrowRight className="w-4 h-4" />

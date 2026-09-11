@@ -154,7 +154,7 @@ export function HowToReachSection() {
                     href={googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 sm:flex-none inline-flex items-center justify-center min-h-[2.375rem] px-4 rounded-pill bg-gold-500 hover:bg-gold-400 text-charcoal-950 font-body font-bold text-xs shadow-sm transition-all gap-1.5 cursor-pointer focus:outline-none focus-visible:outline-none whitespace-nowrap"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center min-h-[2.375rem] px-4 rounded-pill bg-gold-500 hover:bg-gold-400 active:scale-95 text-charcoal-950 font-body font-bold text-xs shadow-sm transition-all gap-1.5 cursor-pointer focus:outline-none focus-visible:outline-none whitespace-nowrap"
                   >
                     <span>Open Map</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -162,7 +162,7 @@ export function HowToReachSection() {
                   <button
                     type="button"
                     onClick={handleCopyAddress}
-                    className="w-9 h-9 rounded-pill bg-white/15 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer focus:outline-none focus-visible:outline-none shrink-0"
+                    className="w-9 h-9 rounded-pill bg-white/15 hover:bg-white/25 active:scale-95 border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer focus:outline-none focus-visible:outline-none shrink-0"
                     title="Copy full address"
                   >
                     {copied ? <Check className="w-4 h-4 text-emerald-300" /> : <Copy className="w-4 h-4" />}
@@ -179,7 +179,7 @@ export function HowToReachSection() {
                 return (
                   <div
                     key={transit.id}
-                    className="rounded-[1.125rem] sm:rounded-[1.25rem] p-3.5 sm:p-4 border border-[#ECE6DC] bg-cream-050/60 hover:bg-white hover:border-maroon-900 hover:shadow-[0_8px_24px_rgba(94,16,28,0.08)] outline-none focus:outline-none transition-all duration-300 flex items-center justify-between gap-3 sm:gap-4 group cursor-default select-none"
+                    className="rounded-[1.125rem] sm:rounded-[1.25rem] p-3.5 sm:p-4 border border-[#ECE6DC] bg-cream-050/60 hover:bg-white hover:border-maroon-900 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(94,16,28,0.07)] active:scale-[0.99] outline-none focus:outline-none transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex items-center justify-between gap-3 sm:gap-4 group cursor-default select-none"
                   >
                     {/* Left: Icon + Title & Description */}
                     <div className="flex items-start gap-3 sm:gap-3.5 min-w-0 flex-1">

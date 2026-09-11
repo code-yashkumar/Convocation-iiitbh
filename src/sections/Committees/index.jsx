@@ -556,7 +556,7 @@ export function CommitteeSection() {
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`min-h-[2.125rem] px-3 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 whitespace-nowrap select-none ${
+                className={`min-h-[2.125rem] px-3 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all duration-200 active:scale-95 focus-visible:outline-none cursor-pointer shrink-0 whitespace-nowrap select-none ${
                   activeCategory === category
                     ? 'bg-maroon-900 text-white shadow-xs'
                     : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'
@@ -582,7 +582,7 @@ export function CommitteeSection() {
             {filteredCommittees.map((committee) => (
               <div
                 key={committee.id}
-                className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 md:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(94,16,28,0.06)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 md:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.07)] hover:-translate-y-1 hover:border-maroon-900/30 active:scale-[0.99] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col justify-between"
               >
                 <div>
                   {/* Top Category Badge & Committee Number */}

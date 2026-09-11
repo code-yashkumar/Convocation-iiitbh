@@ -67,7 +67,7 @@ export function DignitariesSection() {
             return (
               <div
                 key={dignitary.name}
-                className="bg-white rounded-2xl sm:rounded-[1.75rem] p-5 sm:p-6 lg:p-7 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.07)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-white rounded-2xl sm:rounded-[1.75rem] p-5 sm:p-6 lg:p-7 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.08)] hover:-translate-y-1 hover:border-maroon-900/30 active:scale-[0.99] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col justify-between group relative overflow-hidden select-none"
               >
                 {/* Subtle Hover Ambient Glow */}
                 <div className="absolute -top-12 -right-12 w-32 h-32 bg-maroon-050/60 rounded-full blur-2xl pointer-events-none group-hover:bg-gold-500/10 transition-colors" />

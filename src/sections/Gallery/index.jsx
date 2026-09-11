@@ -274,7 +274,7 @@ export function GallerySection() {
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`min-h-[2.25rem] sm:min-h-[2.375rem] px-3.5 sm:px-5 rounded-pill font-body text-xs sm:text-sm font-semibold transition-all focus-visible:outline-none cursor-pointer shrink-0 select-none ${
+                className={`min-h-[2.25rem] sm:min-h-[2.375rem] px-3.5 sm:px-5 rounded-pill font-body text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 focus-visible:outline-none cursor-pointer shrink-0 select-none ${
                   activeCategory === category
                     ? 'bg-maroon-900 text-white shadow-xs'
                     : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'
@@ -296,7 +296,7 @@ export function GallerySection() {
                   key={edition.id}
                   type="button"
                   onClick={() => setActiveEdition(edition.id)}
-                  className={`px-3 sm:px-3.5 py-1 rounded-pill text-xs font-body font-medium transition-all cursor-pointer whitespace-nowrap ${
+                  className={`px-3 sm:px-3.5 py-1 rounded-pill text-xs font-body font-medium transition-all duration-200 active:scale-95 cursor-pointer whitespace-nowrap ${
                     activeEdition === edition.id
                       ? 'bg-white text-maroon-900 font-bold shadow-xs border border-maroon-900/20'
                       : 'text-charcoal-600 hover:text-charcoal-900'
@@ -328,7 +328,7 @@ export function GallerySection() {
               <button
                 type="button"
                 onClick={() => setActiveEdition('All Editions')}
-                className="px-6 py-2.5 rounded-pill bg-maroon-900 text-white font-body text-xs sm:text-sm font-semibold hover:bg-maroon-700 transition-colors cursor-pointer"
+                className="px-6 py-2.5 rounded-pill bg-maroon-900 text-white font-body text-xs sm:text-sm font-semibold hover:bg-maroon-700 active:scale-95 transition-all cursor-pointer"
               >
                 Browse 2025 & 2021 Archives
               </button>
@@ -352,7 +352,7 @@ export function GallerySection() {
                 key={item.id}
                 to={`/gallery/${item.slug}`}
                 aria-label={`View photo album: ${item.title}`}
-                className="group relative bg-white rounded-[1.5rem] overflow-hidden border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.09)] hover:border-maroon-900/40 transition-all duration-300 flex flex-col justify-between cursor-pointer focus-visible:outline-none"
+                className="group relative bg-white rounded-[1.5rem] overflow-hidden border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_48px_rgba(94,16,28,0.1)] hover:-translate-y-1.5 hover:border-maroon-900/40 active:scale-[0.985] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col justify-between cursor-pointer focus-visible:outline-none"
               >
                 <div>
                   {/* Image Container with Zoom and Badge */}

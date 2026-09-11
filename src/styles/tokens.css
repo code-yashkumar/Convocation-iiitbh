@@ -66,9 +66,13 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1440px;
 
-  /* Motion Durations */
-  --motion-button: 150ms;
-  --motion-modal: 200ms;
-  --motion-nav: 200ms;
-  --motion-reveal: 250ms;
+  /* Motion & Spring Physics (Apple Fluid Interface Design) */
+  --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --motion-button: 180ms cubic-bezier(0.32, 0.72, 0, 1);
+  --motion-modal: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-nav: 220ms cubic-bezier(0.32, 0.72, 0, 1);
+  --motion-reveal: 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }

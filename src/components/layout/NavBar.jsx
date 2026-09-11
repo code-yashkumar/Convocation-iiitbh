@@ -136,7 +136,7 @@ export function NavBar() {
       style={isHeroMode ? { colorScheme: 'light' } : undefined}
       className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-nav ${
         isScrolled
-          ? 'bg-cream-100/90 backdrop-blur-md shadow-sm border-b border-border/60'
+          ? 'bg-cream-100/85 backdrop-blur-xl saturate-180 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-b border-[#E8E2D8]/80'
           : 'bg-transparent'
       }`}
     >
@@ -147,7 +147,7 @@ export function NavBar() {
           href="https://www.iiitbh.ac.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none shrink-0"
+          className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none shrink-0 active:scale-95 transition-transform"
           aria-label="IIIT Bhagalpur Official Website"
         >
           <InstitutionCrest className="navbar-crest w-8 h-8 md:w-11 md:h-11 shrink-0 group-hover:scale-105 transition-transform" />
@@ -242,10 +242,10 @@ export function NavBar() {
               />
             </button>
 
-            {/* Desktop Dropdown Menu */}
+            {/* Desktop Dropdown Menu with Apple Spring Scale */}
             {isEditionsOpen && (
               <div
-                className="absolute right-0 top-full mt-2 w-56 py-2 bg-white rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.12)] border border-[#ECE6DC] z-50 animate-fadeIn"
+                className="absolute right-0 top-full mt-2 w-56 py-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_16px_48px_rgba(0,0,0,0.12)] border border-[#ECE6DC] z-50 animate-scaleIn origin-top-right"
                 role="menu"
               >
                 {EDITIONS_OPTIONS.map((item) => {
@@ -257,7 +257,7 @@ export function NavBar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => setIsEditionsOpen(false)}
-                        className="flex items-center justify-between px-4 py-2.5 text-sm font-body text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/80 transition-colors rounded-xl mx-1.5 cursor-pointer"
+                        className="flex items-center justify-between px-4 py-2.5 text-sm font-body text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/80 active:scale-98 transition-all rounded-xl mx-1.5 cursor-pointer"
                         role="menuitem"
                       >
                         <div className="flex flex-col">
@@ -273,7 +273,7 @@ export function NavBar() {
                       key={item.label}
                       to={item.to}
                       onClick={() => setIsEditionsOpen(false)}
-                      className="flex items-center justify-between px-4 py-2.5 text-sm font-body text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/80 transition-colors rounded-xl mx-1.5 cursor-pointer"
+                      className="flex items-center justify-between px-4 py-2.5 text-sm font-body text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/80 active:scale-98 transition-all rounded-xl mx-1.5 cursor-pointer"
                       role="menuitem"
                     >
                       <div className="flex flex-col">
@@ -288,13 +288,13 @@ export function NavBar() {
           </div>
         </nav>
 
-        {/* Desktop CTA Button (Strictly in 1 single line) */}
+        {/* Desktop CTA Button with Tactile Press */}
         <div className="hidden lg:flex items-center shrink-0">
           <a
             href="https://forms.gle/1nxVrpcRUfgMhH938"
             target="_blank"
             rel="noopener noreferrer"
-            className="navbar-btn-cta inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-sm whitespace-nowrap shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all focus-visible:outline-none cursor-pointer"
+            className="navbar-btn-cta inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-sm whitespace-nowrap shadow-sm hover:bg-maroon-700 active:scale-[0.965] transition-all focus-visible:outline-none cursor-pointer"
           >
             Register Now
           </a>
@@ -307,7 +307,7 @@ export function NavBar() {
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-nav"
           aria-label={isMobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
-          className="navbar-hamburger-btn lg:hidden inline-flex items-center justify-center w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-xl text-maroon-900 hover:bg-maroon-050/70 active:bg-maroon-050 transition-colors focus-visible:outline-none cursor-pointer"
+          className="navbar-hamburger-btn lg:hidden inline-flex items-center justify-center w-11 h-11 min-w-[2.75rem] min-h-[2.75rem] rounded-xl text-maroon-900 hover:bg-maroon-050/70 active:scale-95 transition-all focus-visible:outline-none cursor-pointer"
         >
           {isMobileMenuOpen ? (
             <X className="w-6 h-6 stroke-[2.4] text-maroon-900" aria-hidden="true" />
@@ -334,7 +334,7 @@ export function NavBar() {
       {isMobileMenuOpen && (
         <div
           id="mobile-nav"
-          className="fixed inset-0 top-16 md:top-[4.25rem] z-50 bg-cream-100/98 backdrop-blur-xl flex flex-col p-6 space-y-6 lg:hidden animate-fadeIn overflow-y-auto"
+          className="fixed inset-0 top-16 md:top-[4.25rem] z-50 bg-cream-100/95 backdrop-blur-2xl flex flex-col p-6 space-y-6 lg:hidden animate-fadeIn overflow-y-auto"
         >
           <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation">
             {NAV_LINKS.map((link) => {
@@ -344,7 +344,7 @@ export function NavBar() {
                     key={link.label}
                     href={`#${link.sectionId}`}
                     onClick={(e) => handleSectionClick(e, link.sectionId)}
-                    className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 transition-colors cursor-pointer"
+                    className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 active:scale-[0.98] transition-all cursor-pointer"
                   >
                     {link.label}
                   </a>
@@ -358,10 +358,10 @@ export function NavBar() {
                   end={link.to === '/'}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={({ isActive }) =>
-                    `py-3 px-4 rounded-xl text-base font-body transition-colors ${
+                    `py-3 px-4 rounded-xl text-base font-body transition-all active:scale-[0.98] ${
                       isActive
                         ? 'bg-maroon-050 text-maroon-900 font-bold border-l-4 border-maroon-900'
-                        : 'text-charcoal-900 hover:bg-maroon-050/70 font-semibold'
+                        : 'text-charcoal-900 hover:bg-maroon-050/70 font-semibold active:bg-maroon-050'
                     }`
                   }
                 >
@@ -375,7 +375,7 @@ export function NavBar() {
               <button
                 type="button"
                 onClick={() => setIsMobileEditionsOpen(!isMobileEditionsOpen)}
-                className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 transition-colors flex items-center justify-between w-full text-left cursor-pointer"
+                className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 active:scale-[0.98] transition-all flex items-center justify-between w-full text-left cursor-pointer"
               >
                 <span>Editions</span>
                 <ChevronDown
@@ -386,7 +386,7 @@ export function NavBar() {
               </button>
 
               {isMobileEditionsOpen && (
-                <div className="pl-3 pr-2 py-1.5 space-y-1 bg-white/90 rounded-xl mt-1 border border-[#ECE6DC] shadow-xs">
+                <div className="pl-3 pr-2 py-1.5 space-y-1 bg-white/90 rounded-xl mt-1 border border-[#ECE6DC] shadow-xs animate-scaleIn origin-top">
                   {EDITIONS_OPTIONS.map((item) => {
                     if (item.isExternal) {
                       return (
@@ -396,7 +396,7 @@ export function NavBar() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 flex items-center justify-between cursor-pointer"
+                          className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer"
                         >
                           <div className="flex flex-col">
                             <span className="font-semibold text-charcoal-900">{item.label}</span>
@@ -411,7 +411,7 @@ export function NavBar() {
                         key={item.label}
                         to={item.to}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 flex items-center justify-between cursor-pointer"
+                        className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer"
                       >
                         <div className="flex flex-col">
                           <span className="font-semibold text-charcoal-900">{item.label}</span>
@@ -430,7 +430,7 @@ export function NavBar() {
               href="https://forms.gle/1nxVrpcRUfgMhH938"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-full min-h-[3rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[0.9375rem] shadow-sm hover:bg-maroon-700 active:bg-maroon-700 transition-all text-center whitespace-nowrap cursor-pointer"
+              className="inline-flex items-center justify-center w-full min-h-[3rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[0.9375rem] shadow-sm hover:bg-maroon-700 active:scale-[0.97] transition-all text-center whitespace-nowrap cursor-pointer"
             >
               Register Now
             </a>

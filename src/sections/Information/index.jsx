@@ -92,25 +92,28 @@ export function InformationSection() {
         {GUIDELINES.map((guide, idx) => {
           const Icon = guide.icon;
           return (
-            <Card key={idx} variant="standard" className="space-y-4">
+            <div
+              key={idx}
+              className="space-y-4 bg-white rounded-2xl sm:rounded-[1.5rem] p-6 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.07)] hover:-translate-y-1 hover:border-maroon-900/30 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]"
+            >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-md bg-maroon-050 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-maroon-050 flex items-center justify-center border border-maroon-900/15 text-maroon-900">
                   <Icon className="w-5 h-5 text-maroon-900 stroke-[1.75]" />
                 </div>
-                <h3 className="type-display-md text-text-default text-lg">
+                <h3 className="font-display font-bold text-charcoal-900 text-lg sm:text-xl">
                   {guide.title}
                 </h3>
               </div>
 
-              <ul className="space-y-2.5 pt-2 border-t border-border">
+              <ul className="space-y-2.5 pt-3 border-t border-[#ECE6DC]">
                 {guide.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className="type-body-md text-text-muted flex items-start gap-2.5">
+                  <li key={itemIdx} className="font-body text-charcoal-600 text-xs sm:text-sm flex items-start gap-2.5 leading-relaxed">
                     <span className="w-1.5 h-1.5 rounded-full bg-maroon-900 mt-2 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-            </Card>
+            </div>
           );
         })}
       </div>

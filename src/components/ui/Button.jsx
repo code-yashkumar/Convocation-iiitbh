@@ -31,7 +31,7 @@ export const Button = forwardRef(function Button(
   ref
 ) {
   const baseClasses = [
-    'inline-flex items-center justify-center select-none font-body font-semibold transition-all duration-button focus-visible:outline-none',
+    'inline-flex items-center justify-center select-none font-body font-semibold transition-all duration-button focus-visible:outline-none active:scale-[0.965]',
     'rounded-pill border text-center',
     size === 'compact'
       ? 'min-h-[2.5rem] px-4 text-[0.875rem] leading-[1.25rem]'
@@ -46,16 +46,16 @@ export const Button = forwardRef(function Button(
   switch (variant) {
     case 'secondary':
       variantClasses =
-        'bg-transparent text-action-secondary border-action-secondary hover:bg-maroon-050 active:bg-maroon-050';
+        'bg-transparent text-action-secondary border-action-secondary hover:bg-maroon-050/80 active:bg-maroon-050 shadow-2xs';
       break;
     case 'ghost':
       variantClasses =
-        'bg-transparent text-action-primary border-transparent hover:bg-maroon-050 hover:underline active:bg-maroon-050';
+        'bg-transparent text-action-primary border-transparent hover:bg-maroon-050/80 hover:underline active:bg-maroon-050';
       break;
     case 'primary':
     default:
       variantClasses =
-        'bg-action-primary text-text-on-primary border-transparent hover:bg-action-primary-hover active:bg-action-primary-hover';
+        'bg-action-primary text-text-on-primary border-transparent hover:bg-action-primary-hover active:bg-action-primary-hover shadow-sm hover:shadow-md';
       break;
   }
 

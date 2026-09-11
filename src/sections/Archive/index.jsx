@@ -115,14 +115,14 @@ export function ArchiveSection() {
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
         <div className="relative w-full sm:w-80">
           <label htmlFor="search-archive" className="sr-only">Search graduate directory</label>
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" aria-hidden="true" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-400" aria-hidden="true" />
           <input
             id="search-archive"
             type="text"
             placeholder="Search by name, roll no..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 min-h-[2.75rem] rounded-sm bg-bg-surface border border-border text-text-default placeholder:text-charcoal-300 focus-visible:outline-none focus-visible:border-action-primary text-sm"
+            className="w-full pl-10 pr-4 min-h-[2.75rem] rounded-xl bg-white border border-[#ECE6DC] text-charcoal-900 placeholder:text-charcoal-400 focus-visible:outline-none focus:border-maroon-900 text-sm shadow-2xs"
           />
         </div>
 
@@ -131,7 +131,7 @@ export function ArchiveSection() {
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
             aria-label="Filter by graduation year"
-            className="min-h-[2.75rem] px-4 rounded-sm bg-bg-surface border border-border text-text-default text-sm focus-visible:outline-none"
+            className="min-h-[2.75rem] px-4 rounded-xl bg-white border border-[#ECE6DC] text-charcoal-900 text-sm focus-visible:outline-none focus:border-maroon-900 shadow-2xs cursor-pointer"
           >
             <option value="All">All Convocation Years</option>
             <option value="2026">2026 (3rd Convocation)</option>

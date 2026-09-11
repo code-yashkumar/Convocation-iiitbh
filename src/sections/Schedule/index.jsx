@@ -100,7 +100,7 @@ export function ScheduleSection() {
               <button
                 type="button"
                 onClick={() => setIsFullScheduleOpen(true)}
-                className="inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-white border border-maroon-900/30 text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
+                className="inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-white border border-maroon-900/30 text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 active:scale-[0.97] shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
               >
                 View Full Schedule
               </button>
@@ -172,7 +172,7 @@ export function ScheduleSection() {
                 <button
                   type="button"
                   onClick={() => setIsFullScheduleOpen(true)}
-                  className="w-full inline-flex items-center justify-center min-h-[2.875rem] px-8 rounded-pill bg-white border border-[#D9D0C5] text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
+                  className="w-full inline-flex items-center justify-center min-h-[2.875rem] px-8 rounded-pill bg-white border border-[#D9D0C5] text-charcoal-900 hover:text-maroon-900 hover:border-maroon-900 hover:bg-cream-050 active:scale-[0.97] shadow-xs font-body font-semibold text-sm transition-all cursor-pointer"
                 >
                   View Full Schedule
                 </button>

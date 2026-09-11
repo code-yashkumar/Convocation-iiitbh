@@ -191,7 +191,7 @@ export function AccommodationSection() {
           <div className="flex items-center gap-3 shrink-0 w-full md:w-auto">
             <a
               href="mailto:guesthouse@iiitbh.ac.in?subject=Convocation%20Guest%20House%20Enquiry"
-              className="inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-xs sm:text-sm shadow-sm hover:bg-maroon-700 transition-all gap-2 w-full md:w-auto text-center whitespace-nowrap"
+              className="inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-xs sm:text-sm shadow-sm hover:bg-maroon-700 active:scale-95 transition-all gap-2 w-full md:w-auto text-center whitespace-nowrap"
             >
               <Mail className="w-4 h-4 shrink-0" />
               <span>Enquire Guest House</span>
@@ -216,7 +216,7 @@ export function AccommodationSection() {
             {NEARBY_HOTELS.map((hotel) => (
               <div
                 key={hotel.id}
-                className="bg-white rounded-[1.375rem] sm:rounded-[1.5rem] p-5 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] hover:border-maroon-900/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-[1.375rem] sm:rounded-[1.5rem] p-5 sm:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.08)] hover:-translate-y-1 hover:border-maroon-900/30 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col justify-between"
               >
                 <div>
                   {/* Top Category Badge & Rating */}
@@ -276,7 +276,7 @@ export function AccommodationSection() {
                     <button
                       type="button"
                       onClick={() => handleCopyCode(hotel.discountCode)}
-                      className="px-3 py-1 rounded-pill bg-white border border-maroon-900/20 text-maroon-900 font-body text-xs font-medium hover:bg-maroon-900 hover:text-white transition-colors"
+                      className="px-3 py-1 rounded-pill bg-white border border-maroon-900/20 text-maroon-900 font-body text-xs font-medium hover:bg-maroon-900 hover:text-white active:scale-95 transition-all"
                     >
                       {copiedCode === hotel.discountCode ? 'Copied!' : 'Copy Code'}
                     </button>
@@ -312,7 +312,7 @@ export function AccommodationSection() {
                         href={`https://maps.google.com/?q=${encodeURIComponent(hotel.name + ' ' + hotel.address)}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-pill bg-cream-100 hover:bg-maroon-900 hover:text-white text-charcoal-800 font-body text-xs font-semibold transition-all min-h-[2.125rem] text-center shrink-0 whitespace-nowrap"
+                        className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-pill bg-cream-100 hover:bg-maroon-900 hover:text-white active:scale-95 text-charcoal-800 font-body text-xs font-semibold transition-all min-h-[2.125rem] text-center shrink-0 whitespace-nowrap"
                       >
                         <span>View Map</span>
                         <ExternalLink className="w-3.5 h-3.5 shrink-0" />

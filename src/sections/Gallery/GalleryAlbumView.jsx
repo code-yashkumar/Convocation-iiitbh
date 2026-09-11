@@ -422,7 +422,7 @@ export function GalleryAlbumView() {
             <button
               type="button"
               onClick={() => setRandomSeed((prev) => prev + 1)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-pill bg-white hover:bg-cream-050 text-charcoal-800 font-body font-semibold text-xs sm:text-sm border border-[#E8E2D8] shadow-xs hover:text-maroon-900 transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-pill bg-white hover:bg-cream-050 active:scale-95 text-charcoal-800 font-body font-semibold text-xs sm:text-sm border border-[#E8E2D8] shadow-xs hover:text-maroon-900 transition-all cursor-pointer"
               title="Randomize photo order"
             >
               <Shuffle className="w-3.5 h-3.5 text-maroon-900" />
@@ -434,7 +434,7 @@ export function GalleryAlbumView() {
               href={driveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-pill bg-maroon-900 text-white font-body font-semibold text-xs sm:text-sm hover:bg-maroon-700 shadow-sm transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-pill bg-maroon-900 text-white font-body font-semibold text-xs sm:text-sm hover:bg-maroon-700 active:scale-95 shadow-sm transition-all cursor-pointer"
             >
               <FolderOpen className="w-4 h-4 text-gold-400" />
               <span>Open Google Drive Album ({photos.length})</span>

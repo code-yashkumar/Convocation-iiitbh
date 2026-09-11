@@ -373,7 +373,7 @@ export function NoticeSection() {
                     key={cat}
                     type="button"
                     onClick={() => setActiveCategory(cat)}
-                    className={`min-h-[2.25rem] px-3.5 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all focus-visible:outline-none cursor-pointer flex items-center gap-1.5 shrink-0 select-none ${
+                    className={`min-h-[2.25rem] px-3.5 sm:px-4 rounded-pill font-body text-xs font-semibold transition-all duration-200 active:scale-95 focus-visible:outline-none cursor-pointer flex items-center gap-1.5 shrink-0 select-none ${
                       activeCategory === cat
                         ? 'bg-maroon-900 text-white shadow-xs'
                         : 'bg-cream-050 text-charcoal-700 hover:bg-cream-100 hover:text-maroon-900 border border-[#ECE6DC]'
@@ -415,7 +415,7 @@ export function NoticeSection() {
               <div
                 key={notice.id}
                 onClick={() => setSelectedNotice(notice)}
-                className={`group bg-white rounded-[1.5rem] p-6 sm:p-7 border hover:border-maroon-900 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(94,16,28,0.08)] transition-all duration-300 flex flex-col justify-between cursor-pointer ${
+                className={`group bg-white rounded-[1.5rem] p-6 sm:p-7 border hover:border-maroon-900 hover:-translate-y-1 active:scale-[0.985] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.08)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col justify-between cursor-pointer select-none ${
                   notice.isPinned
                     ? 'border-maroon-900/60 bg-gradient-to-b from-maroon-050/30 via-white to-white shadow-[0_6px_24px_rgba(94,16,28,0.07)]'
                     : 'border-[#E8E2D8]'

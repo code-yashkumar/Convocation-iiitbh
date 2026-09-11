@@ -35,7 +35,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-2 text-xs font-body">
           <Link
             to="/#schedule"
-            className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-white/85 flex items-center justify-between"
+            className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 active:scale-95 border border-white/10 text-white/85 flex items-center justify-between transition-all"
           >
             <span>Event Schedule</span>
             <ChevronRight className="w-3.5 h-3.5 text-gold-400" />
@@ -44,21 +44,21 @@ export function Footer() {
             href="https://forms.gle/1nxVrpcRUfgMhH938"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-white/85 flex items-center justify-between"
+            className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 active:scale-95 border border-white/10 text-white/85 flex items-center justify-between transition-all"
           >
             <span>Registration</span>
             <ChevronRight className="w-3.5 h-3.5 text-gold-400" />
           </a>
           <Link
             to="/information"
-            className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-white/85 flex items-center justify-between"
+            className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 active:scale-95 border border-white/10 text-white/85 flex items-center justify-between transition-all"
           >
             <span>Regalia & Rules</span>
             <ChevronRight className="w-3.5 h-3.5 text-gold-400" />
           </Link>
           <Link
             to="/#how-to-reach"
-            className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-white/85 flex items-center justify-between"
+            className="p-2.5 rounded-xl bg-white/5 active:bg-white/10 active:scale-95 border border-white/10 text-white/85 flex items-center justify-between transition-all"
           >
             <span>Campus Transit</span>
             <ChevronRight className="w-3.5 h-3.5 text-gold-400" />
@@ -69,14 +69,14 @@ export function Footer() {
         <div className="flex items-center gap-2 pt-0.5">
           <a
             href="mailto:convocation@iiitbh.ac.in"
-            className="flex-1 py-2 px-3 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-[0.71875rem] font-body text-white/90 flex items-center justify-center gap-1.5 truncate"
+            className="flex-1 py-2 px-3 rounded-xl bg-white/5 active:bg-white/10 active:scale-95 border border-white/10 text-[0.71875rem] font-body text-white/90 flex items-center justify-center gap-1.5 truncate transition-all"
           >
             <Mail className="w-3.5 h-3.5 text-gold-400 shrink-0" />
             <span className="truncate">Email Secretariat</span>
           </a>
           <a
             href="tel:+916412451005"
-            className="flex-1 py-2 px-3 rounded-xl bg-white/5 active:bg-white/10 border border-white/10 text-[0.71875rem] font-body text-white/90 flex items-center justify-center gap-1.5 shrink-0"
+            className="flex-1 py-2 px-3 rounded-xl bg-white/5 active:bg-white/10 active:scale-95 border border-white/10 text-[0.71875rem] font-body text-white/90 flex items-center justify-center gap-1.5 shrink-0 transition-all"
           >
             <Phone className="w-3.5 h-3.5 text-gold-400 shrink-0" />
             <span>+91 641 245 1005</span>
