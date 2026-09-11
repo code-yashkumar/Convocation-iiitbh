@@ -4,19 +4,19 @@ import { Award, UserCheck, Building2, Star, Sparkles } from 'lucide-react';
 const DIGNITARIES = [
   {
     name: 'Shri Vinod Tawde',
-    role: 'Special Guest',
+    role: 'Guest of Honour',
     subtitle: 'Member of Parliament',
     designation: 'Rajya Sabha',
-    icon: Star,
+    icon: Sparkles,
     initials: 'VT',
     image: '/assets/dignitaries/shri-vinod-tawde.jpg',
   },
   {
     name: 'Mr. Varun Goyal',
-    role: 'Guest of Honour',
+    role: 'Special Guest',
     subtitle: 'University Relations Leader',
     designation: 'Nokia Solutions and Networks India',
-    icon: Sparkles,
+    icon: Star,
     initials: 'VG',
     image: '/assets/dignitaries/mr-varun-goyal.jpg',
   },
