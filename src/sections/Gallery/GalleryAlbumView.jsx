@@ -369,7 +369,7 @@ export function GalleryAlbumView() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-cream-100 pt-3 pb-16 sm:pt-4 sm:pb-20">
+    <div className="w-full min-h-screen bg-cream-100 pt-3 pb-8 sm:pt-4 sm:pb-10">
       <SEO
         title={`${album.title} Photo Album | Convocation Gallery — IIIT Bhagalpur`}
         description={`Explore photographs from the ${album.title} during the Convocation ceremonies at IIIT Bhagalpur.`}

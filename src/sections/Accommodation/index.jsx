@@ -120,7 +120,7 @@ export function AccommodationSection() {
   };
 
   return (
-    <section className="w-full py-16 bg-cream-100 min-h-screen">
+    <section className="w-full py-8 bg-cream-100 min-h-screen">
       <SEO
         title="Accommodation & Nearby Hotels | 3rd Convocation 2026 — IIIT Bhagalpur"
         description="Verified lodging directory, campus guest house reservation guidelines, and partner hotel tariffs in Bhagalpur with discount codes for convocation alumni, parents, and guests."

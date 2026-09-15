@@ -172,7 +172,7 @@ export function GallerySection() {
   };
 
   return (
-    <section className="w-full pt-2 pb-16 sm:pt-4 sm:pb-20 bg-cream-100 min-h-screen relative" id="gallery">
+    <section className="w-full pt-2 pb-8 sm:pt-4 sm:pb-10 bg-cream-100 min-h-screen relative" id="gallery">
       <SEO
         title="Photo & Video Gallery | Convocation Archives — IIIT Bhagalpur"
         description="Explore high-resolution visual archives of degree distribution ceremonies, academic processions, medal awardees, and alumni meets at IIIT Bhagalpur."

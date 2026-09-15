@@ -219,7 +219,7 @@ export function NoticeSection() {
   const pinnedNotice = notices.find((n) => n.isPinned === true);
 
   return (
-    <section className="w-full py-16 bg-cream-100 min-h-screen relative" id="notices">
+    <section className="w-full pt-4 pb-8 bg-cream-100 min-h-screen relative" id="notices">
       <SEO
         title="Official Notices & Circulars | 3rd Convocation 2026 — IIIT Bhagalpur"
         description="Official convocation notices, degree registration guidelines, medal lists, and ceremony circulars issued by IIIT Bhagalpur Convocation Secretariat."
@@ -252,7 +252,7 @@ export function NoticeSection() {
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-7">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold border border-maroon-900/10 shadow-xs">
               <Bell className="w-4 h-4 text-maroon-900 shrink-0" />

@@ -446,7 +446,7 @@ export function CommitteeSection() {
   }, [searchTerm, activeCategory]);
 
   return (
-    <section className="w-full py-16 bg-cream-100 min-h-screen relative" id="committees">
+    <section className="w-full sm:pb-8 pt-4 bg-cream-100 min-h-screen relative" id="committees">
       <SEO
         title="Organizing & Steering Committees | 3rd Convocation 2026 — IIIT Bhagalpur"
         description="Official roster of 22 specialized organizing committees, conveners, faculty, and staff coordinators managing the 3rd Convocation of IIIT Bhagalpur."

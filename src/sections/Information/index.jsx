@@ -46,7 +46,7 @@ const GUIDELINES = [
 
 export function InformationSection() {
   return (
-    <section className="py-8 sm:py-16 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12" id="information">
+    <section className="py-8 sm:pb-8 pt-4 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12" id="information">
       <SEO
         title="Guidelines, Academic Regalia & Protocol | 3rd Convocation 2026 — IIIT Bhagalpur"
         description="Essential dress code regulations, ceremonial stole guidelines, guest entry rules, degree in absentia dispatch protocols, and FAQs for IIIT Bhagalpur Convocation."
