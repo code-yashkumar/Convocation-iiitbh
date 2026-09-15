@@ -150,7 +150,14 @@ export function NoticeSection() {
       fetchNoticesFromGoogleSheet(sheetEnvUrl)
         .then((fetchedNotices) => {
           if (fetchedNotices && Array.isArray(fetchedNotices) && fetchedNotices.length > 0) {
-            setNotices(fetchedNotices);
+            // If the live sheet has no pinned notice, keep default pinned notices at the top
+            const hasPinned = fetchedNotices.some((n) => n.isPinned === true);
+            if (!hasPinned) {
+              const defaultPinned = defaultNoticesData.filter((n) => n.isPinned === true);
+              setNotices([...defaultPinned, ...fetchedNotices]);
+            } else {
+              setNotices(fetchedNotices);
+            }
             setIsLiveConnected(true);
           }
         })
@@ -285,10 +292,6 @@ export function NoticeSection() {
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-white font-mono text-xs">
                     {pinnedNotice.refNo}
                   </span>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-medium">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Live & Active</span>
-                  </div>
                 </div>
 
                 <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug">
