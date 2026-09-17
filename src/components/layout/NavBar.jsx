@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
+
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown, ExternalLink } from 'lucide-react';
 import InstitutionCrest from '../ui/InstitutionCrest';
@@ -130,11 +132,13 @@ export function NavBar() {
   const isHeroMode = location.pathname === '/' && !isScrolled;
 
   return (
+    <>
     <header
+
       data-navbar-hero={isHeroMode ? 'true' : 'false'}
       data-darkreader-ignore={isHeroMode ? 'true' : undefined}
       style={isHeroMode ? { colorScheme: 'light' } : undefined}
-      className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-nav ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-nav ${
         isScrolled
           ? 'bg-cream-100/85 backdrop-blur-xl saturate-180 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-b border-[#E8E2D8]/80'
           : 'bg-transparent'
@@ -329,87 +333,73 @@ export function NavBar() {
           )}
         </button>
       </div>
+    </header>
 
-      {/* Mobile Full-Screen Overlay Navigation */}
-      {isMobileMenuOpen && (
-        <div
-          id="mobile-nav"
-          className="fixed inset-0 top-16 md:top-[4.25rem] z-50 bg-cream-100/95 backdrop-blur-2xl flex flex-col p-6 space-y-6 lg:hidden animate-fadeIn overflow-y-auto"
-        >
-          <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation">
-            {NAV_LINKS.map((link) => {
-              if (link.isSectionLink) {
-                return (
-                  <a
-                    key={link.label}
-                    href={`#${link.sectionId}`}
-                    onClick={(e) => handleSectionClick(e, link.sectionId)}
-                    className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 active:scale-[0.98] transition-all cursor-pointer"
-                  >
-                    {link.label}
-                  </a>
-                );
-              }
-
+    {/* Mobile Full-Screen Overlay Navigation — rendered via portal to avoid header stacking context clipping */}
+    {isMobileMenuOpen && ReactDOM.createPortal(
+      <div
+        id="mobile-nav"
+        className="fixed inset-0 top-16 md:top-[4.25rem] z-[9999] bg-cream-100/95 backdrop-blur-2xl flex flex-col p-6 space-y-6 lg:hidden animate-fadeIn overflow-y-auto"
+      >
+        <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation">
+          {NAV_LINKS.map((link) => {
+            if (link.isSectionLink) {
               return (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  end={link.to === '/'}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `py-3 px-4 rounded-xl text-base font-body transition-all active:scale-[0.98] ${
-                      isActive
-                        ? 'bg-maroon-050 text-maroon-900 font-bold border-l-4 border-maroon-900'
-                        : 'text-charcoal-900 hover:bg-maroon-050/70 font-semibold active:bg-maroon-050'
-                    }`
-                  }
+                <a
+                  key={link.label}
+                  href={`#${link.sectionId}`}
+                  onClick={(e) => handleSectionClick(e, link.sectionId)}
+                  className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 active:scale-[0.98] transition-all cursor-pointer"
                 >
                   {link.label}
-                </NavLink>
+                </a>
               );
-            })}
+            }
 
-            {/* Mobile Editions Expandable Dropdown Item */}
-            <div className="flex flex-col">
-              <button
-                type="button"
-                onClick={() => setIsMobileEditionsOpen(!isMobileEditionsOpen)}
-                className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 active:scale-[0.98] transition-all flex items-center justify-between w-full text-left cursor-pointer"
+            return (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end={link.to === '/'}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `py-3 px-4 rounded-xl text-base font-body transition-all active:scale-[0.98] ${
+                    isActive
+                      ? 'bg-maroon-050 text-maroon-900 font-bold border-l-4 border-maroon-900'
+                      : 'text-charcoal-900 hover:bg-maroon-050/70 font-semibold active:bg-maroon-050'
+                  }`
+                }
               >
-                <span>Editions</span>
-                <ChevronDown
-                  className={`w-4 h-4 text-maroon-900 transition-transform duration-200 ${
-                    isMobileEditionsOpen ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+                {link.label}
+              </NavLink>
+            );
+          })}
 
-              {isMobileEditionsOpen && (
-                <div className="pl-3 pr-2 py-1.5 space-y-1 bg-white/90 rounded-xl mt-1 border border-[#ECE6DC] shadow-xs animate-scaleIn origin-top">
-                  {EDITIONS_OPTIONS.map((item) => {
-                    if (item.isExternal) {
-                      return (
-                        <a
-                          key={item.label}
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer"
-                        >
-                          <div className="flex flex-col">
-                            <span className="font-semibold text-charcoal-900">{item.label}</span>
-                            <span className="text-xs text-charcoal-600 font-normal">{item.edition}</span>
-                          </div>
-                          <ExternalLink className="w-3.5 h-3.5 text-charcoal-500 shrink-0" />
-                        </a>
-                      );
-                    }
+          {/* Mobile Editions Expandable Dropdown Item */}
+          <div className="flex flex-col">
+            <button
+              type="button"
+              onClick={() => setIsMobileEditionsOpen(!isMobileEditionsOpen)}
+              className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 active:scale-[0.98] transition-all flex items-center justify-between w-full text-left cursor-pointer"
+            >
+              <span>Editions</span>
+              <ChevronDown
+                className={`w-4 h-4 text-maroon-900 transition-transform duration-200 ${
+                  isMobileEditionsOpen ? 'rotate-180' : ''
+                }`}
+              />
+            </button>
+
+            {isMobileEditionsOpen && (
+              <div className="pl-3 pr-2 py-1.5 space-y-1 bg-white/90 rounded-xl mt-1 border border-[#ECE6DC] shadow-xs animate-scaleIn origin-top">
+                {EDITIONS_OPTIONS.map((item) => {
+                  if (item.isExternal) {
                     return (
-                      <Link
+                      <a
                         key={item.label}
-                        to={item.to}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer"
                       >
@@ -417,27 +407,43 @@ export function NavBar() {
                           <span className="font-semibold text-charcoal-900">{item.label}</span>
                           <span className="text-xs text-charcoal-600 font-normal">{item.edition}</span>
                         </div>
-                      </Link>
+                        <ExternalLink className="w-3.5 h-3.5 text-charcoal-500 shrink-0" />
+                      </a>
                     );
-                  })}
-                </div>
-              )}
-            </div>
-          </nav>
-
-          <div className="pt-4 border-t border-[#E8E2D8]">
-            <a
-              href="https://forms.gle/1nxVrpcRUfgMhH938"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-full min-h-[3rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[0.9375rem] shadow-sm hover:bg-maroon-700 active:scale-[0.97] transition-all text-center whitespace-nowrap cursor-pointer"
-            >
-              Register Now
-            </a>
+                  }
+                  return (
+                    <Link
+                      key={item.label}
+                      to={item.to}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer"
+                    >
+                      <div className="flex flex-col">
+                        <span className="font-semibold text-charcoal-900">{item.label}</span>
+                        <span className="text-xs text-charcoal-600 font-normal">{item.edition}</span>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
+        </nav>
+
+        <div className="pt-4 border-t border-[#E8E2D8]">
+          <a
+            href="https://forms.gle/1nxVrpcRUfgMhH938"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center w-full min-h-[3rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[0.9375rem] shadow-sm hover:bg-maroon-700 active:scale-[0.97] transition-all text-center whitespace-nowrap cursor-pointer"
+          >
+            Register Now
+          </a>
         </div>
-      )}
-    </header>
+      </div>,
+      document.body
+    )}
+    </>
   );
 }
 
