@@ -335,112 +335,125 @@ export function NavBar() {
       </div>
     </header>
 
-    {/* Mobile Full-Screen Overlay Navigation — rendered via portal to avoid header stacking context clipping */}
+    {/* Compact Mobile Dropdown Menu — portal rendered to escape header stacking context */}
     {isMobileMenuOpen && ReactDOM.createPortal(
-      <div
-        id="mobile-nav"
-        className="fixed inset-0 top-16 md:top-[4.25rem] z-[9999] bg-cream-100/95 backdrop-blur-2xl flex flex-col p-6 space-y-6 lg:hidden animate-fadeIn overflow-y-auto"
-      >
-        <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation">
-          {NAV_LINKS.map((link) => {
-            if (link.isSectionLink) {
+      <>
+        {/* Dim backdrop — tap to close, no blur */}
+        <div
+          className="fixed inset-0 z-[9998] bg-black/20 lg:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+
+        {/* Floating dropdown card */}
+        <div
+          id="mobile-nav"
+          className="fixed top-[4.25rem] right-4 z-[9999] w-[17rem] bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.14)] border border-[#E8E2D8] lg:hidden overflow-hidden"
+          style={{ maxHeight: 'calc(100vh - 5.5rem)', overflowY: 'auto' }}
+        >
+          {/* Nav links */}
+          <nav className="flex flex-col p-2" aria-label="Mobile Navigation">
+            {NAV_LINKS.map((link) => {
+              if (link.isSectionLink) {
+                return (
+                  <a
+                    key={link.label}
+                    href={`#${link.sectionId}`}
+                    onClick={(e) => handleSectionClick(e, link.sectionId)}
+                    className="py-2.5 px-3.5 rounded-xl text-[0.9375rem] font-body font-medium text-charcoal-800 hover:bg-maroon-050 hover:text-maroon-900 active:scale-[0.98] transition-all cursor-pointer"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
               return (
-                <a
-                  key={link.label}
-                  href={`#${link.sectionId}`}
-                  onClick={(e) => handleSectionClick(e, link.sectionId)}
-                  className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 active:scale-[0.98] transition-all cursor-pointer"
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  end={link.to === '/'}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `py-2.5 px-3.5 rounded-xl text-[0.9375rem] font-body transition-all active:scale-[0.98] ${
+                      isActive
+                        ? 'bg-maroon-050 text-maroon-900 font-semibold'
+                        : 'text-charcoal-800 hover:bg-maroon-050 hover:text-maroon-900 font-medium'
+                    }`
+                  }
                 >
                   {link.label}
-                </a>
+                </NavLink>
               );
-            }
+            })}
 
-            return (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.to === '/'}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `py-3 px-4 rounded-xl text-base font-body transition-all active:scale-[0.98] ${
-                    isActive
-                      ? 'bg-maroon-050 text-maroon-900 font-bold border-l-4 border-maroon-900'
-                      : 'text-charcoal-900 hover:bg-maroon-050/70 font-semibold active:bg-maroon-050'
-                  }`
-                }
+            {/* Editions sub-section */}
+            <div className="flex flex-col">
+              <button
+                type="button"
+                onClick={() => setIsMobileEditionsOpen(!isMobileEditionsOpen)}
+                className="py-2.5 px-3.5 rounded-xl text-[0.9375rem] font-body font-medium text-charcoal-800 hover:bg-maroon-050 hover:text-maroon-900 active:scale-[0.98] transition-all flex items-center justify-between w-full text-left cursor-pointer"
               >
-                {link.label}
-              </NavLink>
-            );
-          })}
+                <span>Editions</span>
+                <ChevronDown
+                  className={`w-4 h-4 text-charcoal-500 transition-transform duration-200 ${
+                    isMobileEditionsOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
 
-          {/* Mobile Editions Expandable Dropdown Item */}
-          <div className="flex flex-col">
-            <button
-              type="button"
-              onClick={() => setIsMobileEditionsOpen(!isMobileEditionsOpen)}
-              className="py-3 px-4 rounded-xl text-base font-body font-semibold text-charcoal-900 hover:bg-maroon-050/70 active:bg-maroon-050 active:scale-[0.98] transition-all flex items-center justify-between w-full text-left cursor-pointer"
-            >
-              <span>Editions</span>
-              <ChevronDown
-                className={`w-4 h-4 text-maroon-900 transition-transform duration-200 ${
-                  isMobileEditionsOpen ? 'rotate-180' : ''
-                }`}
-              />
-            </button>
-
-            {isMobileEditionsOpen && (
-              <div className="pl-3 pr-2 py-1.5 space-y-1 bg-white/90 rounded-xl mt-1 border border-[#ECE6DC] shadow-xs animate-scaleIn origin-top">
-                {EDITIONS_OPTIONS.map((item) => {
-                  if (item.isExternal) {
+              {isMobileEditionsOpen && (
+                <div className="mx-2 mb-1 space-y-0.5 bg-[#FAF7F2] rounded-xl overflow-hidden border border-[#ECE6DC]">
+                  {EDITIONS_OPTIONS.map((item) => {
+                    if (item.isExternal) {
+                      return (
+                        <a
+                          key={item.label}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="py-2.5 px-3.5 text-sm font-body font-medium text-charcoal-800 hover:text-maroon-900 hover:bg-maroon-050/60 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer"
+                        >
+                          <div className="flex flex-col">
+                            <span className="font-semibold">{item.label}</span>
+                            <span className="text-xs text-charcoal-500 font-normal">{item.edition}</span>
+                          </div>
+                          <ExternalLink className="w-3.5 h-3.5 text-charcoal-400 shrink-0" />
+                        </a>
+                      );
+                    }
                     return (
-                      <a
+                      <Link
                         key={item.label}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        to={item.to}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer"
+                        className="py-2.5 px-3.5 text-sm font-body font-medium text-charcoal-800 hover:text-maroon-900 hover:bg-maroon-050/60 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer"
                       >
                         <div className="flex flex-col">
-                          <span className="font-semibold text-charcoal-900">{item.label}</span>
-                          <span className="text-xs text-charcoal-600 font-normal">{item.edition}</span>
+                          <span className="font-semibold">{item.label}</span>
+                          <span className="text-xs text-charcoal-500 font-normal">{item.edition}</span>
                         </div>
-                        <ExternalLink className="w-3.5 h-3.5 text-charcoal-500 shrink-0" />
-                      </a>
+                      </Link>
                     );
-                  }
-                  return (
-                    <Link
-                      key={item.label}
-                      to={item.to}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="py-2.5 px-3 rounded-lg text-sm font-body font-medium text-charcoal-900 hover:text-maroon-900 hover:bg-maroon-050/70 active:scale-[0.98] transition-all flex items-center justify-between cursor-pointer"
-                    >
-                      <div className="flex flex-col">
-                        <span className="font-semibold text-charcoal-900">{item.label}</span>
-                        <span className="text-xs text-charcoal-600 font-normal">{item.edition}</span>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        </nav>
+                  })}
+                </div>
+              )}
+            </div>
+          </nav>
 
-        <div className="pt-4 border-t border-[#E8E2D8]">
-          <a
-            href="https://forms.gle/1nxVrpcRUfgMhH938"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full min-h-[3rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-semibold text-[0.9375rem] shadow-sm hover:bg-maroon-700 active:scale-[0.97] transition-all text-center whitespace-nowrap cursor-pointer"
-          >
-            Register Now
-          </a>
+          {/* Register Now CTA */}
+          <div className="px-2 pb-2 pt-1 border-t border-[#ECE6DC]">
+            <a
+              href="https://forms.gle/1nxVrpcRUfgMhH938"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="inline-flex items-center justify-center w-full min-h-[2.75rem] px-5 rounded-xl bg-maroon-900 text-white font-body font-semibold text-sm shadow-sm hover:bg-maroon-700 active:scale-[0.97] transition-all text-center whitespace-nowrap cursor-pointer"
+            >
+              Register Now
+            </a>
+          </div>
         </div>
-      </div>,
+      </>,
       document.body
     )}
     </>
