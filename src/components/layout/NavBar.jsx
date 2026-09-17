@@ -146,35 +146,47 @@ export function NavBar() {
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-10 lg:px-12 h-16 md:h-[4.5rem] flex items-center justify-between gap-4">
         
-        {/* Left: Crest + Full Institution Wordmark (Redirects to official Institute portal) */}
-        <a
-          href="https://www.iiitbh.ac.in"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none shrink-0 active:scale-95 transition-transform"
-          aria-label="IIIT Bhagalpur Official Website"
-        >
-          <InstitutionCrest className="navbar-crest w-8 h-8 md:w-11 md:h-11 shrink-0 group-hover:scale-105 transition-transform" />
-          {/* Mobile title (< md) */}
-          <div className="flex flex-col md:hidden leading-tight whitespace-nowrap">
-            <span className="navbar-title font-roboto font-bold text-[0.6875rem] sm:text-xs text-[#515151] leading-tight">
-              Indian Institute of Information Technology
-            </span>
-            <span className="navbar-title font-roboto font-bold text-[0.6875rem] sm:text-xs text-[#515151] leading-tight">
-              Bhagalpur
-            </span>
-          </div>
+        {/* Left: Crest (→ iiitbh.ac.in) + Name (→ home page) */}
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          {/* Logo — external link to institute website */}
+          <a
+            href="https://www.iiitbh.ac.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-visible:outline-none shrink-0 active:scale-95 transition-transform"
+            aria-label="IIIT Bhagalpur Official Website"
+          >
+            <InstitutionCrest className="navbar-crest w-8 h-8 md:w-11 md:h-11 shrink-0 hover:scale-105 transition-transform" />
+          </a>
 
-          {/* Desktop title (>= md) */}
-          <div className="hidden md:flex flex-col whitespace-nowrap">
-            <span className="navbar-title font-roboto font-bold text-sm md:text-base text-[#515151] leading-tight translate-y-[1px] whitespace-nowrap">
-              Indian Institute of Information Technology Bhagalpur
-            </span>
-            <span className="navbar-subtext font-body text-[0.6875rem] md:text-xs text-charcoal-600 leading-tight whitespace-nowrap">
-              भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
-            </span>
-          </div>
-        </a>
+          {/* Name — internal link to home page */}
+          <Link
+            to="/"
+            className="focus-visible:outline-none group active:scale-95 transition-transform"
+            aria-label="Go to Home"
+          >
+            {/* Mobile title (< md) */}
+            <div className="flex flex-col md:hidden leading-tight whitespace-nowrap">
+              <span className="navbar-title font-roboto font-bold text-[0.6875rem] sm:text-xs text-[#515151] leading-tight group-hover:text-maroon-900 transition-colors">
+                Indian Institute of Information Technology
+              </span>
+              <span className="navbar-title font-roboto font-bold text-[0.6875rem] sm:text-xs text-[#515151] leading-tight group-hover:text-maroon-900 transition-colors">
+                Bhagalpur
+              </span>
+            </div>
+
+            {/* Desktop title (>= md) */}
+            <div className="hidden md:flex flex-col whitespace-nowrap">
+              <span className="navbar-title font-roboto font-bold text-sm md:text-base text-[#515151] leading-tight translate-y-[1px] whitespace-nowrap group-hover:text-maroon-900 transition-colors">
+                Indian Institute of Information Technology Bhagalpur
+              </span>
+              <span className="navbar-subtext font-body text-[0.6875rem] md:text-xs text-charcoal-600 leading-tight whitespace-nowrap">
+                भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
+              </span>
+            </div>
+          </Link>
+        </div>
+
 
         {/* Center/Right Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0" aria-label="Main Navigation">
