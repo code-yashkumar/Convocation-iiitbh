@@ -59,54 +59,61 @@ export function DignitariesSection() {
           </p>
         </div>
 
-        {/* 4-Column Vertical Cards */}
+        {/* 4-Column Profile Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {DIGNITARIES.map((dignitary) => {
             const IconComponent = dignitary.icon;
             return (
               <div
                 key={dignitary.name}
-                className="bg-white rounded-2xl sm:rounded-[1.5rem] border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.08)] hover:-translate-y-1 hover:border-maroon-900/25 active:scale-[0.99] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] overflow-hidden group select-none flex flex-col"
+                className="bg-white rounded-[1.5rem] sm:rounded-[1.75rem] border border-[#E8E2D8] shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(94,16,28,0.10)] hover:-translate-y-1 active:scale-[0.99] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] overflow-hidden group select-none flex flex-col"
               >
-                {/* Portrait Photo — full width top */}
-                <div className="w-full aspect-[3/3.5] overflow-hidden bg-gradient-to-b from-[#F5F0E8] to-cream-200 relative">
-                  {dignitary.image ? (
-                    <img
-                      src={dignitary.image}
-                      alt={`${dignitary.name}, ${dignitary.role}`}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] select-none"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-maroon-900 font-display font-bold text-4xl bg-cream-100">
-                      {dignitary.initials}
-                    </div>
-                  )}
-
-                  {/* Role badge — overlaid bottom-left */}
-                  <div className="absolute bottom-2.5 left-2.5">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-maroon-900 border border-maroon-900/15 font-body text-[0.65rem] font-semibold tracking-wide shadow-sm">
-                      <IconComponent className="w-3 h-3 text-maroon-900 shrink-0" />
-                      {dignitary.role}
-                    </span>
+                {/* Inset Photo */}
+                <div className="p-3 pb-0">
+                  <div className="w-full aspect-[4/4.2] rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-b from-[#F0EBE1] to-[#E8E2D8]">
+                    {dignitary.image ? (
+                      <img
+                        src={dignitary.image}
+                        alt={`${dignitary.name}, ${dignitary.role}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] select-none"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-maroon-900 font-display font-bold text-4xl">
+                        {dignitary.initials}
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Text Content */}
-                <div className="px-4 pt-3.5 pb-4 flex flex-col gap-1 flex-1">
-                  <h3 className="font-display font-bold text-[0.9375rem] sm:text-base lg:text-[1.0625rem] text-charcoal-900 group-hover:text-maroon-900 transition-colors leading-snug">
-                    {dignitary.name}
-                  </h3>
-                  <span className="font-body text-[0.6875rem] sm:text-xs font-semibold text-maroon-900 uppercase tracking-wider leading-snug">
-                    {dignitary.subtitle || dignitary.role}
-                  </span>
+                <div className="px-3.5 pt-3 pb-3.5 flex flex-col gap-1 flex-1">
+                  {/* Name + badge */}
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <h3 className="font-display font-bold text-[0.9375rem] sm:text-base text-charcoal-900 leading-snug">
+                      {dignitary.name}
+                    </h3>
+                    <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-maroon-900 shrink-0">
+                      <IconComponent className="w-2.5 h-2.5 text-white" />
+                    </span>
+                  </div>
 
-                  {/* Organisation */}
-                  <div className="mt-auto pt-3 border-t border-[#ECE6DC] flex items-center gap-1.5">
-                    <Building2 className="w-3.5 h-3.5 text-charcoal-400 shrink-0" />
-                    <span className="font-body text-[0.6875rem] sm:text-xs text-charcoal-600 leading-snug line-clamp-1">
-                      {dignitary.designation}
+                  {/* Subtitle */}
+                  <p className="font-body text-[0.75rem] sm:text-[0.8125rem] text-charcoal-500 leading-snug">
+                    {dignitary.subtitle || dignitary.role}
+                  </p>
+
+                  {/* Bottom row */}
+                  <div className="mt-auto pt-3 flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <Building2 className="w-3.5 h-3.5 text-charcoal-400 shrink-0" />
+                      <span className="font-body text-[0.6875rem] text-charcoal-500 truncate leading-snug">
+                        {dignitary.designation}
+                      </span>
+                    </div>
+                    <span className="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-maroon-050 border border-maroon-900/10 text-maroon-900 font-body text-[0.6rem] sm:text-[0.65rem] font-semibold tracking-wide whitespace-nowrap">
+                      {dignitary.role}
                     </span>
                   </div>
                 </div>
