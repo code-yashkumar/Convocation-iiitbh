@@ -153,16 +153,16 @@ export function NavBar() {
             href="https://www.iiitbh.ac.in"
             target="_blank"
             rel="noopener noreferrer"
-            className="focus-visible:outline-none shrink-0 active:scale-95 transition-transform"
+            className="focus-visible:outline-none shrink-0"
             aria-label="IIIT Bhagalpur Official Website"
           >
-            <InstitutionCrest className="navbar-crest w-8 h-8 md:w-11 md:h-11 shrink-0 hover:scale-105 transition-transform" />
+            <InstitutionCrest className="navbar-crest w-8 h-8 md:w-11 md:h-11 shrink-0" />
           </a>
 
           {/* Name — internal link to home page */}
           <Link
             to="/"
-            className="focus-visible:outline-none group active:scale-95 transition-transform"
+            className="focus-visible:outline-none group"
             aria-label="Go to Home"
           >
             {/* Mobile title (< md) */}
