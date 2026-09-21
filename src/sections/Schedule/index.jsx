@@ -6,33 +6,33 @@ import Button from '../../components/ui/Button';
 const SUMMARY_SCHEDULE = [
   {
     id: 1,
-    time: '09:00 AM',
-    title: 'Registration',
-    description: 'Student registration and kit distribution',
+    time: '11:30 AM',
+    title: 'Arrival & Academic Procession',
+    description: 'Arrival of dignitaries followed by the ceremonial academic procession',
   },
   {
     id: 2,
-    time: '10:00 AM',
-    title: 'Academic Procession',
-    description: 'Procession of dignitaries and graduates',
+    time: '11:47 AM',
+    title: 'Convocation Inauguration',
+    description: 'National Song, Invocation, Lamp Lighting & Opening of the Convocation',
   },
   {
     id: 3,
-    time: '10:30 AM',
-    title: 'Convocation Ceremony',
-    description: 'Welcome address and conferment of degrees',
+    time: '12:15 PM',
+    title: 'Addresses & Degree Ceremony',
+    description: 'Presidential and guest addresses, followed by presentation of medals, merit certificates and degrees',
   },
   {
     id: 4,
-    time: '12:30 PM',
-    title: 'Degree Distribution',
-    description: 'Distribution of degrees to graduates',
+    time: '01:10 PM',
+    title: 'Convocation Proceedings',
+    description: 'Signing of the Scroll of Degrees, addresses by distinguished guests and administration of the oath',
   },
   {
     id: 5,
-    time: '01:30 PM',
-    title: 'Photography & Reception',
-    description: 'Group photography and hi-tea',
+    time: '01:50 PM',
+    title: 'Closing Ceremony',
+    description: 'Vote of Thanks, declaration of closure, National Anthem & departure of the Academic Procession',
   },
 ];
 
