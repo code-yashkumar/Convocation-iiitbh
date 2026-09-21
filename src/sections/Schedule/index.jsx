@@ -12,7 +12,7 @@ const SUMMARY_SCHEDULE = [
   },
   {
     id: 2,
-    time: '11:47 AM',
+    time: '11:50 AM',
     title: 'Convocation Inauguration',
     description: 'National Song, invocation, lamp lighting & inaugural declaration',
   },
