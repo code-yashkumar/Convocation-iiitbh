@@ -8,31 +8,31 @@ const SUMMARY_SCHEDULE = [
     id: 1,
     time: '11:30 AM',
     title: 'Arrival & Academic Procession',
-    description: 'Arrival of dignitaries followed by the ceremonial academic procession',
+    description: 'Ceremonial arrival and procession of dignitaries and faculty',
   },
   {
     id: 2,
     time: '11:47 AM',
     title: 'Convocation Inauguration',
-    description: 'National Song, Invocation, Lamp Lighting & Opening of the Convocation',
+    description: 'National Song, invocation, lamp lighting & inaugural declaration',
   },
   {
     id: 3,
     time: '12:15 PM',
     title: 'Addresses & Degree Ceremony',
-    description: 'Presidential and guest addresses, followed by presentation of medals, merit certificates and degrees',
+    description: 'Dignitary addresses, medal presentation & degree conferment',
   },
   {
     id: 4,
     time: '01:10 PM',
     title: 'Convocation Proceedings',
-    description: 'Signing of the Scroll of Degrees, addresses by distinguished guests and administration of the oath',
+    description: 'Scroll signing, distinguished remarks & pledge administration',
   },
   {
     id: 5,
     time: '01:50 PM',
     title: 'Closing Ceremony',
-    description: 'Vote of Thanks, declaration of closure, National Anthem & departure of the Academic Procession',
+    description: 'Vote of Thanks, National Anthem & recessional procession',
   },
 ];
 
