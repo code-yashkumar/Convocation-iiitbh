@@ -38,82 +38,82 @@ const SUMMARY_SCHEDULE = [
 
 const DETAILED_SCHEDULE = [
   {
-    time: '11:30 AM',
+    time: '11:30 AM – 11:45 AM',
     title: 'Arrival of Dignitaries',
     details: "Arrival of the Hon'ble Chief Guest, Guest of Honour, and other Dignitaries at the Venue",
   },
   {
-    time: '11:45 AM',
+    time: '11:45 AM – 11:47 AM',
     title: 'Academic Procession',
     details: 'Entry of Academic Procession in the Convocation Hall',
   },
   {
-    time: '11:47 AM',
+    time: '11:47 AM – 11:55 AM',
     title: 'Inauguration & Lighting of Lamp',
     details: 'National Song, Invocation and Lighting of Lamp',
   },
   {
-    time: '11:55 AM',
+    time: '11:55 AM – 11:57 AM',
     title: 'Opening of Convocation',
     details: "Convocation is declared open by the Hon'ble Chairman, Board of Governors",
   },
   {
-    time: '11:57 AM',
+    time: '11:57 AM – 12:15 PM',
     title: 'Director’s Report & Welcome',
     details: 'Welcome Address and Presentation of Institute Report by the Director',
   },
   {
-    time: '12:15 PM',
+    time: '12:15 PM – 12:30 PM',
     title: 'Presidential Address',
     details: "Presidential Address by Hon'ble Chairman, Board of Governors",
   },
   {
-    time: '12:30 PM',
+    time: '12:30 PM – 12:40 PM',
     title: 'Medals & Merit Certificates',
     details: 'Presentation of Medals & Merit Certificates',
   },
   {
-    time: '12:40 PM',
+    time: '12:40 PM – 01:10 PM',
     title: 'Award of Degree Certificates',
     details: 'Award of Degree Certificates to graduating candidates',
   },
   {
-    time: '01:10 PM',
+    time: '01:10 PM – 01:15 PM',
     title: 'Signing of the Scroll',
     details: 'Signing of Scroll of the Degrees by the BoG Chairman and Director',
   },
   {
-    time: '01:15 PM',
+    time: '01:15 PM – 01:20 PM',
     title: 'Address by Guest of Honour',
     details: 'Address by the Hon’ble Guest of Honour',
   },
   {
-    time: '01:20 PM',
+    time: '01:20 PM – 01:30 PM',
     title: 'Address by Special Guest',
     details: 'Address by the Hon’ble Special Guest',
   },
   {
-    time: '01:30 PM',
+    time: '01:30 PM – 01:45 PM',
     title: 'Convocation Address by Chief Guest',
     details: 'Convocation Address by the Hon’ble Chief Guest',
   },
   {
-    time: '01:45 PM',
+    time: '01:45 PM – 01:50 PM',
     title: 'Administration of Oath',
     details: 'Administering of Oath to the graduates by the Director',
   },
   {
-    time: '01:50 PM',
+    time: '01:50 PM – 01:55 PM',
     title: 'Vote of Thanks',
     details: 'Vote of Thanks by Associate Dean, Academic Affairs',
   },
   {
-    time: '01:55 PM',
+    time: '01:55 PM – 01:57 PM',
     title: 'Declaration of Closure',
     details: "Hon'ble Chairman, Board of Governors to declare the Convocation closed",
   },
   {
-    time: '01:57 PM',
+    time: '01:57 PM – 02:05 PM',
     title: 'National Anthem & Departure',
     details: 'National Anthem and departure of Academic Procession',
   },
