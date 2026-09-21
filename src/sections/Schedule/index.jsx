@@ -38,40 +38,84 @@ const SUMMARY_SCHEDULE = [
 
 const DETAILED_SCHEDULE = [
   {
-    time: '08:30 AM – 09:30 AM',
-    title: 'Registration & Regalia Distribution',
-    venue: 'Academic Block Lobby',
-    details: 'Robes & stoles collection, photo registration, and rehearsal briefing for graduating candidates.',
+    time: '11:30 AM',
+    title: 'Arrival of Dignitaries',
+    details: "Arrival of the Hon'ble Chief Guest, Guest of Honour, and other Dignitaries at the Venue",
   },
   {
-    time: '09:45 AM – 10:00 AM',
-    title: 'Academic Procession Assembly',
-    venue: 'Academic Corridor to Main Lecture Hall',
-    details: 'Assembly and ceremonial entry of the Board of Governors, Senate members, Director, and Chief Guest.',
+    time: '11:45 AM',
+    title: 'Academic Procession',
+    details: 'Entry of Academic Procession in the Convocation Hall',
   },
   {
-    time: '10:00 AM – 10:30 AM',
-    title: 'Inauguration & Presidential Address',
-    venue: 'Main Lecture Hall',
-    details: 'National Anthem, Vedic invocation, lighting of the lamp (Deep Prajwalan), welcome address by Director, and Opening Declaration.',
+    time: '11:47 AM',
+    title: 'Inauguration & Lighting of Lamp',
+    details: 'National Song, Invocation and Lighting of Lamp',
   },
   {
-    time: '10:30 AM – 11:15 AM',
+    time: '11:55 AM',
+    title: 'Opening of Convocation',
+    details: "Convocation is declared open by the Hon'ble Chairman, Board of Governors",
+  },
+  {
+    time: '11:57 AM',
+    title: 'Director’s Report & Welcome',
+    details: 'Welcome Address and Presentation of Institute Report by the Director',
+  },
+  {
+    time: '12:15 PM',
+    title: 'Presidential Address',
+    details: "Presidential Address by Hon'ble Chairman, Board of Governors",
+  },
+  {
+    time: '12:30 PM',
+    title: 'Medals & Merit Certificates',
+    details: 'Presentation of Medals & Merit Certificates',
+  },
+  {
+    time: '12:40 PM',
+    title: 'Award of Degree Certificates',
+    details: 'Award of Degree Certificates to graduating candidates',
+  },
+  {
+    time: '01:10 PM',
+    title: 'Signing of the Scroll',
+    details: 'Signing of Scroll of the Degrees by the BoG Chairman and Director',
+  },
+  {
+    time: '01:15 PM',
+    title: 'Address by Guest of Honour',
+    details: 'Address by the Hon’ble Guest of Honour',
+  },
+  {
+    time: '01:20 PM',
+    title: 'Address by Special Guest',
+    details: 'Address by the Hon’ble Special Guest',
+  },
+  {
+    time: '01:30 PM',
     title: 'Convocation Address by Chief Guest',
-    venue: 'Main Lecture Hall',
-    details: 'Keynote address by the Chief Guest to the graduating batch and assembly.',
+    details: 'Convocation Address by the Hon’ble Chief Guest',
   },
   {
-    time: '11:15 AM – 01:15 PM',
-    title: 'Conferment of Degrees & Medals Awarding',
-    venue: 'Main Lecture Hall',
-    details: 'Presentation of B.Tech, M.Tech, and Ph.D. degrees, President Gold Medal, Director Gold Medal, and Institute Medals.',
+    time: '01:45 PM',
+    title: 'Administration of Oath',
+    details: 'Administering of Oath to the graduates by the Director',
   },
   {
-    time: '01:15 PM – 02:30 PM',
-    title: 'Convocation Lunch & Photo Sessions',
-    venue: 'Institute Lawn Pavilion',
-    details: 'Celebratory fellowship lunch and batch photography with faculty, graduates, and accompanying parents.',
+    time: '01:50 PM',
+    title: 'Vote of Thanks',
+    details: 'Vote of Thanks by Associate Dean, Academic Affairs',
+  },
+  {
+    time: '01:55 PM',
+    title: 'Declaration of Closure',
+    details: "Hon'ble Chairman, Board of Governors to declare the Convocation closed",
+  },
+  {
+    time: '01:57 PM',
+    title: 'National Anthem & Departure',
+    details: 'National Anthem and departure of Academic Procession',
   },
 ];
 
@@ -266,9 +310,11 @@ export function ScheduleSection() {
                           <span className="font-mono text-xs font-bold text-maroon-900">
                             {item.time}
                           </span>
-                          <span className="text-xs font-body text-charcoal-500">
-                            {item.venue}
-                          </span>
+                          {item.venue && (
+                            <span className="text-xs font-body text-charcoal-500">
+                              {item.venue}
+                            </span>
+                          )}
                         </div>
 
                         <h4 className="font-display font-bold text-base text-charcoal-900">
