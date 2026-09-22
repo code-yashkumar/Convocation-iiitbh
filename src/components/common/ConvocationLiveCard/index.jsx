@@ -3,6 +3,7 @@ import CountdownCard from '../../../sections/Countdown';
 import LiveCardFace from './LiveCardFace';
 import EndedCardFace from './EndedCardFace';
 import { useConvocationLiveState } from '../../../hooks/useConvocationLiveState';
+import { DEFAULT_EVENT_START } from '../../../config/convocationLiveConfig';
 
 /**
  * 3D Flippable Card Container for Convocation Live State Control
@@ -74,7 +75,7 @@ export function ConvocationLiveCard({ className = '' }) {
     // Default countdown state
     return (
       <CountdownCard
-        targetDate={config.event_start}
+        targetDate={config.event_start || DEFAULT_EVENT_START}
         overrideTimeLeft={testTimeLeft}
         className="w-full h-full shadow-none"
       />

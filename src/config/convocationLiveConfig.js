@@ -8,7 +8,8 @@
  * - TEST_LIVE_DURATION_SECONDS: Visible live state duration before flipping to ended state.
  */
 
-export const TEST_MODE = true;
+// Set to false for real live countdown; set to true or append ?test=true in URL to run the 2s test sequence
+export const TEST_MODE = false;
 export const TEST_ROLL_DURATION_MS = 1500; // 1.5 seconds of high-speed rolling digits
 export const TEST_ZERO_HOLD_MS = 500;      // 0.5s pause with all digits at 00 before card flip (total = 2.0 seconds)
 export const TEST_LIVE_DURATION_SECONDS = 15;

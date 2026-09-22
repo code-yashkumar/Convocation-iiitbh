@@ -35,7 +35,14 @@ export function useConvocationLiveState() {
 
   // Effective displayed state: 'countdown' | 'live' | 'ended'
   const [activeState, setActiveState] = useState('countdown');
-  const [isTestModeActive, setIsTestModeActive] = useState(TEST_MODE);
+  const [isTestModeActive, setIsTestModeActive] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      if (searchParams.get('test') === 'true') return true;
+      if (searchParams.get('test') === 'false') return false;
+    }
+    return TEST_MODE;
+  });
   const [testRunId, setTestRunId] = useState(0);
   const [testTimeLeft, setTestTimeLeft] = useState(null);
 
