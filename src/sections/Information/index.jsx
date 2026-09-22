@@ -8,10 +8,11 @@ const GUIDELINES = [
     icon: Shirt,
     title: 'Academic Regalia & Dress Code',
     items: [
-      'Graduates are required to wear formal attire beneath the academic convocation robe.',
-      'Male candidates: White/Off-white Kurta Pyjama or formal trousers with full-sleeve shirt.',
-      'Female candidates: White/Off-white Saree with border or Salwar Kameez.',
-      'Stoles with institutional color code will be distributed upon morning registration.',
+      'Gentlemen: Traditional white or off-white Kurta Pyjama.',
+      'Ladies: Traditional white or off-white Saree featuring an elegant border.',
+      'The ceremonial Kurta Pyjama / Saree along with degree-specific institutional stoles will be handed over to candidates during morning registration.',
+      'Wearing the official stole and traditional attire is mandatory to participate in the Academic Procession and receive the degree on stage.',
+      'Appropriate formal footwear (traditional mojaris, sandals, or formal shoes) is recommended to complement the ceremonial attire.',
     ],
   },
   {
