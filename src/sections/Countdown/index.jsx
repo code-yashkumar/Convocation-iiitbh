@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react';
 export function CountdownCard({
   targetDate = '2026-09-26T10:00:00+05:30',
   className = '',
+  overrideTimeLeft = null,
 }) {
   const [timeLeft, setTimeLeft] = useState({
     days: 29,
@@ -18,7 +19,11 @@ export function CountdownCard({
   });
 
   useEffect(() => {
+    if (overrideTimeLeft) {
+      return;
+    }
     const target = new Date(targetDate).getTime();
+
 
     const calculate = () => {
       const now = new Date().getTime();
@@ -37,7 +42,9 @@ export function CountdownCard({
     calculate();
     const interval = setInterval(calculate, 1000);
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, [targetDate, overrideTimeLeft]);
+
+  const activeTime = overrideTimeLeft || timeLeft;
 
   return (
     <div
@@ -52,7 +59,7 @@ export function CountdownCard({
       {/* Main Dominant Days Numeral */}
       <div className="my-1.5">
         <div className="font-mono font-bold text-[3.25rem] leading-[0.92] text-white tracking-tight tabular-nums">
-          {String(timeLeft.days).padStart(2, '0')}
+          {String(activeTime.days).padStart(2, '0')}
         </div>
         <div className="text-white/90 font-body text-[0.875rem] font-medium mt-0.5">
           Days
@@ -62,13 +69,13 @@ export function CountdownCard({
       {/* Bottom Sub-Time Units */}
       <div className="pt-3 border-t border-white/10 flex items-center justify-between text-white/80 font-body text-[0.6875rem] tracking-tight">
         <span className="tabular-nums font-medium">
-          {String(timeLeft.hours).padStart(2, '0')} Hours
+          {String(activeTime.hours).padStart(2, '0')} Hours
         </span>
         <span className="tabular-nums font-medium">
-          {String(timeLeft.minutes).padStart(2, '0')} Mins
+          {String(activeTime.minutes).padStart(2, '0')} Mins
         </span>
         <span className="tabular-nums font-medium">
-          {String(timeLeft.seconds).padStart(2, '0')} Secs
+          {String(activeTime.seconds).padStart(2, '0')} Secs
         </span>
       </div>
 

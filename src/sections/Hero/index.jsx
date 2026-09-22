@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight, Calendar, MapPin } from 'lucide-react';
-import CountdownCard from '../Countdown';
+import ConvocationLiveCard from '../../components/common/ConvocationLiveCard';
 import InformationBar from '../InformationBar';
 
 /**
@@ -172,18 +172,18 @@ export function Hero() {
               </a>
             </div>
 
-            {/* Mobile Countdown Card (< lg) positioned directly under CTA buttons */}
+            {/* Mobile Countdown / Live Card (< lg) positioned directly under CTA buttons */}
             <div className="lg:hidden w-full mt-6">
-              <CountdownCard className="countdown-card" />
+              <ConvocationLiveCard className="countdown-card" />
             </div>
 
           </div>
 
         </div>
 
-        {/* Desktop Countdown Card: Anchored relative to the constrained main-hero-area */}
+        {/* Desktop Countdown / Live Card: Anchored relative to the constrained main-hero-area */}
         <div className="hidden lg:block absolute right-4 sm:right-5 md:right-10 lg:right-12 bottom-6 w-64 xl:w-72 z-30">
-          <CountdownCard className="countdown-card" />
+          <ConvocationLiveCard className="countdown-card" />
         </div>
       </div>
 
