@@ -78,30 +78,42 @@ export function useConvocationLiveState() {
 
     fetchRemoteState();
 
-    // Setup Realtime Subscription
-    const channel = supabase
-      .channel('convocation_state_changes')
-      .on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'convocation_state' },
-        (payload) => {
-          if (payload.new) {
-            setConfig(payload.new);
-            try {
-              localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(payload.new));
-            } catch {
-              // ignore
+    // Setup Realtime Subscription with unique channel name per instance
+    let channel = null;
+    try {
+      const channelId = `convocation_live_${Math.random().toString(36).substring(2, 9)}`;
+      channel = supabase
+        .channel(channelId)
+        .on(
+          'postgres_changes',
+          { event: '*', schema: 'public', table: 'convocation_state' },
+          (payload) => {
+            if (payload?.new) {
+              setConfig(payload.new);
+              try {
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(payload.new));
+              } catch {
+                // ignore
+              }
             }
           }
-        }
-      )
-      .subscribe();
+        )
+        .subscribe();
+    } catch (subErr) {
+      console.warn('Realtime channel error, falling back to polling:', subErr);
+    }
 
     // 15-second polling fallback in case WebSockets fail
     const pollInterval = setInterval(fetchRemoteState, 15000);
 
     return () => {
-      supabase.removeChannel(channel);
+      if (channel) {
+        try {
+          supabase.removeChannel(channel);
+        } catch {
+          // ignore
+        }
+      }
       clearInterval(pollInterval);
     };
   }, []);
