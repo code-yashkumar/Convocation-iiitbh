@@ -10,12 +10,15 @@ import { DEFAULT_EVENT_START } from '../../../config/convocationLiveConfig';
  * States: 'countdown' | 'live' | 'ended'
  * Transitions: Smooth 700ms 3D Card Flip preserving identical size, rounded corners, and shadow.
  */
-export function ConvocationLiveCard({ className = '' }) {
+export function ConvocationLiveCard({ className = '', liveState: externalLiveState }) {
+  const internalLiveState = useConvocationLiveState();
+  const liveState = externalLiveState || internalLiveState;
+
   const {
     activeState,
     config,
     testTimeLeft,
-  } = useConvocationLiveState();
+  } = liveState;
 
   // Face Management:
   // We maintain a "front" and "back" face of the physical card.

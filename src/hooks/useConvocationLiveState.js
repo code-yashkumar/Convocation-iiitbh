@@ -47,9 +47,13 @@ export function useConvocationLiveState() {
   const [testTimeLeft, setTestTimeLeft] = useState(null);
   const hasPlayedLiveRollRef = useRef(false);
   const isRollingRef = useRef(false);
-  const animationFrameRef = useRef(null);
+  const rollTimerRef = useRef(null);
 
   const restartTestSequence = () => {
+    if (rollTimerRef.current) {
+      clearInterval(rollTimerRef.current);
+      rollTimerRef.current = null;
+    }
     hasPlayedLiveRollRef.current = false;
     isRollingRef.current = false;
     setIsTestModeActive(true);
@@ -154,6 +158,11 @@ export function useConvocationLiveState() {
 
     // Helper to start the fast 2-second roll and trigger flip to live
     const playFastRollToLive = (onFlipComplete) => {
+      if (rollTimerRef.current) {
+        clearInterval(rollTimerRef.current);
+        rollTimerRef.current = null;
+      }
+
       setActiveState('countdown');
 
       const START_DAYS = 28;
@@ -168,43 +177,38 @@ export function useConvocationLiveState() {
         seconds: START_SECS,
       });
 
-      const ROLL_DURATION = TEST_ROLL_DURATION_MS || 1500; // 1.5s rapid roll
-      const ZERO_HOLD = TEST_ZERO_HOLD_MS || 500;          // 0.5s zero hold
-      const TOTAL_BEFORE_FLIP = ROLL_DURATION + ZERO_HOLD; // 2.0s total
+      const TOTAL_STEPS = 50;     // 50 steps * 40ms = 2000ms = exactly 2.0s
+      const LOCK_DAYS_STEP = 33;  // ~1.32s
+      const LOCK_HOURS_STEP = 38; // ~1.52s
+      const LOCK_MINS_STEP = 43;  // ~1.72s
+      const LOCK_SECS_STEP = 47;  // ~1.88s
 
-      const LOCK_DAYS = ROLL_DURATION * 0.68;
-      const LOCK_HOURS = ROLL_DURATION * 0.78;
-      const LOCK_MINS = ROLL_DURATION * 0.88;
-      const LOCK_SECS = ROLL_DURATION;
+      let currentStep = 0;
 
-      let lastFrameTime = 0;
-      const startTime = performance.now();
-
-      const computeValue = (startVal, lockTime, maxRange, elapsed) => {
-        if (elapsed >= lockTime) return 0;
-        const remaining = 1 - elapsed / lockTime;
+      const computeStepVal = (startVal, lockStep, maxRange) => {
+        if (currentStep >= lockStep) return 0;
+        const remaining = 1 - currentStep / lockStep;
         const decay = Math.pow(remaining, 1.6);
         const base = Math.floor(startVal * decay);
         const jitter = Math.floor(Math.random() * Math.max(1, Math.floor(maxRange * decay * 0.4)));
         return Math.max(0, Math.min(maxRange, base + jitter));
       };
 
-      const animateRoll = (now) => {
-        const elapsed = now - startTime;
+      rollTimerRef.current = setInterval(() => {
+        currentStep++;
 
-        if (elapsed < TOTAL_BEFORE_FLIP) {
-          if (now - lastFrameTime >= 32) {
-            lastFrameTime = now;
-            setTestTimeLeft({
-              days: computeValue(START_DAYS, LOCK_DAYS, 30, elapsed),
-              hours: computeValue(START_HOURS, LOCK_HOURS, 24, elapsed),
-              minutes: computeValue(START_MINS, LOCK_MINS, 60, elapsed),
-              seconds: computeValue(START_SECS, LOCK_SECS, 60, elapsed),
-            });
-          }
-          animationFrameRef.current = requestAnimationFrame(animateRoll);
+        if (currentStep < TOTAL_STEPS) {
+          setTestTimeLeft({
+            days: computeStepVal(START_DAYS, LOCK_DAYS_STEP, 30),
+            hours: computeStepVal(START_HOURS, LOCK_HOURS_STEP, 24),
+            minutes: computeStepVal(START_MINS, LOCK_MINS_STEP, 60),
+            seconds: computeStepVal(START_SECS, LOCK_SECS_STEP, 60),
+          });
         } else {
-          // Exactly 00 across all fields at end of 2 seconds
+          // Exactly step 50 (2000ms = 2.0s) reached!
+          clearInterval(rollTimerRef.current);
+          rollTimerRef.current = null;
+
           setTestTimeLeft({
             days: 0,
             hours: 0,
@@ -212,11 +216,10 @@ export function useConvocationLiveState() {
             seconds: 0,
           });
 
-          // Mark that roll has completed
           hasPlayedLiveRollRef.current = true;
           isRollingRef.current = false;
 
-          // Trigger 3D Card Flip to LIVE at exactly 2 seconds
+          // Trigger 3D Card Flip to LIVE at exactly 2.0 seconds
           setActiveState('live');
 
           // Keep 00 visible for 800ms during the 700ms card flip so it doesn't flicker
@@ -228,9 +231,7 @@ export function useConvocationLiveState() {
             onFlipComplete();
           }
         }
-      };
-
-      animationFrameRef.current = requestAnimationFrame(animateRoll);
+      }, 40);
     };
 
     // Calculate current target state
@@ -252,7 +253,7 @@ export function useConvocationLiveState() {
 
     const target = computeCurrentTarget();
 
-    // If currently rolling, let the roll run uninterrupted!
+    // If currently rolling, let the 50-step roll complete uninterrupted!
     if (isRollingRef.current) {
       return;
     }
@@ -276,14 +277,20 @@ export function useConvocationLiveState() {
     } else if (target === 'ended') {
       hasPlayedLiveRollRef.current = false;
       isRollingRef.current = false;
-      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      if (rollTimerRef.current) {
+        clearInterval(rollTimerRef.current);
+        rollTimerRef.current = null;
+      }
       setTestTimeLeft(null);
       setActiveState('ended');
     } else {
       // 'countdown'
       hasPlayedLiveRollRef.current = false;
       isRollingRef.current = false;
-      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      if (rollTimerRef.current) {
+        clearInterval(rollTimerRef.current);
+        rollTimerRef.current = null;
+      }
       setTestTimeLeft(null);
       setActiveState('countdown');
     }
@@ -298,7 +305,10 @@ export function useConvocationLiveState() {
         } else if (nextTarget === 'ended' && activeState !== 'ended') {
           hasPlayedLiveRollRef.current = false;
           isRollingRef.current = false;
-          if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+          if (rollTimerRef.current) {
+            clearInterval(rollTimerRef.current);
+            rollTimerRef.current = null;
+          }
           setTestTimeLeft(null);
           setActiveState('ended');
         }

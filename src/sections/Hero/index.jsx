@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 import ConvocationLiveCard from '../../components/common/ConvocationLiveCard';
+import { useConvocationLiveState } from '../../hooks/useConvocationLiveState';
 import InformationBar from '../InformationBar';
 
 /**
@@ -10,6 +11,7 @@ import InformationBar from '../InformationBar';
  * Layer 2: Event Information Bar - Light in normal mode, custom dark maroon in Dark Reader mode
  */
 export function Hero() {
+  const liveState = useConvocationLiveState();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -174,7 +176,7 @@ export function Hero() {
 
             {/* Mobile Countdown / Live Card (< lg) positioned directly under CTA buttons */}
             <div className="lg:hidden w-full mt-6">
-              <ConvocationLiveCard className="countdown-card" />
+              <ConvocationLiveCard liveState={liveState} className="countdown-card" />
             </div>
 
           </div>
@@ -183,7 +185,7 @@ export function Hero() {
 
         {/* Desktop Countdown / Live Card: Anchored relative to the constrained main-hero-area */}
         <div className="hidden lg:block absolute right-4 sm:right-5 md:right-10 lg:right-12 bottom-6 w-64 xl:w-72 z-30">
-          <ConvocationLiveCard className="countdown-card" />
+          <ConvocationLiveCard liveState={liveState} className="countdown-card" />
         </div>
       </div>
 
