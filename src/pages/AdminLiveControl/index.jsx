@@ -189,6 +189,15 @@ export function AdminLiveControl() {
             <div className={`mt-1 px-3.5 py-1.5 rounded-full border text-xs sm:text-sm font-bold tracking-wide shadow-xs ${activeDisplay.color}`}>
               {activeDisplay.label}
             </div>
+            <a
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center gap-1 text-xs text-maroon-900 font-semibold hover:underline"
+            >
+              <span>View Homepage (Test 2s Roll)</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
 

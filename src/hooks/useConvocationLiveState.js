@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
 import {
   TEST_MODE,
-  TEST_COUNTDOWN_SECONDS,
+  TEST_ROLL_DURATION_MS,
+  TEST_ZERO_HOLD_MS,
   TEST_LIVE_DURATION_SECONDS,
   DEFAULT_EVENT_START,
   DEFAULT_EVENT_END,
@@ -35,7 +36,13 @@ export function useConvocationLiveState() {
   // Effective displayed state: 'countdown' | 'live' | 'ended'
   const [activeState, setActiveState] = useState('countdown');
   const [isTestModeActive, setIsTestModeActive] = useState(TEST_MODE);
+  const [testRunId, setTestRunId] = useState(0);
   const [testTimeLeft, setTestTimeLeft] = useState(null);
+
+  const restartTestSequence = () => {
+    setIsTestModeActive(true);
+    setTestRunId((prev) => prev + 1);
+  };
 
   // 1. Fetch remote state from Supabase if configured
   useEffect(() => {
@@ -94,49 +101,89 @@ export function useConvocationLiveState() {
 
   // 2. State Resolution Engine (Test Mode vs Auto Schedule vs Manual Override)
   useEffect(() => {
-    // If TEST_MODE is active, run the test sequence:
-    // Countdown 10 -> 0, pause 750ms -> Live 15s -> pause -> Ended
+    // If TEST_MODE is active, run the 2-second fast roll sequence:
+    // All digits roll rapidly across Days, Hours, Mins, Secs and cascade to 00 00 00 00,
+    // hold briefly at zero, and then card flips to LIVE (all within 2 seconds).
     if (isTestModeActive) {
-      let secondsLeft = TEST_COUNTDOWN_SECONDS;
-      setTestTimeLeft({
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: secondsLeft,
-      });
       setActiveState('countdown');
 
-      const countdownInterval = setInterval(() => {
-        secondsLeft -= 1;
-        if (secondsLeft >= 0) {
+      const START_DAYS = 28;
+      const START_HOURS = 14;
+      const START_MINS = 36;
+      const START_SECS = 48;
+
+      setTestTimeLeft({
+        days: START_DAYS,
+        hours: START_HOURS,
+        minutes: START_MINS,
+        seconds: START_SECS,
+      });
+
+      const ROLL_DURATION = TEST_ROLL_DURATION_MS || 1500; // 1.5s rapid roll
+      const ZERO_HOLD = TEST_ZERO_HOLD_MS || 500;          // 0.5s zero hold
+      const TOTAL_BEFORE_FLIP = ROLL_DURATION + ZERO_HOLD; // 2.0s total
+
+      // Staggered lock times for cascading zeroes
+      const LOCK_DAYS = ROLL_DURATION * 0.68;   // ~1020ms
+      const LOCK_HOURS = ROLL_DURATION * 0.78;  // ~1170ms
+      const LOCK_MINS = ROLL_DURATION * 0.88;   // ~1320ms
+      const LOCK_SECS = ROLL_DURATION;          // 1500ms
+
+      let animationFrameId;
+      let toEndedTimer;
+      let lastFrameTime = 0;
+      const startTime = performance.now();
+
+      const computeValue = (startVal, lockTime, maxRange, elapsed) => {
+        if (elapsed >= lockTime) return 0;
+        const remaining = 1 - elapsed / lockTime;
+        const decay = Math.pow(remaining, 1.6);
+        const base = Math.floor(startVal * decay);
+        const jitter = Math.floor(Math.random() * Math.max(1, Math.floor(maxRange * decay * 0.4)));
+        return Math.max(0, Math.min(maxRange, base + jitter));
+      };
+
+      const animateRoll = (now) => {
+        const elapsed = now - startTime;
+
+        if (elapsed < TOTAL_BEFORE_FLIP) {
+          // Throttle state update to ~32ms (~30fps) for crisp, readable rolling motion
+          if (now - lastFrameTime >= 32) {
+            lastFrameTime = now;
+
+            setTestTimeLeft({
+              days: computeValue(START_DAYS, LOCK_DAYS, 30, elapsed),
+              hours: computeValue(START_HOURS, LOCK_HOURS, 24, elapsed),
+              minutes: computeValue(START_MINS, LOCK_MINS, 60, elapsed),
+              seconds: computeValue(START_SECS, LOCK_SECS, 60, elapsed),
+            });
+          }
+          animationFrameId = requestAnimationFrame(animateRoll);
+        } else {
+          // Exactly 00 across all fields at end of 2 seconds
           setTestTimeLeft({
             days: 0,
             hours: 0,
             minutes: 0,
-            seconds: secondsLeft,
+            seconds: 0,
           });
+
+          // Trigger 3D Card Flip to LIVE at exactly 2 seconds
+          setActiveState('live');
+
+          // Stay in LIVE for TEST_LIVE_DURATION_SECONDS before flipping to ENDED
+          toEndedTimer = setTimeout(() => {
+            setActiveState('ended');
+          }, TEST_LIVE_DURATION_SECONDS * 1000);
         }
+      };
 
-        if (secondsLeft <= 0) {
-          clearInterval(countdownInterval);
+      animationFrameId = requestAnimationFrame(animateRoll);
 
-          // Brief pause at zero (750ms) before flipping to LIVE
-          const toLiveTimer = setTimeout(() => {
-            setActiveState('live');
-
-            // Stay in LIVE for TEST_LIVE_DURATION_SECONDS before flipping to ENDED
-            const toEndedTimer = setTimeout(() => {
-              setActiveState('ended');
-            }, TEST_LIVE_DURATION_SECONDS * 1000);
-
-            return () => clearTimeout(toEndedTimer);
-          }, 750);
-
-          return () => clearTimeout(toLiveTimer);
-        }
-      }, 1000);
-
-      return () => clearInterval(countdownInterval);
+      return () => {
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        if (toEndedTimer) clearTimeout(toEndedTimer);
+      };
     }
 
     // PRODUCTION / NORMAL MODE:
@@ -173,7 +220,7 @@ export function useConvocationLiveState() {
     resolveProductionState();
     const interval = setInterval(resolveProductionState, 1000);
     return () => clearInterval(interval);
-  }, [isTestModeActive, config]);
+  }, [isTestModeActive, testRunId, config]);
 
   return {
     activeState,
@@ -182,6 +229,7 @@ export function useConvocationLiveState() {
     isTestModeActive,
     setIsTestModeActive,
     testTimeLeft,
+    restartTestSequence,
   };
 }
 
