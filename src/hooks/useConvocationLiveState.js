@@ -45,7 +45,7 @@ export function useConvocationLiveState() {
   });
   const [testRunId, setTestRunId] = useState(0);
   const [testTimeLeft, setTestTimeLeft] = useState(null);
-  const hasPlayedLiveRollRef = useRef(false);
+  const hasPlayedRollRef = useRef(null);
   const isRollingRef = useRef(false);
   const rollTimerRef = useRef(null);
 
@@ -54,8 +54,9 @@ export function useConvocationLiveState() {
       clearInterval(rollTimerRef.current);
       rollTimerRef.current = null;
     }
-    hasPlayedLiveRollRef.current = false;
+    hasPlayedRollRef.current = null;
     isRollingRef.current = false;
+    setTestTimeLeft(null);
     setIsTestModeActive(true);
     setTestRunId((prev) => prev + 1);
   };
@@ -156,8 +157,8 @@ export function useConvocationLiveState() {
     let toEndedTimer = null;
     let resetOverrideTimer = null;
 
-    // Helper to start the fast 2-second roll and trigger flip to live
-    const playFastRollToLive = (onFlipComplete) => {
+    // Helper to start the fast 2-second roll and trigger flip to target state ('live' | 'ended')
+    const playFastRoll = (targetState, onFlipComplete) => {
       if (rollTimerRef.current) {
         clearInterval(rollTimerRef.current);
         rollTimerRef.current = null;
@@ -216,11 +217,11 @@ export function useConvocationLiveState() {
             seconds: 0,
           });
 
-          hasPlayedLiveRollRef.current = true;
+          hasPlayedRollRef.current = targetState;
           isRollingRef.current = false;
 
-          // Trigger 3D Card Flip to LIVE at exactly 2.0 seconds
-          setActiveState('live');
+          // Trigger 3D Card Flip to targetState ('live' or 'ended') at exactly 2.0 seconds
+          setActiveState(targetState);
 
           // Keep 00 visible for 800ms during the 700ms card flip so it doesn't flicker
           resetOverrideTimer = setTimeout(() => {
@@ -260,32 +261,31 @@ export function useConvocationLiveState() {
 
     if (target === 'test') {
       isRollingRef.current = true;
-      playFastRollToLive(() => {
+      playFastRoll('live', () => {
         toEndedTimer = setTimeout(() => {
-          setActiveState('ended');
+          isRollingRef.current = true;
+          playFastRoll('ended');
         }, TEST_LIVE_DURATION_SECONDS * 1000);
       });
     } else if (target === 'live') {
-      // If we haven't played the fast-roll sequence yet (e.g. on page load / refresh or live transition)
-      if (!hasPlayedLiveRollRef.current) {
+      if (hasPlayedRollRef.current !== 'live') {
         isRollingRef.current = true;
-        playFastRollToLive();
+        playFastRoll('live');
       } else {
         setTestTimeLeft(null);
         setActiveState('live');
       }
     } else if (target === 'ended') {
-      hasPlayedLiveRollRef.current = false;
-      isRollingRef.current = false;
-      if (rollTimerRef.current) {
-        clearInterval(rollTimerRef.current);
-        rollTimerRef.current = null;
+      if (hasPlayedRollRef.current !== 'ended') {
+        isRollingRef.current = true;
+        playFastRoll('ended');
+      } else {
+        setTestTimeLeft(null);
+        setActiveState('ended');
       }
-      setTestTimeLeft(null);
-      setActiveState('ended');
     } else {
       // 'countdown'
-      hasPlayedLiveRollRef.current = false;
+      hasPlayedRollRef.current = null;
       isRollingRef.current = false;
       if (rollTimerRef.current) {
         clearInterval(rollTimerRef.current);
@@ -299,18 +299,12 @@ export function useConvocationLiveState() {
     const interval = setInterval(() => {
       if (config.mode === 'auto') {
         const nextTarget = computeCurrentTarget();
-        if (nextTarget === 'live' && !hasPlayedLiveRollRef.current && !isRollingRef.current) {
+        if (nextTarget === 'live' && hasPlayedRollRef.current !== 'live' && !isRollingRef.current) {
           isRollingRef.current = true;
-          playFastRollToLive();
-        } else if (nextTarget === 'ended' && activeState !== 'ended') {
-          hasPlayedLiveRollRef.current = false;
-          isRollingRef.current = false;
-          if (rollTimerRef.current) {
-            clearInterval(rollTimerRef.current);
-            rollTimerRef.current = null;
-          }
-          setTestTimeLeft(null);
-          setActiveState('ended');
+          playFastRoll('live');
+        } else if (nextTarget === 'ended' && hasPlayedRollRef.current !== 'ended' && !isRollingRef.current) {
+          isRollingRef.current = true;
+          playFastRoll('ended');
         }
       }
     }, 1000);
