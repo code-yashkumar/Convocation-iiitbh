@@ -46,8 +46,12 @@ export function useConvocationLiveState() {
   const [testRunId, setTestRunId] = useState(0);
   const [testTimeLeft, setTestTimeLeft] = useState(null);
   const hasPlayedLiveRollRef = useRef(false);
+  const isRollingRef = useRef(false);
+  const animationFrameRef = useRef(null);
 
   const restartTestSequence = () => {
+    hasPlayedLiveRollRef.current = false;
+    isRollingRef.current = false;
     setIsTestModeActive(true);
     setTestRunId((prev) => prev + 1);
   };
@@ -65,7 +69,19 @@ export function useConvocationLiveState() {
           .single();
 
         if (data && !error) {
-          setConfig(data);
+          setConfig((prev) => {
+            if (
+              prev &&
+              prev.mode === data.mode &&
+              prev.live_url === data.live_url &&
+              prev.recording_url === data.recording_url &&
+              prev.event_start === data.event_start &&
+              prev.event_end === data.event_end
+            ) {
+              return prev;
+            }
+            return data;
+          });
           try {
             localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
           } catch {
@@ -90,7 +106,19 @@ export function useConvocationLiveState() {
           { event: '*', schema: 'public', table: 'convocation_state' },
           (payload) => {
             if (payload?.new) {
-              setConfig(payload.new);
+              setConfig((prev) => {
+                if (
+                  prev &&
+                  prev.mode === payload.new.mode &&
+                  prev.live_url === payload.new.live_url &&
+                  prev.recording_url === payload.new.recording_url &&
+                  prev.event_start === payload.new.event_start &&
+                  prev.event_end === payload.new.event_end
+                ) {
+                  return prev;
+                }
+                return payload.new;
+              });
               try {
                 localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(payload.new));
               } catch {
@@ -121,7 +149,6 @@ export function useConvocationLiveState() {
 
   // 2. State Resolution Engine (Test Mode vs Auto Schedule vs Manual Override)
   useEffect(() => {
-    let animationFrameId = null;
     let toEndedTimer = null;
     let resetOverrideTimer = null;
 
@@ -175,7 +202,7 @@ export function useConvocationLiveState() {
               seconds: computeValue(START_SECS, LOCK_SECS, 60, elapsed),
             });
           }
-          animationFrameId = requestAnimationFrame(animateRoll);
+          animationFrameRef.current = requestAnimationFrame(animateRoll);
         } else {
           // Exactly 00 across all fields at end of 2 seconds
           setTestTimeLeft({
@@ -184,6 +211,10 @@ export function useConvocationLiveState() {
             minutes: 0,
             seconds: 0,
           });
+
+          // Mark that roll has completed
+          hasPlayedLiveRollRef.current = true;
+          isRollingRef.current = false;
 
           // Trigger 3D Card Flip to LIVE at exactly 2 seconds
           setActiveState('live');
@@ -199,7 +230,7 @@ export function useConvocationLiveState() {
         }
       };
 
-      animationFrameId = requestAnimationFrame(animateRoll);
+      animationFrameRef.current = requestAnimationFrame(animateRoll);
     };
 
     // Calculate current target state
@@ -221,8 +252,13 @@ export function useConvocationLiveState() {
 
     const target = computeCurrentTarget();
 
+    // If currently rolling, let the roll run uninterrupted!
+    if (isRollingRef.current) {
+      return;
+    }
+
     if (target === 'test') {
-      hasPlayedLiveRollRef.current = true;
+      isRollingRef.current = true;
       playFastRollToLive(() => {
         toEndedTimer = setTimeout(() => {
           setActiveState('ended');
@@ -231,7 +267,7 @@ export function useConvocationLiveState() {
     } else if (target === 'live') {
       // If we haven't played the fast-roll sequence yet (e.g. on page load / refresh or live transition)
       if (!hasPlayedLiveRollRef.current) {
-        hasPlayedLiveRollRef.current = true;
+        isRollingRef.current = true;
         playFastRollToLive();
       } else {
         setTestTimeLeft(null);
@@ -239,11 +275,15 @@ export function useConvocationLiveState() {
       }
     } else if (target === 'ended') {
       hasPlayedLiveRollRef.current = false;
+      isRollingRef.current = false;
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
       setTestTimeLeft(null);
       setActiveState('ended');
     } else {
       // 'countdown'
       hasPlayedLiveRollRef.current = false;
+      isRollingRef.current = false;
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
       setTestTimeLeft(null);
       setActiveState('countdown');
     }
@@ -252,11 +292,13 @@ export function useConvocationLiveState() {
     const interval = setInterval(() => {
       if (config.mode === 'auto') {
         const nextTarget = computeCurrentTarget();
-        if (nextTarget === 'live' && !hasPlayedLiveRollRef.current) {
-          hasPlayedLiveRollRef.current = true;
+        if (nextTarget === 'live' && !hasPlayedLiveRollRef.current && !isRollingRef.current) {
+          isRollingRef.current = true;
           playFastRollToLive();
         } else if (nextTarget === 'ended' && activeState !== 'ended') {
           hasPlayedLiveRollRef.current = false;
+          isRollingRef.current = false;
+          if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
           setTestTimeLeft(null);
           setActiveState('ended');
         }
@@ -264,7 +306,6 @@ export function useConvocationLiveState() {
     }, 1000);
 
     return () => {
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
       if (toEndedTimer) clearTimeout(toEndedTimer);
       if (resetOverrideTimer) clearTimeout(resetOverrideTimer);
       clearInterval(interval);
