@@ -14,31 +14,14 @@ const HIGHER_DIGNITARY = {
 
 const DIGNITARIES = [
   {
-    name: 'Dr. Ashok Khade',
-    role: 'Chairperson',
-    subtitle: 'Board of Governors',
-    designation: 'IIIT Bhagalpur',
-    icon: UserCheck,
-    initials: 'AK',
-    image: '/assets/dignitaries/dr-ashok-khade.jpg',
-  },
-  {
-    name: 'Prof. Madhusudan Singh',
-    role: 'Director',
-    subtitle: 'Director',
-    designation: 'IIIT Bhagalpur',
-    icon: Award,
-    initials: 'MS',
-    image: '/assets/dignitaries/prof-madhusudan-singh.jpg',
-  },
-  {
     name: 'Shri Kaushal Kishore, IAS',
     role: 'Guest of Honour',
     subtitle: 'Managing Director',
     designation: 'BELTRON',
     icon: Sparkles,
     initials: 'KK',
-    image: null,
+    image: '/assets/dignitaries/shri-kaushal-kishore.jpg',
+    imagePosition: 'object-top',
   },
   {
     name: 'Mr. Varun Goyal',
@@ -48,6 +31,7 @@ const DIGNITARIES = [
     icon: Star,
     initials: 'VG',
     image: '/assets/dignitaries/mr-varun-goyal.jpg',
+    imagePosition: 'object-top',
   },
   {
     name: 'Mr. Ravindra Sharma',
@@ -56,7 +40,28 @@ const DIGNITARIES = [
     designation: 'NTPC Kahalgaon',
     icon: Star,
     initials: 'RS',
-    image: null,
+    image: '/assets/dignitaries/mr-ravindra-sharma.jpg',
+    imagePosition: 'object-top',
+  },
+  {
+    name: 'Dr. Ashok Khade',
+    role: 'Chairperson',
+    subtitle: 'Board of Governors',
+    designation: 'IIIT Bhagalpur',
+    icon: UserCheck,
+    initials: 'AK',
+    image: '/assets/dignitaries/dr-ashok-khade.jpg',
+    imagePosition: 'object-top',
+  },
+  {
+    name: 'Prof. Madhusudan Singh',
+    role: 'Director',
+    subtitle: 'Director',
+    designation: 'IIIT Bhagalpur',
+    icon: Award,
+    initials: 'MS',
+    image: '/assets/dignitaries/prof-madhusudan-singh.jpg',
+    imagePosition: 'object-top',
   },
 ];
 
@@ -163,7 +168,7 @@ export function DignitariesSection() {
                         alt={`${dignitary.name}, ${dignitary.role}`}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] select-none"
+                        className={`w-full h-full object-cover ${dignitary.imagePosition || 'object-top'} group-hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] select-none`}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-maroon-900 font-display font-bold text-2xl sm:text-3xl bg-cream-100">
