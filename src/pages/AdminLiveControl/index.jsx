@@ -95,11 +95,11 @@ export function AdminLiveControl() {
       try {
         const { error } = await supabase
           .from('convocation_state')
-          .upsert({
-            id: 'current',
+          .update({
             ...dataToSave,
             updated_at: new Date().toISOString(),
-          });
+          })
+          .eq('id', 'current');
 
         if (error) {
           throw error;
