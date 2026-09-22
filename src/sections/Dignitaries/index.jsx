@@ -151,13 +151,25 @@ export function DignitariesSection() {
         </div>
 
         {/* 5-Column Profile Cards Grid (2 cols on all phone viewports, 3 on tablet, 5 on desktop) */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-4">
-          {DIGNITARIES.map((dignitary) => {
+        <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-4">
+          {DIGNITARIES.map((dignitary, idx) => {
             const IconComponent = dignitary.icon;
+            // On md (3-col equivalent using 6-column grid):
+            // items 0, 1, 2 take 2 columns each (span 2 * 3 = 6 cols, fills row 1)
+            // item 3 (Dr. Ashok Khade) spans 2 cols and offsets by 1 col (col-start-2)
+            // item 4 (Prof. Madhusudan Singh) spans 2 cols
+            // Result: precisely centered 2 cards in row 2 on md view!
+            // On lg: reset to standard 1 column per card (lg:col-span-1 lg:col-start-auto)
+            const mdColClass = idx === 3
+              ? 'md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto'
+              : idx === 4
+              ? 'md:col-span-2 lg:col-span-1 lg:col-start-auto'
+              : 'md:col-span-2 lg:col-span-1 lg:col-start-auto';
+
             return (
               <div
                 key={dignitary.name}
-                className="bg-white rounded-[1.25rem] sm:rounded-[1.5rem] border border-[#E8E2D8] shadow-[0_2px_14px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_28px_rgba(94,16,28,0.10)] hover:-translate-y-1 active:scale-[0.99] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] overflow-hidden group select-none flex flex-col"
+                className={`bg-white rounded-[1.25rem] sm:rounded-[1.5rem] border border-[#E8E2D8] shadow-[0_2px_14px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_28px_rgba(94,16,28,0.10)] hover:-translate-y-1 active:scale-[0.99] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] overflow-hidden group select-none flex flex-col ${mdColClass}`}
               >
                 {/* Inset Photo */}
                 <div className="p-2.5 sm:p-3 pb-0">
