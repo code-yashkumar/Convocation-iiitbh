@@ -7,6 +7,7 @@ const HIGHER_DIGNITARY = {
   subtitle: 'Member of Parliament',
   designation: 'Rajya Sabha',
   badge: 'Guest of Honour',
+  bio: 'Distinguished public leader and Member of Parliament (Rajya Sabha), former Minister of Higher and Technical Education, Government of Maharashtra. Recognized for visionary initiatives in higher education, youth empowerment, and public administration.',
   image: '/assets/dignitaries/shri-vinod-tawde.jpg',
   initials: 'VT',
 };
@@ -130,6 +131,13 @@ export function DignitariesSection() {
                     <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-gold-400 shrink-0" />
                     <span>{HIGHER_DIGNITARY.designation}</span>
                   </div>
+                </div>
+
+                {/* Description / Citation from past design */}
+                <div className="mt-3.5 sm:mt-4 pt-3.5 sm:pt-4 border-t border-white/15">
+                  <p className="font-body text-white/80 text-xs sm:text-[0.9375rem] leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    {HIGHER_DIGNITARY.bio}
+                  </p>
                 </div>
               </div>
 
