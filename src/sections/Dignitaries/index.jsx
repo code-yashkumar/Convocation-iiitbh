@@ -3,10 +3,10 @@ import { Award, UserCheck, Building2, Star, Sparkles } from 'lucide-react';
 
 const HIGHER_DIGNITARY = {
   name: 'Shri Vinod Tawde',
-  role: 'Guest of Honour',
+  role: 'Chief Guest',
   subtitle: 'Member of Parliament',
   designation: 'Rajya Sabha',
-  badge: 'Guest of Honour',
+  badge: 'Chief Guest',
   bio: 'Distinguished public leader and Member of Parliament (Rajya Sabha), former Minister of Higher and Technical Education, Government of Maharashtra. Recognized for visionary initiatives in higher education, youth empowerment, and public administration.',
   image: '/assets/dignitaries/shri-vinod-tawde.jpg',
   initials: 'VT',
