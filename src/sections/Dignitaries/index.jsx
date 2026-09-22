@@ -150,8 +150,8 @@ export function DignitariesSection() {
           </div>
         </div>
 
-        {/* 5-Column Profile Cards Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-4">
+        {/* 5-Column Profile Cards Grid (2 cols on all phone viewports, 3 on tablet, 5 on desktop) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-4">
           {DIGNITARIES.map((dignitary) => {
             const IconComponent = dignitary.icon;
             return (
@@ -161,7 +161,7 @@ export function DignitariesSection() {
               >
                 {/* Inset Photo */}
                 <div className="p-2.5 sm:p-3 pb-0">
-                  <div className="w-full aspect-[4/4.2] rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-b from-[#F0EBE1] to-[#E8E2D8]">
+                  <div className="w-full aspect-[4/4.2] rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-b from-[#F0EBE1] to-[#E8E2D8] relative">
                     {dignitary.image ? (
                       <img
                         src={dignitary.image}
@@ -175,6 +175,13 @@ export function DignitariesSection() {
                         {dignitary.initials}
                       </div>
                     )}
+
+                    {/* Role Pill: Overlaid on bottom-right of photo on phone (<md) */}
+                    <div className="md:hidden absolute bottom-1.5 right-1.5 z-10">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-white/95 backdrop-blur-md border border-maroon-900/15 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide shadow-xs whitespace-nowrap">
+                        {dignitary.role}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -203,7 +210,8 @@ export function DignitariesSection() {
                         {dignitary.designation}
                       </span>
                     </div>
-                    <span className="shrink-0 inline-flex items-center px-2 py-0.5 rounded-full bg-maroon-050 border border-maroon-900/10 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide whitespace-nowrap">
+                    {/* Role Pill: Desktop / Tablet view (md+) */}
+                    <span className="hidden md:inline-flex shrink-0 items-center px-2 py-0.5 rounded-full bg-maroon-050 border border-maroon-900/10 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide whitespace-nowrap">
                       {dignitary.role}
                     </span>
                   </div>
