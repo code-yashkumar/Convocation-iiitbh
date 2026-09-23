@@ -14,13 +14,13 @@ const HIGHER_DIGNITARY = {
 
 const DIGNITARIES = [
   {
-    name: 'Shri Kaushal Kishore, IAS',
+    name: 'Prof. Nitin M. Gangane',
     role: 'Guest of Honour',
-    subtitle: 'Managing Director',
-    designation: 'BELTRON',
+    subtitle: 'Executive Director & CEO',
+    designation: 'AIIMS Deoghar',
     icon: Sparkles,
-    initials: 'KK',
-    image: '/assets/dignitaries/shri-kaushal-kishore.jpg',
+    initials: 'NG',
+    image: '/assets/dignitaries/prof-nitin-m-gangane.jpg',
     imagePosition: 'object-top',
   },
   {
