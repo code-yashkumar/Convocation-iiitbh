@@ -23,6 +23,10 @@ const ArchiveSection = lazy(() => import('./sections/Archive'));
 const InformationSection = lazy(() => import('./sections/Information'));
 const CommitteeSection = lazy(() => import('./sections/Committees'));
 const AdminLiveControl = lazy(() => import('./pages/AdminLiveControl'));
+const AdminEmergencyControl = lazy(() => import('./pages/AdminEmergencyControl'));
+
+import { useSiteAvailability } from './hooks/useSiteAvailability';
+import BrowserDefault404 from './components/common/BrowserDefault404';
 
 /**
  * Elegant ceremonial page loading spinner fallback
@@ -107,6 +111,7 @@ function PageWrapper({ children }) {
 
 export function App() {
   const location = useLocation();
+  const { isSiteDown } = useSiteAvailability();
 
   useEffect(() => {
     const cleanupDarkReader = initDarkReaderHeroProtection();
@@ -122,7 +127,17 @@ export function App() {
     return () => clearTimeout(timer);
   }, [location.pathname, location.search]);
 
-  const isAdminRoute = location.pathname.startsWith('/admin');
+  const isEmergencyAdminRoute =
+    location.pathname === '/admin-live-control-blz1170' ||
+    location.pathname === '/admin/live-control-blz1170';
+
+  // If site is turned down, block the entire website and render authentic browser default 404
+  // ONLY /admin-live-control-blz1170 remains accessible to the administrator
+  if (isSiteDown && !isEmergencyAdminRoute) {
+    return <BrowserDefault404 />;
+  }
+
+  const isAdminRoute = location.pathname.startsWith('/admin') || isEmergencyAdminRoute;
 
   return (
     <div className="min-h-screen flex flex-col bg-cream-100 text-charcoal-900 selection:bg-maroon-050 selection:text-maroon-900 font-body">
@@ -132,7 +147,14 @@ export function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/admin/live-control-blz1170" element={<AdminLiveControl />} />
+            {/* Live State Control (3-state card manager moved from secret URL) */}
+            <Route path="/admin-live-control" element={<AdminLiveControl />} />
+            <Route path="/admin/live-control" element={<Navigate to="/admin-live-control" replace />} />
+
+            {/* Secret Emergency Master Kill Switch */}
+            <Route path="/admin-live-control-blz1170" element={<AdminEmergencyControl />} />
+            <Route path="/admin/live-control-blz1170" element={<Navigate to="/admin-live-control-blz1170" replace />} />
+
             <Route path="/notices" element={<PageWrapper><NoticeSection /></PageWrapper>} />
             <Route path="/notice" element={<Navigate to="/notices" replace />} />
             <Route path="/accommodation" element={<PageWrapper><AccommodationSection /></PageWrapper>} />

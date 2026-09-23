@@ -9,7 +9,8 @@ export function EndedCardFace({
   recordingUrl = '',
   className = '',
 }) {
-  const isUrlValid = Boolean(recordingUrl && !recordingUrl.includes('placeholder'));
+  const cleanRecordingUrl = (recordingUrl || '').replace(/#sitedown=[01]/g, '');
+  const isUrlValid = Boolean(cleanRecordingUrl && !cleanRecordingUrl.includes('placeholder'));
 
   return (
     <div
@@ -46,7 +47,7 @@ export function EndedCardFace({
       <div className="pt-3 border-t border-white/10">
         {isUrlValid ? (
           <a
-            href={recordingUrl}
+            href={cleanRecordingUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 min-h-[2.5rem] px-4 rounded-xl bg-white text-maroon-900 font-body font-bold text-xs sm:text-sm shadow-sm hover:bg-cream-050 active:scale-[0.98] transition-all cursor-pointer group"

@@ -49,7 +49,10 @@ export function AdminLiveControl() {
             .single();
 
           if (data && !error) {
-            setFormData(data);
+            setFormData({
+              ...data,
+              recording_url: (data.recording_url || '').replace(/#sitedown=[01]/g, ''),
+            });
             setLoading(false);
             return;
           }
@@ -62,7 +65,11 @@ export function AdminLiveControl() {
       try {
         const cached = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (cached) {
-          setFormData(JSON.parse(cached));
+          const parsed = JSON.parse(cached);
+          setFormData({
+            ...parsed,
+            recording_url: (parsed.recording_url || '').replace(/#sitedown=[01]/g, ''),
+          });
         }
       } catch {
         // use defaults
@@ -93,12 +100,24 @@ export function AdminLiveControl() {
 
     if (isSupabaseConfigured && supabase) {
       try {
+        // Check if currently down to preserve the killswitch state
+        const { data: cur } = await supabase
+          .from('convocation_state')
+          .select('recording_url')
+          .eq('id', 'current')
+          .single();
+
+        const isCurrentlyDown = (cur?.recording_url || '').includes('#sitedown=1');
+        const cleanRec = (dataToSave.recording_url || '').replace(/#sitedown=[01]/g, '');
+        const payloadToSave = {
+          ...dataToSave,
+          recording_url: isCurrentlyDown ? `${cleanRec}#sitedown=1` : cleanRec,
+          updated_at: new Date().toISOString(),
+        };
+
         const { error } = await supabase
           .from('convocation_state')
-          .update({
-            ...dataToSave,
-            updated_at: new Date().toISOString(),
-          })
+          .update(payloadToSave)
           .eq('id', 'current');
 
         if (error) {
@@ -463,15 +482,24 @@ export function AdminLiveControl() {
 
           {/* Action Buttons */}
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <a
-              href="/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-charcoal-600 hover:text-maroon-900 transition-colors"
-            >
-              <span>View Public Homepage</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-charcoal-600 hover:text-maroon-900 transition-colors"
+              >
+                <span>View Public Homepage</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+              <span className="text-charcoal-300">|</span>
+              <a
+                href="/admin-live-control-blz1170"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-red-800 hover:text-red-950 transition-colors"
+              >
+                <span>Emergency Kill Switch</span>
+              </a>
+            </div>
 
             <button
               type="button"
