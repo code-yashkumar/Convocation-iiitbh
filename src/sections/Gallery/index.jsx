@@ -449,22 +449,22 @@ export function GallerySection() {
         )}
 
         {/* Media Press Kit Download Banner */}
-        <div className="mt-12 sm:mt-16 bg-white rounded-[1.375rem] sm:rounded-[1.75rem] p-6 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
-          <div className="space-y-1 text-center sm:text-left">
-            <h3 className="font-display font-bold text-lg sm:text-2xl text-charcoal-900">
+        <div className="mt-12 sm:mt-16 bg-white rounded-[1.25rem] sm:rounded-[1.75rem] p-5 sm:p-7 md:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col md:flex-row items-start md:items-center justify-between gap-5 md:gap-6">
+          <div className="space-y-1.5 text-left">
+            <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-charcoal-900 leading-snug">
               Official Media & Press Archive
             </h3>
-            <p className="font-body text-charcoal-600 text-xs sm:text-sm max-w-xl">
+            <p className="font-body text-charcoal-600 text-xs sm:text-sm max-w-xl leading-relaxed">
               High-resolution print-ready photographs, logo assets, and official press releases for publication and alumni archives.
             </p>
           </div>
-          <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
+          <div className="flex items-center gap-3 shrink-0 w-full md:w-auto pt-1 md:pt-0">
             <a
               href="mailto:media@iiitbh.ac.in?subject=Request%20Convocation%202026%20High-Res%20Media%20Pack"
-              className="w-full sm:w-auto inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-xs sm:text-sm shadow-sm transition-all gap-2 cursor-pointer text-center"
+              className="w-full md:w-auto inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-xs sm:text-sm shadow-sm transition-all gap-2 cursor-pointer text-center whitespace-nowrap"
             >
-              <Download className="w-4 h-4" />
-              <span>Request Media Pack (ZIP)</span>
+              <Download className="w-4 h-4 shrink-0" />
+              <span className="whitespace-nowrap">Request Media Pack (ZIP)</span>
             </a>
           </div>
         </div>

@@ -481,13 +481,13 @@ export function NoticeSection() {
         )}
 
         {/* Secretariat Assistance Banner */}
-        <div className="bg-white rounded-[1.25rem] sm:rounded-[1.75rem] p-5 sm:p-7 md:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1.5 text-center md:text-left">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs font-semibold mb-1 border border-maroon-900/10">
-              <ShieldCheck className="w-3.5 h-3.5 text-maroon-900" />
+        <div className="bg-white rounded-[1.25rem] sm:rounded-[1.75rem] p-5 sm:p-7 md:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
+          <div className="space-y-2 text-left">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs font-semibold border border-maroon-900/10">
+              <ShieldCheck className="w-3.5 h-3.5 text-maroon-900 shrink-0" />
               <span>Official Helpdesk</span>
             </div>
-            <h3 className="font-display font-bold text-xl sm:text-2xl text-charcoal-900">
+            <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-charcoal-900 leading-snug">
               Have Questions Regarding Circulars or Registration?
             </h3>
             <p className="font-body text-charcoal-600 text-xs sm:text-sm max-w-xl leading-relaxed">
@@ -495,13 +495,13 @@ export function NoticeSection() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0 w-full md:w-auto justify-center">
+          <div className="flex items-center gap-3 shrink-0 w-full md:w-auto pt-1 md:pt-0">
             <a
               href="mailto:convocation@iiitbh.ac.in?subject=Enquiry%20Regarding%20Convocation%20Notice"
-              className="inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-xs sm:text-sm shadow-sm transition-all gap-2 cursor-pointer w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-xs sm:text-sm shadow-sm transition-all gap-2 cursor-pointer w-full md:w-auto text-center whitespace-nowrap"
             >
-              <Mail className="w-4 h-4" />
-              <span>Contact Secretariat</span>
+              <Mail className="w-4 h-4 shrink-0" />
+              <span className="whitespace-nowrap">Contact Secretariat</span>
             </a>
           </div>
         </div>

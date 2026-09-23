@@ -150,7 +150,7 @@ export function AccommodationSection() {
           }
         }}
       />
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full max-w-7xl mx-auto px-4 min-[400px]:px-6 md:px-10 lg:px-12">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
@@ -339,7 +339,7 @@ export function AccommodationSection() {
         </div>
 
         {/* Transit & Travel Guide */}
-        <div className="bg-white rounded-[1.75rem] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+        <div className="bg-white rounded-[1.25rem] sm:rounded-[1.75rem] p-5 sm:p-7 md:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
           <div className="mb-8">
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-charcoal-900">
               Travel & Transportation Guide
