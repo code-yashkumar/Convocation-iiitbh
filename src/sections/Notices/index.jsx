@@ -516,78 +516,81 @@ export function NoticeSection() {
           title={selectedNotice.title}
           size="lg"
         >
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-5">
             {/* Meta row */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-border text-sm font-body">
-              <div className="flex items-center gap-2.5 flex-wrap">
-                <span className="px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 font-semibold text-xs border border-maroon-900/15">
+            <div className="flex flex-wrap items-center justify-between gap-2.5 pb-3 sm:pb-4 border-b border-border text-xs sm:text-sm font-body">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="px-2.5 py-0.5 rounded-full bg-maroon-050 text-maroon-900 font-semibold text-xs border border-maroon-900/15">
                   {selectedNotice.category}
                 </span>
                 {selectedNotice.isPinned && (
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-maroon-900 text-white font-body text-xs font-bold uppercase tracking-wider shadow-xs">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-maroon-900 text-white font-body text-[0.6875rem] font-bold uppercase tracking-wider shadow-xs">
                     <Pin className="w-3 h-3 fill-white text-white" />
                     <span>Featured Pinned Circular</span>
                   </span>
                 )}
                 {selectedNotice.date && selectedNotice.date.trim() ? (
                   <span className="inline-flex items-center gap-1.5 text-charcoal-600 text-xs">
-                    <Calendar className="w-3.5 h-3.5 text-maroon-900" />
+                    <Calendar className="w-3.5 h-3.5 text-maroon-900 shrink-0" />
                     {selectedNotice.date}
                   </span>
                 ) : null}
               </div>
-              <span className="font-mono text-xs font-medium text-charcoal-500 bg-cream-100 px-2.5 py-1 rounded-md border border-border">
+              <span className="font-mono text-[0.6875rem] sm:text-xs font-medium text-charcoal-500 bg-cream-100 px-2 py-0.5 rounded-md border border-border shrink-0">
                 Ref: {selectedNotice.refNo}
               </span>
             </div>
 
             {/* Issued By Header */}
-            <div className="p-3.5 rounded-xl bg-cream-050 border border-border flex items-center justify-between text-xs font-body text-charcoal-700">
+            <div className="p-3 sm:p-3.5 rounded-xl bg-cream-050 border border-border flex flex-col min-[420px]:flex-row min-[420px]:items-center justify-between gap-1.5 text-xs font-body text-charcoal-700">
               <span>Authority: <strong>{selectedNotice.issuedBy}</strong></span>
               <span className="text-maroon-900 font-semibold">3rd Convocation 2026</span>
             </div>
 
             {/* Detailed Description */}
-            <div className="space-y-3">
+            <div className="space-y-2">
               <h4 className="font-body text-xs font-bold text-charcoal-500 uppercase tracking-wider">
                 Circular Details
               </h4>
-              <p className="font-body text-charcoal-800 text-[0.9375rem] leading-relaxed">
+              <p className="font-body text-charcoal-800 text-xs sm:text-sm md:text-[0.9375rem] leading-relaxed">
                 {selectedNotice.description}
               </p>
             </div>
 
             {/* Action Bar */}
-            <div className="pt-4 flex flex-col sm:flex-row gap-3 sm:justify-between items-center border-t border-border">
+            <div className="pt-3.5 sm:pt-4 border-t border-border flex flex-col min-[540px]:flex-row min-[540px]:items-center min-[540px]:justify-between gap-3">
+              {/* Share Circular Link Button */}
               <button
                 type="button"
                 onClick={() => handleShareNotice(selectedNotice)}
-                className="inline-flex items-center gap-1.5 text-xs font-body font-semibold text-charcoal-700 hover:text-maroon-900 transition-colors"
+                className="inline-flex items-center justify-center min-[540px]:justify-start gap-1.5 text-xs font-body font-semibold text-charcoal-700 hover:text-maroon-900 transition-colors py-1 cursor-pointer order-2 min-[540px]:order-1"
               >
                 {copiedLink ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-600" />
-                    <span className="text-emerald-600">Link Copied to Clipboard!</span>
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span className="text-emerald-600 font-bold whitespace-nowrap">Link Copied to Clipboard!</span>
                   </>
                 ) : (
                   <>
-                    <Share2 className="w-4 h-4" />
-                    <span>Share Circular Link</span>
+                    <Share2 className="w-4 h-4 shrink-0 text-charcoal-500" />
+                    <span className="whitespace-nowrap">Share Circular Link</span>
                   </>
                 )}
               </button>
 
-              <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2 sm:gap-2.5 w-full min-[540px]:w-auto justify-end order-1 min-[540px]:order-2">
                 <Button
                   variant="ghost"
                   onClick={() => setSelectedNotice(null)}
+                  className="flex-1 min-[540px]:flex-none justify-center cursor-pointer min-h-[2.5rem] px-3 sm:px-4 text-xs sm:text-sm"
                 >
                   Close
                 </Button>
                 <Button
                   variant="primary"
                   iconLeft={<Download className="w-4 h-4 shrink-0" />}
-                  className="whitespace-nowrap px-6 shrink-0"
+                  className="flex-1 min-[540px]:flex-none justify-center whitespace-nowrap px-3.5 sm:px-6 shrink-0 cursor-pointer min-h-[2.5rem] text-xs sm:text-sm"
                   onClick={() => handleDownloadPdf(selectedNotice)}
                 >
                   <span className="whitespace-nowrap">Download PDF</span>

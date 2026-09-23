@@ -99,7 +99,7 @@ export function Modal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 min-[400px]:p-4 sm:p-6 overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-labelledby={title ? 'modal-title' : undefined}
@@ -116,12 +116,12 @@ export function Modal({
       <div
         ref={modalRef}
         tabIndex={-1}
-        className={`relative z-10 w-full max-w-[36rem] max-h-[85vh] flex flex-col bg-bg-surface rounded-[1.5rem] sm:rounded-[1.75rem] border border-[#E8E2D8] shadow-[0_24px_60px_rgba(0,0,0,0.18)] p-6 sm:p-8 overflow-hidden focus:outline-none transition-all duration-modal animate-scaleIn ${className}`}
+        className={`relative z-10 w-full max-w-[36rem] max-h-[85vh] flex flex-col bg-bg-surface rounded-[1.25rem] sm:rounded-[1.75rem] border border-[#E8E2D8] shadow-[0_24px_60px_rgba(0,0,0,0.18)] p-4 min-[400px]:p-6 sm:p-8 overflow-hidden focus:outline-none transition-all duration-modal animate-scaleIn ${className}`}
       >
         {/* Header */}
-        <div className="flex items-start justify-between gap-4 pb-4 border-b border-border">
+        <div className="flex items-start justify-between gap-3 pb-3 sm:pb-4 border-b border-border">
           {title && (
-            <h2 id="modal-title" className="font-display font-bold text-xl sm:text-2xl text-charcoal-900 tracking-tight leading-snug">
+            <h2 id="modal-title" className="font-display font-bold text-lg sm:text-xl md:text-2xl text-charcoal-900 tracking-tight leading-snug">
               {title}
             </h2>
           )}
@@ -129,14 +129,14 @@ export function Modal({
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="inline-flex items-center justify-center w-10 h-10 min-w-[2.5rem] min-h-[2.5rem] rounded-full text-charcoal-500 hover:text-charcoal-900 hover:bg-maroon-050/80 active:scale-95 transition-all focus-visible:outline-none cursor-pointer shrink-0"
+            className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 min-w-[2rem] sm:min-w-[2.5rem] rounded-full text-charcoal-500 hover:text-charcoal-900 hover:bg-maroon-050/80 active:scale-95 transition-all focus-visible:outline-none cursor-pointer shrink-0"
           >
-            <X className="w-5 h-5 stroke-[2]" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2]" />
           </button>
         </div>
 
         {/* Scrollable Body if content exceeds max-height */}
-        <div className="flex-1 overflow-y-auto pt-5 text-charcoal-800 font-body text-sm sm:text-base leading-relaxed">
+        <div className="flex-1 overflow-y-auto pt-4 sm:pt-5 text-charcoal-800 font-body text-xs sm:text-sm md:text-base leading-relaxed">
           {children}
         </div>
       </div>
