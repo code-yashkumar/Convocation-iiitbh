@@ -201,26 +201,26 @@ export function GallerySection() {
           }
         }}
       />
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full max-w-7xl mx-auto px-4 min-[400px]:px-6 md:px-10 lg:px-12">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs sm:text-sm font-semibold mb-3 border border-maroon-900/10 shadow-xs">
             <Camera className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-maroon-900 shrink-0" />
             <span>Visual Archives & Memories</span>
           </div>
 
-          <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
+          <h1 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
             Convocation Photo & Video Gallery
           </h1>
-          <p className="font-body text-charcoal-600 text-sm sm:text-lg mt-3 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-charcoal-600 text-xs min-[400px]:text-sm md:text-lg mt-2 sm:mt-3 max-w-2xl mx-auto leading-relaxed">
             Immortalizing triumphant milestones, academic regalia processions, medal honors, and celebratory joy at IIIT Bhagalpur.
           </p>
         </div>
 
-        {/* Featured Hero Banner: Highlight of the Edition (Mobile View) */}
-        <div className="block sm:hidden rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-sm bg-[#38070D] mb-6">
-          <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal-950">
+        {/* Featured Hero Banner: Highlight of the Edition (Mobile View: Mobile S, M, L < 768px) */}
+        <div className="block md:hidden rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-sm bg-[#38070D] mb-6">
+          <div className="relative aspect-[16/9] w-full overflow-hidden bg-charcoal-950">
             <img
               src="/assets/gallery-archive-banner.jpg"
               alt="IIIT Bhagalpur Convocation Dignitaries and Graduating Students Group Ceremony"
@@ -235,19 +235,19 @@ export function GallerySection() {
               <span>Gallery Archives</span>
             </div>
           </div>
-          <div className="p-4 space-y-2.5 bg-gradient-to-b from-[#38070D] to-[#240408] text-white">
-            <h2 className="font-display font-bold text-base text-white tracking-tight leading-snug">
+          <div className="p-4 min-[400px]:p-5 space-y-3 bg-gradient-to-b from-[#38070D] to-[#240408] text-white">
+            <h2 className="font-display font-bold text-base min-[400px]:text-lg text-white tracking-tight leading-snug">
               Grand Academic Processions & Medallion Honors
             </h2>
-            <p className="font-body text-white/80 text-xs leading-relaxed">
+            <p className="font-body text-white/85 text-xs min-[400px]:text-sm leading-relaxed">
               Explore moments across 2025 and 2021 editions. Live 2026 photographs and streaming highlights will go live on 26 September 2026.
             </p>
-            <div className="pt-1">
+            <div className="pt-0.5">
               <a
                 href="https://drive.google.com/drive/u/3/folders/1R-c4xV0crbNjCzuOWkCi5y2vytPULigu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center min-h-[2.625rem] px-4 rounded-pill bg-white hover:bg-cream-050 text-maroon-900 font-body font-bold text-xs shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
+                className="w-full inline-flex items-center justify-center min-h-[2.75rem] px-4 rounded-pill bg-white hover:bg-cream-050 text-maroon-900 font-body font-bold text-xs min-[400px]:text-sm shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 <span>View High-Res Photos</span>
@@ -256,8 +256,8 @@ export function GallerySection() {
           </div>
         </div>
 
-        {/* Featured Hero Banner: Highlight of the Edition (Tablet & Desktop View) */}
-        <div className="hidden sm:block relative rounded-[2rem] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-10 group">
+        {/* Featured Hero Banner: Highlight of the Edition (Tablet & Desktop View: >= 768px) */}
+        <div className="hidden md:block relative rounded-[2rem] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-10 group">
           <div className="relative aspect-[6620/3035] w-full overflow-hidden">
             <img
               src="/assets/gallery-archive-banner.jpg"
