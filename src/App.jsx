@@ -127,17 +127,15 @@ export function App() {
     return () => clearTimeout(timer);
   }, [location.pathname, location.search]);
 
-  const isEmergencyAdminRoute =
-    location.pathname === '/admin-live-control-blz1170' ||
-    location.pathname === '/admin/live-control-blz1170';
+  const isEmergencyAdminRoute = location.pathname === '/admin/live-control-blz1170';
 
   // If site is turned down, block the entire website and render authentic browser default 404
-  // ONLY /admin-live-control-blz1170 remains accessible to the administrator
+  // ONLY /admin/live-control-blz1170 remains accessible to the administrator
   if (isSiteDown && !isEmergencyAdminRoute) {
     return <BrowserDefault404 />;
   }
 
-  const isAdminRoute = location.pathname.startsWith('/admin') || isEmergencyAdminRoute;
+  const isAdminRoute = location.pathname.startsWith('/admin');
 
   return (
     <div className="min-h-screen flex flex-col bg-cream-100 text-charcoal-900 selection:bg-maroon-050 selection:text-maroon-900 font-body">
@@ -147,13 +145,11 @@ export function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            {/* Live State Control (3-state card manager moved from secret URL) */}
-            <Route path="/admin-live-control" element={<AdminLiveControl />} />
-            <Route path="/admin/live-control" element={<Navigate to="/admin-live-control" replace />} />
+            {/* Live State Control (3-state card manager) */}
+            <Route path="/admin/live-control" element={<AdminLiveControl />} />
 
             {/* Secret Emergency Master Kill Switch */}
-            <Route path="/admin-live-control-blz1170" element={<AdminEmergencyControl />} />
-            <Route path="/admin/live-control-blz1170" element={<Navigate to="/admin-live-control-blz1170" replace />} />
+            <Route path="/admin/live-control-blz1170" element={<AdminEmergencyControl />} />
 
             <Route path="/notices" element={<PageWrapper><NoticeSection /></PageWrapper>} />
             <Route path="/notice" element={<Navigate to="/notices" replace />} />

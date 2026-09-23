@@ -494,7 +494,7 @@ export function AdminLiveControl() {
               </a>
               <span className="text-charcoal-300">|</span>
               <a
-                href="/admin-live-control-blz1170"
+                href="/admin/live-control-blz1170"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-red-800 hover:text-red-950 transition-colors"
               >
                 <span>Emergency Kill Switch</span>

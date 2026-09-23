@@ -137,7 +137,7 @@ export function AdminEmergencyControl() {
                 completely blocked. Browsers are displaying the native unstyled <em>"This page isn't working (HTTP ERROR 404)"</em> error screen.
               </p>
               <p className="text-[0.6875rem] text-red-700 font-semibold pt-1">
-                Only this secret route (<code className="bg-red-100 px-1 py-0.5 rounded">/admin-live-control-blz1170</code>) remains accessible to restore the website.
+                Only this secret route (<code className="bg-red-100 px-1 py-0.5 rounded">/admin/live-control-blz1170</code>) remains accessible to restore the website.
               </p>
             </div>
           ) : (
@@ -180,7 +180,7 @@ export function AdminEmergencyControl() {
           {/* Navigation & Help Links */}
           <div className="pt-4 border-t border-[#ECE6DC] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
             <a
-              href="/admin-live-control"
+              href="/admin/live-control"
               className="inline-flex items-center gap-1.5 text-maroon-900 font-semibold hover:underline"
             >
               <span>Go to Live State Control Panel</span>
