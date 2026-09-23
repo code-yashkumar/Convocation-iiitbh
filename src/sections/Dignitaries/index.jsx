@@ -27,7 +27,7 @@ const DIGNITARIES = [
     name: 'Mr. Varun Goyal',
     role: 'Special Guest',
     subtitle: 'University Relations Leader',
-    designation: 'Nokia Solutions and Networks India',
+    designation: 'Nokia Solutions & Networks',
     icon: Star,
     initials: 'VG',
     image: '/assets/dignitaries/mr-varun-goyal.jpg',
@@ -190,41 +190,42 @@ export function DignitariesSection() {
 
                     {/* Role Pill: Overlaid on bottom-right of photo on phone (<md) */}
                     <div className="md:hidden absolute bottom-1.5 right-1.5 z-10">
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-white/95 backdrop-blur-md border border-maroon-900/15 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide shadow-xs whitespace-nowrap">
-                        {dignitary.role}
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur-md border border-maroon-900/15 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide shadow-xs whitespace-nowrap">
+                        <IconComponent className="w-2.5 h-2.5 text-maroon-900 shrink-0" />
+                        <span>{dignitary.role}</span>
                       </span>
                     </div>
                   </div>
                 </div>
 
                 {/* Text Content */}
-                <div className="px-3 pt-2.5 pb-3 flex flex-col gap-1 flex-1">
-                  {/* Name + badge */}
-                  <div className="flex items-center gap-1.5 flex-wrap">
-                    <h3 className="font-display font-bold text-xs sm:text-[0.875rem] text-charcoal-900 leading-snug">
+                <div className="px-3 pt-2.5 pb-3 flex flex-col flex-1">
+                  {/* Name: Uniform 2-line height for identical vertical alignment */}
+                  <div className="min-h-[2.125rem] sm:min-h-[2.5rem] flex items-start">
+                    <h3 className="font-display font-bold text-xs sm:text-[0.875rem] text-charcoal-900 leading-snug line-clamp-2">
                       {dignitary.name}
                     </h3>
-                    <span className="inline-flex items-center justify-center w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-maroon-900 shrink-0">
-                      <IconComponent className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" />
-                    </span>
                   </div>
 
-                  {/* Subtitle */}
-                  <p className="font-body text-[0.6875rem] sm:text-[0.75rem] text-charcoal-500 leading-snug">
-                    {dignitary.subtitle || dignitary.role}
-                  </p>
+                  {/* Subtitle: Uniform 2-line height so dividing border aligns at identical level */}
+                  <div className="min-h-[1.875rem] sm:min-h-[2rem] flex items-start mt-0.5 sm:mt-1">
+                    <p className="font-body text-[0.6875rem] sm:text-[0.75rem] text-charcoal-500 leading-snug line-clamp-2">
+                      {dignitary.subtitle || dignitary.role}
+                    </p>
+                  </div>
 
-                  {/* Bottom row */}
+                  {/* Bottom row: Border line aligns at exact same pixel across all cards */}
                   <div className="mt-auto pt-2.5 flex items-center justify-between gap-1.5 border-t border-[#ECE6DC]">
-                    <div className="flex items-center gap-1 min-w-0">
+                    <div className="flex items-center gap-1 min-w-0" title={dignitary.designation}>
                       <Building2 className="w-3 h-3 text-charcoal-400 shrink-0" />
                       <span className="font-body text-[0.625rem] sm:text-[0.6875rem] text-charcoal-500 truncate leading-snug">
                         {dignitary.designation}
                       </span>
                     </div>
                     {/* Role Pill: Desktop / Tablet view (md+) */}
-                    <span className="hidden md:inline-flex shrink-0 items-center px-2 py-0.5 rounded-full bg-maroon-050 border border-maroon-900/10 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide whitespace-nowrap">
-                      {dignitary.role}
+                    <span className="hidden md:inline-flex shrink-0 items-center gap-1 px-2 py-0.5 rounded-full bg-maroon-050 border border-maroon-900/10 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide whitespace-nowrap">
+                      <IconComponent className="w-2.5 h-2.5 text-maroon-900 shrink-0" />
+                      <span>{dignitary.role}</span>
                     </span>
                   </div>
                 </div>
