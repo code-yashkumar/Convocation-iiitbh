@@ -144,7 +144,7 @@ export function NavBar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-10 lg:px-12 h-16 md:h-[4.5rem] flex items-center justify-between gap-4">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-8 lg:px-6 xl:px-12 h-16 md:h-[4.5rem] flex items-center justify-between gap-2.5 lg:gap-4 xl:gap-6">
         
         {/* Left: Crest (→ iiitbh.ac.in) + Name (→ home page) */}
         <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
@@ -156,7 +156,7 @@ export function NavBar() {
             className="focus-visible:outline-none shrink-0"
             aria-label="IIIT Bhagalpur Official Website"
           >
-            <InstitutionCrest className="navbar-crest w-8 h-8 md:w-11 md:h-11 shrink-0" />
+            <InstitutionCrest className="navbar-crest w-8 h-8 md:w-10 lg:w-9 xl:w-11 md:h-10 lg:h-9 xl:h-11 shrink-0" />
           </a>
 
           {/* Name — internal link to home page */}
@@ -175,13 +175,15 @@ export function NavBar() {
               </span>
             </div>
 
-            {/* Desktop title (>= md) */}
+            {/* Desktop title (>= md) — dynamically adapts for smaller laptop screens */}
             <div className="hidden md:flex flex-col whitespace-nowrap">
-              <span className="navbar-title font-roboto font-bold text-sm md:text-base text-[#515151] leading-tight translate-y-[1px] whitespace-nowrap group-hover:text-maroon-900 transition-colors">
-                Indian Institute of Information Technology Bhagalpur
+              <span className="navbar-title font-roboto font-bold text-sm xl:text-base text-[#515151] leading-tight translate-y-[1px] whitespace-nowrap group-hover:text-maroon-900 transition-colors">
+                <span className="hidden xl:inline">Indian Institute of Information Technology Bhagalpur</span>
+                <span className="inline xl:hidden">IIIT Bhagalpur</span>
               </span>
-              <span className="navbar-subtext font-body text-[0.6875rem] md:text-xs text-charcoal-600 leading-tight whitespace-nowrap">
-                भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर
+              <span className="navbar-subtext font-body text-[0.6875rem] xl:text-xs text-charcoal-600 leading-tight whitespace-nowrap">
+                <span className="hidden xl:inline">भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर</span>
+                <span className="inline xl:hidden">3rd Convocation • 2026</span>
               </span>
             </div>
           </Link>
@@ -189,7 +191,7 @@ export function NavBar() {
 
 
         {/* Center/Right Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center gap-3.5 xl:gap-7 shrink-0" aria-label="Main Navigation">
           {NAV_LINKS.map((link) => {
             if (link.isSectionLink) {
               return (
@@ -197,7 +199,7 @@ export function NavBar() {
                   key={link.label}
                   href={`#${link.sectionId}`}
                   onClick={(e) => handleSectionClick(e, link.sectionId)}
-                  className="navbar-link relative group text-sm font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer"
+                  className="navbar-link relative group text-[0.8125rem] xl:text-sm font-body text-charcoal-900/80 hover:text-maroon-900 font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer"
                 >
                   <span>{link.label}</span>
                   {/* Progressing expanding maroon underline on hover */}
@@ -212,7 +214,7 @@ export function NavBar() {
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `navbar-link relative group text-sm font-body py-1.5 whitespace-nowrap focus-visible:outline-none transition-colors duration-200 ${
+                  `navbar-link relative group text-[0.8125rem] xl:text-sm font-body py-1.5 whitespace-nowrap focus-visible:outline-none transition-colors duration-200 ${
                     isActive
                       ? 'active text-maroon-900 font-bold'
                       : 'text-charcoal-900/80 hover:text-maroon-900 font-medium'
@@ -241,7 +243,7 @@ export function NavBar() {
               onClick={() => setIsEditionsOpen(!isEditionsOpen)}
               aria-expanded={isEditionsOpen}
               aria-haspopup="true"
-              className={`navbar-link relative group inline-flex items-center gap-1.5 text-sm font-body font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer ${
+              className={`navbar-link relative group inline-flex items-center gap-1 text-[0.8125rem] xl:text-sm font-body font-medium py-1.5 whitespace-nowrap transition-colors duration-200 focus-visible:outline-none cursor-pointer ${
                 isEditionsOpen ? 'text-maroon-900 font-bold' : 'text-charcoal-900/80 hover:text-maroon-900'
               }`}
             >
@@ -310,7 +312,7 @@ export function NavBar() {
             href="https://forms.gle/1nxVrpcRUfgMhH938"
             target="_blank"
             rel="noopener noreferrer"
-            className="navbar-btn-cta inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-sm whitespace-nowrap shadow-sm hover:bg-maroon-700 active:scale-[0.965] transition-all focus-visible:outline-none cursor-pointer"
+            className="navbar-btn-cta inline-flex items-center justify-center min-h-[2.375rem] xl:min-h-[2.75rem] px-4 xl:px-6 rounded-pill bg-maroon-900 text-white font-body font-medium text-xs xl:text-sm whitespace-nowrap shadow-sm hover:bg-maroon-700 active:scale-[0.965] transition-all focus-visible:outline-none cursor-pointer"
           >
             Register Now
           </a>
