@@ -4,7 +4,6 @@ import {
   Camera,
   Image as ImageIcon,
   Video,
-  Sparkles,
   Download,
   Share2,
   ChevronLeft,
@@ -238,7 +237,7 @@ export function GallerySection() {
             <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 lg:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 z-10">
               <div className="max-w-2xl space-y-2">
                 <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white text-maroon-900 font-body text-[0.6875rem] sm:text-xs font-bold uppercase tracking-wider shadow-sm">
-                  <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-maroon-900 text-maroon-900" />
+                  <Camera className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-maroon-900" />
                   <span>Official Convocation Gallery Archives</span>
                 </div>
                 <h2 className="font-display font-bold text-xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug drop-shadow-md">

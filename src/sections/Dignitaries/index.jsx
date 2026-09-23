@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, UserCheck, Building2, Star, Sparkles } from 'lucide-react';
+import { Award, UserCheck, Building2, Star } from 'lucide-react';
 
 const HIGHER_DIGNITARY = {
   name: 'Shri Vinod Tawde',
@@ -18,7 +18,7 @@ const DIGNITARIES = [
     role: 'Guest of Honour',
     subtitle: 'Executive Director & CEO',
     designation: 'AIIMS Deoghar',
-    icon: Sparkles,
+    icon: Award,
     initials: 'NG',
     image: '/assets/dignitaries/prof-nitin-m-gangane.jpg',
     imagePosition: 'object-top',
@@ -111,9 +111,9 @@ export function DignitariesSection() {
                     </div>
                   </div>
 
-                  {/* Gold Sparkle Badge */}
+                  {/* Gold Award Badge */}
                   <div className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gold-500 text-charcoal-950 flex items-center justify-center shadow-lg border-2 border-[#540D17]">
-                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 fill-charcoal-950" />
+                    <Award className="w-4 h-4 sm:w-5 sm:h-5 text-charcoal-950" />
                   </div>
                 </div>
 

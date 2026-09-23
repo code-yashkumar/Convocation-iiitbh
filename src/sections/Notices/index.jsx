@@ -6,7 +6,6 @@ import {
   Download,
   Calendar,
   Search,
-  Sparkles,
   ExternalLink,
   Mail,
   ShieldCheck,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
-import { CheckCircle2, AlertCircle, MapPin, Package, Sparkles } from 'lucide-react';
+import { CheckCircle2, AlertCircle, MapPin, Package } from 'lucide-react';
 import { recordAction } from '../../utils/themeDetection';
 
 export function RegistrationFormSection() {

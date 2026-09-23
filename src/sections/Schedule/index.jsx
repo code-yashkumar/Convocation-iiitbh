@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, MapPin, Calendar, FileText, ArrowRight, Download, X, Sparkles } from 'lucide-react';
+import { Clock, MapPin, Calendar, FileText, ArrowRight, Download, X } from 'lucide-react';
 import Modal from '../../components/ui/Modal';
 import Button from '../../components/ui/Button';
 

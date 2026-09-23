@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building, MapPin, Phone, Star, Compass, ExternalLink, Mail, Hotel, ShieldCheck, Sparkles } from 'lucide-react';
+import { Building, MapPin, Phone, Star, Compass, ExternalLink, Mail, Hotel, ShieldCheck } from 'lucide-react';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import SEO from '../../components/common/SEO';

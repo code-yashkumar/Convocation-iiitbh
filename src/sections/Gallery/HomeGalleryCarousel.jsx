@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {
   ChevronLeft,
   ChevronRight,
-  Sparkles,
   ArrowRight,
   Camera,
   MapPin,
@@ -296,7 +295,7 @@ export function HomeGalleryCarousel() {
                     <div className="space-y-2">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-maroon-900 font-body text-xs font-bold uppercase tracking-wider shadow-sm">
-                          <Sparkles className="w-3.5 h-3.5 fill-maroon-900 text-maroon-900" />
+                          <Calendar className="w-3.5 h-3.5 text-maroon-900" />
                           <span>{slide.edition}</span>
                         </span>
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white font-body text-xs hidden sm:inline-flex">

@@ -9,8 +9,7 @@ import {
   Navigation,
   Copy,
   Check,
-  Compass,
-  Sparkles
+  Compass
 } from 'lucide-react';
 import Card from '../../components/ui/Card';
 

@@ -18,7 +18,6 @@ import {
   Video,
   Calendar,
   X,
-  Sparkles,
 } from 'lucide-react';
 
 const LOCAL_STORAGE_KEY = 'convocation_live_state_override';

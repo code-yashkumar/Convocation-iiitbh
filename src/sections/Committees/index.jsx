@@ -6,7 +6,6 @@ import {
   Shield,
   Layers,
   Award,
-  Sparkles,
   ChevronRight,
   Filter,
   CheckCircle2

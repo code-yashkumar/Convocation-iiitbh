@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Hotel, ArrowRight, MapPin, Sparkles } from 'lucide-react';
+import { Hotel, ArrowRight, MapPin } from 'lucide-react';
 
 /**
  * High-visibility CTA Banner for Accommodation and Nearby Hotels
@@ -18,7 +18,7 @@ export function AccommodationCTA({ className = '' }) {
         {/* Left Content */}
         <div className="relative z-10 max-w-2xl space-y-2.5 sm:space-y-3">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-gold-300 font-body text-[0.6875rem] sm:text-xs font-semibold uppercase tracking-wider whitespace-nowrap">
-            <Sparkles className="w-3.5 h-3.5 fill-gold-300 text-gold-300 shrink-0" />
+            <Hotel className="w-3.5 h-3.5 text-gold-300 shrink-0" />
             <span>Alumni & Guest Hospitality</span>
           </div>
 
