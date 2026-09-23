@@ -124,23 +124,23 @@ export function ScheduleSection() {
 
   return (
     <section className="w-full pt-6 pb-6 sm:pt-8 sm:pb-8 bg-cream-100 relative scroll-mt-20 sm:scroll-mt-24" id="schedule">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full max-w-7xl mx-auto px-4 min-[400px]:px-6 md:px-10 lg:px-12">
         
         {/* Main Schedule Container Card */}
-        <div className="bg-white rounded-[1.75rem] sm:rounded-[2rem] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-6 sm:p-10 lg:p-12 overflow-hidden">
+        <div className="bg-white rounded-[1.75rem] sm:rounded-[2rem] border border-[#E8E2D8] shadow-[0_12px_40px_rgba(94,16,28,0.06)] p-4 min-[400px]:p-6 md:p-10 lg:p-12 overflow-hidden">
           
           {/* Header Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-10">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-10">
             <div>
               <span className="font-body font-bold text-xs sm:text-sm text-maroon-900 tracking-wider uppercase block mb-1">
                 Event Schedule
               </span>
-              <h2 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
+              <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
                 Schedule of Events
               </h2>
             </div>
 
-            <div className="hidden sm:block">
+            <div className="hidden md:block">
               <button
                 type="button"
                 onClick={() => setIsFullScheduleOpen(true)}
@@ -152,7 +152,7 @@ export function ScheduleSection() {
           </div>
 
           {/* 2-Column Grid: Left Timeline + Right College Image */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-stretch">
             
             {/* Left Column: Balanced Symmetrical Timeline List */}
             <div className="lg:col-span-6 flex flex-col justify-between py-1">
@@ -161,19 +161,19 @@ export function ScheduleSection() {
                   const isFirst = idx === 0;
                   const isLast = idx === SUMMARY_SCHEDULE.length - 1;
                   return (
-                    <div key={item.id} className="flex items-stretch gap-3 sm:gap-5 group">
+                    <div key={item.id} className="flex items-stretch gap-3 md:gap-5 group">
                       
                       {/* Column 1: Vertical Center Line + Bullet Node */}
-                      <div className="flex flex-col items-center shrink-0 w-5 sm:w-6 relative">
+                      <div className="flex flex-col items-center shrink-0 w-5 md:w-6 relative">
                         {/* Top Line Segment connecting directly to bullet center */}
                         <div
                           className={`w-[0.125rem] bg-[#E8E2D8] ${
-                            isFirst ? 'h-4 sm:h-5 opacity-0' : 'h-4 sm:h-5'
+                            isFirst ? 'h-4 md:h-5 opacity-0' : 'h-4 md:h-5'
                           }`}
                         />
 
                         {/* Circular Maroon Bullet Node */}
-                        <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs flex items-center justify-center shrink-0 z-10">
+                        <div className="w-3.5 h-3.5 md:w-4 md:h-4 rounded-full bg-maroon-900 ring-4 ring-white shadow-xs flex items-center justify-center shrink-0 z-10">
                           <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
                         </div>
 
@@ -186,7 +186,7 @@ export function ScheduleSection() {
                       </div>
 
                       {/* Column 2: Event Time */}
-                      <div className={`w-18 sm:w-20 shrink-0 ${isFirst ? 'pt-2' : 'pt-3.5 sm:pt-4.5'}`}>
+                      <div className={`w-16 min-[360px]:w-18 md:w-20 shrink-0 ${isFirst ? 'pt-2' : 'pt-3 md:pt-4.5'}`}>
                         <span className="font-body font-bold text-xs sm:text-sm text-charcoal-800 whitespace-nowrap">
                           {item.time}
                         </span>
@@ -195,13 +195,13 @@ export function ScheduleSection() {
                       {/* Column 3: Title & Description with Balanced Dividing Lines */}
                       <div
                         className={`flex-1 border-b border-[#ECE6DC] group-last:border-b-0 min-w-0 ${
-                          isFirst ? 'pt-1.5 pb-3.5 sm:pb-5' : 'pt-3 sm:pt-4.5 pb-3.5 sm:pb-5'
+                          isFirst ? 'pt-1.5 pb-3.5 md:pb-5' : 'pt-2.5 md:pt-4 pb-3.5 md:pb-5'
                         } group-last:pb-2`}
                       >
-                        <h3 className="font-display font-bold text-[0.9375rem] sm:text-[1.0625rem] text-charcoal-900 leading-snug group-hover:text-maroon-900 transition-colors">
+                        <h3 className="font-display font-bold text-sm min-[360px]:text-[0.9375rem] md:text-[1.0625rem] text-charcoal-900 leading-snug group-hover:text-maroon-900 transition-colors">
                           {item.title}
                         </h3>
-                        <p className="font-body text-charcoal-600 text-xs sm:text-sm mt-0.5 sm:mt-1 leading-relaxed">
+                        <p className="font-body text-charcoal-600 text-xs md:text-sm mt-0.5 md:mt-1 leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -211,8 +211,8 @@ export function ScheduleSection() {
                 })}
               </div>
 
-              {/* Mobile View Full Schedule Button */}
-              <div className="sm:hidden mt-6 pt-2 flex justify-center">
+              {/* Mobile View Full Schedule Button (< md) */}
+              <div className="md:hidden mt-6 pt-2 flex justify-center">
                 <button
                   type="button"
                   onClick={() => setIsFullScheduleOpen(true)}
