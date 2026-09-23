@@ -16,6 +16,7 @@ export function DataTable({
   pageSize = 10,
   emptyMessage = 'No records found',
   className = '',
+  renderCard,
 }) {
   const [sortKey, setSortKey] = useState(null);
   const [sortDirection, setSortDirection] = useState('asc');
@@ -126,35 +127,39 @@ export function DataTable({
       </div>
 
       {/* Mobile Stacked Card View (below 768px as per Section 5.7 & 7.2) */}
-      <div className="md:hidden space-y-4">
+      <div className="md:hidden space-y-3 sm:space-y-4">
         {paginatedData.length > 0 ? (
-          paginatedData.map((row, idx) => (
-            <div
-              key={row.id || idx}
-              className="bg-bg-surface border border-border rounded-md p-4 shadow-card space-y-3"
-            >
-              {columns.map((col) => (
-                <div key={col.key} className="flex justify-between items-start gap-4 pb-2 border-b border-border/50 last:border-0 last:pb-0">
-                  <span className="type-label text-text-muted">{col.label}</span>
-                  <span className="type-body-md text-text-default text-right font-medium">
-                    {col.render ? col.render(row[col.key], row) : row[col.key]}
-                  </span>
-                </div>
-              ))}
-            </div>
-          ))
+          paginatedData.map((row, idx) =>
+            renderCard ? (
+              renderCard(row, idx)
+            ) : (
+              <div
+                key={row.id || idx}
+                className="bg-bg-surface border border-border rounded-xl p-4 shadow-card space-y-2.5"
+              >
+                {columns.map((col) => (
+                  <div key={col.key} className="flex justify-between items-start gap-4 pb-2 border-b border-border/50 last:border-0 last:pb-0">
+                    <span className="type-label text-text-muted text-xs">{col.label}</span>
+                    <span className="type-body-md text-text-default text-right font-medium text-xs sm:text-sm">
+                      {col.render ? col.render(row[col.key], row) : row[col.key]}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )
+          )
         ) : (
-          <div className="bg-bg-surface border border-border rounded-md p-8 flex flex-col items-center justify-center min-h-[15rem] text-text-muted">
+          <div className="bg-bg-surface border border-border rounded-xl p-8 flex flex-col items-center justify-center min-h-[14rem] text-text-muted">
             <Inbox className="w-12 h-12 stroke-[1.5] text-maroon-900/40 mb-3" />
-            <p className="type-body-md">{emptyMessage}</p>
+            <p className="type-body-md text-center">{emptyMessage}</p>
           </div>
         )}
       </div>
 
       {/* Pagination Footer */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-between mt-4 px-2">
-          <span className="type-body-sm text-text-muted">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 px-1">
+          <span className="type-body-sm text-text-muted text-xs sm:text-sm">
             Page {currentPage} of {totalPages} ({sortedData.length} records)
           </span>
           <div className="flex items-center gap-2">
