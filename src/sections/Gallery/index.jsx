@@ -218,8 +218,46 @@ export function GallerySection() {
           </p>
         </div>
 
-        {/* Featured Hero Banner: Highlight of the Edition */}
-        <div className="relative rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-6 sm:mb-10 group">
+        {/* Featured Hero Banner: Highlight of the Edition (Mobile View) */}
+        <div className="block sm:hidden rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-sm bg-[#38070D] mb-6">
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal-950">
+            <img
+              src="/assets/gallery-archive-banner.jpg"
+              alt="IIIT Bhagalpur Convocation Dignitaries and Graduating Students Group Ceremony"
+              width="6620"
+              height="3035"
+              loading="eager"
+              decoding="async"
+              className="w-full h-full object-cover object-center select-none"
+            />
+            <div className="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white font-body text-[0.6875rem] font-semibold tracking-wide shadow-xs">
+              <Camera className="w-3 h-3 text-gold-300" />
+              <span>Gallery Archives</span>
+            </div>
+          </div>
+          <div className="p-4 space-y-2.5 bg-gradient-to-b from-[#38070D] to-[#240408] text-white">
+            <h2 className="font-display font-bold text-base text-white tracking-tight leading-snug">
+              Grand Academic Processions & Medallion Honors
+            </h2>
+            <p className="font-body text-white/80 text-xs leading-relaxed">
+              Explore moments across 2025 and 2021 editions. Live 2026 photographs and streaming highlights will go live on 26 September 2026.
+            </p>
+            <div className="pt-1">
+              <a
+                href="https://drive.google.com/drive/u/3/folders/1R-c4xV0crbNjCzuOWkCi5y2vytPULigu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center min-h-[2.625rem] px-4 rounded-pill bg-white hover:bg-cream-050 text-maroon-900 font-body font-bold text-xs shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>View High-Res Photos</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Featured Hero Banner: Highlight of the Edition (Tablet & Desktop View) */}
+        <div className="hidden sm:block relative rounded-[2rem] overflow-hidden border border-[#E8E2D8] shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-charcoal-950 mb-10 group">
           <div className="relative aspect-[6620/3035] w-full overflow-hidden">
             <img
               src="/assets/gallery-archive-banner.jpg"
@@ -234,16 +272,16 @@ export function GallerySection() {
             <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
             
             {/* Banner Information Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 lg:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 z-10">
+            <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10 flex flex-row items-end justify-between gap-6 z-10">
               <div className="max-w-2xl space-y-2">
-                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-white text-maroon-900 font-body text-[0.6875rem] sm:text-xs font-bold uppercase tracking-wider shadow-sm">
-                  <Camera className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-maroon-900" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-maroon-900 font-body text-xs font-bold uppercase tracking-wider shadow-sm">
+                  <Camera className="w-3.5 h-3.5 text-maroon-900" />
                   <span>Official Convocation Gallery Archives</span>
                 </div>
-                <h2 className="font-display font-bold text-xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug drop-shadow-md">
+                <h2 className="font-display font-bold text-3xl lg:text-4xl text-white tracking-tight leading-snug drop-shadow-md">
                   Grand Academic Processions & Medallion Honors
                 </h2>
-                <p className="font-body text-white/90 text-xs sm:text-sm max-w-xl line-clamp-2 sm:line-clamp-none drop-shadow-sm">
+                <p className="font-body text-white/90 text-sm max-w-xl drop-shadow-sm">
                   Explore moments across 2025 and 2021 editions. Live 2026 photographs and streaming highlights will go live on 26 September 2026.
                 </p>
               </div>
@@ -253,7 +291,7 @@ export function GallerySection() {
                   href="https://drive.google.com/drive/u/3/folders/1R-c4xV0crbNjCzuOWkCi5y2vytPULigu"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[2.75rem] px-5 sm:px-6 rounded-pill bg-white hover:bg-maroon-050 text-maroon-900 font-body font-semibold text-xs sm:text-sm shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
+                  className="inline-flex items-center justify-center min-h-[2.75rem] px-6 rounded-pill bg-white hover:bg-maroon-050 text-maroon-900 font-body font-semibold text-sm shadow-md active:scale-95 transition-all gap-2 cursor-pointer"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span>View High-Res Photos</span>
