@@ -255,7 +255,7 @@ export function NoticeSection() {
           }
         }}
       />
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="w-full max-w-7xl mx-auto px-4 min-[400px]:px-6 md:px-10 lg:px-12">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-7">
@@ -266,24 +266,24 @@ export function NoticeSection() {
             </div>
           </div>
 
-          <h1 className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
+          <h1 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-900 tracking-tight leading-tight">
             Convocation Notice Board
           </h1>
-          <p className="font-body text-charcoal-600 text-sm sm:text-lg mt-3 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-charcoal-600 text-xs sm:text-sm md:text-base mt-2 sm:mt-3 max-w-2xl mx-auto leading-relaxed">
             Real-time updates, formal invitation circulars, medal winner lists, and administrative orders for the 3rd Convocation.
           </p>
         </div>
 
         {/* Featured Pinned Announcement Banner (Only renders when isPinned is true) */}
         {pinnedNotice && (
-          <div className="bg-gradient-to-br from-[#540D17] via-[#66101E] to-[#450A12] rounded-[1.5rem] sm:rounded-[2rem] text-white p-6 sm:p-10 lg:p-12 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50 mb-8 sm:mb-12">
+          <div className="bg-gradient-to-br from-[#540D17] via-[#66101E] to-[#450A12] rounded-[1.25rem] sm:rounded-[1.75rem] md:rounded-[2rem] text-white p-5 sm:p-7 md:p-9 lg:p-12 shadow-[0_16px_40px_rgba(84,13,23,0.18)] relative overflow-hidden border border-maroon-700/50 mb-6 sm:mb-10">
             {/* Background Aesthetic Glows */}
             <div className="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-gold-500/10 pointer-events-none blur-3xl" />
             <div className="absolute left-1/3 -bottom-20 w-64 h-64 rounded-full bg-white/5 pointer-events-none blur-2xl" />
 
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8 space-y-4">
-                <div className="flex flex-wrap items-center gap-2.5">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+              <div className="lg:col-span-8 space-y-3.5">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 font-body text-xs font-semibold uppercase tracking-wide">
                     <Pin className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
                     <span>Featured Circular</span>
@@ -293,22 +293,22 @@ export function NoticeSection() {
                   </span>
                 </div>
 
-                <h2 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-snug">
+                <h2 className="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white tracking-tight leading-snug">
                   {pinnedNotice.title}
                 </h2>
 
-                <p className="font-body text-white/85 text-sm sm:text-base leading-relaxed max-w-3xl">
+                <p className="font-body text-white/85 text-xs sm:text-sm md:text-base leading-relaxed max-w-3xl">
                   {pinnedNotice.description}
                 </p>
 
-                <div className="flex items-center gap-4 text-xs sm:text-sm text-white/70 font-body pt-1">
+                <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 text-xs sm:text-sm text-white/70 font-body pt-1">
                   {pinnedNotice.date && pinnedNotice.date.trim() ? (
                     <>
                       <span className="flex items-center gap-1.5">
-                        <Calendar className="w-4 h-4 text-gold-400" />
+                        <Calendar className="w-4 h-4 text-gold-400 shrink-0" />
                         {pinnedNotice.date}
                       </span>
-                      {pinnedNotice.issuedBy && <span>•</span>}
+                      {pinnedNotice.issuedBy && <span className="hidden min-[400px]:inline">•</span>}
                     </>
                   ) : null}
                   {pinnedNotice.issuedBy && <span>Issued by: {pinnedNotice.issuedBy}</span>}
@@ -316,19 +316,19 @@ export function NoticeSection() {
               </div>
 
               {/* Action Buttons */}
-              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3.5 justify-center lg:items-end">
+              <div className="lg:col-span-4 flex flex-col min-[540px]:flex-row lg:flex-col gap-3 justify-center lg:items-end w-full">
                 <button
                   type="button"
                   onClick={() => setSelectedNotice(pinnedNotice)}
-                  className="inline-flex items-center justify-center min-h-[3rem] px-7 rounded-pill bg-gold-500 text-charcoal-950 font-body font-bold text-sm shadow-md hover:bg-gold-400 active:scale-95 transition-all gap-2 cursor-pointer w-full sm:w-auto"
+                  className="inline-flex items-center justify-center min-h-[2.875rem] px-5 sm:px-6 rounded-pill bg-gold-500 text-charcoal-950 font-body font-bold text-xs sm:text-sm shadow-md hover:bg-gold-400 active:scale-95 transition-all gap-2 cursor-pointer w-full min-[540px]:w-auto lg:w-full whitespace-nowrap"
                 >
-                  <FileText className="w-4 h-4 text-charcoal-950" />
-                  <span>View Full Circular</span>
+                  <FileText className="w-4 h-4 text-charcoal-950 shrink-0" />
+                  <span className="whitespace-nowrap">View Full Circular</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => handleDownloadPdf(pinnedNotice)}
-                  className="inline-flex items-center justify-center min-h-[3rem] px-6 rounded-pill bg-white/15 hover:bg-white/25 border border-white/30 text-white font-body font-semibold text-sm transition-all gap-2 cursor-pointer w-full sm:w-auto whitespace-nowrap"
+                  className="inline-flex items-center justify-center min-h-[2.875rem] px-5 sm:px-6 rounded-pill bg-white/15 hover:bg-white/25 border border-white/30 text-white font-body font-semibold text-xs sm:text-sm transition-all gap-2 cursor-pointer w-full min-[540px]:w-auto lg:w-full whitespace-nowrap"
                 >
                   <Download className="w-4 h-4 shrink-0" />
                   <span className="whitespace-nowrap">Download PDF</span>
@@ -339,31 +339,32 @@ export function NoticeSection() {
         )}
 
         {/* Search & Category Filter Controls */}
-        <div className="bg-white rounded-[1.5rem] p-5 sm:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-10 space-y-4">
+        <div className="bg-white rounded-[1.25rem] sm:rounded-[1.5rem] p-4 sm:p-5 md:p-6 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-8 sm:mb-10 space-y-3.5 sm:space-y-4">
           {/* Search Bar */}
           <div className="relative w-full">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-charcoal-400" />
+            <Search className="absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-charcoal-400" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search circulars by title, reference number (e.g. REG-02), or keywords..."
-              className="w-full pl-12 pr-12 py-3.5 rounded-xl bg-cream-050 border border-[#ECE6DC] font-body text-sm text-charcoal-900 placeholder:text-charcoal-400 focus:outline-none focus:border-maroon-900 focus:bg-white transition-all"
+              placeholder="Search circulars by title, ref no., or keywords..."
+              className="w-full pl-10 sm:pl-12 pr-14 py-2.5 sm:py-3.5 rounded-xl bg-cream-050 border border-[#ECE6DC] font-body text-xs sm:text-sm text-charcoal-900 placeholder:text-charcoal-400 focus:outline-none focus:border-maroon-900 focus:bg-white transition-all shadow-2xs"
             />
             {searchTerm && (
               <button
                 type="button"
                 onClick={() => setSearchTerm('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-body font-semibold text-maroon-900 hover:underline"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-body font-semibold text-maroon-900 hover:underline px-1 py-0.5 cursor-pointer"
               >
                 Clear
               </button>
             )}
           </div>
 
-          {/* Category Filter Pills (Horizontal touch-scroll on mobile) */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-[#ECE6DC]">
-            <div className="overflow-x-auto no-scrollbar flex items-center gap-2 pb-1 sm:pb-0 -mx-1 px-1">
+          {/* Category Filter Pills (Horizontal touch-scroll on mobile) & Results Count */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pt-3 border-t border-[#ECE6DC]">
+            {/* Category Filter Pills */}
+            <div className="w-full md:flex-1 min-w-0 overflow-x-auto no-scrollbar flex items-center gap-2 pb-1 md:pb-0 -mx-1 px-1">
               {categories.map((cat) => {
                 const count =
                   cat === 'All Notices'
@@ -412,12 +413,12 @@ export function NoticeSection() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 mb-14">
             {filteredNotices.map((notice) => (
               <div
                 key={notice.id}
                 onClick={() => setSelectedNotice(notice)}
-                className={`group bg-white rounded-[1.5rem] p-6 sm:p-7 border hover:border-maroon-900 hover:-translate-y-1 active:scale-[0.985] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.08)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col justify-between cursor-pointer select-none ${
+                className={`group bg-white rounded-[1.25rem] sm:rounded-[1.5rem] p-5 sm:p-6 md:p-7 border hover:border-maroon-900 hover:-translate-y-1 active:scale-[0.985] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.08)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col justify-between cursor-pointer select-none ${
                   notice.isPinned
                     ? 'border-maroon-900/60 bg-gradient-to-b from-maroon-050/30 via-white to-white shadow-[0_6px_24px_rgba(94,16,28,0.07)]'
                     : 'border-[#E8E2D8]'
@@ -458,7 +459,7 @@ export function NoticeSection() {
                   <div className="flex items-center justify-between text-xs font-body text-charcoal-500">
                     {notice.date && notice.date.trim() ? (
                       <span className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-maroon-900" />
+                        <Calendar className="w-3.5 h-3.5 text-maroon-900 shrink-0" />
                         {notice.date}
                       </span>
                     ) : (
@@ -480,8 +481,8 @@ export function NoticeSection() {
         )}
 
         {/* Secretariat Assistance Banner */}
-        <div className="bg-white rounded-[1.75rem] p-8 sm:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="space-y-1.5 text-center sm:text-left">
+        <div className="bg-white rounded-[1.25rem] sm:rounded-[1.75rem] p-5 sm:p-7 md:p-10 border border-[#E8E2D8] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-1.5 text-center md:text-left">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-maroon-050 text-maroon-900 font-body text-xs font-semibold mb-1 border border-maroon-900/10">
               <ShieldCheck className="w-3.5 h-3.5 text-maroon-900" />
               <span>Official Helpdesk</span>
@@ -489,15 +490,15 @@ export function NoticeSection() {
             <h3 className="font-display font-bold text-xl sm:text-2xl text-charcoal-900">
               Have Questions Regarding Circulars or Registration?
             </h3>
-            <p className="font-body text-charcoal-600 text-sm max-w-xl leading-relaxed">
+            <p className="font-body text-charcoal-600 text-xs sm:text-sm max-w-xl leading-relaxed">
               For any queries regarding degree eligibility, medal lists, regalia stoles, or special invitations, contact the Convocation Secretariat.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 shrink-0 w-full md:w-auto justify-center">
             <a
               href="mailto:convocation@iiitbh.ac.in?subject=Enquiry%20Regarding%20Convocation%20Notice"
-              className="inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-sm shadow-sm transition-all gap-2 cursor-pointer"
+              className="inline-flex items-center justify-center min-h-[2.875rem] px-6 rounded-pill bg-maroon-900 hover:bg-maroon-700 text-white font-body font-semibold text-xs sm:text-sm shadow-sm transition-all gap-2 cursor-pointer w-full sm:w-auto text-center"
             >
               <Mail className="w-4 h-4" />
               <span>Contact Secretariat</span>
