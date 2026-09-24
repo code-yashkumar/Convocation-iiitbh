@@ -581,7 +581,7 @@ export function CommitteeSection() {
             {filteredCommittees.map((committee) => (
               <div
                 key={committee.id}
-                className="bg-white rounded-2xl sm:rounded-[1.5rem] p-4.5 sm:p-6 md:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.07)] hover:-translate-y-1 hover:border-maroon-900/30 active:scale-[0.99] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col justify-between"
+                className="bg-white rounded-2xl sm:rounded-[1.5rem] p-3.5 sm:p-5 md:p-6 lg:p-8 border border-[#E8E2D8] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(94,16,28,0.07)] hover:-translate-y-1 hover:border-maroon-900/30 active:scale-[0.99] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col justify-between"
               >
                 <div>
                   {/* Top Category Badge & Committee Number */}
@@ -595,51 +595,51 @@ export function CommitteeSection() {
                   </div>
 
                   {/* Committee Name */}
-                  <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-charcoal-900 leading-snug">
+                  <h3 className="font-display font-bold text-base sm:text-xl md:text-2xl text-charcoal-900 leading-snug">
                     {committee.id}. {committee.name}
                   </h3>
 
                   {/* Conveners Box */}
                   <div className="mt-4 sm:mt-5 space-y-2 sm:space-y-2.5">
                     {committee.convener && (
-                      <div className="p-3 sm:p-3.5 md:p-4 rounded-xl bg-gradient-to-r from-maroon-050/80 to-cream-050 border border-maroon-900/15 flex items-center justify-between gap-2.5 sm:gap-3">
+                      <div className="p-3 sm:p-3.5 md:p-4 rounded-xl bg-gradient-to-r from-maroon-050/80 to-cream-050 border border-maroon-900/15 flex flex-col min-[480px]:flex-row min-[480px]:items-center justify-between gap-2 sm:gap-3">
                         <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                           {/* Profile Circle with Initials */}
                           <div className="w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-full bg-maroon-900 text-white font-display font-bold text-xs flex items-center justify-center shrink-0 shadow-xs border border-maroon-800 select-none">
                             {getInitials(committee.convener.name)}
                           </div>
-                          <div className="space-y-0.5 min-w-0">
+                          <div className="space-y-0.5 min-w-0 flex-1">
                             <span className="font-body text-[0.625rem] sm:text-[0.6875rem] font-bold text-maroon-900 uppercase tracking-wider block">
                               Convener
                             </span>
-                            <h4 className="font-display font-bold text-sm sm:text-base text-charcoal-900 truncate">
+                            <h4 className="font-display font-bold text-sm sm:text-base text-charcoal-900 leading-snug">
                               {committee.convener.name}
                             </h4>
                           </div>
                         </div>
-                        <span className="font-body text-[0.6875rem] sm:text-xs font-semibold text-charcoal-700 bg-white px-2 sm:px-2.5 py-1 rounded-md border border-maroon-900/10 shrink-0 text-right max-w-[45%] truncate">
+                        <span className="font-body text-[0.6875rem] sm:text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-maroon-900/10 shrink-0 self-start min-[480px]:self-center">
                           {committee.convener.designation}
                         </span>
                       </div>
                     )}
 
                     {committee.coConvener && (
-                      <div className="p-3 sm:p-3.5 md:p-4 rounded-xl bg-cream-050 border border-[#ECE6DC] flex items-center justify-between gap-2.5 sm:gap-3">
+                      <div className="p-3 sm:p-3.5 md:p-4 rounded-xl bg-cream-050 border border-[#ECE6DC] flex flex-col min-[480px]:flex-row min-[480px]:items-center justify-between gap-2 sm:gap-3">
                         <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                           {/* Profile Circle with Initials */}
                           <div className="w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-full bg-maroon-900/10 text-maroon-900 border border-maroon-900/20 font-display font-bold text-xs flex items-center justify-center shrink-0 select-none">
                             {getInitials(committee.coConvener.name)}
                           </div>
-                          <div className="space-y-0.5 min-w-0">
+                          <div className="space-y-0.5 min-w-0 flex-1">
                             <span className="font-body text-[0.625rem] sm:text-[0.6875rem] font-bold text-charcoal-700 uppercase tracking-wider block">
                               Co-Convener
                             </span>
-                            <h4 className="font-display font-bold text-sm sm:text-base text-charcoal-900 truncate">
+                            <h4 className="font-display font-bold text-sm sm:text-base text-charcoal-900 leading-snug">
                               {committee.coConvener.name}
                             </h4>
                           </div>
                         </div>
-                        <span className="font-body text-[0.6875rem] sm:text-xs font-semibold text-charcoal-700 bg-white px-2 sm:px-2.5 py-1 rounded-md border border-border shrink-0 text-right max-w-[45%] truncate">
+                        <span className="font-body text-[0.6875rem] sm:text-xs font-semibold text-charcoal-700 bg-white px-2.5 py-1 rounded-md border border-border shrink-0 self-start min-[480px]:self-center">
                           {committee.coConvener.designation}
                         </span>
                       </div>
@@ -647,7 +647,7 @@ export function CommitteeSection() {
                   </div>
 
                   {/* Committee Members List */}
-                  <div className="mt-4 sm:mt-5">
+                  <div className="mt-3.5 sm:mt-5">
                     <h4 className="font-body text-[0.6875rem] sm:text-xs font-bold text-charcoal-500 uppercase tracking-wider mb-2 sm:mb-2.5">
                       Members
                     </h4>
@@ -655,20 +655,20 @@ export function CommitteeSection() {
                       {committee.members.map((member, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-2 sm:p-2.5 md:p-3 rounded-lg bg-cream-050/60 border border-[#ECE6DC] text-xs sm:text-sm font-body gap-2"
+                          className="flex items-center gap-2.5 p-2 sm:p-2.5 md:p-3 rounded-xl bg-cream-050/60 border border-[#ECE6DC] text-xs sm:text-sm font-body"
                         >
-                          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
-                            {/* Profile Circle with Initials */}
-                            <div className="w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-maroon-900/10 text-maroon-900 font-display font-bold text-[0.625rem] sm:text-[0.6875rem] flex items-center justify-center shrink-0 border border-maroon-900/15 select-none">
-                              {getInitials(member.name)}
-                            </div>
-                            <span className="font-semibold text-charcoal-900 truncate text-xs sm:text-sm">
+                          {/* Profile Circle with Initials */}
+                          <div className="w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-maroon-900/10 text-maroon-900 font-display font-bold text-[0.625rem] sm:text-[0.6875rem] flex items-center justify-center shrink-0 border border-maroon-900/15 select-none">
+                            {getInitials(member.name)}
+                          </div>
+                          <div className="min-w-0 flex-1 flex flex-col min-[480px]:flex-row min-[480px]:items-center min-[480px]:justify-between gap-0.5 min-[480px]:gap-2">
+                            <span className="font-semibold text-charcoal-900 text-xs sm:text-sm leading-snug">
                               {member.name}
                             </span>
+                            <span className="text-charcoal-600 text-[0.6875rem] sm:text-xs font-medium text-left min-[480px]:text-right shrink-0 min-[480px]:max-w-[50%] min-[480px]:truncate">
+                              {member.designation}
+                            </span>
                           </div>
-                          <span className="text-charcoal-600 text-[0.6875rem] sm:text-xs font-medium text-right shrink-0 max-w-[48%] truncate ml-1 sm:ml-2">
-                            {member.designation}
-                          </span>
                         </div>
                       ))}
                     </div>
@@ -676,9 +676,13 @@ export function CommitteeSection() {
                 </div>
 
                 {/* Footer indicator */}
-                <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-[#ECE6DC] flex items-center justify-between text-[0.6875rem] sm:text-xs text-charcoal-500 font-body">
-                  <span className="truncate mr-2">IIIT Bhagalpur 3rd Convocation Secretariat</span>
-                  <span className="font-semibold text-maroon-900 shrink-0">{committee.members.length + (committee.convener ? 1 : 0) + (committee.coConvener ? 1 : 0)} Personnel</span>
+                <div className="mt-4 sm:mt-5 pt-3 sm:pt-3.5 border-t border-[#ECE6DC] flex items-center justify-between text-xs text-charcoal-500 font-body gap-2">
+                  <span className="truncate text-[0.6875rem] sm:text-xs text-charcoal-500 font-medium">
+                    Convocation Secretariat
+                  </span>
+                  <span className="font-semibold text-maroon-900 shrink-0 text-[0.6875rem] sm:text-xs px-2 py-0.5 rounded-full bg-maroon-050 border border-maroon-900/10">
+                    {committee.members.length + (committee.convener ? 1 : 0) + (committee.coConvener ? 1 : 0)} Personnel
+                  </span>
                 </div>
               </div>
             ))}
