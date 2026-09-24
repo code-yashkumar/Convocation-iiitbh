@@ -150,8 +150,61 @@ export function DignitariesSection() {
           </div>
         </div>
 
-        {/* 5-Column Profile Cards Grid (2 cols on all phone viewports, 3 on tablet, 5 on desktop) */}
-        <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-4">
+        {/* Mobile View: Horizontal Profile Cards (< md) — Eliminates vertical card white empty space */}
+        <div className="md:hidden flex flex-col gap-3 sm:gap-3.5">
+          {DIGNITARIES.map((dignitary) => {
+            const IconComponent = dignitary.icon;
+            return (
+              <div
+                key={dignitary.name}
+                className="bg-white rounded-2xl border border-[#E8E2D8] shadow-[0_2px_12px_rgba(0,0,0,0.04)] p-3 min-[400px]:p-3.5 flex items-center gap-3 sm:gap-3.5"
+              >
+                {/* Photo */}
+                <div className="w-[4.75rem] h-[4.75rem] min-[400px]:w-[5.25rem] min-[400px]:h-[5.25rem] rounded-xl overflow-hidden bg-gradient-to-b from-[#F0EBE1] to-[#E8E2D8] shrink-0 border border-[#ECE6DC] relative">
+                  {dignitary.image ? (
+                    <img
+                      src={dignitary.image}
+                      alt={`${dignitary.name}, ${dignitary.role}`}
+                      loading="lazy"
+                      decoding="async"
+                      className={`w-full h-full object-cover ${dignitary.imagePosition || 'object-top'}`}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-maroon-900 font-display font-bold text-xl bg-cream-100">
+                      {dignitary.initials}
+                    </div>
+                  )}
+                </div>
+
+                {/* Details */}
+                <div className="flex-1 min-w-0 space-y-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-maroon-050 border border-maroon-900/10 text-maroon-900 font-body text-[0.625rem] sm:text-xs font-semibold tracking-wide">
+                      <IconComponent className="w-2.5 h-2.5 text-maroon-900 shrink-0" />
+                      <span>{dignitary.role}</span>
+                    </span>
+                  </div>
+
+                  <h3 className="font-display font-bold text-sm min-[400px]:text-[0.9375rem] text-charcoal-900 leading-snug">
+                    {dignitary.name}
+                  </h3>
+
+                  <p className="font-body text-xs text-charcoal-600 truncate leading-snug">
+                    {dignitary.subtitle || dignitary.role}
+                  </p>
+
+                  <div className="flex items-center gap-1 pt-0.5 text-xs text-charcoal-500 font-body">
+                    <Building2 className="w-3 h-3 text-charcoal-400 shrink-0" />
+                    <span className="truncate text-[0.6875rem] min-[400px]:text-xs">{dignitary.designation}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop / Tablet Grid View (md+) — Restored to original clean laptop layout */}
+        <div className="hidden md:grid md:grid-cols-6 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-4">
           {DIGNITARIES.map((dignitary, idx) => {
             const IconComponent = dignitary.icon;
             // On md (3-col equivalent using 6-column grid):
@@ -187,34 +240,27 @@ export function DignitariesSection() {
                         {dignitary.initials}
                       </div>
                     )}
-
-                    {/* Role Pill: Overlaid on bottom-right of photo on phone (<md) */}
-                    <div className="md:hidden absolute bottom-1.5 right-1.5 z-10">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/95 backdrop-blur-md border border-maroon-900/15 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide shadow-xs whitespace-nowrap">
-                        <IconComponent className="w-2.5 h-2.5 text-maroon-900 shrink-0" />
-                        <span>{dignitary.role}</span>
-                      </span>
-                    </div>
                   </div>
                 </div>
 
                 {/* Text Content */}
-                <div className="px-3 pt-2.5 pb-3 flex flex-col flex-1">
-                  {/* Name: Uniform 2-line height for identical vertical alignment */}
-                  <div className="min-h-[2.125rem] sm:min-h-[2.5rem] flex items-start">
-                    <h3 className="font-display font-bold text-xs sm:text-[0.875rem] text-charcoal-900 leading-snug line-clamp-2">
+                <div className="px-3 pt-2.5 pb-3 flex flex-col gap-1 flex-1">
+                  {/* Name + badge */}
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <h3 className="font-display font-bold text-xs sm:text-[0.875rem] text-charcoal-900 leading-snug">
                       {dignitary.name}
                     </h3>
+                    <span className="inline-flex items-center justify-center w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-maroon-900 shrink-0">
+                      <IconComponent className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" />
+                    </span>
                   </div>
 
-                  {/* Subtitle: Uniform 2-line height so dividing border aligns at identical level */}
-                  <div className="min-h-[1.875rem] sm:min-h-[2rem] flex items-start mt-0.5 sm:mt-1">
-                    <p className="font-body text-[0.6875rem] sm:text-[0.75rem] text-charcoal-500 leading-snug line-clamp-2">
-                      {dignitary.subtitle || dignitary.role}
-                    </p>
-                  </div>
+                  {/* Subtitle */}
+                  <p className="font-body text-[0.6875rem] sm:text-[0.75rem] text-charcoal-500 leading-snug">
+                    {dignitary.subtitle || dignitary.role}
+                  </p>
 
-                  {/* Bottom row: Border line aligns at exact same pixel across all cards */}
+                  {/* Bottom row */}
                   <div className="mt-auto pt-2.5 flex items-center justify-between gap-1.5 border-t border-[#ECE6DC]">
                     <div className="flex items-center gap-1 min-w-0" title={dignitary.designation}>
                       <Building2 className="w-3 h-3 text-charcoal-400 shrink-0" />
@@ -222,10 +268,9 @@ export function DignitariesSection() {
                         {dignitary.designation}
                       </span>
                     </div>
-                    {/* Role Pill: Desktop / Tablet view (md+) */}
-                    <span className="hidden md:inline-flex shrink-0 items-center gap-1 px-2 py-0.5 rounded-full bg-maroon-050 border border-maroon-900/10 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide whitespace-nowrap">
-                      <IconComponent className="w-2.5 h-2.5 text-maroon-900 shrink-0" />
-                      <span>{dignitary.role}</span>
+                    {/* Role Pill */}
+                    <span className="shrink-0 items-center px-2 py-0.5 rounded-full bg-maroon-050 border border-maroon-900/10 text-maroon-900 font-body text-[0.5625rem] sm:text-[0.625rem] font-semibold tracking-wide whitespace-nowrap">
+                      {dignitary.role}
                     </span>
                   </div>
                 </div>
